@@ -1,11 +1,21 @@
+// Colors
+$dark-gray: #202024;
+$violet: #4f2ee8;
+$gold: #eac645;
+
+// Font weight
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
 // Breakpoints
-// $mobile-narrow: 320px;
 $mobile: 375px;
 $tablet: 768px;
 $desktop: 1440px;
-// $desktop-small: 1000px;
-// $desktop-medium: 1300px;
-// $desktop-larger: 1800px;
+
+// Z-indexes
+$header-index: 1;
+$to-top-button-index: 2;
 
 // Container padding
 :root {
@@ -20,30 +30,8 @@ $desktop: 1440px;
 }
 $container-padding: var(--container-padding);
 
-// Z-indexes
-$header-index: 1;
-$to-top-button-index: 2;
-
-// Spacings
-$regular-gap: 20px;
-
-// Colors
-$dark-gray: #202024;
-$violet: #4f2ee8;
-$gold: #eac645;
-
-// Fonts
-$primary-font: 'Montserrat', sans-serif;
-$primary-font-size: 1rem; // 16px
-
-$secondary-font: 'Seymour One', sans-serif;
-$secondary-font-size: 2.25rem; // 36px
-
-// Font weight
-$regular: 400;
-$medium: 500;
-$bold: 700;
-
-// Transitions
+// For use in mixins:
 $transition-duration: 300ms;
 $transition-timing-function: ease-in-out;
+
+$regular-gap: 20px;
