@@ -1,0 +1,169 @@
+// Font-size in rem + line height
+
+@mixin fz-lh($fz, $lh: false) {
+  font-size: $fz + px;
+
+  @if ($lh) {
+    line-height: calc($lh / $fz);
+  }
+}
+
+@mixin fz-lh-rem($fz, $lh: false) {
+  font-size: rem($fz);
+
+  @if ($lh) {
+    line-height: calc($lh / $fz);
+  }
+}
+
+// Transition effect for one property with customizable site-global defaults
+
+@mixin transition(
+  $property: all,
+  $duration: $transition-duration,
+  $function: $transition-timing-function,
+  $delay: 0s
+) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $function;
+  transition-delay: $delay;
+}
+
+// Transition effect for multiple properties with non-customizable site-global values
+
+@mixin transition-multiple($property...) {
+  transition-property: $property;
+  transition-duration: $transition-duration;
+  transition-timing-function: $transition-timing-function;
+}
+
+// Flex element's flex-basis calculation
+
+@mixin flex-basis($items-per-row, $spacing) {
+  // Number of gaps = items per row - 1;
+  flex-basis: calc((100% - $spacing * ($items-per-row - 1)) / $items-per-row);
+}
+
+// Background image retinization -- 3 sizes, 1x and 2x
+
+@mixin bg-image($folder, $filename, $extension: webp) {
+  //
+  $img-type: webp;
+
+  @if $extension == jpg {
+    $img-type: jpeg;
+  }
+
+  // Mobile
+  background-image: url('../images/#{$folder}/#{$img-type}/mobile/#{$filename}.#{$extension}');
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    //
+    background-image: url('../images/#{$folder}/#{$img-type}/mobile/#{$filename}@2x.#{$extension}');
+  }
+
+  // Tablet
+  @media screen and (min-width: $tablet) {
+    background-image: url('../images/#{$folder}/#{$img-type}/tablet/#{$filename}.#{$extension}');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      //
+      background-image: url('../images/#{$folder}/#{$img-type}/tablet/#{$filename}@2x.#{$extension}');
+    }
+  }
+
+  // Desktop
+  @media screen and (min-width: $desktop) {
+    //
+    background-image: url('../images/#{$folder}/#{$img-type}/desktop/#{$filename}.#{$extension}');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      //
+      background-image: url('../images/#{$folder}/#{$img-type}/desktop/#{$filename}@2x.#{$extension}');
+    }
+  }
+}
+
+// Background image retinization (with gradient as overlay)
+
+@mixin bg-with-overlay($gradient-color, $folder, $filename, $extension: webp) {
+  // https://youtu.be/MSpcoXdmPb0?t=4057
+
+  $img-type: webp;
+
+  @if $extension == jpg {
+    $img-type: jpeg;
+  }
+
+  // Mobile
+
+  background-image: linear-gradient(to right, $gradient-color, $gradient-color),
+    url('../images/#{$folder}/#{$img-type}/mobile/#{$filename}.#{$extension}');
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    //
+    background-image: linear-gradient(
+        to right,
+        $gradient-color,
+        $gradient-color
+      ),
+      url('../images/#{$folder}/#{$img-type}/mobile/#{$filename}@2x.#{$extension}');
+  }
+
+  // Tablet
+
+  @media screen and (min-width: ($mobile + 1px)) {
+    //
+    background-image: linear-gradient(
+        to right,
+        $gradient-color,
+        $gradient-color
+      ),
+      url('../images/#{$folder}/#{$img-type}/tablet/#{$filename}.#{$extension}');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      //
+      background-image: linear-gradient(
+          to right,
+          $gradient-color,
+          $gradient-color
+        ),
+        url('../images/#{$folder}/#{$img-type}/tablet/#{$filename}@2x.#{$extension}');
+    }
+  }
+
+  // Desktop
+
+  @media screen and (min-width: ($tablet + 1px)) {
+    //
+    background-image: linear-gradient(
+        to right,
+        $gradient-color,
+        $gradient-color
+      ),
+      url('../images/#{$folder}/#{$img-type}/desktop/#{$filename}.#{$extension}');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      //
+      background-image: linear-gradient(
+          to right,
+          $gradient-color,
+          $gradient-color
+        ),
+        url('../images/#{$folder}/#{$img-type}/desktop/#{$filename}@2x.#{$extension}');
+    }
+  }
+}

@@ -1,20 +1,26 @@
 // Defaults
-@import './base/common';
 @import './base/basic-reset';
 @import './base/defaults';
 
 // Utilities
-@import './base/variables';
-@import './base/animations';
-@import './base/mixins';
+@import './utils/variables';
+@import './utils/animations';
+@import './utils/mixins';
 
 // Layout
+@import './layout/common';
 @import './layout/header';
-@import './layout/main';
-@import './layout/search';
-@import './layout/buttons';
-@import './layout/gallery';
+@import './layout/home';
+@import './layout/popup';
+
+// Components
+@import './components/buttons';
+@import './components/spinner';
+
+// Themes
+@import './themes/light';
+@import './themes/dark';
 
 // Simplelightbox
-@import './vendors/lightbox-overlay';
-@import '../../node_modules/simplelightbox/src/simple-lightbox.scss';
+// @import './vendors/lightbox-overlay';
+// @import '../../node_modules/simplelightbox/src/simple-lightbox.scss';
