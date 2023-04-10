@@ -1,0 +1,62 @@
+.button {
+  border: none;
+  border-radius: 0 3px 3px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $text-dark;
+  color: dimgray;
+
+  transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darkgray;
+    color: black;
+  }
+
+  &:active {
+    background-color: $aaa;
+  }
+}
+
+.search-button {
+  width: 52px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  z-index: 2;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  box-shadow: 0 0 5px 5px rgba($aaa, 0.7);
+
+  &:hover,
+  &:focus {
+    scale: 1.03;
+  }
+
+  transition: opacity 500ms;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.button-icon {
+  fill: currentColor;
+  transition: fill 500ms ease-in-out;
+}

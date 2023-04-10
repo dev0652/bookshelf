@@ -1,2 +1,20 @@
-@import './common';
-@import './example';
+// Defaults
+@import './base/common';
+@import './base/basic-reset';
+@import './base/defaults';
+
+// Utilities
+@import './base/variables';
+@import './base/animations';
+@import './base/mixins';
+
+// Layout
+@import './layout/header';
+@import './layout/main';
+@import './layout/search';
+@import './layout/buttons';
+@import './layout/gallery';
+
+// Simplelightbox
+@import './vendors/lightbox-overlay';
+@import '../../node_modules/simplelightbox/src/simple-lightbox.scss';
