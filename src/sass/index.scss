@@ -15,6 +15,7 @@
 
 // Components
 @import './components/buttons';
+@import './components/back-to-top';
 @import './components/spinner';
 
 // Themes
@@ -24,3 +25,7 @@
 // Simplelightbox
 // @import './vendors/lightbox-overlay';
 // @import '../../node_modules/simplelightbox/src/simple-lightbox.scss';
+
+body {
+  height: 3000px;
+}

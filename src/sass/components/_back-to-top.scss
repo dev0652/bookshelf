@@ -1,0 +1,50 @@
+// Scroll back to top button
+
+.intersection-target {
+  position: absolute;
+  top: 120vh;
+  right: 0;
+  // height: 100vh;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  z-index: $to-top-button-index;
+
+  height: 54px;
+  width: 54px;
+  // padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $violet;
+  border: 5px solid transparent;
+  border-radius: 50%;
+
+  // offset-x | offset-y | blur-radius | spread-radius | color
+  box-shadow: 0 0 0 5px rgba($violet, 0.3);
+
+  &:hover,
+  &:focus {
+    scale: 1.03;
+  }
+
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease-in, visibility 300ms ease-in;
+  // transition: all 0.2s ease;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+// .button-icon {
+//   fill: currentColor;
+//   transition: fill 500ms ease-in-out;
+// }

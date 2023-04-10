@@ -1,15 +1,17 @@
 import getRefs from './refs';
-const refs = getRefs();
+const { scrollToTopButton } = getRefs();
 
-const showOnPx = 300;
+export const observer = new IntersectionObserver(cb);
 
-export function onScroll() {
-  if (scrollContainer().scrollTop > showOnPx) {
-    refs.toTopButton.classList.remove('hidden');
-    refs.toTopButton.addEventListener('click', scrollToTop);
-  } else {
-    refs.toTopButton.classList.add('hidden');
-  }
+function cb(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      console.log('isIntersecting');
+      scrollToTopButton.classList.remove('hidden');
+    } else {
+      scrollToTopButton.classList.add('hidden');
+    }
+  });
 }
 
 export function scrollToTop() {
@@ -19,6 +21,5 @@ export function scrollToTop() {
   });
 }
 
-function scrollContainer() {
-  return document.documentElement || document.body;
-}
+// observer.observe(target);
+// scrollToTopButton.addEventListener('click', scrollToTop);
