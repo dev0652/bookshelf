@@ -7,7 +7,7 @@ $desktop: 1440px;
 // $desktop-medium: 1300px;
 // $desktop-larger: 1800px;
 
-// Container
+// Container padding
 :root {
   --container-padding: 20px;
 
@@ -20,7 +20,7 @@ $desktop: 1440px;
 }
 $container-padding: var(--container-padding);
 
-// Z-index
+// Z-indexes
 $header-index: 1;
 $to-top-button-index: 2;
 
@@ -33,6 +33,16 @@ $violet: #4f2ee8;
 $gold: #eac645;
 
 // Fonts
+$primary-font: 'Montserrat', sans-serif;
+$primary-font-size: 1rem; // 16px
+
+$secondary-font: 'Seymour One', sans-serif;
+$secondary-font-size: 2.25rem; // 36px
+
+// Font weight
+$regular: 400;
+$medium: 500;
+$bold: 700;
 
 // Transitions
 $transition-duration: 300ms;

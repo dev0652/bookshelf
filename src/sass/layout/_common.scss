@@ -1,13 +1,13 @@
-// body {
-//   font-family: 'Roboto';
-// }
+body {
+  font-family: 'DM Sans', sans-serif;
+}
 
 .container {
   padding-left: $container-padding;
   padding-right: $container-padding;
 
-  @media screen and (min-width: $desktop) {
-    margin-left: 215px;
-    margin-right: 215px;
-  }
+  // @media screen and (min-width: $desktop) {
+  //   margin-left: 215px;
+  //   margin-right: 215px;
+  // }
 }

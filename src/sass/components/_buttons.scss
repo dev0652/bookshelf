@@ -1,78 +1,65 @@
-// button:not(.close-btn, .menu-toggle, .back-to-top) {
-//   &:hover,
-//   &:focus {
-//     animation: 3s ease-out button-pulsing-shadow infinite 100ms;
-//   }
-// }
-
 .button,
 %button {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1;
+  font-weight: $bold;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 24px;
 
-  padding: calc(12px - 1px) 34px;
+  padding: 14px 28px;
 
   color: black;
   background-color: transparent;
+
   @include transition-multiple(color, background-color, scale);
-  // transition: cubic-bezier(0.6, -0.28, 0.735, 0.045) 250ms;
 
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 12px 40px;
+  border: 2px solid $violet;
+  border-radius: 40px;
 
   &:hover,
   &:focus {
-    border-color: black;
-  }
-
-  &:disabled {
-    border-color: black;
-    cursor: not-allowed;
+    color: white;
+    background-color: $violet;
   }
 }
 
-.button--accented,
-%button--accented {
-  @extend .button;
-
-  background-color: black;
-
-  &:hover,
-  &:focus {
-    background-color: black;
-  }
-
-  &:disabled {
-    background-color: black;
-  }
-}
-
-.button--modal {
-  @include fz-lh(12, 15);
+// Buttons in the popup
+.button--popup {
+  padding: 14px 23px;
+  min-width: 210px;
 
   @media screen and (min-width: $tablet) {
-    @include fz-lh(14, 17);
+    padding: 20px 0;
+    min-width: 500px;
   }
 }
 
-.button--long {
-  padding: calc(12px - 1px) 40px;
+// Buttons in the user bar
+.button--login {
+  border: 1.5px solid black;
+  border-radius: 18px;
 }
 
-.chevron {
-  margin-left: 4px;
-}
-
+// Scroll back to top button
 .back-to-top {
   position: fixed;
   bottom: 40px;
   right: 50px;
   z-index: $to-top-button-index;
 
-  height: 64px;
-  width: 64px;
+  height: 54px;
+  width: 54px;
+  // padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $violet;
+  border: 5px solid transparent;
+  border-radius: 50%;
+
+  // offset-x | offset-y | blur-radius | spread-radius | color
+  box-shadow: 0 0 0 5px rgba($violet, 0.3);
 
   &:hover,
   &:focus {
