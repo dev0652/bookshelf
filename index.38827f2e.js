@@ -1,0 +1,2 @@
+!function(){function o(){return{header:document.querySelector("header"),scrollToTopButton:document.querySelector(".back-to-top"),toTopTarget:document.querySelector(".to-top-target")}}var t=o().scrollToTopButton,e=new IntersectionObserver((function(o){o.forEach((function(o){o.isIntersecting?t.classList.add("hidden"):t.classList.remove("hidden")}))}));var r=o(),n=r.scrollToTopButton,c=r.toTopTarget;e.observe(c),n.addEventListener("click",(function(){window.scroll({top:0,behavior:"smooth"})}))}();
+//# sourceMappingURL=index.38827f2e.js.map
