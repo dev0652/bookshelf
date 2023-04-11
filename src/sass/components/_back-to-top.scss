@@ -1,10 +1,10 @@
 // Scroll back to top button
 
-.intersection-target {
+.to-top-target {
+  height: 15vh;
   position: absolute;
-  top: 120vh;
-  right: 0;
-  // height: 100vh;
+  top: 0;
+  left: 0;
 }
 
 .back-to-top {

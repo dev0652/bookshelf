@@ -1,13 +1,13 @@
 import getRefs from './js/refs';
-import { scrollToTop, observer } from './js/back-to-top';
+import { scrollToTop, toTopObserver } from './js/back-to-top';
 
 // ##################################################################
 
-const { scrollToTopButton, target } = getRefs();
+const { scrollToTopButton, toTopTarget } = getRefs();
 
 // ##################################################################
 
-observer.observe(target);
+toTopObserver.observe(toTopTarget);
 scrollToTopButton.addEventListener('click', scrollToTop);
 
 // ##################################################################

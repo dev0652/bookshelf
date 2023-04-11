@@ -1,12 +1,11 @@
 import getRefs from './refs';
 const { scrollToTopButton } = getRefs();
 
-export const observer = new IntersectionObserver(cb);
+export const toTopObserver = new IntersectionObserver(cb);
 
 function cb(entries) {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      console.log('isIntersecting');
+    if (!entry.isIntersecting) {
       scrollToTopButton.classList.remove('hidden');
     } else {
       scrollToTopButton.classList.add('hidden');
