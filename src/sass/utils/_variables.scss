@@ -9,12 +9,12 @@ body {
 }
 
 // Dark theme
-body.dark {
-  --background-color: #{$dark-gray};
-  --text-color: white;
-  --accent-color: #{$gold};
-  --logo-stroke-color: #{$logo-stroke-light};
-}
+// body.dark {
+//   --background-color: #{$dark-gray};
+//   --text-color: white;
+//   --accent-color: #{$gold};
+//   --logo-stroke-color: #{$logo-stroke-light};
+// }
 
 $milky: #f6f6f6;
 $logo-stroke-light: #f3f3f3;
@@ -32,7 +32,7 @@ $bold: 700;
 // Breakpoints
 $mobile: 375px;
 $tablet: 768px;
-$desktop: 1440px;
+$desktop: 1280px;
 
 // Z-indexes
 $header-index: 1;
