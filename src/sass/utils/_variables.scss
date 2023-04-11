@@ -2,18 +2,18 @@
 
 // Light theme
 body {
-  --background-color: $milky;
-  --text-color: $blackish;
-  --accent-color: $gold;
+  --background-color: #{$milky};
+  --text-color: #{$blackish};
+  --accent-color: #{$gold};
   --logo-stroke-color: black;
 }
 
 // Dark theme
 body.dark {
-  --background-color: $dark-gray;
+  --background-color: #{$dark-gray};
   --text-color: white;
-  --accent-color: $gold;
-  --logo-stroke-color: $logo-stroke-light;
+  --accent-color: #{$gold};
+  --logo-stroke-color: #{$logo-stroke-light};
 }
 
 $milky: #f6f6f6;
