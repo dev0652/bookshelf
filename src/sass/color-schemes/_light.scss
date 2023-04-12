@@ -1,0 +1,32 @@
+:root {
+  --accent-primary: #{$violet};
+  --accent-secondary: #{$gold};
+
+  /* Body */
+  --background-color: #{$milky};
+  --text-color: #{$blackish};
+
+  /* Header */
+  --header-bg-color: white;
+  --logo-stroke-color: black;
+
+  /* Categories  list */
+  --active-category-color: var(--accent-primary);
+
+  /* Form */
+  --form-field-bg-color: #{$milky};
+  --form-field-bg-color-focus: White;
+  --form-button-bg-color: #{$blackish};
+  --link-color: var(--accent-primary);
+
+  /* Pagination buttons */
+  --back-button-text-color: white;
+  --back-button-icon-color: #{$gray};
+  --back-button-bg-color: #{$blackish};
+  --back-button-bg-color-focus: dimgray; //   feel free to change
+  --back-button-bg-color-active: var(--accent-primary); //   feel free to change
+
+  /* To top button */
+  --to-top-button-shadow-color: black;
+  --to-top-button-border-color: silver;
+}
