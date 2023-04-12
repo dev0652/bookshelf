@@ -1,5 +1,6 @@
 import getRefs from './js/refs';
 import { scrollToTop, toTopObserver } from './js/back-to-top';
+import Markup from './templates/paginations.hbs';
 
 // ##################################################################
 
@@ -11,57 +12,6 @@ toTopObserver.observe(toTopTarget);
 scrollToTopButton.addEventListener('click', scrollToTop);
 
 // ##################################################################
-
-// console.log("1");
-// const array = [];
-
-// const API = "https://books-backend.p.goit.global/books/top-books";
-
-// function fetchBooks(API) {
-//   return fetch(API)
-//     .then(response => {
-//       if (!response.ok) {
-        
-//         throw new Error(response.status)
-//     }
-//     return response.json();
-//     })
-// }
-
-// fetchBooks(API)
-//     .then(books => {
-//         // console.log(books[0].books)
-//         return books[0].books.map(x => {
-//             return array.push(x);
-//         })
-//     });
-
-// console.log(array);
-
-// function stringifyWithObjects(arr) {
-//   return JSON.stringify(arr, function(key, value) {
-//     if (typeof value === 'object' && value !== null) {
-//       return stringifyWithObjects(value);
-//     }
-//     return value;
-//   });
-// };
-
-// const localInfo = localStorage.setItem("MyBooks", stringifyWithObjects(array));
-
-
-// function parseWithObjects(str) {
-//   return JSON.parse(str, function(key, value) {
-//     if (typeof value === 'object' && value !== null) {
-//       return parseWithObjects(value);
-//     }
-//     return value;
-//   });
-// }
-
-// const jsonInfoBack = parseWithObjects(localInfo);
-
-// console.log(jsonInfoBack); 
 
 
 const ShopList = [
@@ -77,17 +27,24 @@ const ShopList = [
 ];
 
 // виймаю збережені у локал сторейдж дані
-const shoppingList = JSON.parse(localStorage.getItem('ShopList'));
+// const shoppingList = JSON.parse(localStorage.getItem('ShopList'));
 
-const pageSize = 2;
-const totalPages = Math.ceil(shoppingList.length / pageSize);
+const pageSize = 3;
+const totalPages = Math.ceil(ShopList.length / pageSize);
 
 const currentPage = 1;
 const startIndex = (currentPage - 1) * pageSize;
 const endIndex = startIndex + pageSize;
-const itemsOnPage = shoppingList.slice(startIndex, endIndex);
+const itemsOnPage = ShopList.slice(startIndex, endIndex);
+
+function renderMarkup(ShopList) {
+    document.querySelector(".paginations-slider").insertAdjacentHTML("beforeend", Markup(ShopList));
+};
 
 // перебор масиву
-itemsOnPage.forEach((item) => {
-  // відображення елементів на сторінці
+itemsOnPage.forEach((x) => {
+    renderMarkup(x);
+    console.log(x);
 });
+
+console.log(Markup(ShopList));
