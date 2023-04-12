@@ -9,11 +9,11 @@ const { scrollToTopButton, toTopTarget } = getRefs();
 
 // ##################################################################
 
-// Scroll-to-top button
+// Activate scroll-to-top button
 toTopObserver.observe(toTopTarget);
 scrollToTopButton.addEventListener('click', scrollToTop);
 
-// Color scheme switcher
+// Activate color scheme switcher
 colorSwitcher();
 
 // ##################################################################
