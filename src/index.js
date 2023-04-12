@@ -14,6 +14,6 @@ toTopObserver.observe(toTopTarget);
 scrollToTopButton.addEventListener('click', scrollToTop);
 
 // Color scheme switcher
-colorSwitcher();
+// colorSwitcher();
 
 // ##################################################################
