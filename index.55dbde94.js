@@ -1,2 +1,0 @@
-function o(){return{header:document.querySelector("header"),scrollToTopButton:document.querySelector(".back-to-top"),toTopTarget:document.querySelector(".to-top-target")}}const{scrollToTopButton:t}=o(),e=new IntersectionObserver((function(o){o.forEach((o=>{o.isIntersecting?t.classList.add("hidden"):t.classList.remove("hidden")}))}));const{scrollToTopButton:r,toTopTarget:n}=o();e.observe(n),r.addEventListener("click",(function(){window.scroll({top:0,behavior:"smooth"})}));
-//# sourceMappingURL=index.55dbde94.js.map
