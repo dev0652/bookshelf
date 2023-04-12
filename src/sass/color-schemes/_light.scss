@@ -1,6 +1,6 @@
 :root {
- --accent-primary: #{$violet};
- --accent-secondary: #{$gold};
+  --accent-primary: #{$violet};
+  --accent-secondary: #{$gold};
 
   /* Body */
   --background-color: #{$milky};
@@ -17,8 +17,7 @@
   --form-field-bg-color: #{$milky};
   --form-field-bg-color-focus: White;
   --form-button-bg-color: #{$blackish};
-    --link-color: var(--accent-primary);
-
+  --link-color: var(--accent-primary);
 
   /* Pagination buttons */
   --back-button-text-color: white;
