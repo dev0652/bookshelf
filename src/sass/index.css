@@ -1,0 +1,190 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+:root {
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+     tab-size: 2;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* My defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  font-family: inherit;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+}
+
+address {
+  font-style: normal;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  --background-color: #f6f6f6;
+  --text-color: #111111;
+  --accent-color: #eac645;
+  --logo-stroke-color: black;
+}
+
+:root {
+  --container-padding: 20px;
+}
+@media screen and (min-width: 768px) {
+  :root {
+    --container-padding: 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  :root {
+    --container-padding: 24px;
+  }
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+.container {
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+h1 {
+  margin-top: 20vmin;
+}
+
+.button {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 14px 28px;
+  color: black;
+  background-color: transparent;
+  transition-property: color, background-color, scale;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+  border: 2px solid #4f2ee8;
+  border-radius: 40px;
+}
+.button:hover, .button:focus {
+  color: white;
+  background-color: #4f2ee8;
+}
+
+.button--popup {
+  padding: 14px 23px;
+  min-width: 210px;
+}
+@media screen and (min-width: 768px) {
+  .button--popup {
+    padding: 20px 0;
+    min-width: 500px;
+  }
+}
+
+.button--login {
+  border: 1.5px solid black;
+  border-radius: 18px;
+}
+
+.to-top-target {
+  height: 15vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  z-index: 2;
+  height: 54px;
+  width: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4f2ee8;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(79, 46, 232, 0.3);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease-in, visibility 300ms ease-in;
+}
+.back-to-top:hover, .back-to-top:focus {
+  scale: 1.03;
+}
+.back-to-top.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.paginations-slider {
+  width: 400px;
+  height: 400px;
+  background-color: rgb(229, 224, 224);
+}/*# sourceMappingURL=index.css.map */
