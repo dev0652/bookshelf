@@ -19,14 +19,29 @@
   --form-button-bg-color: #{$blackish};
   --link-color: var(--accent-primary);
 
-  /* Pagination buttons */
-  --back-button-text-color: white;
+  /* Pagination (shopping list) */
+  --circle-border-color: var(--text-color);
+
+  /* Pagination - Back button */
+  --back-button-bg-color: var(--text-color);
+  --back-button-bg-color-hover: dimgray; // feel free to modify
+  --back-button-bg-color-active: var(--accent-primary); // feel free to modify
   --back-button-icon-color: #{$gray};
-  --back-button-bg-color: #{$blackish};
-  --back-button-bg-color-focus: dimgray; //   feel free to change
-  --back-button-bg-color-active: var(--accent-primary); //   feel free to change
+
+  /* Pagination - Page bullets */
+  --page-bullet-bg-color: transparent;
+  --page-bullet-bg-color-active: var(--text-color);
+  --page-bullet-text-color: var(--text-color);
+  --page-bullet-text-color-active: white;
+
+  /* Pagination - Forward button */
+  --forward-button-bg-color: var(--accent-secondary);
+  --forward-button-bg-color-hover: aaa; // feel free to modify
+  --forward-button-bg-color-active: aaa; // feel free to modify
+  --forward-button-icon-color: black;
 
   /* To top button */
-  --to-top-button-shadow-color: black;
-  --to-top-button-border-color: silver;
+  --to-top-button-bg-color: var(--accent-primary);
+  --to-top-button-shadow-color: rgba(82, 48, 232, 0.3);
+  --to-top-button-icon-color: white;
 }
