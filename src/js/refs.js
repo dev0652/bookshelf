@@ -11,5 +11,15 @@ export default function () {
 
     // All categories button:
     allCategoriesBtn: document.querySelector('button[name="allcategories"]'),
+
+    // Sign up
+    openSignUpBtnEl: document.querySelector('#signUp-open-btn'),
+    signUpModalEl: document.querySelector('#sign-up-modal'),
+    closeSignUpBtnEl: document.querySelector('#signUp-modal-close-btn'),
+    openSignUpBtnSecondEl: document.querySelector('#signUp-open-btn-second'),
+    // Sign in
+    openSignInBtnEl: document.querySelector('#signIn-open-btn'),
+    signInModalEl: document.querySelector('#sign-in-modal'),
+    closeSignInBtnEl: document.querySelector('#signIn-modal-close-btn'),
   };
 }
