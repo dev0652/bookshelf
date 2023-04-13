@@ -2,9 +2,9 @@ import getRefs from './refs';
 const { colorSwitcher } = getRefs();
 
 // Check if switcher position is saved in Local Storage
-checkLocalStorage = () => {
+function checkLocalStorage() {
   return localStorage.getItem('saved switcher value');
-};
+}
 
 // Save switcher position to Local Storage
 function updateLocalStorage(checkbox) {
