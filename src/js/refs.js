@@ -8,5 +8,8 @@ export default function () {
 
     // Color scheme switcher:
     colorSwitcher: document.querySelector('#color-scheme-switcher-checkbox'),
+
+    // All categories button:
+    allCategoriesBtn: document.querySelector('button[name="allcategories"]'),
   };
 }

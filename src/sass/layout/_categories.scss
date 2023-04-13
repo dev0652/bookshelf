@@ -2,6 +2,7 @@
   height: 228px;
   padding-right: 20px;
   overflow: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -17,6 +18,12 @@
   font-weight: $regular;
   //   ===== color should have 0.6 density =====
   color: $blackish;
+  transition: color $transition-duration $transition-timing-function;
+
+  &:hover,
+  &:focus {
+    color: $violet;
+  }
 }
 
 .active-category {
