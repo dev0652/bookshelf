@@ -17,8 +17,11 @@ const categoriesArray = async () => {
 async function renderCategories() {
   try {
     const array = await categoriesArray();
+    const inAlphabeticalOrder = array.sort((a, b) =>
+      a.list_name.localeCompare(b.list_name)
+    );
 
-    for (const arr of array) {
+    for (const arr of inAlphabeticalOrder) {
       categoryListEl.insertAdjacentHTML(
         'beforeend',
         `<li><button type="button" class="category-btn">${arr.list_name}</button></li>`
