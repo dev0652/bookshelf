@@ -27,28 +27,6 @@
     fill: rgb(0, 0, 0);
 }
 
-// .userbar-btn--registered {
-//     display: flex;
-//     align-items: center;
-//     gap: 0;
-//     padding: 4px 12px;
-
-//     background-color: var(--link-color);
-//     color: #FFFFFF;
-//     font-weight: 700;
-//     font-size: 22px;
-
-//     border-color: transparent;
-//     border-radius: 36px;
-
-//     cursor: pointer;
-
-//     &:hover .userbar-btn__icon-arrow {
-//         fill: #111111;
-//     }
-
-// }
-
 .userbar-btn__user-name {
     margin-left: 9px;
     margin-right: 4px;
@@ -115,20 +93,24 @@
 
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    // background: #4F2EE8;
+    background: rgba(0, 0, 0, 0.5);
 
     z-index: 10;
     overflow-y: scroll;
-    opacity: 1;
-    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
 
-    transition-property: opacity;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &.is-hidden {
-        opacity: 0;
-        pointer-events: none;
+    // &.is-hidden {
+    //     opacity: 0;
+    //     pointer-events: none;
+    // }
+
+    &.open {
+        visibility: visible;
+        opacity: 1;
     }
 }
 
@@ -138,7 +120,7 @@
     left: 50%;
 
     background-color: var(--form-field-bg-color);
-    min-height: 384px;
+    // min-height: 384px;
     max-width: 335px;
     padding: 40px 20px 40px 20px;
 
@@ -146,10 +128,11 @@
     border-radius: 18px;
 
     cursor: default;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: transform 250ms ease-out;
 
-    .backdrop.is-hidden & {
-        transform: translate(-50%, -50%) scale(0.2);
+    .backdrop.open & {
+        transform: translate(-50%, -50%) scale(1);
     }
 
     @media screen and (min-width: $desktop) {
@@ -169,6 +152,8 @@
 
     border: none;
     background-color: transparent;
+
+    
 
     cursor: pointer;
 
@@ -247,7 +232,7 @@
 
 .modal-form__submit {
     width: 100%;
-    background-color: var(--form-button-bg-color);
+    background-color: black;
     color: $logo-stroke-light;
     cursor: pointer;
 
@@ -273,7 +258,7 @@
     margin-top: 14px;
 }
 
-.modal-togle--el {
+.modal-togle__el {
     background-color: transparent;
     color: rgba(17, 17, 17, 0.5);
     border: none;
@@ -281,13 +266,18 @@
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
+    transition: color 250ms ease-in-out;
+
+    &:hover {
+        color: var(--link-color);
+    }
 
     @media screen and (min-width: $desktop) {
         font-size: 18px;
     }
 }
 
-.modal-togle--el__current {
+.modal-togle__el--current {
     text-decoration: underline;
     color: var(--link-color);
 }

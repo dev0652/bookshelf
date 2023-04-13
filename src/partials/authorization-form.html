@@ -1,16 +1,19 @@
-<button class="userbar-btn" type="button" data-modal-open>
+<button class="userbar-btn" type="button" id="signUp-open-btn">
   Sign up
   <svg class="userbar-btn__icon" width="20" height="20">
     <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
   </svg>
 </button>
 
-<div class="backdrop is-hidden" data-modal>
-  <div class="modal">
+<br />
+
+<!-- SIGN UP FORM -->
+<div class="backdrop" id="sign-up-modal">
+  <div class="modal" id="sign-up-modal-window">
     <button
-      class="close-button modal__close-button"
+      class="modal__close-button"
       type="button"
-      data-modal-close
+      id="signUp-modal-close-btn"
     >
       <svg class="close-button__icon">
         <use href="./images/symbol-defs.svg#icon-x-close"></use>
@@ -54,11 +57,63 @@
       <button class="modal-form__submit" type="submit">Sign up</button>
     </form>
     <div class="modal-togle">
-      <button class="modal-togle--el modal-togle--el__current">Sign up</button>
-      <button class="modal-togle--el">Sign in</button>
+      <button class="modal-togle__el modal-togle__el--current">Sign up</button>
+      <button class="modal-togle__el" id="signIn-open-btn">Sign in</button>
     </div>
   </div>
 </div>
+
+<!-- SIGN IN FORM -->
+
+<div class="backdrop" id="sign-in-modal">
+  <div class="modal" id="sign-in-modal-window">
+    <button
+      class="modal__close-button"
+      id="signIn-modal-close-btn"
+      type="button"
+    >
+      <svg class="close-button__icon">
+        <use href="./images/symbol-defs.svg#icon-x-close"></use>
+      </svg>
+    </button>
+    <form class="modal-form" name="modal-form">
+      <div class="modal-form__input-field">
+        <input
+          class="modal-form__input"
+          type="email"
+          id="user-email"
+          name="user-email"
+          placeholder="email"
+        />
+        <svg class="input-icon">
+          <use href="./images/symbol-defs.svg#icon-mail"></use>
+        </svg>
+      </div>
+      <div class="modal-form__input-field">
+        <input
+          class="modal-form__input"
+          type="password"
+          id="user-password"
+          name="user-password"
+          placeholder="password"
+        />
+        <svg class="input-icon">
+          <use href="./images/symbol-defs.svg#icon-lock"></use>
+        </svg>
+      </div>
+
+      <button class="modal-form__submit" type="submit">Sign in</button>
+    </form>
+    <div class="modal-togle">
+      <button class="modal-togle__el" id="signUp-open-btn-second">
+        Sign up
+      </button>
+      <button class="modal-togle__el modal-togle__el--current">Sign in</button>
+    </div>
+  </div>
+</div>
+
+<!-- USER BAR -->
 
 <ul>
   <li class="user-item">
@@ -81,5 +136,7 @@
     </ul>
   </li>
 </ul>
+
+<div class="container"></div>
 
 <script src="./js/authorization-form.js"></script>
