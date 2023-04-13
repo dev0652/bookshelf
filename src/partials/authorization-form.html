@@ -1,8 +1,21 @@
-<button class="click-here">click here</button>
+<button class="userbar-btn" type="button" data-modal-open>
+  Sign up
+  <svg class="userbar-btn__icon" width="20" height="20">
+    <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
+  </svg>
+</button>
 
-<div class="backdrop">
+<div class="backdrop is-hidden" data-modal>
   <div class="modal">
-    <button class="modal--close-button">x</button>
+    <button
+      class="close-button modal__close-button"
+      type="button"
+      data-modal-close
+    >
+      <svg class="close-button__icon">
+        <use href="./images/symbol-defs.svg#icon-x-close"></use>
+      </svg>
+    </button>
     <form class="modal-form" name="modal-form">
       <div class="modal-form__input-field">
         <input
@@ -21,6 +34,9 @@
           name="user-email"
           placeholder="email"
         />
+        <svg class="input-icon">
+          <use href="./images/symbol-defs.svg#icon-mail"></use>
+        </svg>
       </div>
       <div class="modal-form__input-field">
         <input
@@ -30,6 +46,9 @@
           name="user-password"
           placeholder="password"
         />
+        <svg class="input-icon">
+          <use href="./images/symbol-defs.svg#icon-lock"></use>
+        </svg>
       </div>
 
       <button class="modal-form__submit" type="submit">Sign up</button>
@@ -40,3 +59,27 @@
     </div>
   </div>
 </div>
+
+<ul>
+  <li class="user-item">
+    <a href="#" class="userbar-btn--registered">
+      <svg class="userbar-btn__icon-user" width="35" height="35">
+        <use href="./images/symbol-defs.svg#icon-user"></use>
+      </svg>
+      <p class="userbar-btn__user-name" id="user-name">User name</p>
+      <svg class="userbar-btn__icon-arrow" width="22" height="25">
+        <use href="./images/symbol-defs.svg#icon-arrow-down"></use>
+      </svg>
+    </a>
+    <ul class="userbar-btn__dropdown-menu">
+      <li>
+        <a href="#">Log out</a>
+        <svg class="userbar-btn__icon" width="20" height="20">
+          <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
+        </svg>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<script src="./js/authorization-form.js"></script>
