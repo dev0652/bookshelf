@@ -26,25 +26,91 @@ const ShopList = [
     { name: "Samantha", age: 29, address: { city: "Denver", state: "CO" } }
 ];
 
-// виймаю збережені у локал сторейдж дані
+//! виймаю збережені у локал сторейдж дані
 // const shoppingList = JSON.parse(localStorage.getItem('ShopList'));
 
-const pageSize = 3;
+// кількість елементів на сторінці
+const pageSize = 2;
+let currentPage = null;
+// загальна к-сть сторінок
 const totalPages = Math.ceil(ShopList.length / pageSize);
 
-const currentPage = 1;
-const startIndex = (currentPage - 1) * pageSize;
-const endIndex = startIndex + pageSize;
-const itemsOnPage = ShopList.slice(startIndex, endIndex);
-
-function renderMarkup(ShopList) {
-    document.querySelector(".paginations-slider").insertAdjacentHTML("beforeend", Markup(ShopList));
+/* функція, яка повертає масив з певною к-стю об'єктів для 
+подальшого створення розмітки*/  
+function returnPageArray(x) {
+    let currentPage = x;
+    let startIndex = (currentPage - 1) * pageSize;
+    let endIndex = startIndex + pageSize;
+    let itemsOnPage = ShopList.slice(startIndex, endIndex);
+    return itemsOnPage;
 };
 
-// перебор масиву
-itemsOnPage.forEach((x) => {
+
+// функція рендеру розмітки 
+function renderMarkup(x) {
+    const div = document.querySelector(".paginations-slider");
+    div.insertAdjacentHTML("beforeend", Markup(x));
+};
+
+// перебор масиву з подальшим рендигом
+returnPageArray(2)
+    .forEach((x) => {
     renderMarkup(x);
     console.log(x);
 });
 
-console.log(Markup(ShopList));
+// btn paginations
+const paginationContainer = document.querySelector('.paginations-container');
+
+console.log(currentPage);
+
+// цикл автоматичного створення кнопок для перегортання сторінок 
+for (let i = 1; i <= totalPages; i++) {
+  const button = document.createElement('button');
+    button.textContent = i;
+    
+    // створення слухача з хендлером
+  button.addEventListener('click', () => {
+      currentPage = i;
+    //   видаляємо розмітку перед рендингом
+      document.querySelector(".paginations-slider").innerHTML = "";
+    
+      // рендерим сторінку з розміткою після кліку на кнопку
+      let page = returnPageArray(i);
+      page.forEach((x) => {
+          renderMarkup(x);
+          return currentPage;
+    });
+  });
+  paginationContainer.appendChild(button);
+};
+
+console.log(currentPage);
+
+const previousButton = document.createElement('button');
+previousButton.textContent = 'Previous';
+
+previousButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    // currentPage--;
+   // рендерим сторінку з розміткою після кліку на кнопку
+      let page = returnPageArray(currentPage--);
+      console.log(page);
+      page.forEach((x) => {
+      renderMarkup(x);
+      console.log(x);
+    });
+  }
+});
+
+paginationContainer.prepend(previousButton);
+
+const nextButton = document.createElement('button');
+nextButton.textContent = 'Next';
+nextButton.addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderItems();
+  }
+});
+paginationContainer.appendChild(nextButton);
