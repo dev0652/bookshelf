@@ -20,7 +20,6 @@
         color: var(--link-color);
         border-color: var(--accent-secondary);
     }
-
 }
 
 .userbar-btn__icon {
@@ -59,9 +58,7 @@
 
     &:hover .userbar-btn__icon-arrow {
         fill: #111111;
-    }
-    
-
+    }   
 }
 
 .userbar-btn__dropdown-menu {
@@ -75,6 +72,8 @@
 
     padding: 14px;
     display: none;
+
+    cursor: pointer;
 }
 
 
@@ -84,8 +83,7 @@
     justify-content: space-between;
 }
  
-
-// ------------------------------------- //
+// ------ MODAL FORMS ------ //
 .backdrop {
     position: fixed;
     top: 0;
@@ -93,7 +91,11 @@
 
     width: 100%;
     height: 100%;
-    background: #4F2EE8;
+    background-color: #4F2EE8;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
 
     z-index: 10;
     overflow-y: scroll;
@@ -102,14 +104,29 @@
 
     transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    // &.is-hidden {
-    //     opacity: 0;
-    //     pointer-events: none;
-    // }
-
     &.open {
         visibility: visible;
         opacity: 1;
+    }
+
+    // modile screen
+    background-image: url(../images/authorization-form/overlay_mob.png);
+
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: url(../images/authorization-form/overlay_mob@2x.png);
+    }
+
+    // desktop screen
+    @media screen and (min-width: $desktop) {
+        background-image: url(../images/authorization-form/overlay_desk.png);
+
+    @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url(../images/authorization-form/overlay_desk@2x.png);
+        }
     }
 }
 
@@ -164,7 +181,6 @@
         top: 24px;
         right: 24px;
     }
-
 }
 
 .close-button__icon {
