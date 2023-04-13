@@ -1,0 +1,26 @@
+.categories {
+  height: 228px;
+  padding-right: 20px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.category-btn {
+  background-color: inherit;
+  border: none;
+
+  margin-top: 24px;
+
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: $regular;
+  //   ===== color should have 0.6 density =====
+  color: $blackish;
+}
+
+.active-category {
+  text-transform: uppercase;
+  color: $violet;
+  font-weight: $bold;
+}
