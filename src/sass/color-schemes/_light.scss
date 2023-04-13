@@ -1,7 +1,9 @@
 :root {
   --accent-primary: #{$violet};
   --accent-secondary: #{$gold};
+}
 
+body {
   /* Body */
   --background-color: #{$milky};
   --text-color: #{$blackish};
@@ -11,12 +13,13 @@
   --logo-stroke-color: black;
 
   /* Categories  list */
+  --category-color: rgba(17, 17, 17, 0.6);
   --active-category-color: var(--accent-primary);
 
   /* Form */
   --form-field-bg-color: #{$milky};
   --form-field-bg-color-focus: White;
-  --form-button-bg-color: #{$blackish};
+  --form-button-border-color: #{$blackish};
   --link-color: var(--accent-primary);
 
   /* Pagination (shopping list) */
@@ -24,8 +27,8 @@
 
   /* Pagination - Back button */
   --back-button-bg-color: var(--text-color);
-  --back-button-bg-color-hover: dimgray; // feel free to modify
-  --back-button-bg-color-active: var(--accent-primary); // feel free to modify
+  --back-button-bg-color-hover: var(--accent-primary);
+  --back-button-bg-color-active: dimgray; // feel free to modify
   --back-button-icon-color: #{$gray};
 
   /* Pagination - Page bullets */
@@ -36,8 +39,8 @@
 
   /* Pagination - Forward button */
   --forward-button-bg-color: var(--accent-secondary);
-  --forward-button-bg-color-hover: aaa; // feel free to modify
-  --forward-button-bg-color-active: aaa; // feel free to modify
+  --forward-button-bg-color-hover: gold;
+  --forward-button-bg-color-active: darkgoldenrod;
   --forward-button-icon-color: black;
 
   /* To top button */
