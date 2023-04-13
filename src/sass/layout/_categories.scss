@@ -16,18 +16,18 @@
   line-height: 1.12;
   letter-spacing: -0.02em;
   font-weight: $regular;
-  //   ===== color should have 0.6 density =====
-  color: $blackish;
-  transition: color $transition-duration $transition-timing-function;
+  
+  color: var(--category-color);
+  @include transition(color);
 
   &:hover,
   &:focus {
-    color: $violet;
+    color: var(--active-category-color);
   }
 }
 
 .active-category {
   text-transform: uppercase;
-  color: $violet;
+  color: var(--active-category-color);
   font-weight: $bold;
 }
