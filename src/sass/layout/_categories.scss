@@ -16,13 +16,17 @@
   line-height: 1.12;
   letter-spacing: -0.02em;
   font-weight: $regular;
-  
+
   color: var(--category-color);
-  @include transition(color);
+  @include transition-multiple(color, font-weight);
 
   &:hover,
   &:focus {
     color: var(--active-category-color);
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
