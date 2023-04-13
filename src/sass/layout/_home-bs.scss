@@ -1,0 +1,42 @@
+.home{
+    display: flex;
+    gap: 50px;
+}
+
+.home-br__title {
+    font-size: 48px;
+    font-weight: $bold;
+    height: 52px;
+    letter-spacing: -0.04em;
+
+    color: $blackish;
+
+    margin-bottom: 40px;
+}
+
+.home-bs__title-part {
+    color: $violet;
+}
+
+.home-category-title {
+    height: 24px;
+
+    font-weight: $regular;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: $gray;
+
+    margin-bottom: 18px;
+}
+
+
+.home-category {
+    margin-bottom: 40px;
+  
+}
+
+.books-list {
+    display: flex;
+    gap: 20px;
+}
