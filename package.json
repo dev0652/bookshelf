@@ -18,7 +18,8 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "swiper": "^9.2.0"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.6.0",
