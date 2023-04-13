@@ -2,6 +2,7 @@
   height: 228px;
   padding-right: 20px;
   overflow: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -15,12 +16,18 @@
   line-height: 1.12;
   letter-spacing: -0.02em;
   font-weight: $regular;
-  //   ===== color should have 0.6 density =====
-  color: $blackish;
+  
+  color: var(--category-color);
+  @include transition(color);
+
+  &:hover,
+  &:focus {
+    color: var(--active-category-color);
+  }
 }
 
 .active-category {
   text-transform: uppercase;
-  color: $violet;
+  color: var(--active-category-color);
   font-weight: $bold;
 }
