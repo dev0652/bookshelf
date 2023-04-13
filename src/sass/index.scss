@@ -2,6 +2,9 @@
 @import './base/basic-reset';
 @import './base/defaults';
 
+// Fonts
+@import './fonts/fonts';
+
 // Utilities
 @import './utils/variables';
 @import './utils/animations';
@@ -13,6 +16,7 @@
 @import './layout/home';
 @import './layout/home-bs';
 @import './layout/popup';
+@import './layout/categories';
 
 // Components
 @import './components/buttons';
