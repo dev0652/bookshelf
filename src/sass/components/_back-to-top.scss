@@ -15,27 +15,30 @@
 
   height: 54px;
   width: 54px;
-  // padding: 0;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: $violet;
+  background-color: var(--to-top-button-bg-color);
   border: 5px solid transparent;
   border-radius: 50%;
 
   // offset-x | offset-y | blur-radius | spread-radius | color
-  box-shadow: 0 0 0 5px rgba($violet, 0.3);
+  box-shadow: 0 0 0 5px var(--to-top-button-shadow-color);
 
   &:hover,
   &:focus {
-    scale: 1.03;
+    scale: 1.2;
+
+    // .button-icon--arrow {
+    //   --color1: var(--accent-secondary);
+    // }
   }
 
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 300ms ease-in, visibility 300ms ease-in;
+  // opacity: 1;
+  // visibility: visible;
+  transition: opacity 300ms ease-in, visibility 300ms ease-in, scale 1s;
   // transition: all 0.2s ease;
 
   &.hidden {
@@ -44,7 +47,7 @@
   }
 }
 
-// .button-icon {
-//   fill: currentColor;
-//   transition: fill 500ms ease-in-out;
-// }
+.button-icon--arrow {
+  --color1: var(--to-top-button-icon-color);
+  transition: fill 500ms ease-in-out;
+}
