@@ -1,3 +1,4 @@
+<!-- USER BAR for not authorizated user -->
 <button class="userbar-btn" type="button" id="signUp-open-btn">
   Sign up
   <svg class="userbar-btn__icon" width="20" height="20">
@@ -5,7 +6,26 @@
   </svg>
 </button>
 
-<br />
+<!-- USER BAR for authorizated user -->
+<div class="user-block">
+  <a href="#" class="userbar-btn--registered">
+    <svg class="userbar-btn__icon-user" width="35" height="35">
+      <use href="./images/symbol-defs.svg#icon-user"></use>
+    </svg>
+    <p class="userbar-btn__user-name" id="user-name">User name</p>
+    <svg class="userbar-btn__icon-arrow" width="22" height="25">
+      <use href="./images/symbol-defs.svg#icon-arrow-down"></use>
+    </svg>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="#" class="dropdown-menu__text">Log out</a>
+      <svg class="dropdown-menu__icon userbar-btn__icon" width="20" height="20">
+        <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
+      </svg>
+    </li>
+  </ul>
+</div>
 
 <!-- SIGN UP FORM -->
 <div class="backdrop" id="sign-up-modal">
@@ -37,10 +57,10 @@
           type="email"
           id="user-email"
           name="user-email"
-          placeholder="stephen16@mail.com"
+          placeholder="stephen14@mail.com"
         />
         <label for="user-email" class="modal-form__label">email</label>
-        <svg class="input-icon">
+        <svg class="modal-form__icon">
           <use href="./images/symbol-defs.svg#icon-mail"></use>
         </svg>
       </div>
@@ -53,7 +73,7 @@
           placeholder="stephenTheBest"
         />
         <label for="user-password" class="modal-form__label">password</label>
-        <svg class="input-icon">
+        <svg class="modal-form__icon">
           <use href="./images/symbol-defs.svg#icon-lock"></use>
         </svg>
       </div>
@@ -68,7 +88,6 @@
 </div>
 
 <!-- SIGN IN FORM -->
-
 <div class="backdrop" id="sign-in-modal">
   <div class="modal" id="sign-in-modal-window">
     <button
@@ -88,10 +107,10 @@
           type="email"
           id="user-email"
           name="user-email"
-          placeholder="stephen16@mail.com"
+          placeholder="stephen14@mail.com"
         />
         <label for="user-email" class="modal-form__label">email</label>
-        <svg class="input-icon">
+        <svg class="modal-form__icon">
           <use href="./images/symbol-defs.svg#icon-mail"></use>
         </svg>
       </div>
@@ -104,7 +123,7 @@
           placeholder="stephenTheBest"
         />
         <label for="user-password" class="modal-form__label">password</label>
-        <svg class="input-icon">
+        <svg class="modal-form__icon">
           <use href="./images/symbol-defs.svg#icon-lock"></use>
         </svg>
       </div>
@@ -120,28 +139,4 @@
   </div>
 </div>
 
-<!-- USER BAR -->
-
-<ul>
-  <li class="user-item">
-    <a href="#" class="userbar-btn--registered">
-      <svg class="userbar-btn__icon-user" width="35" height="35">
-        <use href="./images/symbol-defs.svg#icon-user"></use>
-      </svg>
-      <p class="userbar-btn__user-name" id="user-name">User name</p>
-      <svg class="userbar-btn__icon-arrow" width="22" height="25">
-        <use href="./images/symbol-defs.svg#icon-arrow-down"></use>
-      </svg>
-    </a>
-    <ul class="userbar-btn__dropdown-menu">
-      <li>
-        <a href="#" class="userbar-btn__text">Log out</a>
-        <svg class="userbar-btn__icon" width="20" height="20">
-          <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
-        </svg>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<script src="./js/authorization-form.js" type="module"></script>
+<script src="./js/authorization-form.js" type="module" defer></script>

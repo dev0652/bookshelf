@@ -10,7 +10,7 @@
 
     background-color: var(--link-color);
     color: #FFFFFF;
-    font-weight: 500;
+    font-weight: $medium;
     font-size: 14px;
 
     cursor: pointer;
@@ -32,11 +32,12 @@
     margin-right: 4px;
 }
 
-.user-item {
+.user-block {
     position: relative;
     float: left;
+    width: fit-content;
 
-    &:hover .userbar-btn__dropdown-menu {
+    &:hover .dropdown-menu {
         display: initial;
     }
 }
@@ -49,7 +50,7 @@
 
     background-color: var(--link-color);
     color: #FFFFFF;
-    font-weight: 700;
+    font-weight: $bold;
     font-size: 22px;
 
     border-color: transparent;
@@ -62,7 +63,7 @@
     }   
 }
 
-.userbar-btn__dropdown-menu {
+.dropdown-menu {
     position: absolute;
     left: 0;
 
@@ -78,13 +79,13 @@
 }
 
 
-.userbar-btn__dropdown-menu li {
+.dropdown-menu li {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.userbar-btn__text {
+.dropdown-menu__text {
     color: #111111;
 }
  
@@ -249,7 +250,7 @@
 
     user-select: none;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: $bold;
     font-size: 16px;
     transition: transform 250ms ease-in-out;
 
@@ -264,7 +265,7 @@
 
 }
 
-.input-icon {
+.modal-form__icon {
     position: absolute;
     right: 16px;
     top: 50%;
@@ -272,6 +273,7 @@
     fill: currentColor;
     height: 18px;
     width: 18px;
+
 
     @media screen and (min-width: $desktop) {
         height: 28px;
@@ -286,7 +288,7 @@
     cursor: pointer;
 
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: $bold;
     font-size: 16px;
 
     padding-top: 16px;
@@ -312,7 +314,7 @@
     color: rgba(17, 17, 17, 0.5);
     border: none;
 
-    font-weight: 700;
+    font-weight: $bold;
     font-size: 14px;
     text-transform: uppercase;
     transition: color 250ms ease-in-out;
