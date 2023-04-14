@@ -18,7 +18,7 @@ body {
 .page-heder-container {
   display: flex;
   align-items: center;
-  background-color: var (--header-bg-color);
+  background-color: var(--header-bg-color);
   border: var(--header-border);
   border-radius: 0px 0px 8px 8px;
   margin-right: auto;
@@ -27,6 +27,11 @@ body {
   padding-right: 22.5px;
   height: 72px;
   width: 1440px;
+}
+@media screen and (max-width: 767px) {
+  .page-heder-container {
+    justify-content: space-between;
+  }
 }
 
 .page-logo-heder {
@@ -64,9 +69,14 @@ body {
   fill: var(--navigation-link-color-active);
 }
 
-.page-navigatio-list-first {
+.page-navigatio-list {
   display: flex;
   align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .page-navigatio-list {
+    display: none;
+  }
 }
 
 .page-navigatio-list-last {
@@ -104,9 +114,12 @@ body {
   justify-content: space-between;
   flex-grow: 1;
   position: relative;
-}
 
-.page-heder-container {
-  display: flex;
-  align-items: center;
+  @media screen and (max-width: 767px) {
+    flex-grow: 0;
+    display: flex;
+    position: relative;
+  }
+  @media screen and (min-width: $tablet) and(max-width: 1279px) {
+  }
 }

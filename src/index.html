@@ -58,6 +58,7 @@
 
     <!-- JS -->
     <script type="module" src="./index.js"></script>
+    <script type="module" src="/src/js/support.js"></script>
   </head>
   <body class="page">
     <!-- Header -->
@@ -69,13 +70,21 @@
     <!-- Sidebar -->
     <aside>
       <include src="./partials/categories.html"></include>
+      <include src="./partials/support.html"></include>
     </aside>
 
     <!-- Main -->
     <main class="content">
+      <button type="button" class="open-modal-button" data-open-popup>
+        Open modal
+      </button>
       <!--  -->
       <include src="./partials/home-bs.html"></include>
 
+      <!-- Home -- Category section -->
+
+      <include src="./partials/home-categories.html"></include>
+      
       <!--  -->
       <include src="./partials/back-to-top.html"></include>
       <!--  -->
@@ -88,5 +97,6 @@
 
     <!-- ❗️move this to index.js later-->
     <script type="module" src="./js/home-bs/home-bs.js"></script>
+    <script type="module" src="./js/home-categories.js"></script>
   </body>
 </html>
