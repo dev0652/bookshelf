@@ -59,16 +59,21 @@
     <!-- JS -->
     <script type="module" src="./index.js"></script>
   </head>
-  <body>
-    <!-- ❗️Add partials like this for every page❗️ -->
+  <body class="page">
+    <!-- Header -->
     <include src="./partials/header.html"></include>
-    <!--  -->
-    <main>
-      <div class="to-top-target"></div>
-      <!--  -->
-      <include src="./partials/home.html"></include>
 
-      <!-- Home best-sellers section -->
+    <!-- Intersection observer target for scroll-up button -->
+    <div class="to-top-target"></div>
+
+    <!-- Sidebar -->
+    <aside>
+      <include src="./partials/categories.html"></include>
+    </aside>
+
+    <!-- Main -->
+    <main class="content">
+      <!--  -->
       <include src="./partials/home-bs.html"></include>
 
       <!--  -->
@@ -77,6 +82,11 @@
       <include src="./partials/authorization-form.html"></include>
       <!--  -->
     </main>
+
+    <!-- Scroll to top button -->
+    <include src="./partials/back-to-top.html"></include>
+
+    <!-- ❗️move this to index.js later-->
     <script type="module" src="./js/home-bs/home-bs.js"></script>
   </body>
 </html>

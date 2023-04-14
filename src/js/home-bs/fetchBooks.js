@@ -1,12 +1,18 @@
+import axios from 'axios';
 
 export default function fetchBooks(name) {
 
 
-    return  fetch(`https://books-backend.p.goit.global/books/top-books`).then(response =>{
-          if(!response.ok) {
-              throw new Error(response.status)
-              }
-          return response.json();
-      })}
+      return axios.get(`https://books-backend.p.goit.global/books/top-books`)
+      .then(response =>{
+      
+
+        return response.data;
+        
+      })
+      .catch(err=> {
+        console.log(err)
+      })
+    }
   
    
