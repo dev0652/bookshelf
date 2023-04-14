@@ -13,6 +13,9 @@ refs.openSignUpBtnSecondEl.addEventListener(
 refs.openSignInBtnEl.addEventListener('click', handleClickOnSingInOpenBtn);
 refs.closeSignInBtnEl.addEventListener('click', handleClickOnSingInCloseBtn);
 
+//
+// Функції для Sign up модалки
+
 // Відкрити Sign up модалку
 function handleClickOnSingUpOpenBtn() {
   refs.signUpModalEl.classList.add('open');
@@ -26,12 +29,8 @@ function handleClickOnSingUpCloseBtn() {
   refs.signUpModalEl.classList.remove('open');
 }
 
-// Закрити Sign up модалку при натисканні Esc
-window.addEventListener('keydown', evt => {
-  if (evt.key === 'Escape') {
-    refs.signUpModalEl.classList.remove('open');
-  }
-});
+//
+// Функції для Sign in модалки
 
 // Відкрити Sign in модалку + закрити Sign up модалку
 function handleClickOnSingInOpenBtn() {
@@ -44,9 +43,19 @@ function handleClickOnSingInCloseBtn() {
   refs.signInModalEl.classList.remove('open');
 }
 
+//
+// Закриття по Esc
+
 // Закрити Sign in модалку при натисканні Esc
 window.addEventListener('keydown', evt => {
   if (evt.key === 'Escape') {
     refs.signInModalEl.classList.remove('open');
+  }
+});
+
+// Закрити Sign up модалку при натисканні Esc
+window.addEventListener('keydown', evt => {
+  if (evt.key === 'Escape') {
+    refs.signUpModalEl.classList.remove('open');
   }
 });

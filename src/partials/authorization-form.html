@@ -14,6 +14,7 @@
       class="modal__close-button"
       type="button"
       id="signUp-modal-close-btn"
+      aria-label="Close"
     >
       <svg class="close-button__icon">
         <use href="./images/symbol-defs.svg#icon-x-close"></use>
@@ -26,8 +27,9 @@
           type="text"
           id="user-name"
           name="user-name"
-          placeholder="name"
+          placeholder="Stephen"
         />
+        <label for="user-name" class="modal-form__label">name</label>
       </div>
       <div class="modal-form__input-field">
         <input
@@ -35,8 +37,9 @@
           type="email"
           id="user-email"
           name="user-email"
-          placeholder="email"
+          placeholder="stephen16@mail.com"
         />
+        <label for="user-email" class="modal-form__label">email</label>
         <svg class="input-icon">
           <use href="./images/symbol-defs.svg#icon-mail"></use>
         </svg>
@@ -47,8 +50,9 @@
           type="password"
           id="user-password"
           name="user-password"
-          placeholder="password"
+          placeholder="stephenTheBest"
         />
+        <label for="user-password" class="modal-form__label">password</label>
         <svg class="input-icon">
           <use href="./images/symbol-defs.svg#icon-lock"></use>
         </svg>
@@ -71,6 +75,7 @@
       class="modal__close-button"
       id="signIn-modal-close-btn"
       type="button"
+      aria-label="Close"
     >
       <svg class="close-button__icon">
         <use href="./images/symbol-defs.svg#icon-x-close"></use>
@@ -83,8 +88,9 @@
           type="email"
           id="user-email"
           name="user-email"
-          placeholder="email"
+          placeholder="stephen16@mail.com"
         />
+        <label for="user-email" class="modal-form__label">email</label>
         <svg class="input-icon">
           <use href="./images/symbol-defs.svg#icon-mail"></use>
         </svg>
@@ -95,8 +101,9 @@
           type="password"
           id="user-password"
           name="user-password"
-          placeholder="password"
+          placeholder="stephenTheBest"
         />
+        <label for="user-password" class="modal-form__label">password</label>
         <svg class="input-icon">
           <use href="./images/symbol-defs.svg#icon-lock"></use>
         </svg>
@@ -128,7 +135,7 @@
     </a>
     <ul class="userbar-btn__dropdown-menu">
       <li>
-        <a href="#">Log out</a>
+        <a href="#" class="userbar-btn__text">Log out</a>
         <svg class="userbar-btn__icon" width="20" height="20">
           <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
         </svg>
@@ -136,7 +143,5 @@
     </ul>
   </li>
 </ul>
-
-<div class="container"></div>
 
 <script src="./js/authorization-form.js" type="module"></script>
