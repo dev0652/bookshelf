@@ -110,14 +110,16 @@ body {
 }
 
 .page-navigatio-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  position: relative;
+
   @media screen and (max-width: 767px) {
+    flex-grow: 0;
     display: flex;
     position: relative;
   }
   @media screen and (min-width: $tablet) and(max-width: 1279px) {
-    display: flex;
-    justify-content: space-between;
-    flex-grow: 1;
-    position: relative;
   }
 }
