@@ -18,7 +18,7 @@ body {
 .page-heder-container {
   display: flex;
   align-items: center;
-  background-color: var (--header-bg-color);
+  background-color: var(--header-bg-color);
   border: var(--header-border);
   border-radius: 0px 0px 8px 8px;
   margin-right: auto;
@@ -106,7 +106,7 @@ body {
   position: relative;
 }
 
-.page-heder-container {
-  display: flex;
-  align-items: center;
-}
+// .page-heder-container {
+//   display: flex;
+//   align-items: center;
+// }
