@@ -1,0 +1,121 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.4);
+  opacity: 1;
+  /* transition: opacity var(--timing-function), visibility var(--timing-function); */
+
+  padding: 94px 15px;
+  overflow-y: scroll;
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.modal {
+  /* position: relative; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 40px 24px;
+
+  width: 100%;
+  max-width: 335px;
+  min-height: 662px;
+
+  background: #ffffff;
+  border: 2px solid $blackish;
+  border-radius: 18px;
+  /* @media screen and (min-width: 480px)  { */
+
+  /* transition: transform var(--timing-function); */
+  /* }  */
+}
+
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  /* background-color: transparent; */
+  border: none;
+}
+
+.close-button__icon {
+  fill: $blackish;
+}
+
+.modal-img {
+  max-width: 287px;
+  min-height: 408px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  border: none;
+}
+
+.modal-book-title {
+  font-weight: $bold;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  color: $blackish;
+}
+
+.modal-book-author {
+  margin-bottom: 18px;
+  font-style: italic;
+  font-weight: $regular;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+  color: $gray;
+}
+.modal-book-desc {
+  margin-bottom: 14px;
+  font-weight: $regular;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+
+  color: $blackish;
+}
+.modal-shops {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.modal-btn {
+  min-width: 211px;
+  height: 46px;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+}
+
+.modal-message {
+  margin-top: 8px;
+  font-weight: $regular;
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: -0.04em;
+
+  color: rgba(17, 17, 17, 0.5);
+}
