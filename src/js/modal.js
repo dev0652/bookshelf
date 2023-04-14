@@ -6,12 +6,16 @@ const refs = {
     modal: document.querySelector('[data-modal]'),
   };
 
-  // function toggleModal() {
-  //   refs.modal.classList.toggle("is-hidden");
-  // }
-  
+  refs.closeModalBtn.addEventListener("click", toggleModal);
+
+  function toggleModal() {
+    refs.modal.classList.toggle("is-hidden");
+  }
+
   const bookEl = document.querySelector('.book-image');
   bookEl.addEventListener('click', handleBookElClick);
+
+  
   
   const BookAPI = new BooksApi();
   
@@ -21,8 +25,8 @@ const refs = {
   
     try {
       const data = await BookAPI.fetchBookByID();
-     // до чого приєднати зрендерену модалку
-      bookEl.insertAdjacentHTML('beforeend', createModal(data));
+      function toggleModal();
+     refs.closeModalBtn.insertAdjacentHTML('afterend', createModal(data));
     } catch (err) {
       console.log(err);
     }
@@ -39,13 +43,6 @@ const refs = {
     } = data;
   
     return `
-            <div class="backdrop" data-modal>
-            <div class="modal">
-              <button class="close-button" data-modal-close>
-                <svg class="close-button__icon" >
-                  <use href="images/symbol-defs.svg#icon-x-close"></use>
-                </svg>
-              </button>
               <img class="modal-img" src="${book_image}" />
               <p class="modal-book-title">${title}</p>
               <p class="modal-book-author">${author}</p>
@@ -61,21 +58,17 @@ const refs = {
               <img class="modal-shop-img" src="./images/shops/book-shop.png" alt="Book Shop link"/>
               </a>
               </div>
-              <button class="modal-btn button" type="submit">add to shopping list</button>
-              
-            </div>
-          </div> 
           `;
   }
   
-  // const modalBtn = document.querySelector('.modal-btn');
-  // modalBtn.addEventListener('click', handleModalBtnClick);
+  const modalBtn = document.querySelector('.modal-btn');
+  modalBtn.addEventListener('click', handleModalBtnClick);
   
-  // function handleModalBtnClick(e) {
-  //   modalBtn.textContent = 'remove from the shopping list';
-  //   refs.modal.insertAdjacentHTML(
-  //     'beforeend',
-  //     'p class="modal-message">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>'
-  //   );
-  // }
-  // refs.closeModalBtn.addEventListener("click", toggleModal);
+  function handleModalBtnClick(e) {
+    modalBtn.textContent = 'remove from the shopping list';
+    modalBtn.insertAdjacentHTML(
+      'afterend',
+      'p class="modal-message">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>'
+    );
+  }
+  
