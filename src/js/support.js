@@ -1,4 +1,4 @@
-import charities from "./charities"
+import charities from './charities';
 
 // console.log(charities);
 
@@ -9,28 +9,27 @@ const list = document.querySelector('.support-list');
 
 // list.innerHTML += item;
 
-const html = charities.map((element, index) => {
-    return {
-        ...element,
-        index: (index+1).toString().padStart(2, '0')
-    }
-}).map((element) => {
-    return `<li class="support-item">
-        <span class="support-index">${element.index}</span>     
-        <a class="support-link" href="${element.url}" target="_blank">
+const html = charities.map(makeMarkup).join('');
+
+function makeMarkup({ url, title, img }, index) {
+  const digits = (index + 1).toString().padStart(2, '0');
+  const path1 = img.normal;
+  const path2 = img.retina;
+
+  return `<li class="support-item">
+        <span class="support-index">${digits}</span>
+        <a class="support-link" href="${url}" target="_blank">
             <img
-                srcset="${element.img.normal} 1x, ${element.img.retina} 2x"
-                src="${element.img.normal}" alt="${element.title}">
-        </a>             
+                srcset="${img.normal} 1x, ${img.retina} 2x"
+                src="${img.normal}" type="image/png" alt="${title}">
+        </a>
     </li>`;
+}
+
+list.innerHTML = html;
+
+const str = charities.map((element, index) => {
+  return '<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>';
 });
 
-list.innerHTML = html.join('');
-console.log(html);
-
-
-// const str = charities.map((element, index) => {
-//     return '<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>'
-// });
-
-// console.log(str);
+console.log(str);

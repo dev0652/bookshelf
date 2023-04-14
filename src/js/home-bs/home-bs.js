@@ -9,7 +9,7 @@ const booksListFourthEl = document.querySelector('.books-list__fourth');
 fetchBooks()
   .then(data => {
     data.map(category => {
-      console.log(category);
+      // console.log(category);
 
       if (category.list_name === 'Combined Print and E-Book Fiction') {
         return (booksListFirstEl.innerHTML += createBookMarkup(category.books));
