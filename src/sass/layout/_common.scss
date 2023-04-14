@@ -13,3 +13,14 @@ body {
   //   margin-right: 215px;
   // }
 }
+
+.page {
+  display: flex;
+  flex-direction: row-reverse;
+  // justify-content: center;
+  // height: 3000px;
+}
+
+aside {
+  background-color: beige;
+}
