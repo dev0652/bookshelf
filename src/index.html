@@ -61,19 +61,21 @@
   </head>
   <body class="page">
     <!-- Header -->
-    <include src="./partials/header.html"></include>
+    <!-- <include src="./partials/header.html"></include> -->
 
-    <!-- Main -->
-    <main>
-      <div class="to-top-target"></div>
-      <!--  -->
-      <include src="./partials/home-bs.html"></include>
-    </main>
+    <!-- Intersection observer target for scroll-up button -->
+    <div class="to-top-target"></div>
 
     <!-- Sidebar -->
     <aside>
       <include src="./partials/categories.html"></include>
     </aside>
+
+    <!-- Main -->
+    <main class="content">
+      <!--  -->
+      <include src="./partials/home-bs.html"></include>
+    </main>
 
     <!-- Scroll to top button -->
     <include src="./partials/back-to-top.html"></include>
