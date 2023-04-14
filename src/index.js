@@ -26,59 +26,144 @@ const arrPeoples = [
     { name: "Samantha", age: 29, address: { city: "Denver", state: "CO" } }
 ];
 
+// paginations-slider for rendering books
 const paginationsSlider = document.querySelector(".paginations-slider");
+// container for created buttons paginations
 const paginationContainer = document.querySelector('.paginations-container');
 
 
-const pageSize = 1;
+// number of books per page in shoping list
+const pageSize = 2;
+// all pages shoping list
 let totalPages = Math.ceil(arrPeoples.length / pageSize);
+// current page, after click button paginations 
 let currentPage = 1;
-console.log(currentPage);
+// console.log(currentPage);
+// start index for slice metod
 let startIndex = (currentPage - 1) * pageSize;
+// end index for slice metod
 let endIndex = startIndex + pageSize;
+// slicing an array of objects to create a single page
 let itemsOnPage = arrPeoples.slice(startIndex, endIndex);
-console.log(itemsOnPage);
+// console.log(itemsOnPage);
 
+// iterating array for rendering books
 itemsOnPage.forEach((item) => {
+  // rendering one book
   renderMarkup(item);
 });
 
 
+// creating buttons paginations
 
   for (let i = 1; i <= totalPages; i++) {
-  const pageNumber = i;
-  const button = document.createElement('button');
-  button.textContent = i;
-
+    const pageNumber = i;
+    // creating button paginations
+    const button = document.createElement('button');
+    // creating number button
+    button.textContent = i;
+    // event for rendering book after click on button
     button.addEventListener('click', () => {
-    
       currentPage = pageNumber;
       console.log(currentPage)
-      paginationsSlider.innerHTML = "";
-      
-    startIndex = (currentPage - 1) * pageSize;
-    endIndex = startIndex + pageSize;
-      itemsOnPage = arrPeoples.slice(startIndex, endIndex);
-      
-    itemsOnPage.forEach((item) => {
-      renderMarkup(item);
+    // delete markup books before creating new murkup 
+      deleteMurkup();
+      createNewBooks();
     });
-  });
-  paginationContainer.appendChild(button);
+    // add button after cteated  
+    paginationContainer.appendChild(button);
 };
 
-  const button = document.createElement('button');
-  button.textContent = "Print currentPage";
+// created previous button
+const previousButton = document.createElement('button');
+previousButton.textContent = 'Previous';
+previousButton.addEventListener('click', () => {
+   
+  if (currentPage > 1) {
+    currentPage--;
+    deleteMurkup();
+    createNewBooks();
+  }
+});
+paginationContainer.prepend(previousButton);
 
-  button.addEventListener('click', () => { 
-  console.log(`currentPage: ${currentPage}`);
-  });
-  paginationContainer.appendChild(button);
+// created Next button
+const nextButton = document.createElement('button');
+nextButton.textContent = 'Next';
+nextButton.addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    deleteMurkup();
+    createNewBooks();
+  }
+});
+paginationContainer.appendChild(nextButton);
+
+// created button for return start shoping lsit
+const startButton = document.createElement('button');
+startButton.textContent = 'start list';
+paginationContainer.prepend(startButton);
+
+startButton.addEventListener('click', () => {
+    currentPage = 1;
+    deleteMurkup();
+    createNewBooks();
+});
+
+// created button for return end shoping lsit
+const endButton = document.createElement('button');
+endButton.textContent = 'edn list';
+paginationContainer.append(endButton);
+
+endButton.addEventListener('click', () => {
+    currentPage = totalPages;
+    deleteMurkup();
+    createNewBooks();
+});
 
 
 
+
+
+// function for markup render
 function renderMarkup(x) {
     paginationsSlider.insertAdjacentHTML("beforeend", Markup(x));
 };
+
+// this function delete markup shoping list before new render
+function deleteMurkup() {
+  paginationsSlider.innerHTML = "";
+}
+
+// this function slice array books and created new array books by next render
+function sliceArrayBooks() {
+  startIndex = (currentPage - 1) * pageSize;
+  endIndex = startIndex + pageSize;
+  return itemsOnPage = arrPeoples.slice(startIndex, endIndex);
+};
+
+// this function create new books on page shoping list 
+function createNewBooks() {
+  sliceArrayBooks().forEach((item) => {
+          renderMarkup(item);
+      });
+};
+
+function removeDisableforElement(element) {
+  element.disabled = false;
+};
+
+function addDisableforElement(element) {
+  element.disabled = true;
+};
+
+
+// const button = document.createElement('button');
+//   button.textContent = "Print currentPage";
+
+//   button.addEventListener('click', () => { 
+//   console.log(`currentPage: ${currentPage}`);
+//   });
+//   paginationContainer.appendChild(button);
 
 
