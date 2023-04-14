@@ -69,6 +69,8 @@ itemsOnPage.forEach((item) => {
     // delete markup books before creating new murkup 
       deleteMurkup();
       createNewBooks();
+      removeDisableforElement(startButton);
+      removeDisableforElement(end)
     });
     // add button after cteated  
     paginationContainer.appendChild(button);
@@ -99,26 +101,30 @@ nextButton.addEventListener('click', () => {
 });
 paginationContainer.appendChild(nextButton);
 
-// created button for return start shoping lsit
+// creating a button to return to the beginning of the shopping list
 const startButton = document.createElement('button');
 startButton.textContent = 'start list';
 paginationContainer.prepend(startButton);
 
 startButton.addEventListener('click', () => {
-    currentPage = 1;
-    deleteMurkup();
-    createNewBooks();
+  currentPage = 1;
+  deleteMurkup();
+  createNewBooks();
+  addDisableforElement(startButton);
+  removeDisableforElement(endButton);
 });
 
-// created button for return end shoping lsit
+// creating a button to return to the beginning of the shopping list
 const endButton = document.createElement('button');
 endButton.textContent = 'edn list';
 paginationContainer.append(endButton);
 
 endButton.addEventListener('click', () => {
-    currentPage = totalPages;
-    deleteMurkup();
-    createNewBooks();
+  currentPage = totalPages;
+  deleteMurkup();
+  createNewBooks();
+  addDisableforElement(endButton);
+  removeDisableforElement(startButton);
 });
 
 
