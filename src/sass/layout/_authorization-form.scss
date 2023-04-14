@@ -17,9 +17,9 @@
     transition: background-color 500ms $transition-timing-function, color 200ms $transition-timing-function, border-color 200ms $transition-timing-function;
 
     &:hover {
-        background-color: white;
-        color: var(--link-color);
-        border-color: var(--accent-secondary);
+        background-color: var(--header-bg-color);
+        color: var(--text-color);
+        border-color: var(--accent-primary);
     }
 }
 
@@ -36,14 +36,8 @@
     position: relative;
     float: left;
     width: fit-content;
-
-    &:hover .dropdown-menu {
-        display: initial;
-    }
-}
-
-.userbar-btn--registered {
-    display: flex;
+    //
+        display: flex;
     align-items: center;
     gap: 0;
     padding: 4px 12px;
@@ -58,18 +52,21 @@
 
     cursor: pointer;
 
-    &:hover .userbar-btn__icon-arrow {
-        fill: #111111;
-    }   
+    @media screen and (min-width: $tablet) {
+    &:focus .dropdown-menu {
+        display: initial;
+    }
+}
 }
 
 .dropdown-menu {
     position: absolute;
+    top: 44px;
     left: 0;
 
     width: 100%;
-    background-color: #FFFFFF;
-    border: 1.5px solid #111111;
+    background-color: var(--header-bg-color);
+    border: 1.5px solid var(--text-color);
     border-radius: 18px;
 
     padding: 14px;
@@ -86,7 +83,7 @@
 }
 
 .dropdown-menu__text {
-    color: #111111;
+    color: var(--text-color);
 }
  
 // ------ MODAL FORMS ------ //
@@ -102,7 +99,7 @@
     background-position: center;
     background-size: cover;
 
-
+    cursor: pointer;
     z-index: 10;
     overflow-y: scroll;
     opacity: 0;
@@ -223,6 +220,7 @@
     padding-left: 24px;
     padding-right: 42px;
     height: 50px;
+    background-color: transparent;
 
     border: 2px solid $blackish;
     border-radius: 40px;
@@ -230,6 +228,7 @@
     &::placeholder {
         opacity: 0;
         transition: opacity 250ms ease-in-out;
+        color: rgba(17, 17, 17, 0.6);
     }
 
     &:focus::placeholder {
@@ -248,15 +247,17 @@
     transform: translateY(-50%);
     left: 40px;
 
-    user-select: none;
+    color: var(--text-color);
     text-transform: uppercase;
     font-weight: $bold;
     font-size: 16px;
+
+    user-select: none;
     transition: transform 250ms ease-in-out;
 
     .modal-form__input:focus+&,
         .modal-form__input:not(:placeholder-shown)+& {
-        transform: translate(-15%, -250%) scale(0.9);
+        transform: translate(-15%, -255%) scale(0.9);
     }
 
     @media screen and (min-width: $desktop) {
@@ -283,8 +284,8 @@
 
 .modal-form__submit {
     width: 100%;
-    background-color: black;
-    color: $logo-stroke-light;
+    background-color: var(--text-color);
+    color: var(--background-color);
     cursor: pointer;
 
     text-transform: uppercase;
