@@ -1,0 +1,33 @@
+body.dark {
+  /* Body */
+  --background-color: #{$dark-gray};
+  --text-color: white;
+
+  /* Header */
+  --header-bg-color: #{$blackish};
+  --header-border: 1.5px solid #FFFFFF;
+  --logo-stroke-color: #{$logo-stroke-light};
+  --page-navigatio-text-color: #FFFFFF;
+  --navigation-link-text-color-active: #111111;
+  --navigation-link-color: #FFFFFF;
+
+  /* Categories  list */
+  --category-color: rgba(255, 255, 255, 0.6);
+  --active-category-color: var(--accent-secondary);
+
+  /* Form */
+  --form-field-bg-color: #9d9c9a;
+  --form-field-bg-color-focus: silver;
+  --form-button-border-color: var(--accent-primary);
+  --link-color: var(--accent-primary);
+
+  /* Pagination (shopping list) */
+  /* Pagination - Back button */
+  --back-button-icon-color: white;
+
+  /* Pagination - Page bullets */
+  --page-bullet-text-color-active: black;
+
+  /* To top button */
+  --to-top-button-shadow-color: SlateBlue;
+}
