@@ -23,7 +23,7 @@ async function renderCategories() {
     );
 
     for (const arr of inAlphabeticalOrder) {
-      catBtn = document.createElement('button');
+      const catBtn = document.createElement('button');
       catBtn.classList.add('category-btn');
       catBtn.textContent = `${arr.list_name}`;
       categoryListEl.appendChild(catBtn);
