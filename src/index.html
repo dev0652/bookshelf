@@ -58,10 +58,11 @@
 
     <!-- JS -->
     <script type="module" src="./index.js"></script>
+    <script type="module" src="/src/js/support.js"></script>
   </head>
   <body class="page">
     <!-- Header -->
-    <!-- <include src="./partials/header.html"></include> -->
+    <include src="./partials/header.html"></include>
 
     <!-- Intersection observer target for scroll-up button -->
     <div class="to-top-target"></div>
@@ -69,12 +70,22 @@
     <!-- Sidebar -->
     <aside>
       <include src="./partials/categories.html"></include>
+      <include src="./partials/suport.html"></include>
     </aside>
 
     <!-- Main -->
     <main class="content">
+      <button type="button" class="open-modal-button" data-open-popup>
+        Open modal
+      </button>
       <!--  -->
       <include src="./partials/home-bs.html"></include>
+
+      <!--  -->
+      <include src="./partials/back-to-top.html"></include>
+      <!--  -->
+      <include src="./partials/authorization-form.html"></include>
+      <!--  -->
     </main>
 
     <!-- Scroll to top button -->
