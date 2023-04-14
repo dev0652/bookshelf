@@ -11,5 +11,8 @@ export default function () {
 
     // All categories button:
     allCategoriesBtn: document.querySelector('button[name="allcategories"]'),
+
+    //Categories list:
+    categoryListEl: document.querySelector('.categories_list'),
   };
 }

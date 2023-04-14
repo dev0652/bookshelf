@@ -6,9 +6,15 @@
   scroll-behavior: smooth;
 }
 
+.categories_list {
+  display: flex;
+  flex-direction: column;
+}
+
 .category-btn {
   background-color: inherit;
   border: none;
+  text-align: left;
 
   margin-top: 24px;
 
