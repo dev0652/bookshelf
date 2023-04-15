@@ -4,7 +4,7 @@ import {
   handleClickOnSingUpCloseBtn,
 } from '../authorization-form';
 import { createUser, onLogOut, onLogin } from './authservice';
-import { deleteBookShoping, postShoppingList } from './firebaseservise';
+import { deleteBookShopping, postShoppingList } from './firebaseservise';
 
 const refs = getRefs();
 
@@ -31,7 +31,7 @@ async function onLogOutUser(e) {
   e.preventDefault();
   const localList = JSON.parse(localStorage.getItem('list'));
   if (localList) {
-    await deleteBookShoping();
+    await deleteBookShopping();
     console.log(localList);
     postShoppingList(localList);
   }

@@ -56,10 +56,9 @@ function handleClickOnSingUpSecondCloseBtn() {
 }
 
 // Закрити Sign in модалку
-function handleClickOnSingInCloseBtn() {
+export function handleClickOnSingInCloseBtn() {
   refs.signUpModalEl.classList.remove('open');
 }
-
 
 function openUserBarMenu() {
   refs.logOutMenu.classList.toggle('logout-menu');
@@ -153,4 +152,3 @@ function openUserBarMenu() {
 //     handleClickOnSingInCloseBtn();
 //   }
 // }
-
