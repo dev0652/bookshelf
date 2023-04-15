@@ -12,6 +12,7 @@ refs.openSignUpBtnSecondEl.addEventListener(
 
 refs.openSignInBtnEl.addEventListener('click', handleClickOnSingInOpenBtn);
 refs.closeSignInBtnEl.addEventListener('click', handleClickOnSingInCloseBtn);
+refs.userBarMenu.addEventListener('click', openUserBarMenu);
 
 //
 // Функції для Sign up модалки
@@ -25,7 +26,7 @@ function handleClickOnSingUpOpenBtn() {
 }
 
 // Закрити Sign up модалку
-function handleClickOnSingUpCloseBtn() {
+export function handleClickOnSingUpCloseBtn() {
   refs.signUpModalEl.classList.remove('open');
 }
 
@@ -39,7 +40,7 @@ function handleClickOnSingInOpenBtn() {
 }
 
 // Закрити Sign in модалку
-function handleClickOnSingInCloseBtn() {
+export function handleClickOnSingInCloseBtn() {
   refs.signInModalEl.classList.remove('open');
 }
 
@@ -85,4 +86,8 @@ function handleClickOnsingInBackdrop(evt) {
   if (target === refs.signInModalEl) {
     handleClickOnSingInCloseBtn();
   }
+}
+
+function openUserBarMenu() {
+  refs.logOutMenu.classList.toggle('logout-menu');
 }

@@ -12,7 +12,6 @@ export default function () {
     // All categories button:
     allCategoriesBtn: document.querySelector('button[name="allcategories"]'),
 
-
     //Categories list:
     categoryListEl: document.querySelector('.categories_list'),
 
@@ -32,5 +31,13 @@ export default function () {
     modalPopUpBtn: document.querySelector('.modal-pop-up-btn'),
     modalPopUp: document.querySelector('[data-pop-up]'),
     modalContentEl: document.querySelector('.modal-pop-up-content'),
+
+    //Stepan
+    userName: document.getElementById('user-name'),
+    formSingUp: document.getElementById('singUp'),
+    logOut: document.getElementById('logOut'),
+    userBarMenu: document.getElementById('userBarMenu'),
+    logOutMenu: document.getElementById('logOutMenu'),
+    formLogIn: document.getElementById('logIn'),
   };
 }
