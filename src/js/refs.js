@@ -18,12 +18,14 @@ export default function () {
     // Sign up
     openSignUpBtnEl: document.querySelector('#signUp-open-btn'),
     signUpModalEl: document.querySelector('#sign-up-modal'),
+    signUpModalWindowEl: document.querySelector('#sign-up-modal-window'),
     closeSignUpBtnEl: document.querySelector('#signUp-modal-close-btn'),
     openSignUpBtnSecondEl: document.querySelector('#signUp-open-btn-second'),
 
     // Sign in
     openSignInBtnEl: document.querySelector('#signIn-open-btn'),
     signInModalEl: document.querySelector('#sign-in-modal'),
+    signInModalWindowEl: document.querySelector('#sign-in-modal-window'),
     closeSignInBtnEl: document.querySelector('#signIn-modal-close-btn'),
 
     // Auth form elements

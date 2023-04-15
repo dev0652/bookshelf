@@ -161,6 +161,10 @@
     }
 }
 
+#sign-in-modal-window {
+    display: none;
+}
+
 .modal__close-button {
     position: absolute;
     top: 14px;
@@ -311,11 +315,14 @@
     margin-top: 14px;
 }
 
+.modal-toggle--signIn {
+    display: none;
+}
+
 .modal-toggle__el {
     background-color: transparent;
     color: var(--form-toggle-color); 
     border: none;
-
     font-weight: $bold;
     font-size: 14px;
     text-transform: uppercase;
