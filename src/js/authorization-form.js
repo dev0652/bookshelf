@@ -59,3 +59,30 @@ window.addEventListener('keydown', evt => {
     refs.signUpModalEl.classList.remove('open');
   }
 });
+
+//
+// Закриття при натисканні на backdrop
+
+// Закрити Sing up модадку при натисканні поза неї
+
+refs.signUpModalEl.addEventListener('click', handleClickOnsingUpBackdrop);
+
+function handleClickOnsingUpBackdrop(evt) {
+  const target = evt.target;
+
+  if (target === refs.signUpModalEl) {
+    handleClickOnSingUpCloseBtn();
+  }
+}
+
+// Закрити Sing in модадку при натисканні поза неї
+
+refs.signInModalEl.addEventListener('click', handleClickOnsingInBackdrop);
+
+function handleClickOnsingInBackdrop(evt) {
+  const target = evt.target;
+
+  if (target === refs.signInModalEl) {
+    handleClickOnSingInCloseBtn();
+  }
+}

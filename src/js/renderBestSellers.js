@@ -26,6 +26,7 @@ async function renderTopBooks() {
     for (const element of data) {
       const categoryTitle = document.createElement('li');
       categoryTitle.innerText = element.list_name;
+      // categoryTitle.classList.add(.)
       categoryTop.appendChild(categoryTitle);
 
       const bestSellers = document.createElement('ul');
