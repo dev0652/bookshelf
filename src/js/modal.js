@@ -166,3 +166,16 @@ window.addEventListener('keydown', e => {
     toggleModal();
   }
 });
+
+// Close PopUp Modal by backdrop click
+// !!!
+
+refs.modalPopUpBtn.addEventListener('click', handleModalPopUpBtnClick);
+
+function handleModalPopUpBtnClick(e) {
+  e.target.textContent = 'Remove from the shopping list';
+  e.target.insertAdjacentHTML(
+    'afterend',
+    '<p class="modal-message">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list."</p>'
+  );
+}
