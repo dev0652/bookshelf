@@ -64,7 +64,6 @@ window.addEventListener('keydown', evt => {
 // Закриття при натисканні на backdrop
 
 // Закрити Sing up модадку при натисканні поза неї
-
 refs.signUpModalEl.addEventListener('click', handleClickOnsingUpBackdrop);
 
 function handleClickOnsingUpBackdrop(evt) {
@@ -76,7 +75,6 @@ function handleClickOnsingUpBackdrop(evt) {
 }
 
 // Закрити Sing in модадку при натисканні поза неї
-
 refs.signInModalEl.addEventListener('click', handleClickOnsingInBackdrop);
 
 function handleClickOnsingInBackdrop(evt) {
