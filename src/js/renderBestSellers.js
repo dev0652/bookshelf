@@ -6,7 +6,8 @@ allCategoriesBtn.addEventListener('click', renderTopBooks);
 
 const topBooksListEl = document.querySelector('.topbooks');
 
-async function getTopBooksArray() {
+export async function getTopBooksArray() {
+
   try {
     const { data } = await axios.get(
       'https://books-backend.p.goit.global/books/top-books'
@@ -26,7 +27,6 @@ async function renderTopBooks() {
     for (const element of data) {
       const categoryTitle = document.createElement('li');
       categoryTitle.innerText = element.list_name;
-      // categoryTitle.classList.add(.)
       categoryTop.appendChild(categoryTitle);
 
       const bestSellers = document.createElement('ul');

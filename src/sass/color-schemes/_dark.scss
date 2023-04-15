@@ -16,6 +16,9 @@ body.dark {
   --form-field-bg-color-focus: silver;
   --form-button-border-color: var(--accent-primary);
   --link-color: var(--accent-primary);
+  --form-background: #{$dark-gray};
+  --form-border: #{$milky};
+  --form-toggle-color: rgba(246, 246, 246, 0.5);
 
   /* Pagination (shopping list) */
   /* Pagination - Back button */

@@ -1,21 +1,21 @@
-const refs = {
-  form: document.querySelector('#myForm'),
-  nameField: document.querySelector('#nameField'),
-  emailField: document.querySelector('#emailField'),
-  passwordField: document.querySelector('#passwordField'),
-  submitBtn: document.querySelector('#submitBtn'),
-};
+import Notiflix from 'notiflix';
+
+import getRefs from './refs';
+const { authForm, nameField, emailField, passwordField, authSubmitBtn } =
+  getRefs();
 
 // Обработчик отправки формы
 
-refs.form.addEventListener('submit', event => {
+authForm.addEventListener('submit', validateOnSubmit);
+
+export function validateOnSubmit(event) {
   event.preventDefault();
 
   // Убираем пробелы
 
-  const name = refs.nameField.value.trim();
-  const email = refs.emailField.value.trim();
-  const password = refs.passwordField.value.trim();
+  const name = nameField.value.trim();
+  const email = emailField.value.trim();
+  const password = passwordField.value.trim();
 
   // Проверяем, что все поля заполнены
 
@@ -40,5 +40,5 @@ refs.form.addEventListener('submit', event => {
 
   //проверки прошли успешно => отправляем форму
   Notiflix.Notify.success('Форму успішно надіслано!');
-  refs.form.reset();
-});
+  authForm.reset();
+}
