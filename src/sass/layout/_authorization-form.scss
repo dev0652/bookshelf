@@ -35,12 +35,13 @@
 .user-block {
     position: relative;
     float: left;
-    width: fit-content;
-    //
-        display: flex;
+    
+    display: flex;
     align-items: center;
     gap: 0;
+
     padding: 4px 12px;
+    width: fit-content;
 
     background-color: var(--link-color);
     color: #FFFFFF;

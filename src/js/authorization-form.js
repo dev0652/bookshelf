@@ -68,7 +68,7 @@ window.addEventListener('keydown', evt => {
 refs.signUpModalEl.addEventListener('click', handleClickOnsingUpBackdrop);
 
 function handleClickOnsingUpBackdrop(evt) {
-  target = evt.target;
+  const target = evt.target;
 
   if (target === refs.signUpModalEl) {
     handleClickOnSingUpCloseBtn();
@@ -80,7 +80,7 @@ function handleClickOnsingUpBackdrop(evt) {
 refs.signInModalEl.addEventListener('click', handleClickOnsingInBackdrop);
 
 function handleClickOnsingInBackdrop(evt) {
-  target = evt.target;
+  const target = evt.target;
 
   if (target === refs.signInModalEl) {
     handleClickOnSingInCloseBtn();
