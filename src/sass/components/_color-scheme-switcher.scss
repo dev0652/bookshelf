@@ -1,14 +1,9 @@
 .color-scheme-switcher {
   display: inline-block;
-  position: relative;
-
-  position: absolute;
-  top: 15vmin;
-  right: 10vmin;
+  position: relative; // for slider positioning
 
   width: 40px;
   height: 20px;
-  // padding: 1px;
 }
 
 #color-scheme-switcher-checkbox {

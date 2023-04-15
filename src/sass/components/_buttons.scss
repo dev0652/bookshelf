@@ -7,18 +7,18 @@
 
   padding: 14px 28px;
 
-  color: black;
+  color: var(--text-color);
   background-color: transparent;
 
   @include transition-multiple(color, background-color, scale);
 
-  border: 2px solid $violet;
+  border: 2px solid var(--accent-primary);
   border-radius: 40px;
 
   &:hover,
   &:focus {
     color: white;
-    background-color: $violet;
+    background-color: var(--accent-primary);
   }
 }
 
