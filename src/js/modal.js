@@ -46,6 +46,15 @@ export function createModal(data) {
     buy_links: [amazon, apple, bandn, million, bookshop, indie],
   } = data;
 
+  const appleBooksIcon = new URL(
+    '../images/shops/apple-books.png',
+    import.meta.url
+  ).href;
+  const bookShopIcon = new URL('../images/shops/book-shop.png', import.meta.url)
+    .href;
+  const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
+    .href;
+
   return `
                         
               <img class="modal-img" src="${book_image}"/>
@@ -55,13 +64,13 @@ export function createModal(data) {
               <p class="modal-book-desc">${description}</p>
               <div class="modal-shops">
               <a class="modal-shop-link" href="${amazon_product_url}" target="_blank">
-              <img class="modal-shop-img amazon" src="../images/shops/amazon.png" alt="Amazon link"/>
+              <img class="modal-shop-img amazon" src="${amazonIcon}" alt="Amazon link"/>
               </a>
               <a class="modal-shop-link" href="${apple.url}" target="_blank">
-              <img class="modal-shop-img apple" src="./images/shops/apple-books.png" alt="Apple Books link" />
+              <img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" />
               </a>
               <a class="modal-shop-link" href="${bookshop.url}" target="_blank">
-              <img class="modal-shop-img" src="./images/shops/book-shop.png" alt="Book Shop link"/>
+              <img class="modal-shop-img" src="${bookShopIcon}" alt="Book Shop link"/>
               </a>
               </div>
               </div>
@@ -76,8 +85,10 @@ function toggleModal() {
 }
 
 // Close PopUp Modal by Close btn click
-refs.closeModalPopUpBtn.addEventListener('click', handleModalPopUpCloseBtnClick);
-
+refs.closeModalPopUpBtn.addEventListener(
+  'click',
+  handleModalPopUpCloseBtnClick
+);
 
 function handleModalPopUpCloseBtnClick(e) {
   toggleModal();
