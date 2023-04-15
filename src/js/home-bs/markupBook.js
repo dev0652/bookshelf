@@ -1,8 +1,6 @@
-export  const createBookMarkup =  (category)=> {
+export  const createBookMarkup =  (book)=> {
 
-    const markup =  category.map((book)=> {   
-   
-       return `
+    const markup =   `
        <li class="book-item">
        <img  src="${book.book_image}"  loading="lazy"  class="book-image"/>
        <h3 class="book-title">${book.title}</h3>
@@ -11,8 +9,7 @@ export  const createBookMarkup =  (category)=> {
         </li>`
        
     
-   }).join("");
+   return markup;
    
-    return markup;
    
    }
