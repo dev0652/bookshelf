@@ -3,6 +3,8 @@
 import getTopBooksArray from "./fetchBooks";
 import  {createBookMarkup}  from "./markupBook.js";
 
+
+
 // const booksListFirstEl = document.querySelector('.books-list__first');
 // const booksListSecEl = document.querySelector('.books-list__second');
 // const booksListThirdEl = document.querySelector('.books-list__third');
