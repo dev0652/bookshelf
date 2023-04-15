@@ -31,7 +31,7 @@
     "buffer": "^6.0.3",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
     "parcel-transformer-hbs": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
