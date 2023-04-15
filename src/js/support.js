@@ -32,4 +32,4 @@ const str = charities.map((element, index) => {
   return '<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>';
 });
 
-console.log(str);
+// console.log(str);
