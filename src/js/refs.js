@@ -38,7 +38,7 @@ export default function () {
     // Pop Up
     openModalPopUpBtn: document.querySelector('.open-modal-button'),
     closeModalPopUpBtn: document.querySelector('[data-pop-up-close]'),
-    // modalPopUpBtn: document.querySelector('.modal-pop-up-btn'),
+    modalPopUpBtn: document.querySelector('.modal-pop-up-btn'),
     modalPopUp: document.querySelector('[data-pop-up]'),
     modalContentEl: document.querySelector('.modal-pop-up-content'),
   };
