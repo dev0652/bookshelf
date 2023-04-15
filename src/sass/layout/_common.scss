@@ -1,5 +1,7 @@
 body {
   font-family: 'DM Sans', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .container {
@@ -10,4 +12,57 @@ body {
   //   margin-left: 215px;
   //   margin-right: 215px;
   // }
+}
+
+.page {
+  padding: 40px 20px 80px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 40px 32px 100px;
+
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 40px 24px;
+
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-bottom: 40px;
+
+  @media screen and (min-width: $tablet) {
+    flex-grow: 1;
+    padding-bottom: 60px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-grow: 1;
+  }
+}
+
+aside {
+  background-color: beige;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: column;
+    gap: 86px;
+  }
 }

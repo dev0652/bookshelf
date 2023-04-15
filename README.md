@@ -11,10 +11,12 @@ Original template: https://github.com/goitacademy/parcel-project-template
     Є модифікатори для довгої кнопки в модалці (button--popup) та кнопок логіну (button--login)
     
 3. Змінні лежать в <b>/utils/variables</b>
-4. Прохання вказувати як змінні:
+Прохання вказувати як змінні:
 - жирність шрифту
 - базові кольори
 - брейкпойнти
+
+4. Змінні для кольорів брати з <b>/sass/color-schemes/_light.scss</b>
 
 5. Для розрахунку flex-basis можна використовувати однойменний міксин (в <b>/utils/mixins</b>)
 
