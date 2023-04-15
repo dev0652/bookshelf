@@ -53,12 +53,17 @@
 
     cursor: pointer;
 
+//     @media screen and (min-width: $tablet) {
+//     &:focus .dropdown-menu {
+//         display: initial;
+//     }
+// }
+}
+
+.dropdown-menu.logout-menu {
     @media screen and (min-width: $tablet) {
-    &:focus .dropdown-menu {
-        display: initial;
-    }
-}
-}
+    display: initial;
+}}
 
 .dropdown-menu {
     position: absolute;

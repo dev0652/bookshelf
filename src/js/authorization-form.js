@@ -11,6 +11,7 @@ refs.openSignUpBtnSecondEl.addEventListener(
   handleClickOnSingUpSecondCloseBtn
 );
 refs.closeSignInBtnEl.addEventListener('click', handleClickOnSingInCloseBtn);
+refs.userBarMenu.addEventListener('click', openUserBarMenu);
 
 // Відкрити Sign up модалку
 function handleClickOnSingUpOpenBtn() {
@@ -20,11 +21,12 @@ function handleClickOnSingUpOpenBtn() {
 }
 
 // Закрити Sign up модалку
-function handleClickOnSingUpCloseBtn() {
+export function handleClickOnSingUpCloseBtn() {
   refs.signUpModalEl.classList.remove('open');
 }
 
 // Закрити Sign up і Sign in модалки при натисканні Esc
+
 window.addEventListener('keydown', evt => {
   if (evt.key === 'Escape') {
     refs.signUpModalEl.classList.remove('open');
@@ -56,6 +58,11 @@ function handleClickOnSingUpSecondCloseBtn() {
 // Закрити Sign in модалку
 function handleClickOnSingInCloseBtn() {
   refs.signUpModalEl.classList.remove('open');
+}
+
+
+function openUserBarMenu() {
+  refs.logOutMenu.classList.toggle('logout-menu');
 }
 
 // refs.openSignUpBtnEl.addEventListener('click', handleClickOnSingUpOpenBtn);
@@ -146,3 +153,4 @@ function handleClickOnSingInCloseBtn() {
 //     handleClickOnSingInCloseBtn();
 //   }
 // }
+

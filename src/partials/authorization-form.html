@@ -7,7 +7,7 @@
 </button>
 
 <!-- USER BAR for authorizated user -->
-<button class="user-block">
+<button class="user-block" id="userBarMenu">
   <svg class="userbar-btn__icon-user" width="35" height="35">
     <use href="./images/symbol-defs.svg#icon-user"></use>
   </svg>
@@ -15,9 +15,9 @@
   <svg class="userbar-btn__icon-arrow" width="22" height="25">
     <use href="./images/symbol-defs.svg#icon-arrow-down"></use>
   </svg>
-  <ul class="dropdown-menu">
+  <ul class="dropdown-menu" id="logOutMenu">
     <li>
-      <a href="#" class="dropdown-menu__text">Log out</a>
+      <a href="#" class="dropdown-menu__text" id="logOut">Log out</a>
       <svg class="dropdown-menu__icon userbar-btn__icon" width="20" height="20">
         <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
       </svg>
@@ -39,7 +39,7 @@
       </svg>
     </button>
 
-    <form class="modal-form" name="modal-form">
+    <form class="modal-form" name="modal-form" id="singUp">
       <div class="modal-form__input-field" id="name-input-wrapper">
         <input
           class="modal-form__input"
@@ -55,7 +55,7 @@
           class="modal-form__input"
           type="email"
           id="signup-user-email"
-          name="user-email"
+          name="user_email"
           placeholder="stephen14@mail.com"
         />
         <label for="user-email" class="modal-form__label">email</label>
@@ -68,7 +68,7 @@
           class="modal-form__input"
           type="password"
           id="signup-user-password"
-          name="user-password"
+          name="user_password"
           placeholder="stephenTheBest"
         />
         <label for="user-password" class="modal-form__label">password</label>
@@ -163,13 +163,14 @@
       </svg>
     </button>
 
-    <form class="modal-form" name="modal-form">
+    <form class="modal-form" name="modal-form" id="logIn">
       <div class="modal-form__input-field" id="mail-input-wrapper">
+
         <input
           class="modal-form__input"
           type="email"
           id="signin-user-email"
-          name="user-email"
+          name="user_email"
           placeholder="stephen14@mail.com"
         />
         <label for="user-email" class="modal-form__label">email</label>
@@ -182,7 +183,7 @@
           class="modal-form__input"
           type="password"
           id="signin-user-password"
-          name="user-password"
+          name="user_password"
           placeholder="stephenTheBest"
         />
         <label for="user-password" class="modal-form__label">password</label>
