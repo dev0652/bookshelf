@@ -99,8 +99,8 @@ parentEl.addEventListener('click', event => {
 // //   .getElementById('shop_Amazon')
 // //   .getAttribute('href');
 // // const bookAppleUrl = document
-// //   .getElementById('apple_Books')
-// //   .getAttribute('href');
+// .getElementById('apple_Books')
+// .getAttribute('href');
 // // const bookShopUrl = document.getElementById('bookshop').getAttribute('href');
 
 // const book = {
