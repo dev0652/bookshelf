@@ -29,7 +29,7 @@ export const getShoppingList = async () => {
   return response.data;
 };
 
-export const deleteBookShoping = async () => {
+export const deleteBookShopping = async () => {
   const uid = localStorage.getItem('uid');
   const parseUid = await JSON.parse(uid);
   const token = localStorage.getItem('token');
