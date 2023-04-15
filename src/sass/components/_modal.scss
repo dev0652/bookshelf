@@ -1,4 +1,8 @@
-.backdrop {
+.open-modal-button {
+  margin-top: 60px;
+}
+
+.backdrop-pop-up {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,13 +22,14 @@
   }
 }
 
-.modal {
+.modal-pop-up {
   /* position: relative; */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   padding: 40px 24px;
+  margin-top: 100px;
 
   width: 100%;
   max-width: 335px;
@@ -33,10 +38,14 @@
   background: #ffffff;
   border: 2px solid $blackish;
   border-radius: 18px;
-  /* @media screen and (min-width: 480px)  { */
 
-  /* transition: transform var(--timing-function); */
-  /* }  */
+  @media screen and (min-width: $tablet) {
+    max-width: 579px;
+    min-height: 465px;
+    padding: 40px;
+
+    // transition: transform var(--timing-function);
+  }
 }
 
 .close-button {
@@ -53,10 +62,31 @@
 
   /* background-color: transparent; */
   border: none;
+  @media screen and (min-width: $tablet) {
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .close-button__icon {
   fill: $blackish;
+}
+
+.modal-pop-up-content{
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+ 
+}
+
+.modal-book-atributes{
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-img {
@@ -65,6 +95,11 @@
   border-radius: 8px;
   margin-bottom: 14px;
   border: none;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 192px;
+    min-height: 281px;
+  }
 }
 
 .modal-book-title {
@@ -73,6 +108,11 @@
   line-height: 1.12;
   letter-spacing: -0.04em;
   color: $blackish;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 24px;
+    line-height: 1.17;
+  }
 }
 
 .modal-book-author {
@@ -83,16 +123,21 @@
   line-height: 1.17;
   letter-spacing: -0.04em;
   color: $gray;
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 1.29;
+  }
 }
+
 .modal-book-desc {
   margin-bottom: 14px;
   font-weight: $regular;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-
   color: $blackish;
 }
+
 .modal-shops {
   display: flex;
   justify-content: flex-start;
@@ -101,7 +146,9 @@
   margin-bottom: 40px;
 }
 
-.modal-btn {
+.modal-pop-up-btn {
+  margin-left: auto;
+  margin-right: auto;
   min-width: 211px;
   height: 46px;
   font-size: 14px;
@@ -118,4 +165,8 @@
   letter-spacing: -0.04em;
 
   color: rgba(17, 17, 17, 0.5);
+  @media screen and (min-width: $tablet) {
+    font-size: 12px;
+    line-height: 1.17;
+  }
 }

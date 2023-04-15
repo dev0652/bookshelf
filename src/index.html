@@ -78,6 +78,16 @@
       <button type="button" class="open-modal-button" data-open-popup>
         Open modal
       </button>
+      <!-- <div class="backdrop-modal is-hidden" data-modal>
+        <div class="modal">
+          <button class="close-button" data-modal-close aria-label="Close">
+            <svg class="close-button__icon">
+              <use href="./images/symbol-defs.svg#icon-x-close"></use>
+            </svg>
+          </button>
+          <button class="modal-btn button" type="button">add to shopping list</button>
+        </div>
+      </div> -->
       <!--  -->
       <include src="./partials/home-bs.html"></include>
 
@@ -86,15 +96,17 @@
       <!--  -->
       <include src="./partials/authorization-form.html"></include>
       <!--  -->
+      <!-- Modal -->
+    <include src="./partials/modal.html"></include>
     </main>
 
     <!-- Scroll to top button -->
     <include src="./partials/back-to-top.html"></include>
     
-    <!-- Modal -->
-    <include src="./partials/modal.html"></include>
+  
 
     <!-- ❗️move this to index.js later-->
     <script type="module" src="./js/home-bs/home-bs.js"></script>
+    
   </body>
 </html>
