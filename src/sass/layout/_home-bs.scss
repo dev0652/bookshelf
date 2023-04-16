@@ -9,7 +9,7 @@
   margin-bottom: 40px;
   margin-top: 40px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: ($tablet - 1)) {
     font-size: 32px;
     line-height: 38px;
   }
@@ -30,7 +30,7 @@
 
   margin-bottom: 18px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: ($tablet - 1)) {
     font-size: 14px;
     height: 18px;
   }
@@ -46,7 +46,7 @@
   display: flex;
   gap: 24px;
 
-  @media screen and(max-width: 767px) {
+  @media screen and(max-width: ($tablet - 1)) {
     flex-direction: column;
   }
 }
@@ -91,33 +91,35 @@
 
   margin-bottom: 32px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: ($tablet - 1)) {
     margin-bottom: 8px;
   }
 
-  @media screen and (min-width: $tablet) and(max-width: 1279px) {
+  @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
     margin-bottom: 20px;
   }
 }
 
 .see-more-btn {
   margin-left: auto;
-
-  text-align: right;
-
-  // position: absolute;
-
-  // right: 0px;
 }
 
-.book-item:nth-child(n + 2) {
-  @media screen and(max-width: 767px) {
-    display: none;
+.book-item {
+  @media screen and(max-width: ($tablet - 1)) {
+    &:nth-child(n + 2) {
+      display: none;
+    }
   }
-}
 
-.book-item:nth-child(n + 4) {
-  @media screen and(min-width: $tablet) and (max-width: 1279px) {
-    display: none;
+  @media screen and (max-width: ($desktop - 1)) {
+    &:nth-child(n + 4) {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: ($desktop-wide - 1)) {
+    &:nth-child(n + 5) {
+      display: none;
+    }
   }
 }
