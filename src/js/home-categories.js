@@ -1,8 +1,6 @@
 import getRefs from './refs';
 const { categoryListEl } = getRefs();
 
-import { renderCategories } from './renderCategoriesList';
-
 const titleEl = document.querySelector('.home-br__title');
 let lastWord = '';
 
@@ -22,5 +20,3 @@ function handleCategoryClick(event) {
 }
 
 categoryListEl.addEventListener('click', handleCategoryClick);
-
-renderCategories();

@@ -12,8 +12,10 @@ export default function () {
     // All categories button:
     allCategoriesBtn: document.querySelector('button[name="allcategories"]'),
 
-    //Categories list:
+    //Categories:
     categoryListEl: document.querySelector('.categories_list'),
+    categoryContainerEl: document.querySelector('.category-container'),
+    titleEl: document.querySelector('.home-br__title'),
 
     // Sign up
     openSignUpBtnEl: document.querySelector('#signUp-open-btn'),
