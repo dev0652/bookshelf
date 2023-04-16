@@ -1,9 +1,7 @@
 import axios from 'axios';
 import getRefs from './refs';
 
-export const categoryListEl = document.querySelector('.categories_list');
 const { categoryListEl } = getRefs();
-
 
 const categoriesArray = async () => {
   try {
