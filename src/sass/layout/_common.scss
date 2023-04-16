@@ -4,31 +4,43 @@ body {
   color: var(--text-color);
 }
 
-.page-container {
-  padding-left: $container-padding;
-  padding-right: $container-padding;
+.container {
+  // padding-left: $container-padding;
+  // padding-right: $container-padding;
 
-  @media screen and (min-width: $desktop) {
-    margin-left: 215px;
-    margin-right: 215px;
+  outline: 2px solid maroon;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: $mobile) {
+    width: $mobile;
   }
-}
-
-.page {
-  padding: 40px 20px 80px;
 
   @media screen and (min-width: $tablet) {
-    padding: 40px 32px 100px;
-
-    flex-direction: row;
-    gap: 32px;
+    width: $tablet;
   }
 
   @media screen and (min-width: $desktop) {
-    padding: 40px 24px;
+    width: $desktop;
+  }
 
-    display: flex;
-    flex-direction: row;
+  &.page-container {
+    padding: 40px 20px 80px;
+
+    @media screen and (min-width: $tablet) {
+      padding: 40px 32px 100px;
+
+      flex-direction: row;
+      gap: 32px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding: 40px 24px;
+
+      display: flex;
+      flex-direction: row;
+    }
   }
 }
 
