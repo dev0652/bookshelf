@@ -1,17 +1,20 @@
 /* paginations-slider for rendering books */
-const paginationsSlider = document.querySelector(".paginations-slider");
+// const paginationsSlider = document.querySelector(".paginations-slider");
 
 // container for created buttons paginations
-const paginationContainerPages = document.querySelector(".paginations__container-pages");
-const paginationContainerBackBtn = document.querySelector(".paginations__container-back");
-const paginationContainerEndBtn = document.querySelector(".paginations__container-end");
+// const paginationContainerPages = document.querySelector(".paginations__container-pages");
+// const paginationContainerBackBtn = document.querySelector(".paginations__container-back");
+// const paginationContainerEndBtn = document.querySelector(".paginations__container-end");
 
 // buttons paginations
-const startButton = document.querySelector("button[name='startButton']");
-const previousButton = document.querySelector("button[name='previousButton']");
-const nextButton = document.querySelector("button[name='nextButton']");
-const endButton = document.querySelector("button[name='endButton']");
+// const startButton = document.querySelector("button[name='startButton']");
+// const previousButton = document.querySelector("button[name='previousButton']");
+// const nextButton = document.querySelector("button[name='nextButton']");
+// const endButton = document.querySelector("button[name='endButton']");
 
+import getRefs from './js/refs';
+const { paginationsSlider, paginationContainerPages, paginationContainerBackBtn, paginationContainerEndBtn, startButton, previousButton, nextButton, endButton } = getRefs();
+ 
 
 
 // number of books per page in shoping list
