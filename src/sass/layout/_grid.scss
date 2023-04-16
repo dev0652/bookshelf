@@ -1,5 +1,5 @@
 .shopping__title {
-  font-family: 'DM Sans';
+  // font-family: 'DM Sans';
   // font-style: normal;
   font-weight: $bold;
   font-size: 32px;
@@ -7,7 +7,7 @@
 
   letter-spacing: -0.04em;
 
-  color: $blackish;
+  color: var(--text-color);
 
   margin-top: 100px;
   margin-bottom: 40px;
