@@ -50,6 +50,8 @@ export default function () {
     logOutMenu: document.getElementById('logOutMenu'),
     formLogIn: document.getElementById('logIn'),
 
+    // Shoping list
+    divEl: document.querySelector('.shopping__list'),
     // Paginations
     paginationsSlider: document.querySelector(".paginations-slider"),
     paginationContainerPages: document.querySelector(".paginations__container-pages"),
