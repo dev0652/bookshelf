@@ -1,2 +1,0 @@
-!function(){function t(t){t.preventDefault();var e=this.textContent,n=document.querySelector(".content h2");n.textContent=e;var o=e.split(" "),c=o[o.length-1],i=document.createElement("span");i.textContent=c,i.classList.add("last-word"),n.innerHTML=o.slice(0,-1).join(" ")+" ",n.appendChild(i)}document.querySelectorAll(".sidebar button").forEach((function(e){e.addEventListener("click",t)}))}();
-//# sourceMappingURL=index.4d0e0175.js.map

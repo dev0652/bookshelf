@@ -1,2 +1,0 @@
-function t(t){t.preventDefault();const e=this.textContent,n=document.querySelector(".content h2");n.textContent=e;const o=e.split(" "),c=o[o.length-1],l=document.createElement("span");l.textContent=c,l.classList.add("last-word"),n.innerHTML=o.slice(0,-1).join(" ")+" ",n.appendChild(l)}document.querySelectorAll(".sidebar button").forEach((e=>{e.addEventListener("click",t)}));
-//# sourceMappingURL=index.54b50096.js.map
