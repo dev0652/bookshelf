@@ -3,7 +3,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e0e0e0;
+  background: var(--scrollbar-bg-color);
   border-radius: 12px;
 }
 
