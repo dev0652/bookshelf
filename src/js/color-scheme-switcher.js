@@ -15,10 +15,9 @@ function updateLocalStorage(checkbox) {
 
 function presetSwitcher() {
   const isSaved = checkLocalStorage();
-
   if (!isSaved) return;
 
-  colorSwitcher.checked = isSaved ? true : false;
+  colorSwitcher.checked = isSaved === 'true' ? true : false;
 }
 
 function setSwitcher() {
@@ -31,18 +30,15 @@ function setSwitcher() {
 
 // #############################################################
 
-// Checkbox event handler
-function onChange(event) {
-  setSwitcher();
-  updateLocalStorage(event.currentTarget);
-}
-
-// #############################################################
-
-// Action!
+// Resulting function:
 export default function () {
   presetSwitcher();
   setSwitcher();
 
   colorSwitcher.addEventListener('change', onChange);
+}
+
+function onChange(event) {
+  setSwitcher();
+  updateLocalStorage(event.currentTarget);
 }
