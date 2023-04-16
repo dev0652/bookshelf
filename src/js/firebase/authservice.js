@@ -10,6 +10,7 @@ import {
 
 import { getShoppingList } from './firebaseservise';
 import getRefs from '../refs';
+import { userLogIn } from '../authorization-form';
 
 const refs = getRefs();
 
@@ -65,7 +66,6 @@ export function onLogin(email, password) {
       localStorage.setItem('uid', JSON.stringify(userUid));
       const displayName = userCredential.user.displayName;
       getShoppingList().then(shoppingList => {
-        console.log(shoppingList);
         if (shoppingList === null) {
           console.log('null');
           localStorage.setItem('list', null);

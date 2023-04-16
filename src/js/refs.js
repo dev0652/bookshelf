@@ -49,5 +49,6 @@ export default function () {
     userBarMenu: document.getElementById('userBarMenu'),
     logOutMenu: document.getElementById('logOutMenu'),
     formLogIn: document.getElementById('logIn'),
+    singUpBtn: document.querySelector('.userbar-btn'),
   };
 }

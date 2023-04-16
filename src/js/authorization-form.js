@@ -64,6 +64,16 @@ function openUserBarMenu() {
   refs.logOutMenu.classList.toggle('logout-menu');
 }
 
+export function userLogIn() {
+  refs.userBarMenu.classList.remove('user-out');
+  refs.singUpBtn.classList.add('user-in');
+}
+
+export function userLogOut() {
+  refs.userBarMenu.classList.add('user-out');
+  refs.singUpBtn.classList.remove('user-in');
+}
+
 // refs.openSignUpBtnEl.addEventListener('click', handleClickOnSingUpOpenBtn);
 // refs.closeSignUpBtnEl.addEventListener('click', handleClickOnSingUpCloseBtn);
 
