@@ -82,6 +82,8 @@ export async function renderTopBooks() {
   }
 }
 
+renderTopBooks();
+
 // fetchBooks()
 //  .then(data => {
 //    data.map(category => {
