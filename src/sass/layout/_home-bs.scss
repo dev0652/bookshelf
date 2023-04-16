@@ -52,8 +52,7 @@
 }
 
 .book-image {
-  border-radius: 8px;
-  margin-bottom: 14px;
+  object-fit: fill;
 
   min-width: 335px;
   height: 485px;
@@ -74,7 +73,7 @@
   font-weight: $bold;
   line-height: 18px;
   letter-spacing: -0.04em;
-  color: $blackish;
+  color: var(--text-color);
   max-width: 180px;
 
   margin-bottom: 4px;
@@ -97,6 +96,54 @@
 
   @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
     margin-bottom: 20px;
+  }
+}
+
+.book-item-thumb {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+.book-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 25%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--accent-secondary);
+
+  transform: translateY(100%);
+
+  @include transition(transform);
+
+  .book-item-link:hover &,
+  .book-item-link:focus & {
+    transform: translateY(0);
+  }
+}
+
+.book-image-overlay-text {
+  text-transform: uppercase;
+  color: $blackish;
+  font-size: 18px;
+  font-weight: $medium;
+
+  opacity: 0;
+  @include transition($property: opacity, $delay: 250ms);
+
+  .book-item-link:hover &,
+  .book-item-link:focus & {
+    opacity: 1;
   }
 }
 
