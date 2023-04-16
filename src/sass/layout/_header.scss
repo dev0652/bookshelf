@@ -10,11 +10,11 @@
 
   width: 100%;
 
+  @media screen and (min-width: $tablet) {
+    height: 72px;
+  }
+}
 
-@media screen and (min-width: $tablet) {
-  height: 72px;
-}
-}
 .page-heder-container {
   height: 72px;
   width: 100vw;

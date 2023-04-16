@@ -4,14 +4,14 @@ body {
   color: var(--text-color);
 }
 
-.container {
+.page-container {
   padding-left: $container-padding;
   padding-right: $container-padding;
 
-  // @media screen and (min-width: $desktop) {
-  //   margin-left: 215px;
-  //   margin-right: 215px;
-  // }
+  @media screen and (min-width: $desktop) {
+    margin-left: 215px;
+    margin-right: 215px;
+  }
 }
 
 .page {
@@ -50,8 +50,6 @@ body {
 }
 
 aside {
-  background-color: beige;
-
   display: flex;
   flex-direction: column;
   gap: 40px;

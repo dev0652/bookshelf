@@ -75,34 +75,27 @@
 
     <!-- Main -->
     <main class="content">
-      <button type="button" class="open-modal-button" data-open-popup>
+      <!-- ❗️Temp -->
+      <button type="button" class="button open-modal-button" data-open-popup>
         Open modal
       </button>
 
-      <!-- paginations slider -->
-      <include src="./partials/paginations.html"></include>
-
+      <!-- Page content -->
       <include src="./partials/home-bs.html"></include>
-
-      <!-- Home -- Category section -->
       <include src="./partials/home-categories.html"></include>
 
-      <!--  -->
-      <include src="./partials/back-to-top.html"></include>
-
-      <!--  -->
       <!-- Modal -->
       <include src="./partials/modal.html"></include>
-      <script type="module" src="/src/js/shopping-list.js"></script>
     </main>
 
-    <!-- Scroll to top button -->
+    <!-- Back to top button -->
     <include src="./partials/back-to-top.html"></include>
 
-    <!-- ❗️move this to index.js later-->
+    <!-- SCRIPTS -->
+    <!-- ❗️move to index.js -->
+    <script type="module" src="/src/js/shopping-list.js"></script>
     <script type="module" src="./js/home-bs/home-bs.js"></script>
     <script type="module" src="./js/home-categories.js"></script>
     <script type="module" src="./js/firebase/firebase.js"></script>
-
   </body>
 </html>
