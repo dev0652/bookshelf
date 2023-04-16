@@ -14,7 +14,9 @@ body {
 }
 
 .container {
-  // outline: 2px solid maroon;
+  outline: 2px solid maroon;
+
+  overflow: hidden;
 
   margin-left: auto;
   margin-right: auto;
@@ -29,6 +31,10 @@ body {
 
   @media screen and (min-width: $desktop) {
     width: $desktop;
+  }
+
+  @media screen and (min-width: $desktop-wide) {
+    width: $desktop-wide;
   }
 
   &.page-container {
@@ -80,5 +86,7 @@ aside {
   @media screen and (min-width: $desktop) {
     flex-direction: column;
     gap: 86px;
+
+    max-width: 356px;
   }
 }
