@@ -1,7 +1,9 @@
 import axios from 'axios';
 import getRefs from './refs';
 
+export const categoryListEl = document.querySelector('.categories_list');
 const { categoryListEl } = getRefs();
+
 
 const categoriesArray = async () => {
   try {
@@ -15,7 +17,7 @@ const categoriesArray = async () => {
   }
 };
 
-async function renderCategories() {
+export async function renderCategories() {
   try {
     const array = await categoriesArray();
     const inAlphabeticalOrder = array.sort((a, b) =>
