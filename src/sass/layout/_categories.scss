@@ -5,7 +5,6 @@
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-bg-color);
   border-radius: 12px;
-  height: 114px;
 }
 
 .categories {
@@ -14,6 +13,10 @@
   overflow: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
+
+  @media screen and (min-width: $tablet) {
+    height: 472px;
+  }
 }
 
 .categories_list {
@@ -43,6 +46,12 @@
 
   &:focus {
     outline: none;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 1.33;
   }
 }
 
