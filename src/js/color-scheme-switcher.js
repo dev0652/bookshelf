@@ -3,12 +3,12 @@ const { colorSwitcher } = getRefs();
 
 // Check if switcher position is saved in Local Storage
 function checkLocalStorage() {
-  return localStorage.getItem('saved switcher value');
+  return localStorage.getItem('dark-color-scheme');
 }
 
 // Save switcher position to Local Storage
 function updateLocalStorage(checkbox) {
-  localStorage.setItem('saved switcher value', checkbox.checked);
+  localStorage.setItem('dark-color-scheme', checkbox.checked);
 }
 
 // #############################################################
@@ -18,7 +18,7 @@ function presetSwitcher() {
 
   if (!isSaved) return;
 
-  colorSwitcher.checked = isSaved === 'true' ? true : false;
+  colorSwitcher.checked = isSaved ? true : false;
 }
 
 function setSwitcher() {

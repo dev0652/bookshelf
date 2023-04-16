@@ -1,6 +1,9 @@
 import axios from 'axios';
+import getRefs from './refs';
 
 export const categoryListEl = document.querySelector('.categories_list');
+const { categoryListEl } = getRefs();
+
 
 const categoriesArray = async () => {
   try {
@@ -22,10 +25,10 @@ export async function renderCategories() {
     );
 
     for (const arr of inAlphabeticalOrder) {
-      categoryListEl.insertAdjacentHTML(
-        'beforeend',
-        `<li><button type="button" class="category-btn">${arr.list_name}</button></li>`
-      );
+      const catBtn = document.createElement('button');
+      catBtn.classList.add('category-btn');
+      catBtn.textContent = `${arr.list_name}`;
+      categoryListEl.appendChild(catBtn);
     }
   } catch (error) {
     console.log(error);

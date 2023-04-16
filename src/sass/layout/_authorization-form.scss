@@ -23,6 +23,10 @@
     }
 }
 
+.userbar-btn.user-in {
+    display: none;
+}
+
 .userbar-btn__icon {
     fill: rgb(0, 0, 0);
 }
@@ -35,12 +39,13 @@
 .user-block {
     position: relative;
     float: left;
-    width: fit-content;
-    //
-        display: flex;
+    
+    display: flex;
     align-items: center;
     gap: 0;
+
     padding: 4px 12px;
+    width: fit-content;
 
     background-color: var(--link-color);
     color: #FFFFFF;
@@ -52,12 +57,21 @@
 
     cursor: pointer;
 
+//     @media screen and (min-width: $tablet) {
+//     &:focus .dropdown-menu {
+//         display: initial;
+//     }
+// }
+}
+
+.user-block.user-out {
+    display: none;
+}
+
+.dropdown-menu.logout-menu {
     @media screen and (min-width: $tablet) {
-    &:focus .dropdown-menu {
-        display: initial;
-    }
-}
-}
+    display: initial;
+}}
 
 .dropdown-menu {
     position: absolute;
@@ -138,12 +152,12 @@
     top: 50%;
     left: 50%;
 
-    background-color: var(--form-field-bg-color);
+    background-color: var(--form-background);
     // min-height: 384px;
     max-width: 335px;
     padding: 40px 20px 40px 20px;
 
-    border: 2px solid $blackish;
+    border: 2px solid var(--form-border);
     border-radius: 18px;
 
     cursor: default;
@@ -158,6 +172,10 @@
         padding: 80px 40px 40px 40px;
         max-width: 579px;
     }
+}
+
+#sign-in-modal-window {
+    display: none;
 }
 
 .modal__close-button {
@@ -176,7 +194,7 @@
 
     cursor: pointer;
 
-        &:hover .close-button__icon {
+        &:hover .close-button__x-icon {
             fill: var(--link-color);
         }
 
@@ -186,16 +204,16 @@
     }
 }
 
-.close-button__icon {
-    fill: currentColor;
-    height: 15px;
-    width: 15px;
+.close-button__x-icon {
+    fill: var(--form-border);
+    height: 20px;
+    width: 20px;
 
     transition: fill 300ms $transition-timing-function;
 
     @media screen and (min-width: $desktop) {
-        height: 23px;
-        width: 23px;
+        height: 28px;
+        width: 28px;
     }
 }
 
@@ -222,13 +240,13 @@
     height: 50px;
     background-color: transparent;
 
-    border: 2px solid $blackish;
+    border: 2px solid var(--form-border);
     border-radius: 40px;
 
     &::placeholder {
         opacity: 0;
         transition: opacity 250ms ease-in-out;
-        color: rgba(17, 17, 17, 0.6);
+        color: var(--form-toggle-color);
     }
 
     &:focus::placeholder {
@@ -303,18 +321,21 @@
     }
 }
 
-.modal-togle {
+.modal-toggle {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 14px;
 }
 
-.modal-togle__el {
-    background-color: transparent;
-    color: rgba(17, 17, 17, 0.5);
-    border: none;
+.modal-toggle--signIn {
+    display: none;
+}
 
+.modal-toggle__el {
+    background-color: transparent;
+    color: var(--form-toggle-color); 
+    border: none;
     font-weight: $bold;
     font-size: 14px;
     text-transform: uppercase;
@@ -329,7 +350,7 @@
     }
 }
 
-.modal-togle__el--current {
+.modal-toggle__el--current {
     text-decoration: underline;
     color: var(--link-color);
 }

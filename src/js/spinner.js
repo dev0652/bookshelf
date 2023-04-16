@@ -13,12 +13,13 @@ async function fetchData() {
     Notiflix.Loading.remove();
 
     // обработать данные
-    console.log(data);
+    Notiflix.Notify.success('Дякуємо за очикування!');
   } catch (error) {
     // скрыть спиннер в случае ошибки
     Notiflix.Loading.remove();
 
     // обработать ошибку
+    Notiflix.Notify.failure('Помилка. Спробуйте, ще раз.');
     console.error(error);
   }
 }

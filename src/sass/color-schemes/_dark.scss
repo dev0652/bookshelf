@@ -5,11 +5,7 @@ body.dark {
 
   /* Header */
   --header-bg-color: #{$blackish};
-  --header-border: 1.5px solid #FFFFFF;
   --logo-stroke-color: #{$logo-stroke-light};
-  --page-navigatio-text-color: #FFFFFF;
-  --navigation-link-text-color-active: #111111;
-  --navigation-link-color: #FFFFFF;
 
   /* Categories  list */
   --category-color: rgba(255, 255, 255, 0.6);
@@ -20,6 +16,9 @@ body.dark {
   --form-field-bg-color-focus: silver;
   --form-button-border-color: var(--accent-primary);
   --link-color: var(--accent-primary);
+  --form-background: #{$dark-gray};
+  --form-border: #{$milky};
+  --form-toggle-color: rgba(246, 246, 246, 0.5);
 
   /* Pagination (shopping list) */
   /* Pagination - Back button */

@@ -19,13 +19,15 @@
 @import './layout/support';
 @import './layout/categories';
 @import './layout/home-categories';
-
+@import './layout/grid';
 
 // Components
 @import './components/buttons';
 @import './components/back-to-top';
 @import './components/spinner';
 @import './components/color-scheme-switcher';
+@import './components/modal';
+@import './components/paginations';
 
 // Color schemes
 @import './color-schemes/light';

@@ -10,11 +10,7 @@ body {
 
   /* Header */
   --header-bg-color: white;
-  --header-border: 1.5px solid #111111;
   --logo-stroke-color: black;
-  --page-navigatio-text-color: #111111;
-  --navigation-link-color-active: #111111;
-  --navigation-link-color-active: #111111;
 
   /* Categories  list */
   --category-color: rgba(17, 17, 17, 0.6);
@@ -25,6 +21,9 @@ body {
   --form-field-bg-color-focus: White;
   --form-button-border-color: #{$blackish};
   --link-color: var(--accent-primary);
+  --form-background: #{$milky};
+  --form-border: #{$blackish};
+  --form-toggle-color: rgba(17, 17, 17, 0.5);
 
   /* Pagination (shopping list) */
   --circle-border-color: var(--text-color);

@@ -6,7 +6,8 @@ allCategoriesBtn.addEventListener('click', renderTopBooks);
 
 const topBooksListEl = document.querySelector('.topbooks');
 
-async function getTopBooksArray() {
+export async function getTopBooksArray() {
+
   try {
     const { data } = await axios.get(
       'https://books-backend.p.goit.global/books/top-books'
