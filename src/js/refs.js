@@ -1,6 +1,8 @@
 export default function () {
   return {
+    // Header
     header: document.querySelector('header'),
+    headerNavLinks: document.querySelectorAll('.page-navigation-link '),
 
     // Scroll to top:
     scrollToTopButton: document.querySelector('.back-to-top'),
