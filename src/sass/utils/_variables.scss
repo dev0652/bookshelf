@@ -9,12 +9,12 @@ $violet: #4f2ee8;
 $gold: #eac645;
 
 // Light theme
-body {
-  --background-color: #{$milky};
-  --text-color: #{$blackish};
-  --accent-color: #{$gold};
-  --logo-stroke-color: black;
-}
+// body {
+//   --background-color: #{$milky};
+//   --text-color: #{$blackish};
+//   --accent-color: #{$gold};
+//   --logo-stroke-color: black;
+// }
 
 // Dark theme
 // body.dark {
@@ -33,6 +33,7 @@ $bold: 700;
 $mobile: 375px;
 $tablet: 768px;
 $desktop: 1280px;
+$desktop-wide: 1440px;
 
 // Z-indexes
 $header-index: 1;

@@ -1,0 +1,249 @@
+.shopping__title {
+  // font-family: 'DM Sans';
+  // font-style: normal;
+  font-weight: $bold;
+  font-size: 32px;
+  line-height: calc(38 / 32);
+
+  letter-spacing: -0.04em;
+
+  color: var(--text-color);
+
+  margin-top: 100px;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 48px;
+    line-height: calc(52 / 48);
+  }
+}
+.shopping__title-span {
+  color: $violet;
+}
+
+.is-empty__info {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.6);
+
+  margin-left: 10.5px;
+  margin-right: 10.5px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    line-height: calc(24 / 18);
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+.is-empty__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 14px;
+
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 265px;
+  height: 248px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    line-height: calc(24 / 18);
+    margin-bottom: 20px;
+  }
+}
+article {
+  display: grid;
+
+  grid-template-columns: auto-fill;
+  grid-template-rows: auto-fill;
+  grid-column-gap: 10px;
+  grid-row-gap: 0;
+
+  position: relative;
+
+  width: 336px;
+  height: 362px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  border-radius: 16px;
+
+  @media screen and (min-width: $tablet) {
+    width: 704px;
+    height: 213px;
+    padding: 24px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 996px;
+    height: 213px;
+  }
+
+  .div1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    @media screen and (min-width: $tablet) {
+      grid-row-end: 4;
+    }
+  }
+  .div2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    @media screen and (min-width: $tablet) {
+      grid-column-end: 4;
+    }
+  }
+
+  .div3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+    @media screen and (min-width: $tablet) {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+  }
+
+  .div4 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+    @media screen and (min-width: $tablet) {
+      grid-column-start: 2;
+
+      display: flex;
+      align-items: end;
+    }
+  }
+
+  .div5 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    @media screen and (min-width: $tablet) {
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 3;
+      grid-row-end: 4;
+
+      display: flex;
+      justify-content: end;
+      align-items: end;
+    }
+  }
+}
+
+.shopping__card-title {
+  margin-bottom: 4px;
+
+  font-family: 'DM Sans';
+  font-weight: $bold;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+
+  color: $blackish;
+}
+
+.shopping__card-category {
+  font-family: 'DM Sans';
+  font-size: 12px;
+  line-height: calc(14 / 12);
+
+  letter-spacing: 0.03em;
+
+  color: $gray;
+}
+
+.shopping__card-author {
+  margin-top: 4px;
+
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+
+  letter-spacing: -0.04em;
+
+  color: $gray;
+}
+
+.shopping__card-description {
+  margin-top: 20px;
+
+  font-family: 'DM Sans';
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  letter-spacing: -0.04em;
+
+  color: $blackish;
+}
+
+.shopping__card-shoplist {
+  display: flex;
+  gap: 14px;
+  @media screen and (min-width: $tablet) {
+    gap: 16px;
+  }
+}
+
+.shopping__card-img {
+  width: 98px;
+  height: 139px;
+  border-radius: 8px;
+
+  @media screen and (min-width: $tablet) {
+    width: 116px;
+    height: 165px;
+  }
+}
+
+.shopping__card-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: $violet;
+
+  @media screen and (min-width: $tablet) {
+    top: 24px;
+    right: 24px;
+
+    width: 34px;
+    height: 34px;
+  }
+}
