@@ -1,64 +1,64 @@
-.support {    
-    padding: 24px 79px 24px 40px;
-    list-style-type: none;
-    width: 356px;
-    height: 490px;
-    background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, $violet 18.03%, #FFFFFF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-    border-radius: 16px;
+.support {
+  padding: 24px 79px 24px 40px;
+  list-style-type: none;
+  width: 356px;
+  height: 490px;
+  background: radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      $violet 18.03%,
+      #ffffff 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+  border-radius: 16px;
 }
 
 .head-title {
-    color:#FFFFFF;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 32px;
-    letter-spacing: -0.04em;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.04em;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.next{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-
+.next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
 }
 
-.icon-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
 }
-
 
 .support-index {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
 }
-
 
 .support-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 16px;
-    color:#FFFFFF;
-    filter:brightness(0) invert(1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+  color: #ffffff;
+  filter: brightness(0) invert(1);
 }
-

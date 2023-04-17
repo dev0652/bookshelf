@@ -1,356 +1,355 @@
 .userbar-btn {
-    display: flex;
-    gap: 90px;
-    align-items: center;
+  display: flex;
+  gap: 90px;
+  align-items: center;
 
-    padding: 14px;
-    width: fit-content;
-    border: 1.5px solid #111111;
-    border-radius: 18px;
+  padding: 14px;
+  width: fit-content;
+  border: 1.5px solid #111111;
+  border-radius: 18px;
 
-    background-color: var(--link-color);
-    color: #FFFFFF;
-    font-weight: $medium;
-    font-size: 14px;
+  background-color: var(--link-color);
+  color: #ffffff;
+  font-weight: $medium;
+  font-size: 14px;
 
-    cursor: pointer;
-    transition: background-color 500ms $transition-timing-function, color 200ms $transition-timing-function, border-color 200ms $transition-timing-function;
+  cursor: pointer;
+  transition: background-color 500ms $transition-timing-function,
+    color 200ms $transition-timing-function,
+    border-color 200ms $transition-timing-function;
 
-    &:hover {
-        background-color: var(--header-bg-color);
-        color: var(--text-color);
-        border-color: var(--accent-primary);
-    }
+  &:hover {
+    background-color: var(--header-bg-color);
+    color: var(--text-color);
+    border-color: var(--accent-primary);
+  }
 }
 
 .userbar-btn.user-in {
-    display: none;
+  display: none;
 }
 
 .userbar-btn__icon {
-    fill: rgb(0, 0, 0);
+  fill: rgb(0, 0, 0);
 }
 
 .userbar-btn__user-name {
-    margin-left: 9px;
-    margin-right: 4px;
+  margin-left: 9px;
+  margin-right: 4px;
 }
 
 .user-block {
-    position: relative;
-    float: left;
-    
-    display: flex;
-    align-items: center;
-    gap: 0;
+  position: relative;
+  float: left;
 
-    padding: 4px 12px;
-    width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0;
 
-    background-color: var(--link-color);
-    color: #FFFFFF;
-    font-weight: $bold;
-    font-size: 22px;
+  padding: 4px 12px;
+  width: fit-content;
 
-    border-color: transparent;
-    border-radius: 36px;
+  background-color: var(--link-color);
+  color: #ffffff;
+  font-weight: $bold;
+  font-size: 22px;
 
-    cursor: pointer;
+  border-color: transparent;
+  border-radius: 36px;
 
-//     @media screen and (min-width: $tablet) {
-//     &:focus .dropdown-menu {
-//         display: initial;
-//     }
-// }
+  cursor: pointer;
+
+  //     @media screen and (min-width: $tablet) {
+  //     &:focus .dropdown-menu {
+  //         display: initial;
+  //     }
+  // }
 }
 
 .user-block.user-out {
-    display: none;
+  display: none;
 }
 
 .dropdown-menu.logout-menu {
-    @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) {
     display: initial;
-}}
-
-.dropdown-menu {
-    position: absolute;
-    top: 44px;
-    left: 0;
-
-    width: 100%;
-    background-color: var(--header-bg-color);
-    border: 1.5px solid var(--text-color);
-    border-radius: 18px;
-
-    padding: 14px;
-    display: none;
-
-    cursor: pointer;
+  }
 }
 
+.dropdown-menu {
+  position: absolute;
+  top: 44px;
+  left: 0;
+
+  width: 100%;
+  background-color: var(--header-bg-color);
+  border: 1.5px solid var(--text-color);
+  border-radius: 18px;
+
+  padding: 14px;
+  display: none;
+
+  cursor: pointer;
+}
 
 .dropdown-menu li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .dropdown-menu__text {
-    color: var(--text-color);
+  color: var(--text-color);
 }
- 
+
 // ------ MODAL FORMS ------ //
 .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 
-    width: 100%;
-    height: 100%;
-    background-color: #4F2EE8;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-color: #4f2ee8;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
-    cursor: pointer;
-    z-index: 10;
-    overflow-y: scroll;
-    opacity: 0;
-    visibility: hidden;
+  cursor: pointer;
+  z-index: 10;
+  overflow-y: scroll;
+  opacity: 0;
+  visibility: hidden;
 
-    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &.open {
-        visibility: visible;
-        opacity: 1;
-    }
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
 
-    // modile screen
-    background-image: url(../images/authorization-form/overlay_mob.png);
+  // modile screen
+  background-image: url(../images/authorization-form/overlay_mob.png);
 
-    @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: url(../images/authorization-form/overlay_mob@2x.png);
-    }
+    background-image: url(../images/authorization-form/overlay_mob@2x.png);
+  }
 
-    // desktop screen
-    @media screen and (min-width: $desktop) {
-        background-image: url(../images/authorization-form/overlay_desk.png);
+  // desktop screen
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/authorization-form/overlay_desk.png);
 
     @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url(../images/authorization-form/overlay_desk@2x.png);
-        }
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/authorization-form/overlay_desk@2x.png);
     }
+  }
 }
 
 .modal {
-    position: relative;
-    top: 50%;
-    left: 50%;
+  position: relative;
+  top: 50%;
+  left: 50%;
 
-    background-color: var(--form-background);
-    // min-height: 384px;
-    max-width: 335px;
-    padding: 40px 20px 40px 20px;
+  background-color: var(--form-background);
+  // min-height: 384px;
+  max-width: 335px;
+  padding: 40px 20px 40px 20px;
 
-    border: 2px solid var(--form-border);
-    border-radius: 18px;
+  border: 2px solid var(--form-border);
+  border-radius: 18px;
 
-    cursor: default;
-    transform: translate(-50%, -50%) scale(0.2);
-    transition: transform 250ms ease-out;
+  cursor: default;
+  transform: translate(-50%, -50%) scale(0.2);
+  transition: transform 250ms ease-out;
 
-    .backdrop.open & {
-        transform: translate(-50%, -50%) scale(1);
-    }
+  .backdrop.open & {
+    transform: translate(-50%, -50%) scale(1);
+  }
 
-    @media screen and (min-width: $desktop) {
-        padding: 80px 40px 40px 40px;
-        max-width: 579px;
-    }
+  @media screen and (min-width: $desktop) {
+    padding: 80px 40px 40px 40px;
+    max-width: 579px;
+  }
 }
 
 #sign-in-modal-window {
-    display: none;
+  display: none;
 }
 
 .modal__close-button {
-    position: absolute;
-    top: 14px;
-    right: 14px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    border: none;
-    background-color: transparent;
+  border: none;
+  background-color: transparent;
 
-    
+  cursor: pointer;
 
-    cursor: pointer;
+  &:hover .close-button__x-icon {
+    fill: var(--link-color);
+  }
 
-        &:hover .close-button__x-icon {
-            fill: var(--link-color);
-        }
-
-    @media screen and (min-width: $desktop) {
-        top: 24px;
-        right: 24px;
-    }
+  @media screen and (min-width: $desktop) {
+    top: 24px;
+    right: 24px;
+  }
 }
 
 .close-button__x-icon {
-    fill: var(--form-border);
-    height: 20px;
-    width: 20px;
+  fill: var(--form-border);
+  height: 20px;
+  width: 20px;
 
-    transition: fill 300ms $transition-timing-function;
+  transition: fill 300ms $transition-timing-function;
 
-    @media screen and (min-width: $desktop) {
-        height: 28px;
-        width: 28px;
-    }
+  @media screen and (min-width: $desktop) {
+    height: 28px;
+    width: 28px;
+  }
 }
 
 .modal-form {
-    width: 295px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 
-    @media screen and (min-width: $desktop) {
-        width: 500px;
-        gap: 28px;
-    }
+  @media screen and (min-width: $desktop) {
+    width: 500px;
+    gap: 28px;
+  }
 }
 
 .modal-form__input-field {
-    position: relative;
+  position: relative;
 }
 
 .modal-form__input {
-    width: 100%;
-    padding-left: 24px;
-    padding-right: 42px;
-    height: 50px;
-    background-color: transparent;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 42px;
+  height: 50px;
+  background-color: transparent;
 
-    border: 2px solid var(--form-border);
-    border-radius: 40px;
+  border: 2px solid var(--form-border);
+  border-radius: 40px;
 
-    &::placeholder {
-        opacity: 0;
-        transition: opacity 250ms ease-in-out;
-        color: var(--form-toggle-color);
-    }
+  &::placeholder {
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+    color: var(--form-toggle-color);
+  }
 
-    &:focus::placeholder {
-        opacity: 1;
-    }
+  &:focus::placeholder {
+    opacity: 1;
+  }
 
-    @media screen and (min-width: $desktop) {
-        font-size: 18px;
-        height: 64px;
-    }
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+    height: 64px;
+  }
 }
 
 .modal-form__label {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 40px;
 
-    color: var(--text-color);
-    text-transform: uppercase;
-    font-weight: $bold;
-    font-size: 16px;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: $bold;
+  font-size: 16px;
 
-    user-select: none;
-    transition: transform 250ms ease-in-out;
+  user-select: none;
+  transition: transform 250ms ease-in-out;
 
-    .modal-form__input:focus+&,
-        .modal-form__input:not(:placeholder-shown)+& {
-        transform: translate(-15%, -255%) scale(0.9);
-    }
+  .modal-form__input:focus + &,
+  .modal-form__input:not(:placeholder-shown) + & {
+    transform: translate(-15%, -255%) scale(0.9);
+  }
 
-    @media screen and (min-width: $desktop) {
-        font-size: 18px;
-    }
-
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+  }
 }
 
 .modal-form__icon {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    fill: currentColor;
-    height: 18px;
-    width: 18px;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: currentColor;
+  height: 18px;
+  width: 18px;
 
-
-    @media screen and (min-width: $desktop) {
-        height: 28px;
-        width: 28px;
-    }
- }
+  @media screen and (min-width: $desktop) {
+    height: 28px;
+    width: 28px;
+  }
+}
 
 .modal-form__submit {
-    width: 100%;
-    background-color: var(--text-color);
-    color: var(--background-color);
-    cursor: pointer;
+  width: 100%;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  cursor: pointer;
 
-    text-transform: uppercase;
-    font-weight: $bold;
-    font-size: 16px;
+  text-transform: uppercase;
+  font-weight: $bold;
+  font-size: 16px;
 
-    padding-top: 16px;
-    padding-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 
-    border: none;
-    border-radius: 40px;
+  border: none;
+  border-radius: 40px;
 
-    @media screen and (min-width: $desktop) {
-            font-size: 18px;
-    }
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+  }
 }
 
 .modal-toggle {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 14px;
 }
 
 .modal-toggle--signIn {
-    display: none;
+  display: none;
 }
 
 .modal-toggle__el {
-    background-color: transparent;
-    color: var(--form-toggle-color); 
-    border: none;
-    font-weight: $bold;
-    font-size: 14px;
-    text-transform: uppercase;
-    transition: color 250ms ease-in-out;
+  background-color: transparent;
+  color: var(--form-toggle-color);
+  border: none;
+  font-weight: $bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: color 250ms ease-in-out;
 
-    &:hover {
-        color: var(--link-color);
-    }
+  &:hover {
+    color: var(--link-color);
+  }
 
-    @media screen and (min-width: $desktop) {
-        font-size: 18px;
-    }
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+  }
 }
 
 .modal-toggle__el--current {
-    text-decoration: underline;
-    color: var(--link-color);
+  text-decoration: underline;
+  color: var(--link-color);
 }
