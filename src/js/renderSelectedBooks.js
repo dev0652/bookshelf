@@ -29,20 +29,15 @@ async function fetchSelectedBooks(e) {
 async function renderPage(selectedBooks) {
   categoryContainerEl.innerHTML = '';
   const data = selectedBooks;
-
+  const selectedBookList = document.createElement('ul');
   try {
     for (const book of data) {
-      const selectedBookList = document.createElement('ul');
       const selectedBook = document.createElement('li');
 
-      selectedBook.innerHTML = `<img src="${
-        book.book_image
-      }" width="${`book.book_image_width`}" height="${
-        book.book_image_height
-      }" alt="bookcover" /><h3>${book.title}</h3><h4>${book.author}</h4>`;
-      categoryContainerEl.appendChild(selectedBookList);
+      selectedBook.innerHTML = `<img src="${book.book_image}" width="${book.book_image_width}" height="${book.book_image_height}" alt="bookcover of ${book.title}" /><h3>${book.title}</h3><h4>${book.author}</h4>`;
       selectedBookList.appendChild(selectedBook);
     }
+    categoryContainerEl.appendChild(selectedBookList);
   } catch (error) {
     console.log(error);
   }
