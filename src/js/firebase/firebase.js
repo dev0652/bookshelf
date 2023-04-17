@@ -10,10 +10,6 @@ import { deleteBookShopping, postShoppingList } from './firebaseservise';
 
 const refs = getRefs();
 
-localStorage.setItem('uid', null);
-localStorage.setItem('list', null);
-localStorage.setItem('token', null);
-
 refs.formSingUp.addEventListener('submit', onCreateUser);
 refs.formLogIn.addEventListener('submit', onLogIn);
 refs.logOut.addEventListener('click', onLogOutUser);
