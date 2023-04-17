@@ -2,17 +2,34 @@
 // ! Стас виніс твою змінну divEl до загального файлу refs.js для зручності, так як зможе у подальшому деструктуризувати її у своєму файлі і використовувати у своїх функціях
 // const divEl = document.querySelector('.shopping__list');
 import getRefs from './refs';
-import {activDisplayNoneOnElement} from './paginations';
+import { activDisplayNoneOnElement } from './paginations';
 
-const { divEl, paginationContainerPages, paginationContainerBackBtn, paginationContainerEndBtn } = getRefs();
+const {
+  divEl,
+  paginationContainerPages,
+  paginationContainerBackBtn,
+  paginationContainerEndBtn,
+} = getRefs();
 
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 
 // Рендер розмітки книг, які збережені у LS
 //!  Стас тут змінив функцію щоб вона приймала масив для рендеру, тому що при перемиканні сторінок, динамічно змінюється частина масиву, який у подальшому буде рендеритись
 
- export function renderMarkUp(array) {
-  return array.map(({ title, author, description, list_name }) => {
+export function renderMarkUp(array) {
+  return array
+    .map(({ title, author, description, list_name }) => {
+      const appleBooksIcon = new URL(
+        '../images/shops/apple-books.png',
+        import.meta.url
+      ).href;
+      const bookShopIcon = new URL(
+        '../images/shops/book-shop.png',
+        import.meta.url
+      ).href;
+      const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
+        .href;
+
       return `<article class="shopping__card">
   <div class="div1">
     <img
@@ -37,9 +54,9 @@ const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 
   <div class="div5">
     <ul class="shopping__card-shoplist">
-      <li class="store"><a href="">St1</a></li>
-      <li class="store"><a href="">St2</a></li>
-      <li class="store"><a href="">St3</a></li>
+      <li class="store"><a href=""><img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" /></a></li>
+      <li class="store"><a href=""><img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" /></a></li>
+      <li class="store"><a href=""><img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" /></a></li>
     </ul>
   </div>
   <button class="shopping__card-btn" type="button" data-book-name="${title}"><svg class="icon-trash" width="16" height="16"><use href="./src/images/symbol-defs.svg#icon-chevron"></use></svg>
@@ -49,11 +66,10 @@ const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
         `;
     })
     .join('');
-};
+}
 
-  export const shoppingList =
+export const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
-
 
 function isEmpty() {
   if (!shoppingList.length) {
@@ -89,7 +105,7 @@ parentEl.addEventListener('click', event => {
       // ! Ця частина коду проводить видалення розмітки кнопок пагінації
       activDisplayNoneOnElement(paginationContainerBackBtn);
       activDisplayNoneOnElement(paginationContainerEndBtn);
-      paginationContainerPages.innerHTML = "";
+      paginationContainerPages.innerHTML = '';
 
       divEl.innerHTML =
         '<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p></div>';
@@ -143,7 +159,6 @@ parentEl.addEventListener('click', event => {
 //   // Зберігаємо зміни в LocalStorage
 //   localStorage.setItem(SHOPPING_LIST_STORAGE_KEY, JSON.stringify(shoppingList));
 // }
-
 
 /* paginations-slider for rendering books */
 // const paginationsSlider = document.querySelector(".paginations-slider");
