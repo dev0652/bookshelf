@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from 'firebase/auth';
 
 import { getShoppingList } from './firebaseservise';
@@ -46,6 +47,9 @@ onAuthStateChanged(auth, user => {
 export function createUser(userEmail, userPassword, displayName) {
   createUserWithEmailAndPassword(auth, userEmail, userPassword, displayName)
     .then(userCredential => {
+      updateProfile(auth.currentUser, {
+        displayName,
+      });
       onUserLogin(userCredential, displayName);
     })
     .catch(error => {
