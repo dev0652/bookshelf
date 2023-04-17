@@ -44,6 +44,7 @@ async function renderPage(selectedBooks) {
 }
 
 async function renderSelectedBooks(e) {
+  let selectedBooks;
   const data = await fetchSelectedBooks(e);
   selectedBooks = data;
   renderPage(selectedBooks);
