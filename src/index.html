@@ -8,45 +8,11 @@
       name="description"
       content="Browse and shop for best books out there"
     />
-
     <title>Bookshelf</title>
-
     <!-- Favicon -->
-    <link
-      type="image/x-icon"
-      rel="shortcut icon"
-      href="./images/favicon/favicon.ico"
-    />
-    <link
-      type="image/png"
-      sizes="16x16"
-      rel="icon"
-      href="./images/favicon/favicon-16x16.png"
-    />
-    <link
-      type="image/png"
-      sizes="32x32"
-      rel="icon"
-      href="./images/favicon/favicon-32x32.png"
-    />
-    <link
-      type="image/png"
-      sizes="192x192"
-      rel="icon"
-      href="./images/favicon/android-chrome-192x192.png"
-    />
-    <link
-      type="image/png"
-      sizes="512x512"
-      rel="icon"
-      href="./images/favicon/android-chrome-512x512.png"
-    />
-    <link rel="apple-touch-icon" href="./images/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="./images/favicon/site.webmanifest" />
-
+    <include src="./partials/favicon.html"></include>
     <!-- CSS -->
     <link rel="stylesheet" href="./sass/index.scss" />
-
     <!-- JS -->
     <script type="module" src="./index.js"></script>
   </head>
@@ -54,7 +20,6 @@
   <body class="page">
     <!-- Header -->
     <include src="./partials/header.html"></include>
-
     <include src="./partials/burger-menu.html"></include>
 
     <!--Page -->
@@ -64,12 +29,17 @@
 
       <!-- Sidebar -->
       <aside class="sidebar">
+        <!--  -->
+        <!-- Book category selction menu -->
         <include src="./partials/categories.html"></include>
+
+        <!-- Support Ukraine -->
         <include src="./partials/support.html"></include>
       </aside>
 
       <!-- Main -->
       <main class="content">
+        <!-- Temp -->
         <button type="button" class="button open-modal-button" data-open-popup>
           Open modal
         </button>
@@ -86,15 +56,5 @@
         <!--  -->
       </main>
     </div>
-
-    <!-- ############################################## -->
-    <!-- SCRIPTS -->
-    <!-- ❗️move to index.js -->
-    <script type="module" src="/src/js/modal.js"></script>
-    <script type="module" src="./js/home-bs/home-bs.js"></script>
-    <script type="module" src="./js/home-categories.js"></script>
-    <script type="module" src="/src/js/support.js"></script>
-    <!-- <script type="module" src="./js/firebase/firebase.js"></script> -->
   </body>
 </html>
-
