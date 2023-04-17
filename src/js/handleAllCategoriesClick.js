@@ -1,6 +1,6 @@
-import { title } from 'process';
-import { renderTopBooks } from './home-bs/home-bs';
+// import { title } from 'process';
 import getRefs from './refs';
+import { renderTopBooks } from './home-bs/home-bs';
 
 const { allCategoriesBtn, categoryContainerEl, titleEl } = getRefs();
 
