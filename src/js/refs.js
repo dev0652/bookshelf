@@ -1,6 +1,8 @@
 export default function () {
   return {
+    // Header
     header: document.querySelector('header'),
+    headerNavLinks: document.querySelectorAll('.page-navigation-link '),
 
     // Scroll to top:
     scrollToTopButton: document.querySelector('.back-to-top'),
@@ -12,8 +14,10 @@ export default function () {
     // All categories button:
     allCategoriesBtn: document.querySelector('button[name="allcategories"]'),
 
-    //Categories list:
+    //Categories:
     categoryListEl: document.querySelector('.categories_list'),
+    categoryContainerEl: document.querySelector('.category-container'),
+    titleEl: document.querySelector('.home-br__title'),
 
     // Sign up
     openSignUpBtnEl: document.querySelector('#signUp-open-btn'),
@@ -61,5 +65,7 @@ export default function () {
     previousButton: document.querySelector("button[name='previousButton']"),
     nextButton: document.querySelector("button[name='nextButton']"),
     endButton: document.querySelector("button[name='endButton']"),
+
+    singUpBtn: document.querySelector('.userbar-btn'),
   };
 }

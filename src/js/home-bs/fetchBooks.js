@@ -1,32 +1,20 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
-// export default function fetchBooks(name) {
+export default async function getTopBooksArray() {
+  Notiflix.Loading.pulse('Please hang on...');
 
+  try {
+    const { data } = await axios.get(
+      'https://books-backend.p.goit.global/books/top-books'
+    );
+    Notiflix.Loading.remove();
 
-//       return axios.get(`https://books-backend.p.goit.global/books/top-books`)
-//       .then(response =>{
-      
+    return data;
+  } catch (error) {
+    Notiflix.Loading.remove();
 
-//         return response.data;
-        
-//       })
-//       .catch(err=> {
-//         console.log(err)
-//       })
-//     }
-  
-
-    // Vitalii Code
-    
-   export default async function getTopBooksArray() {
-      try {
-        const { data } = await axios.get(
-          'https://books-backend.p.goit.global/books/top-books'
-        );
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    
-   
+    console.log(error);
+    Notiflix.Notify.failure('Somethign went wrong. Please try again');
+  }
+}

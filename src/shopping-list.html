@@ -62,11 +62,15 @@
     <script type="module" src="/src/js/paginations.js"></script>
 
   </head>
-  <body>
-    <!-- ❗️Add partials like this for every page❗️ -->
-    <include src="./partials/header.html"></include>
+
+  <body class="page">
     <!--  -->
-    <main>
+    <!-- Header -->
+    <include src="./partials/header.html"></include>
+
+    <!--Page -->
+    <div class="container page-container">
+      <!-- Intersection observer target for scroll-up button -->
       <div class="to-top-target"></div>
       <!--  -->
       <include src="./partials/shopping-list.html"></include>
@@ -75,5 +79,32 @@
       <include src="./partials/back-to-top.html"></include>
       <!--  -->
     </main>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <include src="./partials/support.html"></include>
+      </aside>
+
+      <!-- Main -->
+      <main class="content">
+        <!--  -->
+        <!-- Shopping list content -->
+        <include src="./partials/shopping-list.html"></include>
+
+        <!-- Pagination -->
+        <include src="./partials/paginations.html"></include>
+
+        <!-- Back to top button -->
+        <include src="./partials/back-to-top.html"></include>
+        <!--  -->
+      </main>
+    </div>
+
+    <!-- ############################################## -->
+    <!-- SCRIPTS -->
+    <!-- ❗️move to index.js -->
+    <script type="module" src="/src/js/support.js"></script>
+    <script type="module" src="/src/js/shopping-list.js"></script>
+    <script type="module" src="./js/firebase/firebase.js"></script>
   </body>
 </html>

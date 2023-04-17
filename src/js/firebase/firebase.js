@@ -2,28 +2,29 @@ import getRefs from '../refs';
 import {
   handleClickOnSingInCloseBtn,
   handleClickOnSingUpCloseBtn,
+  userLogIn,
+  userLogOut,
 } from '../authorization-form';
 import { createUser, onLogOut, onLogin } from './authservice';
 import { deleteBookShopping, postShoppingList } from './firebaseservise';
 
 const refs = getRefs();
 
-console.log(refs.logOut);
-
 refs.formSingUp.addEventListener('submit', onCreateUser);
 refs.formLogIn.addEventListener('submit', onLogIn);
 refs.logOut.addEventListener('click', onLogOutUser);
 
-function onCreateUser(e) {
+async function onCreateUser(e) {
   e.preventDefault();
   const {
-    elements: { signup_user_name, user_email, user_password },
+    elements: { user_name, user_email, user_password },
   } = e.currentTarget;
-  const displayName = signup_user_name.value;
+  const displayName = user_name.value;
   const userEmail = user_email.value;
   const userPassword = user_password.value;
   e.currentTarget.reset();
-  createUser(userEmail, userPassword, displayName);
+  await createUser(userEmail, userPassword, displayName);
+  userLogIn();
   handleClickOnSingUpCloseBtn();
 }
 
@@ -32,9 +33,9 @@ async function onLogOutUser(e) {
   const localList = JSON.parse(localStorage.getItem('list'));
   if (localList) {
     await deleteBookShopping();
-    console.log(localList);
     postShoppingList(localList);
   }
+  userLogOut();
   onLogOut();
 }
 
@@ -46,6 +47,7 @@ function onLogIn(e) {
   const userEmail = user_email.value;
   const userPassword = user_password.value;
   e.currentTarget.reset();
+  userLogIn();
   onLogin(userEmail, userPassword);
   handleClickOnSingInCloseBtn();
 }

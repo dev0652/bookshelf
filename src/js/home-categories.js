@@ -1,22 +1,22 @@
-const sidebarLinks = document.querySelectorAll('.sidebar button');
+import getRefs from './refs';
+const { categoryListEl } = getRefs();
 
-sidebarLinks.forEach(link => {
-  link.addEventListener('click', insertHeader);
-});
+const titleEl = document.querySelector('.home-br__title');
+let lastWord = '';
 
-function insertHeader(event) {
-  event.preventDefault();
+function handleCategoryClick(event) {
+  if (event.target.classList.contains('category-btn')) {
+    const buttonText = event.target.textContent;
+    const words = buttonText.split(' ');
+    lastWord = words[words.length - 1];
+    const buttonTextWithoutLastWord = buttonText
+      .split(' ')
+      .slice(0, -1)
+      .join(' ');
 
-  const headerText = this.textContent;
-  const headerElement = document.querySelector('.content h2');
-
-  headerElement.textContent = headerText;
-
-  const words = headerText.split(' ');
-  const lastWord = words[words.length - 1];
-  const span = document.createElement('span');
-  span.textContent = lastWord;
-  span.classList.add('last-word');
-  headerElement.innerHTML = words.slice(0, -1).join(' ') + ' ';
-  headerElement.appendChild(span);
+    titleEl.textContent = buttonTextWithoutLastWord;
+    titleEl.innerHTML += ` <span class="home-bs__title-part">${lastWord}</span>`;
+  }
 }
+
+categoryListEl.addEventListener('click', handleCategoryClick);

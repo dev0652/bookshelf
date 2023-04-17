@@ -15,7 +15,7 @@ const categoriesArray = async () => {
   }
 };
 
-async function renderCategories() {
+export async function renderCategories() {
   try {
     const array = await categoriesArray();
     const inAlphabeticalOrder = array.sort((a, b) =>
@@ -23,10 +23,12 @@ async function renderCategories() {
     );
 
     for (const arr of inAlphabeticalOrder) {
+      const listItem = document.createElement('li');
       const catBtn = document.createElement('button');
       catBtn.classList.add('category-btn');
       catBtn.textContent = `${arr.list_name}`;
-      categoryListEl.appendChild(catBtn);
+      categoryListEl.appendChild(listItem);
+      listItem.appendChild(catBtn);
     }
   } catch (error) {
     console.log(error);

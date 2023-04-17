@@ -1,5 +1,6 @@
 .open-modal-button {
-  margin-top: 60px;
+  align-self: center;
+  background-color: $gold;
 }
 
 .backdrop-pop-up {
@@ -74,17 +75,16 @@
   fill: $blackish;
 }
 
-.modal-pop-up-content{
+.modal-pop-up-content {
   @media screen and (min-width: $tablet) {
     display: flex;
     justify-content: center;
     gap: 24px;
     margin-bottom: 40px;
   }
- 
 }
 
-.modal-book-atributes{
+.modal-book-atributes {
   display: flex;
   flex-direction: column;
 }

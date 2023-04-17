@@ -10,6 +10,7 @@ body.dark {
   /* Categories  list */
   --category-color: rgba(255, 255, 255, 0.6);
   --active-category-color: var(--accent-secondary);
+  --scrollbar-bg-color: #{rgba($blackish, 0.6)};
 
   /* Form */
   --form-field-bg-color: #9d9c9a;

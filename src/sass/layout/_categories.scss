@@ -1,9 +1,22 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-bg-color);
+  border-radius: 12px;
+}
+
 .categories {
   height: 228px;
   padding-right: 20px;
   overflow: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
+
+  @media screen and (min-width: $tablet) {
+    height: 472px;
+  }
 }
 
 .categories_list {
@@ -16,7 +29,7 @@
   border: none;
   text-align: left;
 
-  margin-top: 24px;
+  margin-bottom: 24px;
 
   font-size: 16px;
   line-height: 1.12;
@@ -33,6 +46,12 @@
 
   &:focus {
     outline: none;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 1.33;
   }
 }
 
