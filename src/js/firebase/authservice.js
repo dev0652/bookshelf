@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 import { getShoppingList } from './firebaseservise';
@@ -29,24 +30,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+const auth = getAuth();
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    userLogIn();
+    return (refs.userName.textContent = user.displayName);
+  } else {
+    console.log('User is signed out');
+  }
+});
+
 //Створення нового аккаунту
 
 export function createUser(userEmail, userPassword, displayName) {
-  const authCreate = getAuth();
-  createUserWithEmailAndPassword(
-    authCreate,
-    userEmail,
-    userPassword,
-    displayName
-  )
+  createUserWithEmailAndPassword(auth, userEmail, userPassword, displayName)
     .then(userCredential => {
-      const userUid = userCredential.user.uid;
-      const idToken = userCredential.user.accessToken;
-      const token = JSON.stringify(idToken);
-      const uid = JSON.stringify(userUid);
-      localStorage.setItem('token', token);
-      localStorage.setItem('uid', uid);
-      return (refs.userName.textContent = displayName);
+      onUserLogin(userCredential, displayName);
     })
     .catch(error => {
       const errorCode = error.code;
@@ -57,14 +57,10 @@ export function createUser(userEmail, userPassword, displayName) {
 //Log in
 
 export function onLogin(email, password) {
-  const authSign = getAuth();
-  signInWithEmailAndPassword(authSign, email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
-      const userUid = userCredential.user.uid;
-      const idToken = userCredential.user.accessToken;
-      localStorage.setItem('token', JSON.stringify(idToken));
-      localStorage.setItem('uid', JSON.stringify(userUid));
       const displayName = userCredential.user.displayName;
+      onUserLogin(userCredential, displayName);
       getShoppingList().then(shoppingList => {
         if (shoppingList === null) {
           console.log('null');
@@ -92,15 +88,24 @@ export function onLogin(email, password) {
 //Log out
 
 export function onLogOut() {
-  const auth = getAuth();
   signOut(auth)
     .then(() => {
       localStorage.setItem('uid', null);
       localStorage.setItem('token', null);
       localStorage.setItem('list', null);
+      localStorage.setItem('userName', null);
       return (refs.userName.textContent = '');
     })
     .catch(error => {
       console.log(error.message);
     });
+}
+
+function onUserLogin(userCredential, displayName) {
+  const userUid = userCredential.user.uid;
+  const idToken = userCredential.user.accessToken;
+  localStorage.setItem('token', JSON.stringify(idToken));
+  localStorage.setItem('uid', JSON.stringify(userUid));
+  localStorage.setItem('userName', displayName);
+  return (refs.userName.textContent = displayName);
 }
