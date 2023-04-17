@@ -11,8 +11,12 @@ const currentLink = document.location.href;
 const links = document.querySelectorAll('.page-navigation-link ');
 
 links.forEach(link => {
-  link.href ===
-  (document.location.href || document.location.origin + '/index.html')
-    ? link.classList.add('current')
-    : link.classList.remove('current');
+  if (
+    link.href === document.location.href ||
+    link.href === document.location.href + 'index.html'
+  ) {
+    link.classList.add('current');
+  } else {
+    link.classList.remove('current');
+  }
 });
