@@ -1,6 +1,6 @@
 import './js/home-bs/home-bs';
 
-// import './js/home-categories';
+import './js/home-categories';
 import './js/support';
 import './js/firebase/firebase';
 import './js/modal';
@@ -9,7 +9,7 @@ import './js/burger-mobile';
 import './js/renderCategoriesList';
 import './js/activeCatBtnSwitcher';
 import './js/handleAllCategoriesClick';
-// import './js/renderSelectedBooks';
+import './js/renderSelectedBooks';
 
 import './js/shopping-list';
 
