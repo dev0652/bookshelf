@@ -1,6 +1,5 @@
 export function createBookMarkup(book) {
   const markup = `
-       					<li class="book-item">
 						<a class="book-item-link" href="" aria-label="Book thumbnail">
 							<div class="book-item-thumb">
 
@@ -16,7 +15,7 @@ export function createBookMarkup(book) {
        					<p class="book-author"> ${book.author}</p>
 							</div>
 						</a>
-					</li>
+
         `;
 
   return markup;
