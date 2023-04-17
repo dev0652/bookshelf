@@ -1,6 +1,8 @@
 import getRefs from './js/refs';
 import headerHeightAdjust from './js/header-height-adjust';
 import { scrollToTop, toTopObserver } from './js/back-to-top';
+import './js/burger-mobile';
+
 import colorSwitcher from './js/color-scheme-switcher';
 // import { handleBookElClick } from './js/modal';
 
