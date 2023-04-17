@@ -6,13 +6,11 @@ export default function () {
   document.body.style.paddingTop = `${pageHeaderHeight}px`;
 }
 
-const currentLink = window.location.href;
+const currentLink = document.location.href;
 const links = document.querySelectorAll('.page-navigation-link ');
 
-for (let i = 0; i < links.length; i++) {
-  if (links[i].href === currentLink) {
-    links[i].classList.add('current');
-  } else {
-    links[i].classList.remove('currente');
-  }
-}
+links.forEach(link => {
+  link.href === currentLink
+    ? link.classList.add('current')
+    : link.classList.remove('current');
+});
