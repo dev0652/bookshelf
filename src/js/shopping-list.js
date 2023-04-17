@@ -1,8 +1,5 @@
-'use strict';
 // ! Стас виніс твою змінну divEl до загального файлу refs.js для зручності, так як зможе у подальшому деструктуризувати її у своєму файлі і використовувати у своїх функціях
-// const divEl = document.querySelector('.shopping__list');
 import getRefs from './refs';
-import { activDisplayNoneOnElement } from './paginations';
 
 const {
   divEl,
@@ -10,6 +7,8 @@ const {
   paginationContainerBackBtn,
   paginationContainerEndBtn,
 } = getRefs();
+
+import { activDisplayNoneOnElement } from './paginations';
 
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 
@@ -23,47 +22,68 @@ export function renderMarkUp(array) {
         '../images/shops/apple-books.png',
         import.meta.url
       ).href;
-      const bookShopIcon = new URL(
-        '../images/shops/book-shop.png',
-        import.meta.url
-      ).href;
-      const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
-        .href;
 
-      return `<article class="shopping__card">
-  <div class="div1">
-    <img
-      class="shopping__card-img"
-      src="https://picsum.photos/116/165"
-      alt=""
-    />
-  </div>
+      const shoppingItemMarkup = `
+        <article class="shopping__card">
+          <div class="div1">
+            <img
+              class="shopping__card-img"
+              src="https://picsum.photos/116/165"
+              alt=""
+            />
+          </div>
 
-  <div class="div2">
-    <h3 class="shopping__card-title">${title}</h3>
-    <p class="shopping__card-category">${list_name}</p>
-  </div>
+          <div class="div2">
+            <h3 class="shopping__card-title">${title}</h3>
+            <p class="shopping__card-category">${list_name}</p>
+          </div>
 
-  <div class="div3">
-    <p class="shopping__card-description">${description}</p>
-  </div>
+          <div class="div3">
+            <p class="shopping__card-description">${description}</p>
+          </div>
 
-  <div class="div4">
-    <p class="shopping__card-author">${author}</p>
-  </div>
+          <div class="div4">
+            <p class="shopping__card-author">${author}</p>
+          </div>
 
-  <div class="div5">
-    <ul class="shopping__card-shoplist">
-      <li class="store"><a href=""><img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" /></a></li>
-      <li class="store"><a href=""><img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" /></a></li>
-      <li class="store"><a href=""><img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" /></a></li>
-    </ul>
-  </div>
-  <button class="shopping__card-btn" type="button" data-book-name="${title}"><svg class="icon-trash" width="16" height="16"><use href="./src/images/symbol-defs.svg#icon-chevron"></use></svg>
-  </button>
-</article>
+          <div class="div5">
+            <ul class="shopping__card-shoplist">
+              <li class="store">
+                <a href=""
+                  ><img
+                    class="modal-shop-img apple"
+                    src="${appleBooksIcon}"
+                    alt="Apple Books link"
+                /></a>
+              </li>
+              <li class="store">
+                <a href=""
+                  ><img
+                    class="modal-shop-img apple"
+                    src="${appleBooksIcon}"
+                    alt="Apple Books link"
+                /></a>
+              </li>
+              <li class="store">
+                <a href=""
+                  ><img
+                    class="modal-shop-img apple"
+                    src="${appleBooksIcon}"
+                    alt="Apple Books link"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <button class="shopping__card-btn" type="button" data-book-name="${title}">
+            <svg class="icon-trash" width="16" height="16">
+              <use href="./src/images/symbol-defs.svg#icon-chevron"></use>
+            </svg>
+          </button>
+        </article>
 
         `;
+
+      return shoppingItemMarkup;
     })
     .join('');
 }
@@ -71,7 +91,7 @@ export function renderMarkUp(array) {
 export const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 
-function isEmpty() {
+export function isEmpty() {
   if (!shoppingList.length) {
     divEl.innerHTML =
       '<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p></div>';
@@ -101,6 +121,7 @@ parentEl.addEventListener('click', event => {
     );
 
     divEl.innerHTML = renderMarkUp(shoppingList);
+
     if (!shoppingList.length) {
       // ! Ця частина коду проводить видалення розмітки кнопок пагінації
       activDisplayNoneOnElement(paginationContainerBackBtn);

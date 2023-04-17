@@ -19,6 +19,9 @@ export default function () {
     categoryContainerEl: document.querySelector('.category-container'),
     titleEl: document.querySelector('.home-br__title'),
 
+    // Support Ukraine
+    supportUkraineCnt: document.querySelector('.support-list'),
+
     // Sign up
     openSignUpBtnEl: document.querySelector('#signUp-open-btn'),
     signUpModalEl: document.querySelector('#sign-up-modal'),
@@ -57,10 +60,16 @@ export default function () {
     // Shoping list
     divEl: document.querySelector('.shopping__list'),
     // Paginations
-    paginationsSlider: document.querySelector(".paginations-slider"),
-    paginationContainerPages: document.querySelector(".paginations__container-pages"),
-    paginationContainerBackBtn: document.querySelector(".paginations__container-back"),
-    paginationContainerEndBtn: document.querySelector(".paginations__container-end"),
+    paginationsSlider: document.querySelector('.paginations-slider'),
+    paginationContainerPages: document.querySelector(
+      '.paginations__container-pages'
+    ),
+    paginationContainerBackBtn: document.querySelector(
+      '.paginations__container-back'
+    ),
+    paginationContainerEndBtn: document.querySelector(
+      '.paginations__container-end'
+    ),
     startButton: document.querySelector("button[name='startButton']"),
     previousButton: document.querySelector("button[name='previousButton']"),
     nextButton: document.querySelector("button[name='nextButton']"),
