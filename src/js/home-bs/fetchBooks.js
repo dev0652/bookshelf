@@ -2,7 +2,7 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 
 export default async function getTopBooksArray() {
-  Notiflix.Loading.pulse('Please hang on...');
+  // Notiflix.Loading.pulse('Please hang on...');
 
   try {
     const { data } = await axios.get(
