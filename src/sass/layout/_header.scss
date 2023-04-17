@@ -24,7 +24,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible;
 
     @media screen and (max-width: ($tablet - 1)) {
       justify-content: space-between;
