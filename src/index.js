@@ -1,5 +1,6 @@
 import getRefs from './js/refs';
 import { scrollToTop, toTopObserver } from './js/back-to-top';
+import './js/burger-mobile';
 
 // ##################################################################
 
