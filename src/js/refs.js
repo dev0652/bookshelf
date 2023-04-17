@@ -12,7 +12,7 @@ export default function () {
     colorSwitcher: document.querySelector('#color-scheme-switcher-checkbox'),
 
     // All categories button:
-    allCategoriesBtn: document.querySelector('button[name="allcategories"]'),
+    allCategoriesBtn: document.querySelector('button[name=allcategories]'),
 
     //Categories:
     categoryListEl: document.querySelector('.categories_list'),
