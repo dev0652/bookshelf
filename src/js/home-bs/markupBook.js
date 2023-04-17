@@ -1,4 +1,4 @@
-export const createBookMarkup = book => {
+export function createBookMarkup(book) {
   const markup = `
        					<li class="book-item">
 						<a class="book-item-link" href="" aria-label="Book thumbnail">
@@ -20,4 +20,4 @@ export const createBookMarkup = book => {
         `;
 
   return markup;
-};
+}

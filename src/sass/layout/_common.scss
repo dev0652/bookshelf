@@ -56,23 +56,6 @@ body {
   }
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding-bottom: 40px;
-
-  @media screen and (min-width: $tablet) {
-    flex-grow: 1;
-    padding-bottom: 60px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    flex-grow: 1;
-  }
-}
-
 aside {
   display: flex;
   flex-direction: column;
@@ -88,5 +71,22 @@ aside {
     gap: 86px;
 
     max-width: 356px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+
+  padding-bottom: 40px;
+
+  @media screen and (min-width: $tablet) {
+    flex-grow: 1;
+    padding-bottom: 60px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-grow: 1;
   }
 }
