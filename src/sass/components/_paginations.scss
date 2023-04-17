@@ -25,6 +25,7 @@
     margin-right: 24px;
 }
 
+
 .paginations__btn {
     width: 44px;
     height: 44px;
@@ -58,6 +59,17 @@
     &:first-child{
         margin: 0px;
     }
+}
+
+.paginations__btn--pages--dark-theme {
+        border:  #FFFFFF;
+        color:#FFFFFF;
+
+        &:focus{
+            background-color: #FFFFFF;
+            color: black;
+        }
+
 }
 
 
