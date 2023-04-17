@@ -58,6 +58,9 @@
 
     <!-- JS -->
     <script type="module" src="./index.js"></script>
+    <script type="module" src="/src/js/shopping-list.js"></script>
+    <script type="module" src="/src/js/paginations.js"></script>
+
   </head>
 
   <body class="page">
@@ -69,6 +72,13 @@
     <div class="container page-container">
       <!-- Intersection observer target for scroll-up button -->
       <div class="to-top-target"></div>
+      <!--  -->
+      <include src="./partials/shopping-list.html"></include>
+      <include src="./partials/paginations.html"></include>
+      <!--  -->
+      <include src="./partials/back-to-top.html"></include>
+      <!--  -->
+    </main>
 
       <!-- Sidebar -->
       <aside class="sidebar">
