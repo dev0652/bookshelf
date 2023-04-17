@@ -68,7 +68,7 @@ export function onLogin(email, password) {
       getShoppingList().then(shoppingList => {
         if (shoppingList === null) {
           console.log('null');
-          localStorage.setItem('list', null);
+          localStorage.setItem('storage-of-books', null);
           return;
         }
         const books = Object.keys(shoppingList);
@@ -78,7 +78,7 @@ export function onLogin(email, password) {
         }
         list.map(el => {
           const listJson = JSON.stringify(el);
-          localStorage.setItem('list', listJson);
+          localStorage.setItem('storage-of-books', listJson);
         });
       });
       return (refs.userName.textContent = displayName);
@@ -96,7 +96,7 @@ export function onLogOut() {
     .then(() => {
       localStorage.setItem('uid', null);
       localStorage.setItem('token', null);
-      localStorage.setItem('list', null);
+      localStorage.setItem('storage-of-books', null);
       localStorage.setItem('userName', null);
       return (refs.userName.textContent = '');
     })
