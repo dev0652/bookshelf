@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 
 async function fetchData() {
-  Notiflix.Loading.pulse('Зачекайте...');
+  Notiflix.Loading.pulse('Please hang on...');
 
   try {
     const response = await fetch('');
@@ -24,4 +24,4 @@ async function fetchData() {
   }
 }
 // вызвать функцию для выполнения запроса
-fetchData();
+// fetchData();
