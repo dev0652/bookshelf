@@ -13,8 +13,7 @@ export default async function getTopBooksArray() {
     return data;
   } catch (error) {
     Notiflix.Loading.remove();
-
-    console.log(error);
     Notiflix.Notify.failure('Somethign went wrong. Please try again');
+    console.log(error);
   }
 }
