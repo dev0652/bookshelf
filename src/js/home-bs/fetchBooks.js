@@ -2,7 +2,7 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 
 export default async function getTopBooksArray() {
-  // Notiflix.Loading.pulse('Please hang on...');
+  Notiflix.Loading.pulse('Please hang on...');
 
   try {
     const { data } = await axios.get(
@@ -13,7 +13,7 @@ export default async function getTopBooksArray() {
     return data;
   } catch (error) {
     Notiflix.Loading.remove();
-    Notiflix.Notify.failure('Somethign went wrong. Please try again');
+    Notiflix.Notify.failure('Something went wrong. Please try again');
     console.log(error);
   }
 }

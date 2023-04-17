@@ -37,7 +37,8 @@
   font-weight: $regular;
 
   color: var(--category-color);
-  @include transition-multiple(color, font-weight);
+
+  transition: color 200ms, font-weight 200ms;
 
   &:hover,
   &:focus {
@@ -59,4 +60,9 @@
   text-transform: uppercase;
   color: var(--active-category-color);
   font-weight: $bold;
+
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
