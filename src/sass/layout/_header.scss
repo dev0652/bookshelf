@@ -73,6 +73,7 @@
 .page-navigation-list {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 @media screen and (max-width: 767px) {
   .page-navigation-list {
