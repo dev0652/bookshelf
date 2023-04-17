@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -58,23 +58,50 @@
 
     <!-- JS -->
     <script type="module" src="./index.js"></script>
+    <script type="module" src="/src/js/support.js"></script>
   </head>
-  <body>
-    <!-- ❗️Add partials like this for every page❗️ -->
-    <include src="./partials/header.html"></include>
+  <body class="page">
     <!--  -->
-    <main>
+    <!-- Header -->
+    <include src="./partials/header.html"></include>
+
+    <!--Page -->
+    <div class="container page-container">
+      <!-- Intersection observer target for scroll-up button -->
       <div class="to-top-target"></div>
-      <!--  -->
-      <include src="./partials/home.html"></include>
 
-       <!-- Home best-sellers section -->
-      <include src="./partials/home-bs.html"></include>
+      <!-- Sidebar -->
+      <aside id="">
+        <include src="./partials/categories.html"></include>
+        <include src="./partials/support.html"></include>
+      </aside>
 
-      <!--  -->
+      <!-- Main -->
+      <main class="content">
+        <!-- ❗️Temp -->
+        <button type="button" class="button open-modal-button" data-open-popup>
+          Open modal
+        </button>
+
+        <!-- Page content -->
+        <include src="./partials/home-bs.html"></include>
+        <include src="./partials/home-categories.html"></include>
+
+        <!-- Modal -->
+        <include src="./partials/modal.html"></include>
+      </main>
+
+      <!-- Back to top button -->
       <include src="./partials/back-to-top.html"></include>
       <!--  -->
-    </main>
+    </div>
+
+    <!-- ############################################## -->
+    <!-- SCRIPTS -->
+    <!-- ❗️move to index.js -->
+    <script type="module" src="/src/js/shopping-list.js"></script>
     <script type="module" src="./js/home-bs/home-bs.js"></script>
+    <script type="module" src="./js/home-categories.js"></script>
+    <script type="module" src="./js/firebase/firebase.js"></script>
   </body>
 </html>

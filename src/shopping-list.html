@@ -46,28 +46,37 @@
     <link rel="manifest" href="./images/favicon/site.webmanifest" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
-    />
+    /> -->
 
     <!-- CSS -->
     <link rel="stylesheet" href="./sass/index.scss" />
 
     <!-- JS -->
     <script type="module" src="./index.js"></script>
+    <script type="module" src="/src/js/shopping-list.js"></script>
   </head>
   <body>
     <!-- ❗️Add partials like this for every page❗️ -->
     <include src="./partials/header.html"></include>
-    <!--  -->
+
+    <!-- Sidebar -->
+    <aside id="">
+      <include src="./partials/categories.html"></include>
+      <include src="./partials/support.html"></include>
+    </aside>
+
     <main>
       <div class="to-top-target"></div>
-      <!--  -->
+      <!-- Shopping list content -->
       <include src="./partials/shopping-list.html"></include>
-      <!--  -->
+      <!-- Pagination -->
+      <include src="./partials/paginations.html"></include>
+      <!-- Back to top button -->
       <include src="./partials/back-to-top.html"></include>
       <!--  -->
     </main>
