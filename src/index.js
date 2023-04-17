@@ -8,6 +8,7 @@ import './js/burger-mobile';
 import './js/renderCategoriesList';
 import './js/activeCatBtnSwitcher';
 import './js/handleAllCategoriesClick';
+// import './js/renderSelectedBooks';
 
 import headerHeightAdjust from './js/header-height-adjust';
 import { scrollToTop, toTopObserver } from './js/back-to-top';
