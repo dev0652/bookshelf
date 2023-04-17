@@ -28,6 +28,16 @@
     @media screen and (max-width: ($tablet - 1)) {
       justify-content: space-between;
     }
+
+    padding: 0 20px;
+
+    @media screen and (min-width: $tablet) {
+      padding: 0 32px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding: 0 24px;
+    }
   }
 }
 
