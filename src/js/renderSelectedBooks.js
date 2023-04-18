@@ -9,7 +9,8 @@ async function fetchSelectedBooks(e) {
   if (e.target.nodeName !== 'BUTTON') {
     return;
   }
-  Notiflix.Loading.pulse('Please hang on...');
+  // Notiflix.Loading.pulse('Please hang on...');
+  Notiflix.Loading.dots('Please wait');
 
   const clickedCategory = e.target.textContent;
 
