@@ -1,5 +1,19 @@
+
 import getRefs from './js/refs';
 const refs = getRefs();
+import './js/home-bs/home-bs';
+
+import './js/home-categories';
+import './js/support';
+import './js/firebase/firebase';
+import './js/modal';
+import './js/burger-mobile';
+
+import './js/renderCategoriesList';
+import './js/activeCatBtnSwitcher';
+import './js/handleAllCategoriesClick';
+import './js/renderSelectedBooks';
+
 
 import './js/header-height-adjust';
 
@@ -22,7 +36,7 @@ import './js/activeCatBtnSwitcher';
 // // import { handleBookElClick } from './js/modal';
 
 // // Best Seller Books
-import './js/home-bs/home-bs';
+// import './js/home-bs/home-bs';
 
 // Modal window
 // import './js/modal';
