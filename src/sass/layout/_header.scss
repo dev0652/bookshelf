@@ -46,10 +46,10 @@
   align-items: center;
   height: 28px;
   gap: 8px;
-    @media screen and (min-width: $tablet) and(max-width: ($desktop - 1)) {
+  @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
     margin-right: 16px;
   }
-  @media screen and (min-width:$desktop) {
+  @media screen and (min-width: $desktop) {
     margin-right: 83px;
   }
 }
@@ -81,14 +81,13 @@
   color: $blackish;
 }
 
-.navigation-link-shopping{
+.navigation-link-shopping {
   gap: 4px;
- 
 }
 
 .navigation-link-shopping.current {
   gap: 8px;
-  }
+}
 
 .page-navigation-link-icon.current {
   fill: currentColor;
@@ -124,14 +123,12 @@
 .page-navigation-list {
   display: flex;
   align-items: center;
-@media screen and (max-width: 767px) {
-  
+  @media screen and (max-width: 767px) {
     display: none;
   }
-@media screen and (min-width: $desktop ) {
+  @media screen and (min-width: $desktop) {
     gap: 8px;
   }
-
 }
 
 .page-navigation-list-last {
@@ -163,5 +160,3 @@
     gap: 8px;
   }
 }
-
-
