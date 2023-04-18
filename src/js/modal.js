@@ -79,7 +79,6 @@ addBtnEL.addEventListener('click', handleBookElClickToStorage);
 // ----------------------------------------////
 
 export async function handleBookElClick(e) {
-
   BookAPI.bookID = e.target.attributes.data_id.value;
 
   try {
@@ -143,12 +142,12 @@ export function createModal(data) {
           `;
 }
 
-refs.categoryContainerEl.addEventListener("click", function(e) {
-	// e.target was the clicked element
-  if (e.target.matches(".book-image")) {
+refs.categoryContainerEl.addEventListener('click', function (e) {
+  // e.target was the clicked element
+  if (e.target.matches('.book-image')) {
     e.preventDefault();
     handleBookElClick(e);
-	}
+  }
 });
 
 // refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
@@ -169,17 +168,23 @@ function handleModalPopUpCloseBtnClick(e) {
 }
 
 // Close PopUp Modal by Esc click
-window.addEventListener('keydown', e => {
+window.addEventListener('keydown', handleEscKeydown);
+
+function handleEscKeydown(e) {
   if (e.key === 'Escape') {
     toggleModal();
   }
-});
+}
+
+window.removeEventListener('keydown', handleEscKeydown);
 
 // Close PopUp Modal by backdrop click
-window.onclick = function (event) {
-  if (event.target == refs.modalPopUp) {
+window.addEventListener('click', handleBackdropClick);
+
+function handleBackdropClick(e) {
+  if (e.target == refs.modalPopUp) {
     toggleModal();
   }
-};
+}
 
-
+window.removeEventListener('click', handleBackdropClick);
