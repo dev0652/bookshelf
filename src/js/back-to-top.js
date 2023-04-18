@@ -14,6 +14,9 @@ function cb(entries) {
 }
 
 export function scrollToTop() {
+  if (e.target.nodeName !== 'BUTTON') {
+    return;
+  }
   window.scroll({
     top: 0,
     behavior: 'smooth',

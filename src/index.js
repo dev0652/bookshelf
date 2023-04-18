@@ -5,9 +5,9 @@ import './js/spinner.js';
 import './js/home-bs/home-bs';
 
 // Sidebar
-import './js/home-categories';
 import './js/renderCategoriesList';
 import './js/activeCatBtnSwitcher';
+import './js/home-categories';
 import './js/handleAllCategoriesClick';
 import './js/support';
 
