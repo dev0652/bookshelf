@@ -31,7 +31,7 @@ function setSwitcher() {
 // #############################################################
 
 // Resulting function:
-export default function () {
+export function activateColorSchemeSwitcher() {
   presetSwitcher();
   setSwitcher();
 
@@ -42,3 +42,8 @@ function onChange(event) {
   setSwitcher();
   updateLocalStorage(event.currentTarget);
 }
+
+// #############################################################
+
+// Call the resulting function
+activateColorSchemeSwitcher();
