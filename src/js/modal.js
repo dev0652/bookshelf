@@ -166,6 +166,9 @@ function handleModalPopUpCloseBtnClick(e) {
   toggleModal();
   refs.modalContentEl.innerHTML = '';
 }
+refs.closeModalPopUpBtn.removeEventListener('click',
+handleModalPopUpCloseBtnClick);
+
 
 // Close PopUp Modal by Esc click
 window.addEventListener('keydown', handleEscKeydown);
