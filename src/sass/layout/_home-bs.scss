@@ -45,7 +45,7 @@
   display: flex;
   gap: 24px;
 
-  @media screen and(max-width: ($tablet - 1)) {
+  @media screen and (max-width: ($tablet - 1)) {
     flex-direction: column;
   }
 }
@@ -56,12 +56,12 @@
   min-width: 335px;
   height: 485px;
 
-  @media screen and(min-width: $tablet) {
+  @media screen and (min-width: $tablet) {
     min-width: 218px;
     height: 316px;
   }
 
-  @media screen and(min-width: $desktop) {
+  @media screen and (min-width: $desktop) {
     min-width: 180px;
     height: 256px;
   }
@@ -155,7 +155,7 @@
 }
 
 .book-item {
-  @media screen and(max-width: ($tablet - 1)) {
+  @media screen and (max-width: ($tablet - 1)) {
     &:nth-child(n + 2) {
       display: none;
     }
