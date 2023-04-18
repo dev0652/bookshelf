@@ -6,9 +6,6 @@ const { categoryListEl, categoryContainerEl } = getRefs();
 categoryListEl.addEventListener('click', renderSelectedBooks);
 
 async function fetchSelectedBooks(e) {
-  if (e.target.nodeName !== 'BUTTON') {
-    return;
-  }
   // Notiflix.Loading.pulse('Please hang on...');
   Notiflix.Loading.dots('Please wait');
 
@@ -45,6 +42,10 @@ async function renderPage(selectedBooks) {
 }
 
 async function renderSelectedBooks(e) {
+  e.preventDefault();
+  if (e.target.nodeName !== 'BUTTON') {
+    return;
+  }
   let selectedBooks;
   const data = await fetchSelectedBooks(e);
   selectedBooks = data;
