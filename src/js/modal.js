@@ -77,9 +77,9 @@ addBtnEL.addEventListener('click', handleBookElClickToStorage);
 // ----------------------------------------////
 // ----------------------------------------////
 // ----------------------------------------////
+
 export async function handleBookElClick(e) {
-  // const id = e.target.attributes.data_id.value;
-  BookAPI.bookID = '643282b1e85766588626a080';
+  BookAPI.bookID = e.target.attributes.data_id.value;
 
   try {
     const data = await BookAPI.fetchBookByID();
@@ -118,7 +118,6 @@ export function createModal(data) {
     .href;
   const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
     .href;
-  // addBtnEL.setAttribute('data_idi', `${_id}`);
 
   return `
                         
@@ -143,7 +142,15 @@ export function createModal(data) {
           `;
 }
 
-refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
+refs.categoryContainerEl.addEventListener('click', function (e) {
+  // e.target was the clicked element
+  if (e.target.matches('.book-image')) {
+    e.preventDefault();
+    handleBookElClick(e);
+  }
+});
+
+// refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
 
 function toggleModal() {
   refs.modalPopUp.classList.toggle('is-hidden');
@@ -159,23 +166,28 @@ function handleModalPopUpCloseBtnClick(e) {
   toggleModal();
   refs.modalContentEl.innerHTML = '';
 }
+refs.closeModalPopUpBtn.removeEventListener('click',
+handleModalPopUpCloseBtnClick);
+
 
 // Close PopUp Modal by Esc click
-window.addEventListener('keydown', e => {
+window.addEventListener('keydown', handleEscKeydown);
+
+function handleEscKeydown(e) {
   if (e.key === 'Escape') {
     toggleModal();
   }
-});
+}
+
+window.removeEventListener('keydown', handleEscKeydown);
 
 // Close PopUp Modal by backdrop click
-// !!!
+window.addEventListener('click', handleBackdropClick);
 
-refs.modalPopUpBtn.addEventListener('click', handleModalPopUpBtnClick);
-
-function handleModalPopUpBtnClick(e) {
-  e.target.textContent = 'Remove from the shopping list';
-  e.target.insertAdjacentHTML(
-    'afterend',
-    '<p class="modal-message">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list."</p>'
-  );
+function handleBackdropClick(e) {
+  if (e.target == refs.modalPopUp) {
+    toggleModal();
+  }
 }
+
+window.removeEventListener('click', handleBackdropClick);
