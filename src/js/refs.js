@@ -62,8 +62,8 @@ export default function () {
 
     // Shopping list
     divEl: document.querySelector('.shopping__list'),
-
-    // Pagination
+    addBtnEL: document.querySelector('.modal-pop-up-btn'),
+    // Paginations
     paginationsSlider: document.querySelector('.paginations-slider'),
     paginationContainerPages: document.querySelector(
       '.paginations__container-pages'
