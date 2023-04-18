@@ -13,10 +13,7 @@ function cb(entries) {
   });
 }
 
-export function scrollToTop() {
-  if (e.target.nodeName !== 'BUTTON') {
-    return;
-  }
+export function scrollToTop(event) {
   window.scroll({
     top: 0,
     behavior: 'smooth',

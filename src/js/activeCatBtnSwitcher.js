@@ -19,4 +19,5 @@ function activeCatBtnSwitch(e) {
 }
 
 categoryListEl.addEventListener('click', activeCatBtnSwitch);
+console.log('categoryListEl: ', categoryListEl);
 // allCategoriesBtn.addEventListener('click', activeCatBtnSwitch);

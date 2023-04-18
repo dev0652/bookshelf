@@ -9,7 +9,11 @@ export default function () {
     toTopTarget: document.querySelector('.to-top-target'),
 
     // Color scheme switcher:
+    colorSwitcherCnt: document.querySelector('.color-scheme-switcher'),
     colorSwitcher: document.querySelector('#color-scheme-switcher-checkbox'),
+    colorSwitcherSlider: document.querySelector(
+      '.color-scheme-switcher-slider'
+    ),
 
     // All categories button:
     allCategoriesBtn: document.querySelector('button[name=allcategories]'),
