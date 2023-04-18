@@ -142,8 +142,6 @@ export function createModal(data) {
               
           `;
 }
-const content = document.querySelector('content');
-
 
 refs.categoryContainerEl.addEventListener("click", function(e) {
 	// e.target was the clicked element
@@ -152,27 +150,6 @@ refs.categoryContainerEl.addEventListener("click", function(e) {
     handleBookElClick(e);
 	}
 });
-
-//e.target && 
-// document.body.addEventListener('click', function (event) {
-//   if (event.target.classList.contains('book-item-link')) {
-//     console.log(event.target);
-//     console.log(event.currentTarget);
-//     // handleBookElClick();
-//   }
-// });
-
-// document.addEventListener('click', function (e) {
-//   if (this.querySelector('.book-item-link')) {
-//     const elements = this.querySelectorAll('.book-item-link');
-
-//     for (const i = 0; i < elements.length; i++) {
-//       elements[i].addEventListener('click', handleBookElClick);
-//     }
-//   }
-// });
-
-
 
 // refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
 
@@ -205,12 +182,4 @@ window.onclick = function (event) {
   }
 };
 
-// refs.modalPopUpBtn.addEventListener('click', handleModalPopUpBtnClick);
 
-// function handleModalPopUpBtnClick(e) {
-//   e.target.textContent = 'Remove from the shopping list';
-//   e.target.insertAdjacentHTML(
-//     'afterend',
-//     '<p class="modal-message">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list."</p>'
-//   );
-// }
