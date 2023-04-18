@@ -77,9 +77,10 @@ addBtnEL.addEventListener('click', handleBookElClickToStorage);
 // ----------------------------------------////
 // ----------------------------------------////
 // ----------------------------------------////
+
 export async function handleBookElClick(e) {
-  // const id = e.target.attributes.data_id.value;
-  BookAPI.bookID = '643282b1e85766588626a080';
+
+  BookAPI.bookID = e.target.attributes.data_id.value;
 
   try {
     const data = await BookAPI.fetchBookByID();
@@ -118,7 +119,6 @@ export function createModal(data) {
     .href;
   const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
     .href;
-  // addBtnEL.setAttribute('data_idi', `${_id}`);
 
   return `
                         
@@ -142,8 +142,39 @@ export function createModal(data) {
               
           `;
 }
+const content = document.querySelector('content');
 
-refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
+
+refs.categoryContainerEl.addEventListener("click", function(e) {
+	// e.target was the clicked element
+  if (e.target.matches(".book-image")) {
+    e.preventDefault();
+    handleBookElClick(e);
+	}
+});
+
+//e.target && 
+// document.body.addEventListener('click', function (event) {
+//   if (event.target.classList.contains('book-item-link')) {
+//     console.log(event.target);
+//     console.log(event.currentTarget);
+//     // handleBookElClick();
+//   }
+// });
+
+// document.addEventListener('click', function (e) {
+//   if (this.querySelector('.book-item-link')) {
+//     const elements = this.querySelectorAll('.book-item-link');
+
+//     for (const i = 0; i < elements.length; i++) {
+//       elements[i].addEventListener('click', handleBookElClick);
+//     }
+//   }
+// });
+
+
+
+// refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
 
 function toggleModal() {
   refs.modalPopUp.classList.toggle('is-hidden');
@@ -168,14 +199,18 @@ window.addEventListener('keydown', e => {
 });
 
 // Close PopUp Modal by backdrop click
-// !!!
+window.onclick = function (event) {
+  if (event.target == refs.modalPopUp) {
+    toggleModal();
+  }
+};
 
-refs.modalPopUpBtn.addEventListener('click', handleModalPopUpBtnClick);
+// refs.modalPopUpBtn.addEventListener('click', handleModalPopUpBtnClick);
 
-function handleModalPopUpBtnClick(e) {
-  e.target.textContent = 'Remove from the shopping list';
-  e.target.insertAdjacentHTML(
-    'afterend',
-    '<p class="modal-message">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list."</p>'
-  );
-}
+// function handleModalPopUpBtnClick(e) {
+//   e.target.textContent = 'Remove from the shopping list';
+//   e.target.insertAdjacentHTML(
+//     'afterend',
+//     '<p class="modal-message">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list."</p>'
+//   );
+// }

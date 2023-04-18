@@ -44,9 +44,15 @@
     max-width: 579px;
     min-height: 465px;
     padding: 40px;
-
+//$desktop
     // transition: transform var(--timing-function);
   }
+  @media screen and (min-width: $desktop) {
+    max-width: 579px;
+    min-height: 465px;
+ 
+  }
+
 }
 
 .close-button {
@@ -60,8 +66,7 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
-
-  /* background-color: transparent; */
+  background-color: #ffffff;
   border: none;
   @media screen and (min-width: $tablet) {
     top: 24px;
@@ -73,12 +78,21 @@
 
 .close-button__icon {
   fill: $blackish;
+  @media screen and (min-width: $tablet) {
+    width: 21px;
+    height: 21px;
+  }
+
+}
+
+.close-button__icon:focus,
+.close-button__icon:hover{
+  fill: var(--accent-primary);
 }
 
 .modal-pop-up-content {
   @media screen and (min-width: $tablet) {
     display: flex;
-    justify-content: center;
     gap: 24px;
     margin-bottom: 40px;
   }
@@ -124,6 +138,7 @@
   letter-spacing: -0.04em;
   color: $gray;
   @media screen and (min-width: $tablet) {
+    margin-bottom: 8px;
     font-size: 14px;
     line-height: 1.29;
   }
@@ -136,6 +151,9 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   color: $blackish;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+  }
 }
 
 .modal-shops {
@@ -144,6 +162,15 @@
   align-items: center;
   gap: 20px;
   margin-bottom: 40px;
+  mix-blend-mode: luminosity;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0;
+  }
+}
+
+.modal-shop-img:focus,
+.modal-shop-img:hover {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
 }
 
 .modal-pop-up-btn {
@@ -154,10 +181,17 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.01em;
+  @media screen and (min-width: $tablet) {
+    padding: 0 20px;
+    min-width: 499px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .modal-message {
   margin-top: 8px;
+  min-width: 243px;
   font-weight: $regular;
   font-size: 10px;
   line-height: 1.2;
