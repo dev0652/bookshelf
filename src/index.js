@@ -1,8 +1,7 @@
-
 import getRefs from './js/refs';
 const refs = getRefs();
-import './js/home-bs/home-bs';
 
+import './js/home-bs/home-bs';
 import './js/home-categories';
 import './js/support';
 import './js/firebase/firebase';
@@ -13,7 +12,6 @@ import './js/renderCategoriesList';
 import './js/activeCatBtnSwitcher';
 import './js/handleAllCategoriesClick';
 import './js/renderSelectedBooks';
-
 
 import './js/header-height-adjust';
 
