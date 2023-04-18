@@ -83,14 +83,11 @@
 
 .navigation-link-shopping{
   gap: 4px;
-  .current {
-    gap: 8px;
-  }
+ 
 }
 
 .navigation-link-shopping.current {
-  
-    gap: 8px;
+  gap: 8px;
   }
 
 .page-navigation-link-icon.current {
@@ -159,9 +156,11 @@
     flex-grow: 0;
     display: flex;
     position: relative;
-    gap: 4px;
+    // gap: 4px;
   }
   @media screen and (min-width: $tablet) and(max-width: ($desktop - 1)) {
-    gap: 8px;
+    // gap: 8px;
   }
 }
+
+
