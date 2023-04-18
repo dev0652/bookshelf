@@ -1,3 +1,6 @@
+
+import getRefs from './js/refs';
+const refs = getRefs();
 import './js/home-bs/home-bs';
 
 import './js/home-categories';
@@ -11,35 +14,50 @@ import './js/activeCatBtnSwitcher';
 import './js/handleAllCategoriesClick';
 import './js/renderSelectedBooks';
 
-import './js/shopping-list';
 
-import headerHeightAdjust from './js/header-height-adjust';
+import './js/header-height-adjust';
+
 import { scrollToTop, toTopObserver } from './js/back-to-top';
-
-import colorSwitcher from './js/color-scheme-switcher';
-// import { handleBookElClick } from './js/modal';
-
-// ##########################################################
-
-import getRefs from './js/refs';
-
-// Add your ref here:
-const { scrollToTopButton, toTopTarget, authForm } = getRefs();
-
-// ##################################################################
-
-headerHeightAdjust();
-colorSwitcher(); // Activate color scheme switcher
-
 // Activate scroll-to-top button
-toTopObserver.observe(toTopTarget);
-scrollToTopButton.addEventListener('click', scrollToTop);
+res.toTopObserver.observe(toTopTarget);
+refs / scrollToTopButton.addEventListener('click', scrollToTop);
 
-// ##################################################################
+// import './js/color-scheme-switcher';
+import colorSwitcher from './js/color-scheme-switcher';
 
-// Temp: authentication form validation on submit
+// Sidebar
+import './js/support';
+import './js/renderCategoriesList';
+// // import renderCategories from './js/renderCategoriesList';
+// // renderCategories();
+import './js/home-categories';
+import './js/activeCatBtnSwitcher';
 
+// // import { handleBookElClick } from './js/modal';
+
+// // Best Seller Books
+// import './js/home-bs/home-bs';
+
+// Modal window
+// import './js/modal';
+
+// Authorization
+import './js/firebase/firebase';
 import { validateOnSubmit } from './js/form-validator';
 authForm.addEventListener('submit', validateOnSubmit);
 
-// ##################################################################
+// Mobile menu
+import './js/burger-mobile';
+
+// import './js/handleAllCategoriesClick';
+// // import './js/renderSelectedBooks';
+
+// import './js/shopping-list';
+
+// // ##########################################################
+
+// Add your ref here:
+
+// // ##################################################################
+
+// headerHeightAdjust();

@@ -1,20 +1,10 @@
 import charities from './charities';
+import getRefs from './refs';
 
-// console.log(charities);
-
-const list = document.querySelector('.support-list');
-// const item ='<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>';
-
-// console.log(item);
-
-// list.innerHTML += item;
-
-const html = charities.map(makeMarkup).join('');
+const { supportUkraineCnt } = getRefs();
 
 function makeMarkup({ url, title, img }, index) {
   const digits = (index + 1).toString().padStart(2, '0');
-  const path1 = img.normal;
-  const path2 = img.retina;
 
   return `<li class="support-item">
         <span class="support-index">${digits}</span>
@@ -26,10 +16,4 @@ function makeMarkup({ url, title, img }, index) {
     </li>`;
 }
 
-list.innerHTML = html;
-
-const str = charities.map((element, index) => {
-  return '<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>';
-});
-
-// console.log(str);
+supportUkraineCnt.innerHTML = charities.map(makeMarkup).join('');
