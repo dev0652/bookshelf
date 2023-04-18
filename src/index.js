@@ -19,29 +19,15 @@ import './js/header-height-adjust';
 
 // Authorization
 import './js/firebase/firebase';
+
 import { validateOnSubmit } from './js/form-validator';
-authForm.addEventListener('submit', validateOnSubmit);
+refs.authForm.addEventListener('submit', validateOnSubmit);
 
 // Mobile menu
 import './js/burger-mobile';
 
-import { scrollToTop, toTopObserver } from './js/back-to-top';
-// Activate scroll-to-top button
-res.toTopObserver.observe(toTopTarget);
-refs / scrollToTopButton.addEventListener('click', scrollToTop);
+// Scroll-to-top button
+import './js/back-to-top';
 
 import './js/color-scheme-switcher';
 // import colorSwitcher from './js/color-scheme-switcher';
-
-// import './js/handleAllCategoriesClick';
-// // import './js/renderSelectedBooks';
-
-// import './js/shopping-list';
-
-// // ##########################################################
-
-// Add your ref here:
-
-// // ##################################################################
-
-// headerHeightAdjust();
