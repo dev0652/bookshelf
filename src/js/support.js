@@ -9,7 +9,7 @@ function makeMarkup({ url, title, img }, index) {
   return `<li class="support-item">
         <span class="support-index">${digits}</span>
         <a class="support-link" href="${url}" target="_blank">
-            <img
+            <img class="support-image"
                 srcset="${img.normal} 1x, ${img.retina} 2x"
                 src="${img.normal}" type="image/png" alt="${title}">
         </a>

@@ -1,10 +1,12 @@
 import getRefs from './js/refs';
 const refs = getRefs();
 
+import './js/spinner.js';
+
 // Header
 import './js/header-height-adjust';
-// Mobile menu
 // import './js/burger-mobile';
+import './js/color-scheme-switcher';
 
 // Sidebar
 import './js/renderCategoriesList.js';
@@ -15,7 +17,6 @@ import './js/support';
 import './js/renderSelectedBooks';
 
 // Content part
-import './js/spinner.js';
 import './js/home-bs/home-bs';
 
 // Modal - popup
@@ -26,10 +27,5 @@ import './js/firebase/firebase';
 import { validateOnSubmit } from './js/form-validator';
 refs.authForm.addEventListener('submit', validateOnSubmit);
 
-
-
 // Scroll-to-top button
 import './js/back-to-top';
-
-import './js/color-scheme-switcher';
-// import colorSwitcher from './js/color-scheme-switcher';

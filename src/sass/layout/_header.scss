@@ -159,7 +159,7 @@
     position: relative;
     gap: 4px;
   }
-  @media screen and (min-width: $tablet) and(max-width: ($desktop - 1)) {
+  @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
     gap: 8px;
   }
 }
