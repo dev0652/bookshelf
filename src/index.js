@@ -1,5 +1,6 @@
 import getRefs from './js/refs';
 const refs = getRefs();
+import './js/spinner.js';
 
 import './js/home-bs/home-bs';
 
