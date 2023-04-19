@@ -1,21 +1,27 @@
 import getRefs from './refs.js';
 
-const { divEl, paginationContainerPages, paginationContainerBackBtn, paginationContainerEndBtn, startButton, previousButton, nextButton, endButton, } = getRefs();
-
-
+const {
+  divEl,
+  paginationContainerPages,
+  paginationContainerBackBtn,
+  paginationContainerEndBtn,
+  startButton,
+  previousButton,
+  nextButton,
+  endButton,
+} = getRefs();
 
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
-
+const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
+  .href;
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
-
 
 // !===============Paginagions variables=================
 // !=====================================================
 const pageSize = 3;
 let totalPages = Math.ceil(shoppingList.length / pageSize);
 let currentPage = 1;
-// console.log(currentPage);
 let startIndex = (currentPage - 1) * pageSize;
 let endIndex = startIndex + pageSize;
 let itemsOnPage = shoppingList.slice(startIndex, endIndex);
@@ -67,11 +73,10 @@ function renderMarkUp(itemsOnPage) {
 
   <div class="grid-shoplist">
     <ul class="shopping__card-shoplist">
-      <li class="store"><a href="${amazon_product_url}" target="_blank">
-      <img class="modal-shop-img amazon" src="${amazonIcon}" alt="Amazon"/></a></li>
-      <li class="store"><a href="${apple.url}" target="_blank">
-      <img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
-      <li class="store"><a href="${bookshop.url}" target="_blank"><img class="modal-shop-img book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
+      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-amazon" src="${amazonIcon}" alt="Amazon"/>
+              </a></li>
+      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
+      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-bookshop" src="${bookShopIcon}" alt="Book"/></a></li>
     </ul>
   </div>
   <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="/symbol-defs.a8b2e413.svg#icon-trash"></use></svg>
@@ -85,9 +90,6 @@ function renderMarkUp(itemsOnPage) {
 }
 
 function isEmpty() {
-  const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
-    .href;
-
   if (!shoppingList.length) {
     divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
     return;
@@ -112,57 +114,49 @@ divEl.addEventListener('click', event => {
       SHOPPING_LIST_STORAGE_KEY,
       JSON.stringify(shoppingList)
     );
-    
 
-    divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-    destoyChieldElemente(paginationContainerPages);
-    checkingArrayBooks();
 
     if (!shoppingList.length) {
-      divEl.innerHTML =
-        '<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p></div>';
+      divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
       return;
+    } else {
+        divEl.innerHTML = renderMarkUp(sliceArrayBooks());
+        destoyChildElemente(paginationContainerPages);
+        checkingArrayBooks();
     }
   }
 });
 
-
-
-
-
-
 // !=====================Paginations==========================
 // !==========================================================
 for (let i = 1; i <= totalPages; i++) {
-    if (shoppingList.length <= 3) {
-      return;
-  };
+  if (shoppingList.length <= 3) {
+    return;
+  }
 
-    const pageNumber = i;
-    // creating button paginations
-    const button = document.createElement('button');
-    // creating class button
-    button.classList.add("paginations__btn");
-    button.classList.add("paginations__btn--pages");
-    // creating number button
-    button.textContent = i;
-    
-    activDisplayFlexOnElement(paginationContainerBackBtn);
-    activDisplayFlexOnElement(paginationContainerEndBtn);
-    
-    // event for rendering book after click on button
-    button.addEventListener('click', () => {
-      currentPage = pageNumber;
-      console.log(currentPage)
-    // delete markup books before creating new murkup
-      deleteMurkup();
-      createNewBooks();
-      removeDisableforElement(startButton);
-      removeDisableforElement(endButton);
-    });
-    // add button after cteated
-    paginationContainerPages.appendChild(button);
-};
+  const pageNumber = i;
+  // creating button paginations
+  const button = document.createElement('button');
+  // creating class button
+  button.classList.add('paginations__btn');
+  button.classList.add('paginations__btn--pages');
+  // creating number button
+  button.textContent = i;
+
+  activDisplayFlexOnElement(paginationContainerBackBtn);
+  activDisplayFlexOnElement(paginationContainerEndBtn);
+
+  // event for rendering book after click on button
+  button.addEventListener('click', () => {
+    currentPage = pageNumber;
+    deleteMurkup();
+    createNewBooks();
+    removeDisableforElement(startButton);
+    removeDisableforElement(endButton);
+  });
+  // add button after cteated
+  paginationContainerPages.appendChild(button);
+}
 
 // handler for previous Button
 previousButton.addEventListener('click', () => {
@@ -200,61 +194,52 @@ endButton.addEventListener('click', () => {
   removeDisableforElement(startButton);
 });
 
-
-
-
-
 // !==================functionsPaginations====================
 // !==========================================================
 
 function deleteMurkup() {
-  divEl.innerHTML = "";
+  divEl.innerHTML = '';
 }
 
 function sliceArrayBooks() {
   startIndex = (currentPage - 1) * pageSize;
   endIndex = startIndex + pageSize;
   return shoppingList.slice(startIndex, endIndex);
-};
+}
 
 function createNewBooks() {
   divEl.insertAdjacentHTML('beforeend', renderMarkUp(sliceArrayBooks()));
-};
+}
 
 function removeDisableforElement(element) {
   element.disabled = false;
-};
+}
 
 function addDisableforElement(element) {
   element.disabled = true;
-};
+}
 
 function activDisplayFlexOnElement(element) {
-  element.style.display = "flex";
-};
+  element.style.display = 'flex';
+}
 
 function activDisplayNoneOnElement(element) {
-  element.style.display = "none";
-};
+  element.style.display = 'none';
+}
 
-
-function destoyChieldElemente(element) {
-  const a = shoppingList.length / 3;
+function destoyChildElemente(element) {
+  const a = shoppingList.length / pageSize;
   if (Math.round(a) === a) {
     return element.lastElementChild.remove();
-  }
-  else {
+  } else {
     return;
   }
-};
+}
 
 function checkingArrayBooks() {
   if (shoppingList.length <= 3) {
     activDisplayNoneOnElement(paginationContainerBackBtn);
     activDisplayNoneOnElement(paginationContainerEndBtn);
-    paginationContainerPages.innerHTML = "";
-  }
-  else {
-    return
-  }
+    paginationContainerPages.innerHTML = '';
+  } 
 }

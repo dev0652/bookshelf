@@ -1,6 +1,8 @@
 import getRefs from './refs';
 
-const { categoryListEl, allCategoriesBtn } = getRefs();
+const { categoriesListContainer } = getRefs();
+
+categoriesListContainer.addEventListener('click', activeCatBtnSwitch);
 
 function activeCatBtnSwitch(e) {
   e.preventDefault();
@@ -17,7 +19,3 @@ function activeCatBtnSwitch(e) {
 
   activeBtn.classList.add('active-category');
 }
-
-categoryListEl.addEventListener('click', activeCatBtnSwitch);
-console.log('categoryListEl: ', categoryListEl);
-// allCategoriesBtn.addEventListener('click', activeCatBtnSwitch);
