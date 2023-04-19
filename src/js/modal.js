@@ -84,8 +84,18 @@ export async function handleBookElClickToStorage(e) {
   // BookAPI.bookID = '643282b1e85766588626a080';
 
   try {
+
     const data = await BookAPI.fetchBookByID(); // обєкт із бекенду
-    const fn = await handleAddBookInStorage(data); // додавання/видалення книги
+    handleAddBookInStorage(data); // додавання/видалення книги
+
+    const isBookId = shoppingList.find(
+      bookInStorage => bookInStorage._id === data._id
+    );
+    if (isBookId) {
+      console.log('добавлено у кошик');
+      addBtnEL.textContent = 'STOP';
+      return;
+    }
   } catch (err) {
     console.log(err);
   }
@@ -144,7 +154,7 @@ export function createModal(data) {
   return `
                         
               <img class="modal-img" src="${book_image}"/>
-              <div class='modal-book-atributes'>
+              <div class='modal-book-attributes'>
               <p class="modal-book-title">${title}</p>
               <p class="modal-book-author">${author}</p>
               <p class="modal-book-desc">${description}</p>
@@ -156,7 +166,7 @@ export function createModal(data) {
               <img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" />
               </a>
               <a class="modal-shop-link" href="${bookshop.url}" target="_blank">
-              <img class="modal-shop-img" src="${bookShopIcon}" alt="Book Shop link"/>
+              <img class="modal-shop-img book-shop" src="${bookShopIcon}" alt="Book Shop link"/>
               </a>
               </div>
               </div>
@@ -180,6 +190,12 @@ function handleModalPopUpCloseBtnClick(e) {
   toggleModal();
   refs.modalContentEl.innerHTML = '';
 }
+
+refs.closeModalPopUpBtn.removeEventListener(
+  'click',
+  handleModalPopUpCloseBtnClick
+);
+
 
 // Close PopUp Modal by Esc click
 window.addEventListener('keydown', e => {
