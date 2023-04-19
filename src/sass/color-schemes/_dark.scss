@@ -37,10 +37,10 @@ body.dark {
   /* Pagination (shopping list) */
   /* Pagination - Back button */
   --back-button-icon-color: white;
+  --back-button-bg-color: #{$blackish};
 
   /* Pagination - Page bullets */
   --page-bullet-text-color-active: black;
-
   /* To top button */
   --to-top-button-shadow-color: SlateBlue;
 }

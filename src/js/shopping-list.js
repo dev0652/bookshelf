@@ -1,13 +1,27 @@
 import getRefs from './refs.js';
-const refs = getRefs();
+
+const { divEl, paginationContainerPages, paginationContainerBackBtn, paginationContainerEndBtn, startButton, previousButton, nextButton, endButton, } = getRefs();
+
+
 
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 
+
+// !===============Paginagions variables=================
+// !=====================================================
+const pageSize = 3;
+let totalPages = Math.ceil(shoppingList.length / pageSize);
+let currentPage = 1;
+// console.log(currentPage);
+let startIndex = (currentPage - 1) * pageSize;
+let endIndex = startIndex + pageSize;
+let itemsOnPage = shoppingList.slice(startIndex, endIndex);
+
 // Рендер розмітки книг, які збережені у LS
-function renderMarkUp() {
+function renderMarkUp(itemsOnPage) {
   const appleBooksIcon = new URL(
     '../images/shops/apple-books.png',
     import.meta.url
@@ -17,9 +31,7 @@ function renderMarkUp() {
   const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
     .href;
 
-  console.log('shoppingList: ', shoppingList);
-
-  return shoppingList
+  return itemsOnPage
     .map(
       ({
         _id,
@@ -77,16 +89,16 @@ function isEmpty() {
     .href;
 
   if (!shoppingList.length) {
-    refs.divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
+    divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
     return;
   }
-  refs.divEl.insertAdjacentHTML('beforeend', renderMarkUp());
+  divEl.insertAdjacentHTML('beforeend', renderMarkUp(itemsOnPage));
 }
 
 isEmpty();
 
 // Видалення книги з корзини при натиску на кнопку
-refs.divEl.addEventListener('click', event => {
+divEl.addEventListener('click', event => {
   if (event.target.closest('.shopping__card-btn')) {
     const BookID = event.target.getAttribute('data-book-id');
 
@@ -100,12 +112,149 @@ refs.divEl.addEventListener('click', event => {
       SHOPPING_LIST_STORAGE_KEY,
       JSON.stringify(shoppingList)
     );
+    
 
-    refs.divEl.innerHTML = renderMarkUp();
+    divEl.innerHTML = renderMarkUp(sliceArrayBooks());
+    destoyChieldElemente(paginationContainerPages);
+    checkingArrayBooks();
+
     if (!shoppingList.length) {
-      refs.divEl.innerHTML =
+      divEl.innerHTML =
         '<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p></div>';
       return;
     }
   }
 });
+
+
+
+
+
+
+// !=====================Paginations==========================
+// !==========================================================
+for (let i = 1; i <= totalPages; i++) {
+    if (shoppingList.length <= 3) {
+      return;
+  };
+
+    const pageNumber = i;
+    // creating button paginations
+    const button = document.createElement('button');
+    // creating class button
+    button.classList.add("paginations__btn");
+    button.classList.add("paginations__btn--pages");
+    // creating number button
+    button.textContent = i;
+    
+    activDisplayFlexOnElement(paginationContainerBackBtn);
+    activDisplayFlexOnElement(paginationContainerEndBtn);
+    
+    // event for rendering book after click on button
+    button.addEventListener('click', () => {
+      currentPage = pageNumber;
+      console.log(currentPage)
+    // delete markup books before creating new murkup
+      deleteMurkup();
+      createNewBooks();
+      removeDisableforElement(startButton);
+      removeDisableforElement(endButton);
+    });
+    // add button after cteated
+    paginationContainerPages.appendChild(button);
+};
+
+// handler for previous Button
+previousButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    deleteMurkup();
+    createNewBooks();
+    removeDisableforElement(endButton);
+  }
+});
+// handler for next Button
+nextButton.addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    deleteMurkup();
+    createNewBooks();
+    removeDisableforElement(startButton);
+  }
+});
+// handler for start Button
+startButton.addEventListener('click', () => {
+  currentPage = 1;
+  deleteMurkup();
+  createNewBooks();
+  addDisableforElement(startButton);
+  removeDisableforElement(endButton);
+});
+
+// handler for end Button
+endButton.addEventListener('click', () => {
+  currentPage = totalPages;
+  deleteMurkup();
+  createNewBooks();
+  addDisableforElement(endButton);
+  removeDisableforElement(startButton);
+});
+
+
+
+
+
+// !==================functionsPaginations====================
+// !==========================================================
+
+function deleteMurkup() {
+  divEl.innerHTML = "";
+}
+
+function sliceArrayBooks() {
+  startIndex = (currentPage - 1) * pageSize;
+  endIndex = startIndex + pageSize;
+  return shoppingList.slice(startIndex, endIndex);
+};
+
+function createNewBooks() {
+  divEl.insertAdjacentHTML('beforeend', renderMarkUp(sliceArrayBooks()));
+};
+
+function removeDisableforElement(element) {
+  element.disabled = false;
+};
+
+function addDisableforElement(element) {
+  element.disabled = true;
+};
+
+function activDisplayFlexOnElement(element) {
+  element.style.display = "flex";
+};
+
+function activDisplayNoneOnElement(element) {
+  element.style.display = "none";
+};
+
+
+function destoyChieldElemente(element) {
+  const a = shoppingList.length / 3;
+  if (Math.round(a) === a) {
+    return element.lastElementChild.remove();
+  }
+  else {
+    return;
+  }
+};
+
+function checkingArrayBooks() {
+  if (shoppingList.length <= 3) {
+    activDisplayNoneOnElement(paginationContainerBackBtn);
+    activDisplayNoneOnElement(paginationContainerEndBtn);
+    paginationContainerPages.innerHTML = "";
+  }
+  else {
+    return
+  }
+}
