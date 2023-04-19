@@ -4,6 +4,14 @@ import getRefs from './refs.js';
 
 const refs = getRefs();
 
+refs.categoryContainerEl.addEventListener('click', function (e) {
+  // e.target was the clicked element
+  e.preventDefault();
+  if (e.target.matches('.book-image')) {
+    handleBookElClick(e);
+  }
+});
+
 class BooksApi {
   #BASE_URL = `https://books-backend.p.goit.global/books`;
   bookID = null;
@@ -27,7 +35,6 @@ const BookAPI = new BooksApi();
 // --------------------------------------////////
 // --------------------------------------////////
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
-const addBtnEL = document.querySelector('.modal-pop-up-btn');
 
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
@@ -41,25 +48,46 @@ function addToStorage(book) {
   localStorage.setItem(SHOPPING_LIST_STORAGE_KEY, JSON.stringify(shoppingList));
 }
 
-// Додавання книги у корзину
+// Додавання книги у корзину, за наявності книги - видалення книги, зміна Textcontent кнопкпи
 function handleAddBookInStorage(data) {
   //   Фільтрування унікальності книги
   const isBookId = shoppingList.find(
     bookInStorage => bookInStorage._id === data._id
   );
+
+  // Видалення книги у модальному вікні
   if (isBookId) {
-    console.log('Ця книга вже у кошику');
+    const dataBookID = refs.addBtnEL.getAttribute('data_id_of_book');
+
+    const bookIndex = shoppingList.findIndex(
+      bookInStorage => bookInStorage._id === dataBookID
+    );
+
+    shoppingList.splice(bookIndex, 1);
+    // Зберігаємо зміни в LocalStorage
+    localStorage.setItem(
+      SHOPPING_LIST_STORAGE_KEY,
+      JSON.stringify(shoppingList)
+    );
+    refs.addBtnEL.textContent = 'Add to shopping list';
+    console.log('Книгу видалено');
     return;
   }
+  // Додавання книги у модальному вікні
   addToStorage(data);
+  refs.addBtnEL.textContent = 'Remove from the shopping list';
+  console.log('Книгу додано');
 }
 
+// Обробник кліку по кнопці у модальному вікні
 export async function handleBookElClickToStorage(e) {
   // BookAPI.bookID = '643282b1e85766588626a080';
 
   try {
-    const data = await BookAPI.fetchBookByID();
-    handleAddBookInStorage(data);
+
+    const data = await BookAPI.fetchBookByID(); // обєкт із бекенду
+    handleAddBookInStorage(data); // додавання/видалення книги
+
     const isBookId = shoppingList.find(
       bookInStorage => bookInStorage._id === data._id
     );
@@ -73,12 +101,13 @@ export async function handleBookElClickToStorage(e) {
   }
 }
 
-addBtnEL.addEventListener('click', handleBookElClickToStorage);
-// ----------------------------------------////
-// ----------------------------------------////
-// ----------------------------------------////
+refs.addBtnEL.addEventListener('click', handleBookElClickToStorage);
 
+// ----------------------------------------////
+// ----------------------------------------////
+// ----------------------------------------////
 export async function handleBookElClick(e) {
+  // const id = e.target.attributes.data_id.value;
   BookAPI.bookID = e.target.attributes.data_id.value;
 
   try {
@@ -90,10 +119,11 @@ export async function handleBookElClick(e) {
       bookInStorage => bookInStorage._id === data._id
     );
     if (isBookId) {
+      refs.addBtnEL.textContent = 'Remove from the shopping list';
       console.log('Ця книга вже у кошику');
-      addBtnEL.textContent = 'STOP';
       return;
     }
+    refs.addBtnEL.textContent = 'Add to shopping list';
   } catch (err) {
     console.log(err);
   }
@@ -119,6 +149,8 @@ export function createModal(data) {
   const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
     .href;
 
+  refs.addBtnEL.setAttribute('data_id_of_book', `${_id}`);
+
   return `
                         
               <img class="modal-img" src="${book_image}"/>
@@ -142,15 +174,7 @@ export function createModal(data) {
           `;
 }
 
-refs.categoryContainerEl.addEventListener('click', function (e) {
-  // e.target was the clicked element
-  if (e.target.matches('.book-image')) {
-    e.preventDefault();
-    handleBookElClick(e);
-  }
-});
-
-// refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
+refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
 
 function toggleModal() {
   refs.modalPopUp.classList.toggle('is-hidden');
@@ -166,29 +190,16 @@ function handleModalPopUpCloseBtnClick(e) {
   toggleModal();
   refs.modalContentEl.innerHTML = '';
 }
+
 refs.closeModalPopUpBtn.removeEventListener(
   'click',
   handleModalPopUpCloseBtnClick
 );
 
-// Close PopUp Modal by Esc click
-window.addEventListener('keydown', handleEscKeydown);
 
-function handleEscKeydown(e) {
+// Close PopUp Modal by Esc click
+window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     toggleModal();
   }
-}
-
-window.removeEventListener('keydown', handleEscKeydown);
-
-// Close PopUp Modal by backdrop click
-window.addEventListener('click', handleBackdropClick);
-
-function handleBackdropClick(e) {
-  if (e.target == refs.modalPopUp) {
-    toggleModal();
-  }
-}
-
-window.removeEventListener('click', handleBackdropClick);
+});
