@@ -1,7 +1,5 @@
-// .last-word {
-//     color: #4F2EE8;
-//   }
-
-.home-cat {
-  border-style: solid;
+.books-list-cat {
+  display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
 }
