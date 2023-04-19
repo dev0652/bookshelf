@@ -14,18 +14,6 @@ refs.formSingUp.addEventListener('submit', onCreateUser);
 refs.formLogIn.addEventListener('submit', onLogIn);
 refs.logOut.addEventListener('click', onLogOutUser);
 
-localStorage.setItem(
-  'storage-of-books',
-  JSON.stringify([
-    { __v: 0, _id: '643282b1e85766588626a085' },
-    { __v: 0, _id: '643282b1e85766588626a086' },
-    { __v: 0, _id: '643282b1e85766588626a081' },
-    { __v: 0, _id: '643282b1e85766588626a07a' },
-    { __v: 0, _id: '643282b1e85766588626a07b' },
-    { __v: 0, _id: '643282b1e85766588626a088' },
-  ])
-);
-
 async function onCreateUser(e) {
   e.preventDefault();
   const {
