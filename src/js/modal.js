@@ -4,7 +4,7 @@ const refs = getRefs();
 refs.categoryContainerEl.addEventListener('click', function (e) {
   // e.target was the clicked element
   e.preventDefault();
-  if (e.target.matches('.book-image')) {
+  if (e.target.matches('.book-image') || e.target.matches('.book-image-overlay')) {
     handleBookElClick(e);
   }
 });
@@ -114,6 +114,7 @@ export async function handleBookElClick(e) {
     const data = await BookAPI.fetchBookByID();
     refs.modalPopUp.classList.remove('is-hidden');
     refs.modalContentEl.innerHTML = createModal(data);
+    document.body.style.overflow = 'hidden';
     refs.closeModalPopUpBtn.addEventListener(
       'click',
       handleModalPopUpCloseBtnClick
@@ -123,6 +124,7 @@ export async function handleBookElClick(e) {
       e => {
         if (e.key === 'Escape') {
           refs.modalPopUp.classList.add('is-hidden');
+          document.body.style.removeProperty('overflow');
         }
       },
       { once: true }
@@ -191,11 +193,13 @@ export function createModal(data) {
 
 function handleModalPopUpCloseBtnClick(e) {
   refs.modalPopUp.classList.add('is-hidden');
+  document.body.style.removeProperty('overflow');
 }
 
 function handleBackdropClick(e){
   if (e.target == refs.modalPopUp) {
     refs.modalPopUp.classList.add('is-hidden');
+    document.body.style.removeProperty('overflow');
   }
 }
 
