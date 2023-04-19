@@ -22,12 +22,17 @@
 
 const refs = {
   openMenuBtn: document.querySelector('[data-menu-open]'),
+  menu_open: document.querySelector('mobile-menu-open_icon'),
+  menu_close: document.querySelector('mobile-menu__close-icon'),
   menu: document.querySelector('[data-menu]'),
 };
+
 refs.openMenuBtn.addEventListener('click', toggleModal);
 function toggleModal() {
   refs.menu.classList.toggle('is-open');
-  refs.openMenuBtn.classList.toggle('is-hidden');
+  // refs.openMenuBtn.classList.toggle('is-hidden');
+  refs.menu_close.classList.toggle('is-hidden');
+  refs.menu_open.classList.toggle('is-hidden');
   if (refs.openMenuBtn.classList.contains('is-hidden')) {
     document.body.style.overflow = 'hidden';
   } else {
