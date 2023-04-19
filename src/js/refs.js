@@ -47,7 +47,7 @@ export default function () {
     authSubmitBtn: document.querySelector('modal-form__submit'),
 
     // Pop Up
-    openModalPopUpBtn: document.querySelector('.open-modal-button'),
+    bookCard: document.querySelector('.book-item-link'),
     closeModalPopUpBtn: document.querySelector('[data-pop-up-close]'),
     modalPopUp: document.querySelector('[data-pop-up]'),
     modalContentEl: document.querySelector('.modal-pop-up-content'),

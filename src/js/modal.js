@@ -1,7 +1,4 @@
-// import BooksApi from './api';
-
 import getRefs from './refs.js';
-
 const refs = getRefs();
 
 refs.categoryContainerEl.addEventListener('click', function (e) {
@@ -173,7 +170,7 @@ export function createModal(data) {
           `;
 }
 
-refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
+refs.bookCard.addEventListener('click', handleBookElClick);
 
 function toggleModal() {
   refs.modalPopUp.classList.toggle('is-hidden');
@@ -196,8 +193,12 @@ refs.closeModalPopUpBtn.removeEventListener(
 );
 
 // Close PopUp Modal by Esc click
-window.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    toggleModal();
-  }
-});
+window.addEventListener(
+  'keydown',
+  e => {
+    if (e.key === 'Escape') {
+      toggleModal();
+    }
+  },
+  { once: true }
+);
