@@ -55,10 +55,11 @@ function renderMarkUp() {
 
   <div class="grid-shoplist">
     <ul class="shopping__card-shoplist">
-      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank"><img src="${amazonIcon}" alt="Amazon"/>
-              </a></li>
-      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank"><img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
-      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank"><img class="modal-shop-img" src="${bookShopIcon}" alt="Book"/></a></li>
+      <li class="store"><a href="${amazon_product_url}" target="_blank">
+      <img class="modal-shop-img amazon" src="${amazonIcon}" alt="Amazon"/></a></li>
+      <li class="store"><a href="${apple.url}" target="_blank">
+      <img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
+      <li class="store"><a href="${bookshop.url}" target="_blank"><img class="modal-shop-img book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
     </ul>
   </div>
   <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="/symbol-defs.a8b2e413.svg#icon-trash"></use></svg>

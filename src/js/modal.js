@@ -84,7 +84,6 @@ export async function handleBookElClickToStorage(e) {
   // BookAPI.bookID = '643282b1e85766588626a080';
 
   try {
-
     const data = await BookAPI.fetchBookByID(); // обєкт із бекенду
     handleAddBookInStorage(data); // додавання/видалення книги
 
@@ -195,7 +194,6 @@ refs.closeModalPopUpBtn.removeEventListener(
   'click',
   handleModalPopUpCloseBtnClick
 );
-
 
 // Close PopUp Modal by Esc click
 window.addEventListener('keydown', e => {

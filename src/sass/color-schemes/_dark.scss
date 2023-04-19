@@ -22,6 +22,9 @@ body.dark {
   --mix-blend-mode: luminosity;
   --hover-filter: none;
 
+  /* Shopping list */
+  --card-bg-color: #{$blackish};
+
   /* Auth form */
   --form-field-bg-color: #9d9c9a;
   --form-field-bg-color-focus: silver;

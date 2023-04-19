@@ -1,30 +1,33 @@
 .support {
-  padding: 24px 79px 24px 40px;
+  padding: 24px 0 24px 40px;
   list-style-type: none;
   width: 356px;
   height: 490px;
   background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      $violet 18.03%,
-      #ffffff 100%
-    )
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    183.6% 183.01% at 59.76% -23.42%,
+    $violet 18.03%,
+    #ffffff 100%
+  );
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
+
+  overflow: auto; // temp
 }
 
 .head-title {
-  color: #ffffff;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 32px;
-  letter-spacing: -0.04em;
   display: flex;
   gap: 12px;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+
+  width: 100%;
+  margin-bottom: 40px;
+
+  font-weight: $bold;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.04em;
+
+  color: #fff;
 }
 
 .next {
@@ -61,4 +64,17 @@
   gap: 16px;
   color: #ffffff;
   filter: brightness(0) invert(1);
+}
+
+.support-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.support-link {
+  height: 45px;
+
+  display: flex;
+  align-items: center;
 }
