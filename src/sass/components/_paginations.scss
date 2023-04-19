@@ -101,5 +101,13 @@
 }
 
 .shopping__list {
-    height: 680px;
+    min-height: 320px;
+
+    @media screen and (min-width: $tablet) {
+            min-height: 215px;
+    }
+
+    @media screen and (min-width: $desktop) {
+            min-height: 680px;
+    }
 }

@@ -22,7 +22,6 @@ const shoppingList =
 const pageSize = 3;
 let totalPages = Math.ceil(shoppingList.length / pageSize);
 let currentPage = 1;
-// console.log(currentPage);
 let startIndex = (currentPage - 1) * pageSize;
 let endIndex = startIndex + pageSize;
 let itemsOnPage = shoppingList.slice(startIndex, endIndex);
@@ -116,13 +115,14 @@ divEl.addEventListener('click', event => {
       JSON.stringify(shoppingList)
     );
 
-    divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-    destoyChieldElemente(paginationContainerPages);
-    checkingArrayBooks();
 
     if (!shoppingList.length) {
-      refs.divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
+      divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
       return;
+    } else {
+        divEl.innerHTML = renderMarkUp(sliceArrayBooks());
+        destoyChildElemente(paginationContainerPages);
+        checkingArrayBooks();
     }
   }
 });
@@ -149,8 +149,6 @@ for (let i = 1; i <= totalPages; i++) {
   // event for rendering book after click on button
   button.addEventListener('click', () => {
     currentPage = pageNumber;
-    console.log(currentPage);
-    // delete markup books before creating new murkup
     deleteMurkup();
     createNewBooks();
     removeDisableforElement(startButton);
@@ -229,8 +227,8 @@ function activDisplayNoneOnElement(element) {
   element.style.display = 'none';
 }
 
-function destoyChieldElemente(element) {
-  const a = shoppingList.length / 3;
+function destoyChildElemente(element) {
+  const a = shoppingList.length / pageSize;
   if (Math.round(a) === a) {
     return element.lastElementChild.remove();
   } else {
@@ -243,7 +241,5 @@ function checkingArrayBooks() {
     activDisplayNoneOnElement(paginationContainerBackBtn);
     activDisplayNoneOnElement(paginationContainerEndBtn);
     paginationContainerPages.innerHTML = '';
-  } else {
-    return;
-  }
+  } 
 }
