@@ -26,8 +26,6 @@ class BooksApi {
 
 const BookAPI = new BooksApi();
 
-// const modalContentEl = document.querySelector('.modal-pop-up-content');
-
 // --------------------------------------//////// код юра
 // --------------------------------------////////
 // --------------------------------------////////
@@ -67,31 +65,30 @@ function handleAddBookInStorage(data) {
       JSON.stringify(shoppingList)
     );
     refs.addBtnEL.textContent = 'Add to shopping list';
+    modalMessage.remove(); //видалення повідомлення
     console.log('Книгу видалено');
     return;
   }
   // Додавання книги у модальному вікні
   addToStorage(data);
   refs.addBtnEL.textContent = 'Remove from the shopping list';
+  refs.addBtnEL.after(modalMessage); //додавання повідомлення
   console.log('Книгу додано');
 }
 
 // Обробник кліку по кнопці у модальному вікні
 export async function handleBookElClickToStorage(e) {
-  // BookAPI.bookID = '643282b1e85766588626a080';
-
   try {
     const data = await BookAPI.fetchBookByID(); // обєкт із бекенду
     handleAddBookInStorage(data); // додавання/видалення книги
-
-    const isBookId = shoppingList.find(
-      bookInStorage => bookInStorage._id === data._id
-    );
-    if (isBookId) {
-      console.log('добавлено у кошик');
-      addBtnEL.textContent = 'STOP';
-      return;
-    }
+    // const isBookId = shoppingList.find(
+    //   bookInStorage => bookInStorage._id === data._id
+    // );
+    // if (isBookId) {
+    //   console.log('добавлено у кошик');
+    //   addBtnEL.textContent = 'STOP';
+    //   return;
+    // }
   } catch (err) {
     console.log(err);
   }
@@ -102,13 +99,19 @@ refs.addBtnEL.addEventListener('click', handleBookElClickToStorage);
 // ----------------------------------------////
 // ----------------------------------------////
 // ----------------------------------------////
+
+//Створення повідомлення після натискання на кнопку addBtnEL
+const modalMessage = document.createElement('p');
+modalMessage.classList.add('modal-message');
+modalMessage.textContent =
+  'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list."';
+
+//Обробник кліку по книжці
 export async function handleBookElClick(e) {
-  
   BookAPI.bookID = e.target.attributes.data_id.value;
 
   try {
     const data = await BookAPI.fetchBookByID();
-    // toggleModal();
     refs.modalPopUp.classList.remove('is-hidden');
     refs.modalContentEl.innerHTML = createModal(data);
     refs.closeModalPopUpBtn.addEventListener(
@@ -123,17 +126,19 @@ export async function handleBookElClick(e) {
         }
       },
       { once: true }
-    );    
-
-    const isBookId = shoppingList.find(
+    );
+    document.addEventListener('click', handleBackdropClick);
+     const isBookId = shoppingList.find(
       bookInStorage => bookInStorage._id === data._id
     );
     if (isBookId) {
       refs.addBtnEL.textContent = 'Remove from the shopping list';
+      refs.addBtnEL.after(modalMessage);
       console.log('Ця книга вже у кошику');
       return;
     }
     refs.addBtnEL.textContent = 'Add to shopping list';
+    modalMessage.remove();
   } catch (err) {
     console.log(err);
   }
@@ -184,9 +189,14 @@ export function createModal(data) {
           `;
 }
 
-
 function handleModalPopUpCloseBtnClick(e) {
   refs.modalPopUp.classList.add('is-hidden');
+}
+
+function handleBackdropClick(e){
+  if (e.target == refs.modalPopUp) {
+    refs.modalPopUp.classList.add('is-hidden');
+  }
 }
 
 refs.closeModalPopUpBtn.removeEventListener(
@@ -194,3 +204,4 @@ refs.closeModalPopUpBtn.removeEventListener(
   handleModalPopUpCloseBtnClick
 );
 
+document.removeEventListener('click', handleBackdropClick);
