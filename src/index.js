@@ -23,7 +23,7 @@ import './js/home-bs/home-bs';
 import './js/modal';
 
 // Authorization
-import './js/firebase/firebase';
+// import './js/firebase/firebase';
 import { validateOnSubmit } from './js/form-validator';
 refs.authForm.addEventListener('submit', validateOnSubmit);
 

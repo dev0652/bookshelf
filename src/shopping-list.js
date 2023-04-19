@@ -16,7 +16,7 @@ import './js/spinner.js';
 import './js/shopping-list';
 
 // Authorization
-import './js/firebase/firebase';
+// import './js/firebase/firebase';
 import './js/form-validator';
 
 // Scroll-to-top button

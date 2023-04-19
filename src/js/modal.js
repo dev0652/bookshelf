@@ -59,7 +59,7 @@ export async function handleBookElClickToStorage(e) {
 
   try {
     const data = await BookAPI.fetchBookByID();
-    const fn = await handleAddBookInStorage(data);
+    handleAddBookInStorage(data);
     const isBookId = shoppingList.find(
       bookInStorage => bookInStorage._id === data._id
     );
@@ -122,7 +122,7 @@ export function createModal(data) {
   return `
                         
               <img class="modal-img" src="${book_image}"/>
-              <div class='modal-book-atributes'>
+              <div class='modal-book-attributes'>
               <p class="modal-book-title">${title}</p>
               <p class="modal-book-author">${author}</p>
               <p class="modal-book-desc">${description}</p>
@@ -134,7 +134,7 @@ export function createModal(data) {
               <img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" />
               </a>
               <a class="modal-shop-link" href="${bookshop.url}" target="_blank">
-              <img class="modal-shop-img" src="${bookShopIcon}" alt="Book Shop link"/>
+              <img class="modal-shop-img book-shop" src="${bookShopIcon}" alt="Book Shop link"/>
               </a>
               </div>
               </div>
@@ -166,9 +166,10 @@ function handleModalPopUpCloseBtnClick(e) {
   toggleModal();
   refs.modalContentEl.innerHTML = '';
 }
-refs.closeModalPopUpBtn.removeEventListener('click',
-handleModalPopUpCloseBtnClick);
-
+refs.closeModalPopUpBtn.removeEventListener(
+  'click',
+  handleModalPopUpCloseBtnClick
+);
 
 // Close PopUp Modal by Esc click
 window.addEventListener('keydown', handleEscKeydown);

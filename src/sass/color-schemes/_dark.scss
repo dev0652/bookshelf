@@ -12,7 +12,17 @@ body.dark {
   --active-category-color: var(--accent-secondary);
   --scrollbar-bg-color: #{rgba($blackish, 0.6)};
 
-  /* Form */
+  /* Modal - popup */
+  --modal-bg-color: var(--background-color);
+  --modal-border-color: black;
+
+  /* Store icons */
+  --amazon-image-filter: grayscale(100%) invert(100%);
+  --amazon-image-filter-hover: invert(100%) hue-rotate(170deg);
+  --mix-blend-mode: luminosity;
+  --hover-filter: none;
+
+  /* Auth form */
   --form-field-bg-color: #9d9c9a;
   --form-field-bg-color-focus: silver;
   --form-button-border-color: var(--accent-primary);
