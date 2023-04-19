@@ -20,6 +20,7 @@ export default function () {
 
     //Categories:
     categoryListEl: document.querySelector('.categories_list'),
+    categoriesListContainer: document.querySelector('.categories'),
     categoryContainerEl: document.querySelector('.category-container'),
     titleEl: document.querySelector('.home-br__title'),
 
