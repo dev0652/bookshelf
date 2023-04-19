@@ -15,7 +15,6 @@
 
 .paginations__container-back,
 .paginations__container-end {
-    // треба змінити на none потім
     display: none;
 }
 
@@ -30,7 +29,7 @@
     width: 44px;
     height: 44px;
     border-radius: 50px;
-    border: 1px solid $blackish;
+    border: 1px solid var(--circle-border-color);
 }
 
 .paginations__btn--back{
@@ -38,7 +37,17 @@
     justify-content: center;
     align-items: center;
     margin-left: 8px;
-    background-color: $blackish;
+    background-color: var(--back-button-bg-color);
+    border-color: black;
+    
+    &:hover{
+        background-color: var(--back-button-bg-color-hover);
+    }
+
+    &:active{
+        background-color: var(--back-button-bg-color-active);
+    }
+
     &:first-child{
         margin: 0px;
     }
@@ -46,48 +55,59 @@
 
 .paginations__btn--pages{
     margin-left: 10px;
+    background-color: var(--page-bullet-bg-color);
+    background-color: var(--page-bullet-bg-color);
+    color: var(--page-bullet-text-color);
+    border-color: var(--circle-border-color);
+
+    &:active{
+        background-color: var(--page-bullet-bg-color-active);
+        color: var(--page-bullet-text-color-active);
+    }
 
     font-weight: $bold;
     font-size: 18px;
     line-height: 22px;
     
-    &:focus{
-        background-color: $blackish;
-        color: #FFFFFF;
-    }   
+    &:active{
+        background-color: --page-bullet-text-color-active;
+        color: --page-bullet-text-color-active;
+    }
 
     &:first-child{
         margin: 0px;
     }
 }
-
-.paginations__btn--pages--dark-theme {
-        border:  #FFFFFF;
-        color:#FFFFFF;
-
-        &:focus{
-            background-color: #FFFFFF;
-            color: black;
-        }
-
-}
-
 
 .paginations__btn--end{
     display: inherit;
     justify-content: center;
     align-items: center;
     margin-left: 8px;
-    background-color: $gold;
+    background-color: var(--forward-button-bg-color);
+    border-color: black;
+
+    &:hover{
+        background-color: var(--forward-button-bg-color-hover);
+    }
+
+    &:active{
+        background-color: var(--forward-button-bg-color-active);
+    }
 
     &:first-child{
         margin: 0px;
     }
 }
 
+.shopping__list {
+    min-height: 320px;
 
+    @media screen and (min-width: $tablet) {
+            min-height: 215px;
+    }
 
-
-
-
-
+    @media screen and (min-width: $desktop) {
+            min-height: 680px;
+    }
+}

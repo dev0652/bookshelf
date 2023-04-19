@@ -20,6 +20,7 @@ export default function () {
 
     //Categories:
     categoryListEl: document.querySelector('.categories_list'),
+    categoriesListContainer: document.querySelector('.categories'),
     categoryContainerEl: document.querySelector('.category-container'),
     titleEl: document.querySelector('.home-br__title'),
 
@@ -47,9 +48,8 @@ export default function () {
     authSubmitBtn: document.querySelector('modal-form__submit'),
 
     // Pop Up
-    openModalPopUpBtn: document.querySelector('.open-modal-button'),
+    bookCard: document.querySelector('.book-item-link'),
     closeModalPopUpBtn: document.querySelector('[data-pop-up-close]'),
-    modalPopUpBtn: document.querySelector('.modal-pop-up-btn'),
     modalPopUp: document.querySelector('[data-pop-up]'),
     modalContentEl: document.querySelector('.modal-pop-up-content'),
 
@@ -63,8 +63,8 @@ export default function () {
 
     // Shopping list
     divEl: document.querySelector('.shopping__list'),
-
-    // Pagination
+    addBtnEL: document.querySelector('.modal-pop-up-btn'),
+    // Paginations
     paginationsSlider: document.querySelector('.paginations-slider'),
     paginationContainerPages: document.querySelector(
       '.paginations__container-pages'

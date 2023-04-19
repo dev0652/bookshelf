@@ -15,12 +15,15 @@
     <link rel="stylesheet" href="./sass/index.scss" />
     <!-- JS -->
     <script type="module" src="./index.js"></script>
+    <!-- проблема -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   </head>
 
   <body class="page">
     <!-- Header -->
     <include src="./partials/header.html"></include>
-    <include src="./partials/burger-menu.html"></include>
+    <!-- <include src="./partials/burger-menu.html"></include> -->
 
     <!--Page -->
     <div class="container page-container">
@@ -39,11 +42,6 @@
 
       <!-- Main -->
       <main class="content">
-        <!-- Temp -->
-        <button type="button" class="button open-modal-button" data-open-popup>
-          Open modal
-        </button>
-
         <!-- Page content -->
         <include src="./partials/home-bs.html"></include>
         <!-- <include src="./partials/home-categories.html"></include> -->
@@ -54,6 +52,7 @@
         <!-- Back to top button -->
         <include src="./partials/back-to-top.html"></include>
         <!--  -->
+        <include src="./partials/burger-menu.html"></include>
       </main>
     </div>
   </body>

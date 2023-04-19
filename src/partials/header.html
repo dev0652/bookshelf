@@ -1,23 +1,10 @@
-
 <header class="header">
   <div class="container">
     <a class="page-logo-heder link" href="./index.html">
       <span class="page-logo">
-        <svg
-          class="page-logo-first"
-          lang=""
-          aria-label="Logo"
-          width="20"
-          height="20"
-        >
-          <use href="./images/symbol-defs.svg#icon-logo"></use></svg></span
-      ><svg
-        class="page-logo-last"
-        lang="en"
-        aria-label="Logo text 'Book'"
-        width="53"
-        height="17"
-      >
+        <svg class="page-logo-first" lang="" aria-label="Logo" width="20" height="20">
+          <use href="./images/symbol-defs.svg#icon-logo"></use>
+        </svg></span><svg class="page-logo-last" lang="en" aria-label="Logo text 'Book'" width="53" height="17">
         <use href="./images/symbol-defs.svg#icon-Book_desktop"></use>
       </svg>
     </a>
@@ -27,26 +14,13 @@
       <!-- Navigation -->
       <ul class="page-navigation-list list">
         <li class="page-navigation-list-item-home">
-          <a
-            class="page-navigation-link navigation-link-home link"
-            href="./index.html"
-            >Home</a
-          >
+          <a class="page-navigation-link navigation-link-home link" href="./index.html">Home</a>
         </li>
 
         <li class="page-navigation-list-item-shopping">
-          <a
-            class="page-navigation-link navigation-link-shopping link"
-            href="./shopping-list.html"
-            >Shopping list
+          <a class="page-navigation-link navigation-link-shopping link" href="./shopping-list.html">Shopping list
 
-            <svg
-              class="page-navigation-link-icon"
-              lang=""
-              aria-label="Suitcase icon"
-              width="20"
-              height="20"
-            >
+            <svg class="page-navigation-link-icon" lang="" aria-label="Suitcase icon" width="20" height="20">
               <use href="./images/symbol-defs.svg#icon-uil-cart"></use>
             </svg>
           </a>
@@ -59,7 +33,18 @@
         <li>
           <include src="./partials/color-scheme-switcher.html"></include>
         </li>
+        <li><button type="button" class="mobile-menu-open is-hidden" data-menu-open>
+            <svg class="mobile-menu-open__icon" width="28" height="28">
+              <use href="../src/images/symbol-defs.svg#icon-align-left"></use>
+            </svg>
+          </button>
+          <button type="button" class="mobile-menu__close-button is-hidden" data-menu-close>
+            <svg class="mobile-menu__close-icon" width="28" height="28">
+              <use href="../src/images/symbol-defs.svg#icon-x-close"></use>
+            </svg>
+          </button>
 
+        </li>
         <li class="page-navigation-list">
           <include src="./partials/authorization-form.html"></include>
         </li>
@@ -69,21 +54,3 @@
     </div>
   </div>
 </header>
-
-<!-- Mobile menu -->
-
-<button type="button" class="mobile-menu-open" data-menu-open> 
-    <svg class="mobile-menu-open__icon" width="28" height="28">
-      <use href="../src/images/symbol-defs.svg#icon-align-left"></use>
-    </svg>
-  </button>
-  <button
-    type="button"
-    class="mobile-menu__close-button is-hidden"
-    data-menu-close
-  >
-    <svg class="mobile-menu__close-icon" width="28" height="28">
-      <use href="../src/images/symbol-defs.svg#icon-x-close"></use>
-    </svg>
-  </button>
-</div>

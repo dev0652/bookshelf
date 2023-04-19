@@ -1,8 +1,3 @@
-.open-modal-button {
-  align-self: center;
-  background-color: $gold;
-}
-
 .backdrop-pop-up {
   position: fixed;
   top: 0;
@@ -24,67 +19,84 @@
 }
 
 .modal-pop-up {
-  /* position: relative; */
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%) scale(1);
+
   padding: 40px 24px;
-  margin-top: 100px;
 
   width: 100%;
   max-width: 335px;
   min-height: 662px;
 
-  background: #ffffff;
-  border: 2px solid $blackish;
+  color: var(--text-color);
+  background-color: var(--modal-bg-color);
+  border: 2px solid var(--modal-border-color);
   border-radius: 18px;
 
   @media screen and (min-width: $tablet) {
     max-width: 579px;
     min-height: 465px;
     padding: 40px;
-
+    //$desktop
     // transition: transform var(--timing-function);
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 579px;
+    min-height: 465px;
   }
 }
 
 .close-button {
+  background-color: transparent;
   position: absolute;
   top: 12px;
   right: 12px;
-  margin-bottom: 4px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 24px;
   height: 24px;
-  cursor: pointer;
 
-  /* background-color: transparent; */
   border: none;
+  border-radius: 50%;
+
   @media screen and (min-width: $tablet) {
     top: 24px;
     right: 24px;
+
     width: 28px;
     height: 28px;
   }
 }
 
 .close-button__icon {
-  fill: $blackish;
+  fill: var(--text-color);
+
+  @media screen and (min-width: $tablet) {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+.close-button__icon:focus,
+.close-button__icon:hover {
+  fill: var(--accent-secondary);
 }
 
 .modal-pop-up-content {
   @media screen and (min-width: $tablet) {
     display: flex;
-    justify-content: center;
     gap: 24px;
     margin-bottom: 40px;
   }
 }
 
-.modal-book-atributes {
+.modal-book-attributes {
   display: flex;
   flex-direction: column;
 }
@@ -107,23 +119,25 @@
   font-size: 16px;
   line-height: 1.12;
   letter-spacing: -0.04em;
-  color: $blackish;
 
   @media screen and (min-width: $tablet) {
     font-size: 24px;
     line-height: 1.17;
+
+    max-width: 270px;
   }
 }
 
 .modal-book-author {
   margin-bottom: 18px;
   font-style: italic;
-  font-weight: $regular;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.04em;
   color: $gray;
+
   @media screen and (min-width: $tablet) {
+    margin-bottom: 8px;
     font-size: 14px;
     line-height: 1.29;
   }
@@ -131,19 +145,45 @@
 
 .modal-book-desc {
   margin-bottom: 14px;
-  font-weight: $regular;
+
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-  color: $blackish;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+  }
 }
 
 .modal-shops {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+
   gap: 20px;
   margin-bottom: 40px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0;
+  }
+}
+
+.modal-shop-img {
+  filter: grayscale(100%);
+  // mix-blend-mode: var(--mix-blend-mode);
+
+  &:hover,
+  &:focus {
+    filter: var(--hover-filter);
+  }
+
+  &.amazon {
+    filter: var(--amazon-image-filter);
+
+    &:hover,
+    &:focus {
+      filter: var(--amazon-image-filter-hover);
+    }
+  }
 }
 
 .modal-pop-up-btn {
@@ -154,10 +194,17 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.01em;
+  @media screen and (min-width: $tablet) {
+    padding: 0 20px;
+    min-width: 499px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .modal-message {
   margin-top: 8px;
+  min-width: 243px;
   font-weight: $regular;
   font-size: 10px;
   line-height: 1.2;

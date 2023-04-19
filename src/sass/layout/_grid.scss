@@ -1,6 +1,4 @@
 .shopping__title {
-  // font-family: 'DM Sans';
-  // font-style: normal;
   font-weight: $bold;
   font-size: 32px;
   line-height: calc(38 / 32);
@@ -9,7 +7,6 @@
 
   color: var(--text-color);
 
-  // margin-top: 100px;
   margin-bottom: 40px;
 
   @media screen and (min-width: $tablet) {
@@ -18,12 +15,10 @@
   }
 }
 .shopping__title-span {
-  color: $violet;
+  color: var(--accent-primary);
 }
 
 .is-empty__info {
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: calc(18 / 14);
@@ -63,101 +58,126 @@
   }
 }
 
-.shopping__card {
-  display: grid;
+.is-empty__picture {
+  width: 265px;
+  height: 198px;
+}
 
-  grid-template-columns: auto-fill;
-  grid-template-rows: auto-fill;
-  grid-column-gap: 10px;
-  grid-row-gap: 0;
+.shopping__card {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 98px 1fr;
+  grid-template-rows: 60px 79px 34px 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
 
   position: relative;
 
+  background-color: var(--card-bg-color);
   width: 336px;
-  height: 362px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
   padding: 20px;
 
-  border: 2px solid rgba(79, 46, 232, 0.4);
+  border: 3px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
 
+  &:hover,
+  &:focus {
+    border: 3px solid $gold;
+  }
+
   @media screen and (min-width: $tablet) {
-    // max-width: 704px;
+    grid-template-columns: 116px repeat(2, 1fr);
+    grid-template-rows: 50px 85px 30px;
+    grid-column-gap: 24px;
+
     width: 100%;
     height: 213px;
     padding: 24px;
   }
 
   @media screen and (min-width: $desktop) {
-    // max-width: 996px;
+    width: 996px;
     height: 213px;
   }
 
-  .div1 {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
+  .grid-img {
+    grid-area: 1 / 1 / 3 / 2;
 
     @media screen and (min-width: $tablet) {
-      grid-row-end: 4;
+      // grid-row-end: 4;
+      grid-area: 1 / 1 / 4 / 2;
     }
   }
-  .div2 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    @media screen and (min-width: $tablet) {
-      grid-column-end: 4;
+  .grid-title {
+    grid-area: 1 / 2 / 2 / 3;
+    @media screen and (max-width: calc($tablet - 1px)) {
+      max-width: 144px;
     }
-  }
-
-  .div3 {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 4;
-    grid-row-end: 5;
-
     @media screen and (min-width: $tablet) {
-      grid-column-start: 2;
-      grid-column-end: 4;
-      grid-row-start: 2;
-      grid-row-end: 3;
+      grid-area: 1 / 2 / 2 / 4;
     }
   }
 
-  .div4 {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
+  .grid-description {
+    grid-area: 4 / 1 / 5 / 3;
 
     @media screen and (min-width: $tablet) {
-      grid-column-start: 2;
+      grid-area: 2 / 2 / 3 / 4;
+    }
+  }
+
+  .grid-author {
+    grid-area: 3 / 1 / 4 / 3;
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      max-width: 97px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      grid-area: 3 / 2 / 4 / 3;
 
       display: flex;
       align-items: end;
     }
   }
 
-  .div5 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
+  .grid-shoplist {
+    grid-area: 2 / 2 / 3 / 3;
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      margin-top: 20px;
+    }
 
     @media screen and (min-width: $tablet) {
-      grid-column-start: 3;
-      grid-column-end: 4;
-      grid-row-start: 3;
-      grid-row-end: 4;
+      grid-area: 3 / 3 / 4 / 4;
 
       display: flex;
       justify-content: end;
       align-items: end;
+    }
+  }
+
+  .modal-shop-img {
+    filter: grayscale(100%);
+    // mix-blend-mode: var(--mix-blend-mode);
+
+    &:hover,
+    &:focus {
+      filter: var(--hover-filter);
+    }
+
+    &.amazon {
+      filter: var(--amazon-image-filter);
+
+      &:hover,
+      &:focus {
+        filter: var(--amazon-image-filter-hover);
+      }
     }
   }
 }
@@ -165,7 +185,6 @@
 .shopping__card-title {
   margin-bottom: 4px;
 
-  font-family: 'DM Sans';
   font-weight: $bold;
   font-size: 16px;
   line-height: calc(18 / 16);
@@ -173,7 +192,7 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
 
-  color: $blackish;
+  color: var(--text-color);
 }
 
 .shopping__card-category {
@@ -189,7 +208,6 @@
 .shopping__card-author {
   margin-top: 4px;
 
-  font-family: 'DM Sans';
   font-style: italic;
   font-size: 12px;
   line-height: calc(14 / 12);
@@ -200,23 +218,51 @@
 }
 
 .shopping__card-description {
-  margin-top: 20px;
+  margin-top: 10px;
 
   font-family: 'DM Sans';
-  font-size: 14px;
-  line-height: calc(18 / 14);
+  font-size: 15px;
+  line-height: calc(18 / 15);
 
   letter-spacing: -0.04em;
 
-  color: $blackish;
+  color: var(--text-color);
+
+  @media screen and (min-width: $tablet) {
+    gap: 16px;
+    margin-top: 0px;
+  }
 }
 
 .shopping__card-shoplist {
   display: flex;
   gap: 14px;
+  align-items: center;
   @media screen and (min-width: $tablet) {
     gap: 16px;
   }
+}
+.shopping-shopimg {
+  mix-blend-mode: luminosity;
+  transition: transform 0.2s ease-out;
+  &:hover {
+    mix-blend-mode: normal;
+    transform: scale(1.1);
+  }
+}
+
+.shopping-img-amazon {
+  width: 48px;
+  height: 15px;
+}
+
+.shopping-img-apple {
+  width: 28px;
+  height: 27px;
+}
+.shopping-img-bookshop {
+  width: 32px;
+  height: 30px;
 }
 
 .shopping__card-img {
@@ -231,6 +277,10 @@
 }
 
 .shopping__card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
   top: 14px;
   right: 14px;
@@ -239,7 +289,9 @@
   height: 28px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: $violet;
+  background-color: var(--accent-primary);
+
+  transition: background 0.2s ease-out;
 
   @media screen and (min-width: $tablet) {
     top: 24px;
@@ -249,12 +301,10 @@
     height: 34px;
   }
 }
-
-// Temp
-
-.shopping__list {
-  min-height: 400px;
-  // background-color: bisque;
-  outline: 5px solid var(--accent-secondary);
-  border-radius: 15px;
+.shopping__card-btn:hover,
+.shopping__card-btn:hover {
+  // transform: scale(1.1);
+  background: $gold;
 }
+
+// -----------------

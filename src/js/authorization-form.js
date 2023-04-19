@@ -28,8 +28,10 @@ export function handleClickOnSingUpCloseBtn() {
 // Закрити Sign up і Sign in модалки при натисканні Esc
 
 window.addEventListener('keydown', evt => {
-  if (evt.key === 'Escape') {
-    refs.signUpModalEl.classList.remove('open');
+  if (refs.signUpModalEl.classList.contains('open')) {
+    if (evt.key === 'Escape') {
+      refs.signUpModalEl.classList.remove('open');
+    }
   }
 });
 

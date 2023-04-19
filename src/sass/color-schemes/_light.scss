@@ -17,7 +17,19 @@ body {
   --active-category-color: var(--accent-primary);
   --scrollbar-bg-color: #e0e0e0;
 
-  /* Form */
+  /* Modal - popup */
+  --modal-bg-color: var(--header-bg-color);
+  --modal-border-color: #{$blackish};
+
+  /* Store icons */
+  --amazon-image-filter: grayscale(100%);
+  --mix-blend-mode: none;
+  --hover-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.7));
+
+  /* Shopping list */
+  --card-bg-color: white;
+
+  /* Auth form */
   --form-field-bg-color: #{$milky};
   --form-field-bg-color-focus: White;
   --form-button-border-color: #{$blackish};

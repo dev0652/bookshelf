@@ -16,7 +16,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./sass/index.scss" />
     <!-- JS -->
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./shopping-list.js"></script>
+    <!-- проблема -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   </head>
 
   <body class="page">
@@ -31,7 +34,7 @@
       <div class="to-top-target"></div>
 
       <!-- Sidebar -->
-      <aside class="sidebar">
+      <aside class="sidebar sidebar-shoppinglist">
         <!-- Support Ukraine -->
         <include src="./partials/support.html"></include>
       </aside>
@@ -40,6 +43,8 @@
       <main class="content">
         <!-- Page content -->
         <include src="./partials/shopping-list.html"></include>
+        <include src="./partials/paginations.html"></include>
+
 
         <!-- Back to top button -->
         <include src="./partials/back-to-top.html"></include>
