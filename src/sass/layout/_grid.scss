@@ -76,14 +76,19 @@
 
   background-color: var(--card-bg-color);
   width: 336px;
-  height: 362px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
   padding: 20px;
 
-  border: 2px solid rgba(79, 46, 232, 0.4);
+  border: 3px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
+
+  &:hover,
+  &:focus {
+    border: 3px solid $gold;
+  }
 
   @media screen and (min-width: $tablet) {
     grid-template-columns: 116px repeat(2, 1fr);
@@ -96,7 +101,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    // max-width: 996px;
+    width: 996px;
     height: 213px;
   }
 
@@ -110,7 +115,9 @@
   }
   .grid-title {
     grid-area: 1 / 2 / 2 / 3;
-
+    @media screen and (max-width: calc($tablet - 1px)) {
+      max-width: 144px;
+    }
     @media screen and (min-width: $tablet) {
       grid-area: 1 / 2 / 2 / 4;
     }
@@ -127,6 +134,10 @@
   .grid-author {
     grid-area: 3 / 1 / 4 / 3;
 
+    @media screen and (max-width: calc($tablet - 1px)) {
+      max-width: 97px;
+    }
+
     @media screen and (min-width: $tablet) {
       grid-area: 3 / 2 / 4 / 3;
 
@@ -137,6 +148,10 @@
 
   .grid-shoplist {
     grid-area: 2 / 2 / 3 / 3;
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      margin-top: 20px;
+    }
 
     @media screen and (min-width: $tablet) {
       grid-area: 3 / 3 / 4 / 4;
@@ -203,14 +218,20 @@
 }
 
 .shopping__card-description {
-  margin-top: 20px;
+  margin-top: 10px;
 
-  font-size: 14px;
-  line-height: calc(18 / 14);
+  font-family: 'DM Sans';
+  font-size: 15px;
+  line-height: calc(18 / 15);
 
   letter-spacing: -0.04em;
 
   color: var(--text-color);
+
+  @media screen and (min-width: $tablet) {
+    gap: 16px;
+    margin-top: 0px;
+  }
 }
 
 .shopping__card-shoplist {
@@ -220,6 +241,28 @@
   @media screen and (min-width: $tablet) {
     gap: 16px;
   }
+}
+.shopping-shopimg {
+  mix-blend-mode: luminosity;
+  transition: transform 0.2s ease-out;
+  &:hover {
+    mix-blend-mode: normal;
+    transform: scale(1.1);
+  }
+}
+
+.shopping-img-amazon {
+  width: 48px;
+  height: 15px;
+}
+
+.shopping-img-apple {
+  width: 28px;
+  height: 27px;
+}
+.shopping-img-bookshop {
+  width: 32px;
+  height: 30px;
 }
 
 .shopping__card-img {
@@ -248,6 +291,8 @@
   border-color: transparent;
   background-color: var(--accent-primary);
 
+  transition: background 0.2s ease-out;
+
   @media screen and (min-width: $tablet) {
     top: 24px;
     right: 24px;
@@ -256,9 +301,10 @@
     height: 34px;
   }
 }
+.shopping__card-btn:hover,
+.shopping__card-btn:hover {
+  // transform: scale(1.1);
+  background: $gold;
+}
 
 // -----------------
-
-.shopping__list {
-  // width: 100%;
-}
