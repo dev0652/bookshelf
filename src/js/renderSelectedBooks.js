@@ -24,7 +24,7 @@ async function fetchSelectedBooks(e) {
   }
 }
 
-async function renderPage(selectedBooks) {
+export async function renderPage(selectedBooks) {
   categoryContainerEl.innerHTML = '';
   const data = selectedBooks;
   const selectedBookList = document.createElement('ul');

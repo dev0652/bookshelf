@@ -37,6 +37,7 @@ export async function renderTopBooks() {
       buttonEl.classList.add('button');
       buttonEl.classList.add('see-more-btn');
       buttonEl.innerText = 'See more';
+      buttonEl.setAttribute('id', element.list_name);
 
       categoryItem.appendChild(buttonEl);
     }

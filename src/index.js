@@ -35,3 +35,4 @@ import './js/back-to-top';
 import './js/color-scheme-switcher';
 import './js/authorization-form';
 
+import './js/seeMore';
