@@ -32,3 +32,6 @@ refs.authForm.addEventListener('submit', validateOnSubmit);
 
 // Scroll-to-top button
 import './js/back-to-top';
+import './js/color-scheme-switcher';
+import './js/authorization-form';
+
