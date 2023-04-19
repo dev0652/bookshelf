@@ -1,7 +1,4 @@
-// import BooksApi from './api';
-
 import getRefs from './refs.js';
-
 const refs = getRefs();
 
 refs.categoryContainerEl.addEventListener('click', function (e) {
@@ -84,7 +81,6 @@ export async function handleBookElClickToStorage(e) {
   // BookAPI.bookID = '643282b1e85766588626a080';
 
   try {
-
     const data = await BookAPI.fetchBookByID(); // обєкт із бекенду
     handleAddBookInStorage(data); // додавання/видалення книги
 
@@ -174,7 +170,7 @@ export function createModal(data) {
           `;
 }
 
-refs.openModalPopUpBtn.addEventListener('click', handleBookElClick);
+refs.bookCard.addEventListener('click', handleBookElClick);
 
 function toggleModal() {
   refs.modalPopUp.classList.toggle('is-hidden');
@@ -196,10 +192,13 @@ refs.closeModalPopUpBtn.removeEventListener(
   handleModalPopUpCloseBtnClick
 );
 
-
 // Close PopUp Modal by Esc click
-window.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    toggleModal();
-  }
-});
+window.addEventListener(
+  'keydown',
+  e => {
+    if (e.key === 'Escape') {
+      toggleModal();
+    }
+  },
+  { once: true }
+);
