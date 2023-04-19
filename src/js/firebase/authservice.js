@@ -68,8 +68,6 @@ export function onLogin(email, password) {
       onUserLogin(userCredential, displayName);
       getShoppingList().then(shoppingList => {
         if (shoppingList === null) {
-          // console.log('null');
-          // localStorage.setItem('storage-of-books', null);
           return;
         }
         const books = Object.keys(shoppingList);
@@ -77,16 +75,12 @@ export function onLogin(email, password) {
         for (const key of books) {
           list.push(shoppingList[key]);
         }
-        // console.log(list);
         list.map(el => {
           const listFromServer = [...el];
-          console.log(listFromServer);
           const listLocalStorage = JSON.parse(
             localStorage.getItem('storage-of-books')
           );
-          console.log(listLocalStorage);
           if (listLocalStorage !== null) {
-            console.log('AAAAA');
             const newBooksList = [];
             for (el of listLocalStorage) {
               const idEl = el._id;
@@ -94,7 +88,6 @@ export function onLogin(email, password) {
               const filtredList = listFromServer.every(
                 book => book._id !== idEl
               );
-              console.log(filtredList);
               if (filtredList) {
                 newBooksList.push(el);
               }
@@ -106,7 +99,6 @@ export function onLogin(email, password) {
             }
             return;
           }
-          console.log('BBBB');
           const listJson = JSON.stringify(listFromServer);
           localStorage.setItem('storage-of-books', listJson);
         });
@@ -144,7 +136,3 @@ function onUserLogin(userCredential, displayName) {
   localStorage.setItem('userName', displayName);
   return (refs.userName.textContent = displayName);
 }
-
-// function ongetShoppingList() {
-
-// }
