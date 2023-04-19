@@ -31,3 +31,5 @@ import './js/back-to-top';
 
 import './js/color-scheme-switcher';
 // import colorSwitcher from './js/color-scheme-switcher';
+
+import './js/authorization-form';
