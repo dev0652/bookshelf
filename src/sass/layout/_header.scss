@@ -3,6 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
 
   z-index: $header-index;
 
@@ -27,6 +28,7 @@
 
     @media screen and (max-width: ($tablet - 1)) {
       justify-content: space-between;
+      width: 100%;
     }
 
     padding: 0 20px;
