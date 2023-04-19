@@ -81,6 +81,14 @@ export async function handleBookElClickToStorage(e) {
   try {
     const data = await BookAPI.fetchBookByID(); // обєкт із бекенду
     handleAddBookInStorage(data); // додавання/видалення книги
+    // const isBookId = shoppingList.find(
+    //   bookInStorage => bookInStorage._id === data._id
+    // );
+    // if (isBookId) {
+    //   console.log('добавлено у кошик');
+    //   addBtnEL.textContent = 'STOP';
+    //   return;
+    // }
   } catch (err) {
     console.log(err);
   }
@@ -120,6 +128,17 @@ export async function handleBookElClick(e) {
       { once: true }
     );
     document.addEventListener('click', handleBackdropClick);
+     const isBookId = shoppingList.find(
+      bookInStorage => bookInStorage._id === data._id
+    );
+    if (isBookId) {
+      refs.addBtnEL.textContent = 'Remove from the shopping list';
+      refs.addBtnEL.after(modalMessage);
+      console.log('Ця книга вже у кошику');
+      return;
+    }
+    refs.addBtnEL.textContent = 'Add to shopping list';
+    modalMessage.remove();
   } catch (err) {
     console.log(err);
   }
