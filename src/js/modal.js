@@ -170,8 +170,7 @@ export function createModal(data) {
           `;
 }
 
-// refs.bookCard.addEventListener('click', handleBookElClick);
-// console.log('refs.bookCard: ', refs.bookCard);
+refs.bookCard.addEventListener('click', handleBookElClick);
 
 function toggleModal() {
   refs.modalPopUp.classList.toggle('is-hidden');

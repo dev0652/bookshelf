@@ -1,5 +1,3 @@
-'use strict';
-
 import getRefs from './refs.js';
 const refs = getRefs();
 
@@ -18,6 +16,8 @@ function renderMarkUp() {
     .href;
   const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
     .href;
+
+  console.log('shoppingList: ', shoppingList);
 
   return shoppingList
     .map(
