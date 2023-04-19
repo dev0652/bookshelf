@@ -87,3 +87,10 @@ aside {
     flex-grow: 1;
   }
 }
+
+.sidebar-shoppinglist {
+  display: none;
+  @media screen and (min-width: $desktop) {
+    display: inherit;
+  }
+}
