@@ -1,6 +1,6 @@
 import getRefs from './refs.js';
 
-const { divEl, paginationContainerPages, paginationContainerBackBtn, paginationContainerEndBtn, startButton, previousButton, nextButton, endButton } = getRefs();
+const { divEl, paginationContainerPages, paginationContainerBackBtn, paginationContainerEndBtn, startButton, previousButton, nextButton, endButton, } = getRefs();
 
 
 
@@ -11,6 +11,7 @@ const shoppingList =
 
 
 // !===============Paginagions variables=================
+// !=====================================================
 const pageSize = 3;
 let totalPages = Math.ceil(shoppingList.length / pageSize);
 let currentPage = 1;
@@ -29,8 +30,6 @@ function renderMarkUp(itemsOnPage) {
     .href;
   const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
     .href;
-
-  // console.log('shoppingList: ', shoppingList);
 
   return itemsOnPage
     .map(
@@ -116,6 +115,8 @@ divEl.addEventListener('click', event => {
     
 
     divEl.innerHTML = renderMarkUp(sliceArrayBooks());
+    destoyChieldElemente(paginationContainerPages);
+    checkingArrayBooks();
 
     if (!shoppingList.length) {
       divEl.innerHTML =
@@ -131,10 +132,11 @@ divEl.addEventListener('click', event => {
 
 
 // !=====================Paginations==========================
+// !==========================================================
 for (let i = 1; i <= totalPages; i++) {
-  //   if (shoppingList.length <= 3) {
-  //     return;
-  // };
+    if (shoppingList.length <= 3) {
+      return;
+  };
 
     const pageNumber = i;
     // creating button paginations
@@ -202,8 +204,9 @@ endButton.addEventListener('click', () => {
 
 
 
+// !==================functionsPaginations====================
+// !==========================================================
 
-// ! ====================functions paginations===============
 function deleteMurkup() {
   divEl.innerHTML = "";
 }
@@ -235,13 +238,23 @@ function activDisplayNoneOnElement(element) {
 };
 
 
-function destoyOrCreateLastChieldElemente(element) {
+function destoyChieldElemente(element) {
   const a = shoppingList.length / 3;
   if (Math.round(a) === a) {
-    //  console.log(shoppingList)
     return element.lastElementChild.remove();
   }
   else {
     return;
+  }
+};
+
+function checkingArrayBooks() {
+  if (shoppingList.length <= 3) {
+    activDisplayNoneOnElement(paginationContainerBackBtn);
+    activDisplayNoneOnElement(paginationContainerEndBtn);
+    paginationContainerPages.innerHTML = "";
+  }
+  else {
+    return
   }
 }
