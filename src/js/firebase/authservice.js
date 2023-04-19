@@ -13,6 +13,7 @@ import {
 import { getShoppingList } from './firebaseservise';
 import getRefs from '../refs';
 import { userLogIn } from '../authorization-form';
+import { Notify } from 'notiflix';
 
 const refs = getRefs();
 
@@ -67,8 +68,8 @@ export function onLogin(email, password) {
       onUserLogin(userCredential, displayName);
       getShoppingList().then(shoppingList => {
         if (shoppingList === null) {
-          console.log('null');
-          localStorage.setItem('storage-of-books', null);
+          // console.log('null');
+          // localStorage.setItem('storage-of-books', null);
           return;
         }
         const books = Object.keys(shoppingList);
@@ -76,14 +77,44 @@ export function onLogin(email, password) {
         for (const key of books) {
           list.push(shoppingList[key]);
         }
+        // console.log(list);
         list.map(el => {
-          const listJson = JSON.stringify(el);
+          const listFromServer = [...el];
+          console.log(listFromServer);
+          const listLocalStorage = JSON.parse(
+            localStorage.getItem('storage-of-books')
+          );
+          console.log(listLocalStorage);
+          if (listLocalStorage !== null) {
+            console.log('AAAAA');
+            const newBooksList = [];
+            for (el of listLocalStorage) {
+              const idEl = el._id;
+              console.log(idEl);
+              const filtredList = listFromServer.every(
+                book => book._id !== idEl
+              );
+              console.log(filtredList);
+              if (filtredList) {
+                newBooksList.push(el);
+              }
+              const allBooks = [...listFromServer, ...newBooksList];
+              localStorage.setItem(
+                'storage-of-books',
+                JSON.stringify(allBooks)
+              );
+            }
+            return;
+          }
+          console.log('BBBB');
+          const listJson = JSON.stringify(listFromServer);
           localStorage.setItem('storage-of-books', listJson);
         });
       });
       return (refs.userName.textContent = displayName);
     })
     .catch(error => {
+      Notify.failure('This user do not registered');
       const errorCode = error.code;
       const errorMessage = error.message;
     });
@@ -113,3 +144,7 @@ function onUserLogin(userCredential, displayName) {
   localStorage.setItem('userName', displayName);
   return (refs.userName.textContent = displayName);
 }
+
+// function ongetShoppingList() {
+
+// }
