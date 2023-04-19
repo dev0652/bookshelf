@@ -103,13 +103,27 @@ refs.addBtnEL.addEventListener('click', handleBookElClickToStorage);
 // ----------------------------------------////
 // ----------------------------------------////
 export async function handleBookElClick(e) {
-  // const id = e.target.attributes.data_id.value;
+  
   BookAPI.bookID = e.target.attributes.data_id.value;
 
   try {
     const data = await BookAPI.fetchBookByID();
-    toggleModal();
+    // toggleModal();
+    refs.modalPopUp.classList.remove('is-hidden');
     refs.modalContentEl.innerHTML = createModal(data);
+    refs.closeModalPopUpBtn.addEventListener(
+      'click',
+      handleModalPopUpCloseBtnClick
+    );
+    document.addEventListener(
+      'keydown',
+      e => {
+        if (e.key === 'Escape') {
+          refs.modalPopUp.classList.add('is-hidden');
+        }
+      },
+      { once: true }
+    );    
 
     const isBookId = shoppingList.find(
       bookInStorage => bookInStorage._id === data._id
@@ -170,21 +184,9 @@ export function createModal(data) {
           `;
 }
 
-refs.bookCard.addEventListener('click', handleBookElClick);
-
-function toggleModal() {
-  refs.modalPopUp.classList.toggle('is-hidden');
-}
-
-// Close PopUp Modal by Close btn click
-refs.closeModalPopUpBtn.addEventListener(
-  'click',
-  handleModalPopUpCloseBtnClick
-);
 
 function handleModalPopUpCloseBtnClick(e) {
-  toggleModal();
-  refs.modalContentEl.innerHTML = '';
+  refs.modalPopUp.classList.add('is-hidden');
 }
 
 refs.closeModalPopUpBtn.removeEventListener(
@@ -192,13 +194,3 @@ refs.closeModalPopUpBtn.removeEventListener(
   handleModalPopUpCloseBtnClick
 );
 
-// Close PopUp Modal by Esc click
-window.addEventListener(
-  'keydown',
-  e => {
-    if (e.key === 'Escape') {
-      toggleModal();
-    }
-  },
-  { once: true }
-);
