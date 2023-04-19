@@ -4,7 +4,7 @@ const refs = getRefs();
 // Header
 import './js/header-height-adjust';
 // Mobile menu
-// import './js/burger-mobile';
+import './js/burger-mobile';
 
 // Sidebar
 import './js/renderCategoriesList.js';
@@ -25,8 +25,6 @@ import './js/modal';
 import './js/firebase/firebase';
 import { validateOnSubmit } from './js/form-validator';
 refs.authForm.addEventListener('submit', validateOnSubmit);
-
-
 
 // Scroll-to-top button
 import './js/back-to-top';
