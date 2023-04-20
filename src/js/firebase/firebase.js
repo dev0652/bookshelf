@@ -30,7 +30,7 @@ async function onCreateUser(e) {
 
 async function onLogOutUser(e) {
   e.preventDefault();
-  const localList = JSON.parse(localStorage.getItem('list'));
+  const localList = JSON.parse(localStorage.getItem('storage-of-books'));
   if (localList) {
     await deleteBookShopping();
     postShoppingList(localList);
@@ -47,7 +47,10 @@ function onLogIn(e) {
   const userEmail = user_email.value;
   const userPassword = user_password.value;
   e.currentTarget.reset();
-  userLogIn();
   onLogin(userEmail, userPassword);
   handleClickOnSingInCloseBtn();
+  const token = JSON.parse(localStorage.getItem('token'));
+  if (token) {
+    userLogIn();
+  }
 }

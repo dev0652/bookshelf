@@ -1,41 +1,39 @@
-import './js/home-bs/home-bs';
-// import './js/home-categories';
-import './js/support';
-import './js/firebase/firebase';
-import './js/modal';
-import './js/burger-mobile';
-
-import './js/renderCategoriesList';
-import './js/activeCatBtnSwitcher';
-import './js/handleAllCategoriesClick';
-
-import headerHeightAdjust from './js/header-height-adjust';
-import { scrollToTop, toTopObserver } from './js/back-to-top';
-
-import colorSwitcher from './js/color-scheme-switcher';
-// import { handleBookElClick } from './js/modal';
-
-// ##########################################################
-
 import getRefs from './js/refs';
+const refs = getRefs();
 
-// Add your ref here:
-const { scrollToTopButton, toTopTarget, authForm } = getRefs();
+import './js/spinner.js';
 
-// ##################################################################
+// Header
+import './js/header-height-adjust';
+// import './js/burger-mobile';
+import './js/color-scheme-switcher';
 
-headerHeightAdjust();
-colorSwitcher(); // Activate color scheme switcher
+// Sidebar
+import './js/renderCategoriesList.js';
+import './js/activeCatBtnSwitcher';
+import './js/home-categories';
+import './js/handleAllCategoriesClick';
+import './js/support';
+// import './js/fetchSelectedBooks';
+import './js/renderSelectedBooks';
 
-// Activate scroll-to-top button
-toTopObserver.observe(toTopTarget);
-scrollToTopButton.addEventListener('click', scrollToTop);
+// Content part
+import './js/home-bs/home-bs';
 
-// ##################################################################
+// Modal - popup
+import './js/modal';
 
-// Temp: authentication form validation on submit
+// Authorization
+import './js/firebase/firebase';
+import './js/firebase/authservice';
+import './js/firebase/firebaseservise';
 
 import { validateOnSubmit } from './js/form-validator';
-authForm.addEventListener('submit', validateOnSubmit);
+refs.authForm.addEventListener('submit', validateOnSubmit);
 
-// ##################################################################
+// Scroll-to-top button
+import './js/back-to-top';
+import './js/color-scheme-switcher';
+import './js/authorization-form';
+
+import './js/seeMore';

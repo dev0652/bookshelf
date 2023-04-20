@@ -13,6 +13,7 @@ import {
 import { getShoppingList } from './firebaseservise';
 import getRefs from '../refs';
 import { userLogIn } from '../authorization-form';
+import { Notify } from 'notiflix';
 
 const refs = getRefs();
 
@@ -67,8 +68,6 @@ export function onLogin(email, password) {
       onUserLogin(userCredential, displayName);
       getShoppingList().then(shoppingList => {
         if (shoppingList === null) {
-          console.log('null');
-          localStorage.setItem('list', null);
           return;
         }
         const books = Object.keys(shoppingList);
@@ -77,13 +76,37 @@ export function onLogin(email, password) {
           list.push(shoppingList[key]);
         }
         list.map(el => {
-          const listJson = JSON.stringify(el);
-          localStorage.setItem('list', listJson);
+          const listFromServer = [...el];
+          const listLocalStorage = JSON.parse(
+            localStorage.getItem('storage-of-books')
+          );
+          if (listLocalStorage !== null) {
+            const newBooksList = [];
+            for (el of listLocalStorage) {
+              const idEl = el._id;
+              console.log(idEl);
+              const filtredList = listFromServer.every(
+                book => book._id !== idEl
+              );
+              if (filtredList) {
+                newBooksList.push(el);
+              }
+              const allBooks = [...listFromServer, ...newBooksList];
+              localStorage.setItem(
+                'storage-of-books',
+                JSON.stringify(allBooks)
+              );
+            }
+            return;
+          }
+          const listJson = JSON.stringify(listFromServer);
+          localStorage.setItem('storage-of-books', listJson);
         });
       });
       return (refs.userName.textContent = displayName);
     })
     .catch(error => {
+      Notify.failure('This user do not registered');
       const errorCode = error.code;
       const errorMessage = error.message;
     });
@@ -96,7 +119,7 @@ export function onLogOut() {
     .then(() => {
       localStorage.setItem('uid', null);
       localStorage.setItem('token', null);
-      localStorage.setItem('list', null);
+      localStorage.setItem('storage-of-books', null);
       localStorage.setItem('userName', null);
       return (refs.userName.textContent = '');
     })

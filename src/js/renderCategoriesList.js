@@ -3,7 +3,7 @@ import getRefs from './refs';
 
 const { categoryListEl } = getRefs();
 
-const categoriesArray = async () => {
+async function categoriesArray() {
   try {
     const { data } = await axios.get(
       'https://books-backend.p.goit.global/books/category-list'
@@ -13,7 +13,7 @@ const categoriesArray = async () => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 export async function renderCategories() {
   try {
@@ -27,6 +27,7 @@ export async function renderCategories() {
       const catBtn = document.createElement('button');
       catBtn.classList.add('category-btn');
       catBtn.textContent = `${arr.list_name}`;
+      catBtn.setAttribute('id', arr.list_name);
       categoryListEl.appendChild(listItem);
       listItem.appendChild(catBtn);
     }

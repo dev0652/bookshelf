@@ -9,15 +9,24 @@ export default function () {
     toTopTarget: document.querySelector('.to-top-target'),
 
     // Color scheme switcher:
+    colorSwitcherCnt: document.querySelector('.color-scheme-switcher'),
     colorSwitcher: document.querySelector('#color-scheme-switcher-checkbox'),
+    colorSwitcherSlider: document.querySelector(
+      '.color-scheme-switcher-slider'
+    ),
 
     // All categories button:
     allCategoriesBtn: document.querySelector('button[name=allcategories]'),
 
     //Categories:
     categoryListEl: document.querySelector('.categories_list'),
+    categoriesListContainer: document.querySelector('.categories'),
     categoryContainerEl: document.querySelector('.category-container'),
     titleEl: document.querySelector('.home-br__title'),
+    selectedBooksListEl: document.querySelector('.selected-category'),
+
+    // Support Ukraine
+    supportUkraineCnt: document.querySelector('.support-list'),
 
     // Sign up
     openSignUpBtnEl: document.querySelector('#signUp-open-btn'),
@@ -40,9 +49,8 @@ export default function () {
     authSubmitBtn: document.querySelector('modal-form__submit'),
 
     // Pop Up
-    openModalPopUpBtn: document.querySelector('.open-modal-button'),
+    bookCard: document.querySelector('.book-item-link'),
     closeModalPopUpBtn: document.querySelector('[data-pop-up-close]'),
-    modalPopUpBtn: document.querySelector('.modal-pop-up-btn'),
     modalPopUp: document.querySelector('[data-pop-up]'),
     modalContentEl: document.querySelector('.modal-pop-up-content'),
 
@@ -54,13 +62,20 @@ export default function () {
     logOutMenu: document.getElementById('logOutMenu'),
     formLogIn: document.getElementById('logIn'),
 
-    // Shoping list
+    // Shopping list
     divEl: document.querySelector('.shopping__list'),
+    addBtnEL: document.querySelector('.modal-pop-up-btn'),
     // Paginations
-    paginationsSlider: document.querySelector(".paginations-slider"),
-    paginationContainerPages: document.querySelector(".paginations__container-pages"),
-    paginationContainerBackBtn: document.querySelector(".paginations__container-back"),
-    paginationContainerEndBtn: document.querySelector(".paginations__container-end"),
+    paginationsSlider: document.querySelector('.paginations-slider'),
+    paginationContainerPages: document.querySelector(
+      '.paginations__container-pages'
+    ),
+    paginationContainerBackBtn: document.querySelector(
+      '.paginations__container-back'
+    ),
+    paginationContainerEndBtn: document.querySelector(
+      '.paginations__container-end'
+    ),
     startButton: document.querySelector("button[name='startButton']"),
     previousButton: document.querySelector("button[name='previousButton']"),
     nextButton: document.querySelector("button[name='nextButton']"),

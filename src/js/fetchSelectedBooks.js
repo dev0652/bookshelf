@@ -1,16 +1,15 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-export default async function getTopBooksArray() {
-  Notiflix.Loading.dots();
-  // Notiflix.Loading.pulse();
+export async function fetchSelectedBooks(category) {
+  // Notiflix.Loading.pulse('Please hang on...');
+  Notiflix.Loading.dots('Please wait');
 
   try {
     const { data } = await axios.get(
-      'https://books-backend.p.goit.global/books/top-books'
+      `https://books-backend.p.goit.global/books/category?category=${category}`
     );
     Notiflix.Loading.remove();
-
     return data;
   } catch (error) {
     Notiflix.Loading.remove();

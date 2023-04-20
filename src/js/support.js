@@ -1,13 +1,10 @@
 import charities from './charities';
+//import Swiper from 'swiper';
+//import 'swiper/css';
+//import 'swiper/swiper-bundle.min.css';
 
-// console.log(charities);
 
 const list = document.querySelector('.support-list');
-// const item ='<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>';
-
-// console.log(item);
-
-// list.innerHTML += item;
 
 const html = charities.map(makeMarkup).join('');
 
@@ -16,13 +13,15 @@ function makeMarkup({ url, title, img }, index) {
   const path1 = img.normal;
   const path2 = img.retina;
 
-  return `<li class="support-item">
+  return `<li class="swiper-slide">
+        <div class="support-item">
         <span class="support-index">${digits}</span>
         <a class="support-link" href="${url}" target="_blank">
             <img
                 srcset="${img.normal} 1x, ${img.retina} 2x"
                 src="${img.normal}" type="image/png" alt="${title}">
         </a>
+        
     </li>`;
 }
 
@@ -32,4 +31,20 @@ const str = charities.map((element, index) => {
   return '<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>';
 });
 
+
+const swiper = new Swiper(".mySwiper", {
+  direction: "vertical",
+  slidesPerView: 4,
+  rewind: true,
+  spaceBetween: 20,
+  effect: 'slide',
+  breakpoints: {
+    480: {
+      slidesPerView: 6,
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-next",
+  },
+});
 // console.log(str);

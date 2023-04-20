@@ -1,5 +1,5 @@
 import getRefs from './refs';
-const { scrollToTopButton } = getRefs();
+const { scrollToTopButton, toTopTarget } = getRefs();
 
 export const toTopObserver = new IntersectionObserver(cb);
 
@@ -13,12 +13,12 @@ function cb(entries) {
   });
 }
 
-export function scrollToTop() {
+export function scrollToTop(event) {
   window.scroll({
     top: 0,
     behavior: 'smooth',
   });
 }
 
-// observer.observe(target);
-// scrollToTopButton.addEventListener('click', scrollToTop);
+toTopObserver.observe(toTopTarget);
+scrollToTopButton.addEventListener('click', scrollToTop);

@@ -1,26 +1,19 @@
 import getRefs from './refs';
-const { colorSwitcher } = getRefs();
-
-// Check if switcher position is saved in Local Storage
-function checkLocalStorage() {
-  return localStorage.getItem('dark-color-scheme');
-}
-
-// Save switcher position to Local Storage
-function updateLocalStorage(checkbox) {
-  localStorage.setItem('dark-color-scheme', checkbox.checked);
-}
+const { colorSwitcher, colorSwitcherSlider } = getRefs();
 
 // #############################################################
 
 function presetSwitcher() {
-  const isSaved = checkLocalStorage();
-  if (!isSaved) return;
+  // Check if switcher position is saved in Local Storage
+  const isSaved = localStorage.getItem('dark-color-scheme');
 
-  colorSwitcher.checked = isSaved === 'true' ? true : false;
+  if (!isSaved) return;
+  if (isSaved === 'false') return;
+
+  colorSwitcher.checked = true;
 }
 
-function setSwitcher() {
+function setColorScheme() {
   if (colorSwitcher.checked) {
     document.body.classList.add('dark');
   } else {
@@ -28,17 +21,30 @@ function setSwitcher() {
   }
 }
 
+function updateLocalStorage(checkbox) {
+  // Save switcher position to Local Storage
+  localStorage.setItem('dark-color-scheme', checkbox.checked);
+}
+
 // #############################################################
 
 // Resulting function:
-export default function () {
+function activateColorSchemeSwitcher() {
   presetSwitcher();
-  setSwitcher();
+  setColorScheme();
 
   colorSwitcher.addEventListener('change', onChange);
+  setTimeout(() => {
+    colorSwitcherSlider.classList.add('animated');
+  }, 100);
 }
 
 function onChange(event) {
-  setSwitcher();
+  setColorScheme();
   updateLocalStorage(event.currentTarget);
 }
+
+// #############################################################
+
+// Call the resulting function
+activateColorSchemeSwitcher();

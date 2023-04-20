@@ -1,7 +1,7 @@
 import getRefs from './refs';
-const { categoryListEl } = getRefs();
+const { categoryListEl, titleEl } = getRefs();
 
-const titleEl = document.querySelector('.home-br__title');
+// Find and paint last word in a category title
 let lastWord = '';
 
 function handleCategoryClick(event) {
