@@ -2,9 +2,9 @@
   position: fixed;
   top: 80px;
   width: 100%;
-  height: calc(100vh - 54px);
+  height: calc(100vh - 64px);
   z-index: $to-top-button-index;
-  top: 54px;
+  top: 64px;
   left: 0;
   transform: translate(100%, 0);
   transition: $transition-duration $transition-timing-function;
@@ -148,7 +148,7 @@
   background: transparent;
   border-radius: 36px;
   margin-right: 60px;
-  color: $blackish;
+  color: $milky;
   &:hover,
   :focus, &.active {
     color: $blackish;
@@ -176,7 +176,7 @@
   gap: 8px;
   color: $milky;
   &:hover,
-  :focus {
+  :focus, &.active  {
     background: $gold;
     border-color: $gold;
     color: $blackish;
