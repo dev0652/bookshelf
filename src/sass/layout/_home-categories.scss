@@ -39,39 +39,39 @@
 //   margin-bottom: 0;
 // }
 
-// .book-item-cat {
-//   --gap: 25px;
+.book-item-cat {
+  --gap: 25px;
 
-//   @media screen and (min-width: $mobile) {
-//     @include flex-basis(1, var(--gap));
-//   }
+  @media screen and (min-width: $mobile) {
+    @include flex-basis(1, var(--gap));
+  }
 
-//   @media screen and (min-width: $tablet) {
-//     @include flex-basis(3, var(--gap));
-//   }
+  @media screen and (min-width: $tablet) {
+    @include flex-basis(3, var(--gap));
+  }
 
-//   @media screen and (min-width: $desktop) {
-//     @include flex-basis(5, var(--gap));
-//   }
+  @media screen and (min-width: $desktop) {
+    @include flex-basis(5, var(--gap));
+  }
 
-//   // @media screen and (max-width: $tablet) {
-//   //   margin-right: 0;
-//   //   margin-bottom: 40px;
-//   // }
+  // @media screen and (max-width: $tablet) {
+  //   margin-right: 0;
+  //   margin-bottom: 40px;
+  // }
 
-//   // @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
-//   //   margin-right: 24px;
-//   //   margin-bottom: 40px;
-//   //   &:nth-child(3n + 3) {
-//   //     margin-right: 0;
-//   //   }
-//   // }
+  // @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
+  //   margin-right: 24px;
+  //   margin-bottom: 40px;
+  //   &:nth-child(3n + 3) {
+  //     margin-right: 0;
+  //   }
+  // }
 
-//   // @media screen and (min-width: ($desktop-wide - 1)) {
-//   //   &:nth-child(5n + 5) {
-//   //     margin-right: 0;
-//   //   }
-//   //   margin-right: 24px;
-//   //   margin-bottom: 24px;
-//   // }
-// }
+  // @media screen and (min-width: ($desktop-wide - 1)) {
+  //   &:nth-child(5n + 5) {
+  //     margin-right: 0;
+  //   }
+  //   margin-right: 24px;
+  //   margin-bottom: 24px;
+  // }
+}
