@@ -20,6 +20,7 @@ body {
   /* Modal - popup */
   --modal-bg-color: var(--header-bg-color);
   --modal-border-color: #{$blackish};
+  --modal-message: rgba(17, 17, 17, 0.5);
 
   /* Store icons */
   --amazon-image-filter: grayscale(100%);
