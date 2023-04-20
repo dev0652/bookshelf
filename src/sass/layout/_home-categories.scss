@@ -1,13 +1,14 @@
-// .selected-categories {
-//   @media screen and (max-width: ($tablet - 1)) {
-//     display: flex;
-//     justify-content: center;
-//   }
-// }
-
 .books-list-cat {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+
+  @media screen and (max-width: ($tablet - 1)) {
+    justify-content: center;
+  }
+}
+
+.selected-category {
 }
 
 .home-br__title {
@@ -38,7 +39,7 @@
 }
 
 .book-item-cat {
-  @media screen and (max-width: ($tablet - 1)) {
+  @media screen and (max-width: $tablet) {
     margin-right: 0;
     margin-bottom: 40px;
   }
