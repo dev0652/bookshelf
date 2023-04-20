@@ -55,7 +55,7 @@ function onLogIn(e) {
   onLogin(userEmail, userPassword);
   handleClickOnSingInCloseBtn();
   const token = JSON.parse(localStorage.getItem('token'));
-  console.log(token);
+  // console.log(token);
   if (token) {
     userLogIn();
   }

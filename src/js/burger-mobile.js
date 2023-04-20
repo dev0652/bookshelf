@@ -6,7 +6,7 @@ const refs = {
 };
 refs.openMenuBtn.addEventListener('click', toggleModal);
 function toggleModal() {
-  console.log(refs.menu_open);
+  // console.log(refs.menu_open);
   refs.menu.classList.toggle('is-open');
   refs.menu_close.classList.toggle('is-hidden');
   refs.menu_open.classList.toggle('is-hidden');
@@ -22,7 +22,7 @@ function setActiveClass() {
   // const currentLocation = window.location.pathname;
 
   burgerNavLinks.forEach(link => {
-    console.log('link.href', link.href);
+    // console.log('link.href', link.href);
     if (
       link.href === window.location.href ||
       link.href === window.location.href + 'index.html'

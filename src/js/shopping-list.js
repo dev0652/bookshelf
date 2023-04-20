@@ -11,7 +11,7 @@ const {
   endButton,
 } = getRefs();
 
-// console.log(document.querySelectorAll('.paginations__btn--pages'));
+// // console.log(document.querySelectorAll('.paginations__btn--pages'));
 
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
@@ -123,15 +123,12 @@ divEl.addEventListener('click', event => {
       divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
       return;
     } else {
-        divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-        destroyChildElement(paginationContainerPages);
-        checkingArrayBooks();
+      divEl.innerHTML = renderMarkUp(sliceArrayBooks());
+      destroyChildElement(paginationContainerPages);
+      checkingArrayBooks();
     }
   }
 });
-
-
-
 
 // !=====================Paginations==========================
 // !==========================================================
@@ -161,8 +158,8 @@ for (let i = 1; i <= totalPages; i++) {
   paginationContainerPages.appendChild(button);
 }
 
-paginationContainerPages.firstChild.classList.add("active");
- 
+paginationContainerPages.firstChild.classList.add('active');
+
 // handler for previous Button
 previousButton.addEventListener('click', () => {
   if (currentPage > 1) {
@@ -171,9 +168,9 @@ previousButton.addEventListener('click', () => {
     createNewBooks();
     removeDisableforElement(endButton);
 
-    const activButton = document.querySelector(".active");
-    activButton.classList.remove("active");
-    activButton.previousElementSibling.classList.add("active");
+    const activButton = document.querySelector('.active');
+    activButton.classList.remove('active');
+    activButton.previousElementSibling.classList.add('active');
   }
 });
 
@@ -184,10 +181,10 @@ nextButton.addEventListener('click', () => {
     deleteMurkup();
     createNewBooks();
     removeDisableforElement(startButton);
-    
-    const activButton = document.querySelector(".active");
-    activButton.classList.remove("active");
-    activButton.nextElementSibling.classList.add("active");
+
+    const activButton = document.querySelector('.active');
+    activButton.classList.remove('active');
+    activButton.nextElementSibling.classList.add('active');
   }
 });
 // handler for start Button
@@ -198,7 +195,6 @@ startButton.addEventListener('click', () => {
   addDisableforElement(startButton);
   removeDisableforElement(endButton);
   highlightЕheСurrentРage(paginationContainerPages.firstChild);
-
 });
 
 // handler for end Button
@@ -211,12 +207,13 @@ endButton.addEventListener('click', () => {
   highlightЕheСurrentРage(paginationContainerPages.lastElementChild);
 });
 
-
-
-paginationContainerPages.addEventListener("click", handleButtonpaginationContainerPages);
+paginationContainerPages.addEventListener(
+  'click',
+  handleButtonpaginationContainerPages
+);
 
 function handleButtonpaginationContainerPages(event) {
-  if (event.target.tagName  !== 'BUTTON') {
+  if (event.target.tagName !== 'BUTTON') {
     return;
   }
   highlightЕheСurrentРage(event.target);
@@ -272,14 +269,12 @@ function checkingArrayBooks() {
   }
 }
 
-
 function highlightЕheСurrentРage(element) {
-    const activButton = document.querySelector(".active");
-    
-  if (activButton) {
-    activButton.classList.remove("active");
-  }
-  
-  element.classList.add("active");
+  const activButton = document.querySelector('.active');
 
+  if (activButton) {
+    activButton.classList.remove('active');
+  }
+
+  element.classList.add('active');
 }

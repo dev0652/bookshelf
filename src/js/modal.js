@@ -22,7 +22,7 @@ class BooksApi {
       const book = await response.json();
       return book;
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   }
 }
@@ -32,7 +32,7 @@ const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
-console.log(shoppingList);
+// console.log(shoppingList);
 
 // Функція для додавання товару у корзину
 function addToStorage(book) {
@@ -65,14 +65,14 @@ function handleAddBookInStorage(data) {
     );
     refs.addBtnEL.textContent = 'Add to shopping list';
     modalMessage.remove(); //видалення повідомлення
-    console.log('Книгу видалено');
+    // console.log('Книгу видалено');
     return;
   }
   // Додавання книги у модальному вікні
   addToStorage(data);
   refs.addBtnEL.textContent = 'Remove from the shopping list';
   refs.addBtnEL.after(modalMessage); //додавання повідомлення
-  console.log('Книгу додано');
+  // console.log('Книгу додано');
 }
 
 // Обробник кліку по кнопці у модальному вікні
@@ -84,12 +84,12 @@ export async function handleBookElClickToStorage(e) {
     //   bookInStorage => bookInStorage._id === data._id
     // );
     // if (isBookId) {
-    //   console.log('добавлено у кошик');
+    //   // console.log('добавлено у кошик');
     //   addBtnEL.textContent = 'STOP';
     //   return;
     // }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 }
 
@@ -131,13 +131,13 @@ export async function handleBookElClick(e) {
     if (isBookId) {
       refs.addBtnEL.textContent = 'Remove from the shopping list';
       refs.addBtnEL.after(modalMessage);
-      console.log('Ця книга вже у кошику');
+      // console.log('Ця книга вже у кошику');
       return;
     }
     refs.addBtnEL.textContent = 'Add to shopping list';
     modalMessage.remove();
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 }
 

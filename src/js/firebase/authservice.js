@@ -39,7 +39,7 @@ onAuthStateChanged(auth, user => {
     userLogIn();
     return (refs.userName.textContent = user.displayName);
   } else {
-    console.log('User is signed out');
+    // console.log('User is signed out');
   }
 });
 
@@ -84,7 +84,7 @@ export function onLogin(email, password) {
             const newBooksList = [];
             for (el of listLocalStorage) {
               const idEl = el._id;
-              console.log(idEl);
+              // console.log(idEl);
               const filtredList = listFromServer.every(
                 book => book._id !== idEl
               );
@@ -124,7 +124,7 @@ export function onLogOut() {
       return (refs.userName.textContent = '');
     })
     .catch(error => {
-      console.log(error.message);
+      // console.log(error.message);
     });
 }
 
