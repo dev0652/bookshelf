@@ -123,7 +123,7 @@ divEl.addEventListener('click', event => {
       return;
     } else {
         divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-        destoyChildElemente(paginationContainerPages);
+        destroyChildElement(paginationContainerPages);
         checkingArrayBooks();
     }
   }
@@ -254,7 +254,7 @@ function activDisplayNoneOnElement(element) {
   element.style.display = 'none';
 }
 
-function destoyChildElemente(element) {
+function destroyChildElement(element) {
   const a = shoppingList.length / pageSize;
   if (Math.round(a) === a) {
     return element.lastElementChild.remove();
