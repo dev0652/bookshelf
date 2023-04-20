@@ -17,6 +17,8 @@
   color: var(--text-color);
   margin-bottom: 40px;
 
+  transition: color 200ms;
+
   @media screen and (max-width: ($tablet - 1)) {
     font-size: 32px;
     line-height: 38px;
@@ -25,6 +27,7 @@
 
 .home-bs__title-part {
   color: $violet;
+  transition: color 200ms;
 }
 
 .home-category-title {
