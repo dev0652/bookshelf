@@ -165,7 +165,7 @@ export function createModal(data) {
 
   return `
                         
-              <img class="modal-img" src="${book_image}"/>
+              <img class="modal-img" src="${book_image}" alt="book cover"/>
               <div class='modal-book-attributes'>
               <p class="modal-book-title">${title}</p>
               <p class="modal-book-author">${author}</p>

@@ -20,7 +20,7 @@ export function renderPage(data) {
                 <a class="book-item-link" href="" aria-label="Book thumbnail">
 							<div class="book-item-thumb">
 
-								<img class="book-image" src="${book_image}"  loading="lazy" data_id=${_id} />
+								<img class="book-image" src="${book_image}" loading="lazy" data_id=${_id} alt="book cover"/>
 
 								<div class="book-image-overlay" data_id=${_id} >
 									<p class="book-image-overlay-text">Quick view</p>
@@ -34,7 +34,6 @@ export function renderPage(data) {
 						</a>
         
         </li>`;
-
       }
     )
     .join('');
