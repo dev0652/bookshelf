@@ -51,7 +51,8 @@
     @media screen and (min-width: $tablet) and(max-width: ($desktop - 1)) {
     margin-right: 16px;
   }
-  @media screen and (min-width:$desktop) {
+  
+  @media screen and (min-width: $desktop) {
     margin-right: 83px;
   }
 }
@@ -60,18 +61,6 @@
   fill: currentColor;
 }
 
-.page-navigation-link {
-  display: flex;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: var(--text-color);
-  align-items: center;
-  padding: 8px 16px;
-}
 .page-navigation-link-icon {
   fill: currentColor;
 }
@@ -119,6 +108,11 @@
   align-items: center;
   padding: 8px 16px;
 }
+
+.navigation-link-shopping {
+  gap: 4px;
+}
+
 .page-navigation-link-icon {
   fill: currentColor;
 }
@@ -165,4 +159,11 @@
   }
 }
 
+.mobile-menu-open {
+  color: var(--text-color);
+}
 
+.mobile-menu-open__icon,
+.mobile-menu__close-icon {
+  fill: currentColor;
+}
