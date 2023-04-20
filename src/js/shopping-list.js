@@ -75,10 +75,10 @@ function renderMarkUp(itemsOnPage) {
 
   <div class="grid-shoplist">
     <ul class="shopping__card-shoplist">
-      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon"/>
+      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon"/>
               </a></li>
-      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
-      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
+      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
+      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
     </ul>
   </div>
   <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="${svgTrashIcon}#icon-trash"></use></svg>

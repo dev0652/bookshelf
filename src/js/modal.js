@@ -4,7 +4,10 @@ const refs = getRefs();
 refs.categoryContainerEl.addEventListener('click', function (e) {
   // e.target was the clicked element
   e.preventDefault();
-  if (e.target.matches('.book-image') || e.target.matches('.book-image-overlay')) {
+  if (
+    e.target.matches('.book-image') ||
+    e.target.matches('.book-image-overlay')
+  ) {
     handleBookElClick(e);
   }
 });
@@ -168,13 +171,13 @@ export function createModal(data) {
               <p class="modal-book-author">${author}</p>
               <p class="modal-book-desc">${description}</p>
               <div class="modal-shops">
-              <a class="modal-shop-link" href="${amazon_product_url}" target="_blank">
+              <a class="modal-shop-link" href="${amazon_product_url}" target="_blank" rel="noreferrer noopener">
               <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon link"/>
               </a>
-              <a class="modal-shop-link" href="${apple.url}" target="_blank">
+              <a class="modal-shop-link" href="${apple.url}" target="_blank" rel="noreferrer noopener">
               <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple Books link" />
               </a>
-              <a class="modal-shop-link" href="${bookshop.url}" target="_blank">
+              <a class="modal-shop-link" href="${bookshop.url}" target="_blank" rel="noreferrer noopener">
               <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book Shop link"/>
               </a>
               </div>
