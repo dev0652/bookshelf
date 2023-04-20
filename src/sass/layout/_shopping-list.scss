@@ -19,16 +19,15 @@
 }
 
 .is-empty__info {
-  font-weight: 400;
   font-size: 14px;
   line-height: calc(18 / 14);
 
   text-align: center;
   letter-spacing: -0.02em;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--empty-list-text-color);
 
-  margin-left: 10.5px;
-  margin-right: 10.5px;
+  // margin-left: 10.5px;
+  // margin-right: 10.5px;
 
   @media screen and (min-width: $tablet) {
     font-size: 18px;
@@ -161,26 +160,38 @@
       align-items: end;
     }
   }
-
-  .modal-shop-img {
-    filter: grayscale(100%);
-    // mix-blend-mode: var(--mix-blend-mode);
-
-    &:hover,
-    &:focus {
-      filter: var(--hover-filter);
-    }
-
-    &.amazon {
-      filter: var(--amazon-image-filter);
-
-      &:hover,
-      &:focus {
-        filter: var(--amazon-image-filter-hover);
-      }
-    }
-  }
 }
+
+// .modal-shop-img {
+//   filter: grayscale(100%);
+//   mix-blend-mode: luminosity;
+//   transition: transform 200ms, filter 200ms;
+
+//   &:hover,
+//   &:focus {
+//     mix-blend-mode: normal;
+//     transform: scale(1.1);
+//     filter: var(--hover-filter);
+//   }
+// }
+
+// .amazon {
+//   filter: var(--amazon-image-filter);
+
+//   &:hover,
+//   &:focus {
+//     filter: var(--amazon-image-filter-hover);
+//   }
+// }
+
+// .book-shop {
+//   filter: var(--book-shop-image-filter);
+
+//   &:hover,
+//   &:focus {
+//     filter: var(--book-shop-image-filter-hover);
+//   }
+// }
 
 .shopping__card-title {
   margin-bottom: 4px;
@@ -240,14 +251,6 @@
   align-items: center;
   @media screen and (min-width: $tablet) {
     gap: 16px;
-  }
-}
-.shopping-shopimg {
-  mix-blend-mode: luminosity;
-  transition: transform 0.2s ease-out;
-  &:hover {
-    mix-blend-mode: normal;
-    transform: scale(1.1);
   }
 }
 

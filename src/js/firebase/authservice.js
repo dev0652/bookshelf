@@ -106,7 +106,7 @@ export function onLogin(email, password) {
       return (refs.userName.textContent = displayName);
     })
     .catch(error => {
-      Notify.failure('This user do not registered');
+      Notify.failure('This user account does not exist');
       const errorCode = error.code;
       const errorMessage = error.message;
     });
