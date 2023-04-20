@@ -8,7 +8,6 @@
         <use href="./images/symbol-defs.svg#icon-Book_desktop"></use>
       </svg>
     </a>
-
     <div class="page-navigation-wrapper">
       <!--  -->
       <!-- Navigation -->
@@ -16,7 +15,6 @@
         <li class="page-navigation-list-item-home">
           <a class="page-navigation-link navigation-link-home link" href="./index.html">Home</a>
         </li>
-
         <li class="page-navigation-list-item-shopping">
           <a class="page-navigation-link navigation-link-shopping link" href="./shopping-list.html">Shopping list
 
@@ -27,20 +25,16 @@
         </li>
         <!--  -->
       </ul>
-
       <!-- Color scheme switcher and user bar -->
       <ul class="page-navigation-list-last list">
         <li>
           <include src="./partials/color-scheme-switcher.html"></include>
         </li>
-        <li><button type="button" class="mobile-menu-open is-hidden" data-menu-open>
-            <svg class="mobile-menu-open__icon" width="28" height="28">
-              <use href="../src/images/symbol-defs.svg#icon-align-left"></use>
-            </svg>
-          </button>
-          <button type="button" class="mobile-menu__close-button is-hidden" data-menu-close>
-            <svg class="mobile-menu__close-icon" width="28" height="28">
-              <use href="../src/images/symbol-defs.svg#icon-x-close"></use>
+
+<li><button type="button" class="mobile-menu-open" data-menu-open>
+            <svg width="28" height="28">
+              <use class="mobile-menu-open mobile-menu-open__icon" href="./images/symbol-defs.svg#icon-align-left"></use>
+              <use class="mobile-menu__close-button mobile-menu__close-icon is-hidden" href="./images/symbol-defs.svg#icon-x-close"></use>
             </svg>
           </button>
 
