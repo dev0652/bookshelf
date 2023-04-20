@@ -21,14 +21,16 @@ body {
 
 .container {
   // outline: 2px solid maroon;
+  margin-left: auto;
+  margin-right: auto;
 
-  min-width: calc(100vw - 40px);
-
-  @media screen and (min-width: $mobile) {
-    width: $mobile;
-    margin-left: auto;
-    margin-right: auto;
+  @media screen and (max-width: ($tablet - 1)) {
+    min-width: calc(100vw - 40px);
   }
+
+  // @media screen and (min-width: $mobile) {
+  //   width: $mobile;
+  // }
 
   @media screen and (min-width: $tablet) {
     width: $tablet;
