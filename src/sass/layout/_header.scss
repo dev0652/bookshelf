@@ -162,3 +162,11 @@
     gap: 8px;
   }
 }
+
+.page-navigation-link.navigation-link-shopping.link.is-hidden {
+  display: none;
+}
+
+.page-navigation-link.navigation-link-shopping.link {
+  display: inherit;
+}
