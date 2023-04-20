@@ -1,7 +1,9 @@
 :root {
   --accent-primary: #{$violet};
   --accent-secondary: #{$gold};
+}
 
+body {
   /* Body */
   --background-color: #{$milky};
   --text-color: #{$blackish};
@@ -11,22 +13,61 @@
   --logo-stroke-color: black;
 
   /* Categories  list */
+  --category-color: rgba(17, 17, 17, 0.6);
   --active-category-color: var(--accent-primary);
+  --scrollbar-bg-color: #e0e0e0;
 
-  /* Form */
+  /* Modal - popup */
+  --modal-bg-color: var(--header-bg-color);
+  --modal-border-color: #{$blackish};
+
+  /* Store icons */
+  --hover-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.7));
+
+  --amazon-image-filter: grayscale(100%);
+  --amazon-image-filter-hover: grayscale(0%);
+
+  --book-shop-image-filter: none;
+  --book-shop-image-filter-hover: invert(10%);
+
+  --mix-blend-mode: none;
+
+  /* Shopping list */
+  --card-bg-color: white;
+  --empty-list-text-color: rgba(0, 0, 0, 0.6);
+
+  /* Auth form */
   --form-field-bg-color: #{$milky};
   --form-field-bg-color-focus: White;
-  --form-button-bg-color: #{$blackish};
+  --form-button-border-color: #{$blackish};
   --link-color: var(--accent-primary);
+  --form-background: #{$milky};
+  --form-border: #{$blackish};
+  --form-toggle-color: rgba(17, 17, 17, 0.5);
 
-  /* Pagination buttons */
-  --back-button-text-color: white;
+  /* Pagination (shopping list) */
+  --circle-border-color: var(--text-color);
+
+  /* Pagination - Back button */
+  --back-button-bg-color: var(--text-color);
+  --back-button-bg-color-hover: var(--accent-primary);
+  --back-button-bg-color-active: dimgray; // feel free to modify
   --back-button-icon-color: #{$gray};
-  --back-button-bg-color: #{$blackish};
-  --back-button-bg-color-focus: dimgray; //   feel free to change
-  --back-button-bg-color-active: var(--accent-primary); //   feel free to change
+
+  /* Pagination - Page bullets */
+  --page-bullet-bg-color: transparent;
+  --page-bullet-bg-color-active: var(--text-color);
+  --page-bullet-text-color: var(--text-color);
+  --page-bullet-text-color-active: white;
+
+  /* Pagination - Forward button */
+  --forward-button-bg-color: var(--accent-secondary);
+  --forward-button-bg-color-hover: gold;
+  --forward-button-bg-color-active: darkgoldenrod;
+  --forward-button-icon-color: black;
 
   /* To top button */
-  --to-top-button-shadow-color: black;
-  --to-top-button-border-color: silver;
+  --to-top-button-bg-color: var(--accent-primary);
+  --to-top-button-shadow-color: rgba(82, 48, 232, 0.3);
+  --to-top-button-icon-color: white;
 }

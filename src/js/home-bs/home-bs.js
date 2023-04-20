@@ -1,14 +1,10 @@
-
-
-import getTopBooksArray from "./fetchBooks";
-import  {createBookMarkup}  from "./markupBook.js";
-
+import getTopBooksArray from './fetchBooks';
+import { createBookMarkup } from './markupBook.js';
 import getRefs from '../refs';
 
-const { allCategoriesBtn } = getRefs();
+const { selectedBooksListEl } = getRefs();
 
 
-const categoryContainerEl = document.querySelector('.category-container');
 
 // export async function renderTopBooks() {
 //     try {
@@ -102,6 +98,28 @@ const categoryContainerEl = document.querySelector('.category-container');
       categoryContainerEl.innerHTML += sectionMarkup;
     } catch (error) {
       console.log(error);
+
+      for (const book of element.books) {
+        const bestBook = document.createElement('li');
+        bestBook.classList.add('book-item');
+        bestBook.innerHTML = createBookMarkup(book);
+
+        bestSellers.appendChild(bestBook);
+        categoryItem.appendChild(bestSellers);
+      }
+
+      const buttonEl = document.createElement('button');
+      buttonEl.classList.add('button');
+      buttonEl.classList.add('see-more-btn');
+      buttonEl.innerText = 'See more';
+      buttonEl.setAttribute('id', element.list_name);
+
+      categoryItem.appendChild(buttonEl);
+
     }
+  } catch (error) {
+    console.log(error);
   }
-  renderTopBooks()
+}
+
+renderTopBooks();

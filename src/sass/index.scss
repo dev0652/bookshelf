@@ -2,28 +2,34 @@
 @import './base/basic-reset';
 @import './base/defaults';
 
+// Fonts
+@import './fonts/fonts';
+
 // Utilities
 @import './utils/variables';
 @import './utils/animations';
 @import './utils/mixins';
 
-// Layout
-@import './layout/common';
-@import './layout/header';
-@import './layout/home';
-@import './layout/home-bs';
-@import './layout/popup';
-
 // Components
 @import './components/buttons';
 @import './components/back-to-top';
 @import './components/spinner';
+@import './components/burger-menu';
+
 @import './components/color-scheme-switcher';
+@import './components/modal';
+@import './components/paginations';
+
+// Layout
+@import './layout/common';
+@import './layout/header';
+@import './layout/home-bs';
+@import './layout/authorization-form';
+@import './layout/support';
+@import './layout/categories';
+@import './layout/home-categories';
+@import './layout/shopping-list';
 
 // Color schemes
 @import './color-schemes/light';
 @import './color-schemes/dark';
-
-// Simplelightbox
-// @import './vendors/lightbox-overlay';
-// @import '../../node_modules/simplelightbox/src/simple-lightbox.scss';
