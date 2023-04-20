@@ -4,23 +4,100 @@ import getRefs from '../refs';
 
 const { selectedBooksListEl } = getRefs();
 
-export async function renderTopBooks() {
-  try {
-    const data = await getTopBooksArray();
 
-    for (const element of data) {
-      const categoryItem = document.createElement('li');
-      categoryItem.classList.add('home-category');
 
-      const categoryTitel = document.createElement('h2');
-      categoryTitel.classList.add('home-category-title');
-      categoryItem.appendChild(categoryTitel);
-      categoryTitel.innerText = element.list_name;
+// export async function renderTopBooks() {
+//     try {
+//       const data = await getTopBooksArray();
+  
+//       const categoryTop = document.createElement('ul');
+  
+//       for (const element of data) {
+//         const categoryItem = document.createElement('li');
+//         categoryItem.classList.add('home-category');
 
-      selectedBooksListEl.appendChild(categoryItem);
 
-      const bestSellers = document.createElement('ul');
-      bestSellers.classList.add('books-list');
+//         const categoryTitel = document.createElement('h2');
+//         categoryTitel.classList.add('home-category-title');
+//         categoryItem.appendChild(categoryTitel);
+//         categoryTitel.innerText = element.list_name;
+
+    
+//         categoryTop.appendChild(categoryItem);
+  
+//         const bestSellers = document.createElement('ul');
+//         bestSellers.classList.add('books-list');
+
+//         for (const book of element.books) {
+//           const bestBook = document.createElement('li');
+//           bestBook.classList.add('book-item');
+//           bestBook.innerHTML = createBookMarkup(book);
+          
+
+//           bestSellers.appendChild(bestBook);
+//           categoryItem.appendChild(bestSellers);
+//         }
+
+//         const buttonEl = document.createElement('button');
+//         buttonEl.classList.add('button');
+//         buttonEl.classList.add('see-more-btn');
+//         buttonEl.innerText = 'See more'
+
+//         categoryItem.appendChild(buttonEl);
+//       }
+  
+//       categoryContainerEl.appendChild(categoryTop);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+  // renderTopBooks()
+
+
+  // TRY
+
+  export async function renderTopBooks() {
+    try {
+      const data = await getTopBooksArray();
+  
+     let sectionMarkup="";
+
+      for (const element of data) {
+        let liMarkup ="";
+        console.log(element)
+
+        for (const book of element.books) {
+        
+        const xEl= ` <li class="book-item">
+            ${createBookMarkup(book)}
+          </li>`;
+
+         
+          liMarkup += xEl;
+        
+        }
+
+       
+
+        const markup = `<ul>
+        <li class="home-category"> 
+        <h2 class="home-category-title">${element.list_name}</h2>
+        <ul class="books-list">
+        ${liMarkup}
+        </ul>
+        <button class="button see-more-btn" data-atribute="${element.list_name}">See more</button>
+        </li> 
+
+</ul>`
+
+      sectionMarkup += markup;
+    
+      }
+  
+
+      categoryContainerEl.innerHTML += sectionMarkup;
+    } catch (error) {
+      console.log(error);
 
       for (const book of element.books) {
         const bestBook = document.createElement('li');
@@ -38,6 +115,7 @@ export async function renderTopBooks() {
       buttonEl.setAttribute('id', element.list_name);
 
       categoryItem.appendChild(buttonEl);
+
     }
   } catch (error) {
     console.log(error);
