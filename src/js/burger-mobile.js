@@ -10,8 +10,9 @@ function toggleModal() {
   refs.menu.classList.toggle('is-open');
   refs.menu_close.classList.toggle('is-hidden');
   refs.menu_open.classList.toggle('is-hidden');
-  if (refs.openMenuBtn.classList.contains('is-hidden')) {
+  if (refs.menu_open.classList.contains('is-hidden')) {
     document.body.style.overflow = 'hidden';
+
   } else {
     document.body.style.overflow = '';
   }
