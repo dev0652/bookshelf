@@ -2,7 +2,7 @@ import './js/spinner.js';
 
 // Header
 import './js/header-height-adjust';
-// import './js/burger-mobile';
+import './js/burger-mobile';
 import './js/color-scheme-switcher';
 
 // Sidebar
@@ -25,11 +25,14 @@ import './js/firebase/firebase';
 import './js/firebase/authservice';
 import './js/firebase/firebaseservise';
 
-// import './js/form-validator';
+import './js/form-validator';
 
 // Scroll-to-top button
 import './js/back-to-top';
 import './js/color-scheme-switcher';
 import './js/authorization-form';
+
+//burger menu
+import './js/burger-mobile';
 
 import './js/seeMore';

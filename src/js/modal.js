@@ -4,7 +4,10 @@ const refs = getRefs();
 refs.categoryContainerEl.addEventListener('click', function (e) {
   // e.target was the clicked element
   e.preventDefault();
-  if (e.target.matches('.book-image') || e.target.matches('.book-image-overlay')) {
+  if (
+    e.target.matches('.book-image') ||
+    e.target.matches('.book-image-overlay')
+  ) {
     handleBookElClick(e);
   }
 });
@@ -19,7 +22,7 @@ class BooksApi {
       const book = await response.json();
       return book;
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   }
 }
@@ -29,7 +32,7 @@ const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
-console.log(shoppingList);
+// console.log(shoppingList);
 
 // Функція для додавання товару у корзину
 function addToStorage(book) {
@@ -62,14 +65,14 @@ function handleAddBookInStorage(data) {
     );
     refs.addBtnEL.textContent = 'Add to shopping list';
     modalMessage.remove(); //видалення повідомлення
-    console.log('Книгу видалено');
+    // console.log('Книгу видалено');
     return;
   }
   // Додавання книги у модальному вікні
   addToStorage(data);
   refs.addBtnEL.textContent = 'Remove from the shopping list';
   refs.addBtnEL.after(modalMessage); //додавання повідомлення
-  console.log('Книгу додано');
+  // console.log('Книгу додано');
 }
 
 // Обробник кліку по кнопці у модальному вікні
@@ -81,12 +84,12 @@ export async function handleBookElClickToStorage(e) {
     //   bookInStorage => bookInStorage._id === data._id
     // );
     // if (isBookId) {
-    //   console.log('добавлено у кошик');
+    //   // console.log('добавлено у кошик');
     //   addBtnEL.textContent = 'STOP';
     //   return;
     // }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 }
 
@@ -128,13 +131,13 @@ export async function handleBookElClick(e) {
     if (isBookId) {
       refs.addBtnEL.textContent = 'Remove from the shopping list';
       refs.addBtnEL.after(modalMessage);
-      console.log('Ця книга вже у кошику');
+      // console.log('Ця книга вже у кошику');
       return;
     }
     refs.addBtnEL.textContent = 'Add to shopping list';
     modalMessage.remove();
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 }
 
@@ -162,19 +165,19 @@ export function createModal(data) {
 
   return `
                         
-              <img class="modal-img" src="${book_image}"/>
+              <img class="modal-img" src="${book_image}" alt="book cover"/>
               <div class='modal-book-attributes'>
               <p class="modal-book-title">${title}</p>
               <p class="modal-book-author">${author}</p>
               <p class="modal-book-desc">${description}</p>
               <div class="modal-shops">
-              <a class="modal-shop-link" href="${amazon_product_url}" target="_blank">
+              <a class="modal-shop-link" href="${amazon_product_url}" target="_blank" rel="noreferrer noopener">
               <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon link"/>
               </a>
-              <a class="modal-shop-link" href="${apple.url}" target="_blank">
+              <a class="modal-shop-link" href="${apple.url}" target="_blank" rel="noreferrer noopener">
               <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple Books link" />
               </a>
-              <a class="modal-shop-link" href="${bookshop.url}" target="_blank">
+              <a class="modal-shop-link" href="${bookshop.url}" target="_blank" rel="noreferrer noopener">
               <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book Shop link"/>
               </a>
               </div>

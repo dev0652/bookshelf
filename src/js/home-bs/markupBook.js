@@ -3,7 +3,7 @@ export function createBookMarkup(book) {
 						<a class="book-item-link" href="" aria-label="Book thumbnail">
 							<div class="book-item-thumb">
 
-								<img class="book-image" src="${book.book_image}"  loading="lazy" data_id=${book._id} />
+								<img class="book-image" src="${book.book_image}"  loading="lazy" data_id=${book._id} alt="book cover"/>
 
 								<div class="book-image-overlay" data_id=${book._id} >
 									<p class="book-image-overlay-text">Quick view</p>

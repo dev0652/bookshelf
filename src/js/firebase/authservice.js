@@ -13,9 +13,13 @@ import {
 import { getShoppingList } from './firebaseservise';
 import getRefs from '../refs';
 import { userLogIn } from '../authorization-form';
-import { Notify } from 'notiflix';
+// import { Notify } from 'notiflix';
 
 const refs = getRefs();
+const isLogin = JSON.parse(localStorage.getItem('token'));
+const shoppingListPage = document.querySelector('.navigation-link-shopping');
+
+console.log(shoppingListPage);
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCq9mOndO3g-rUoq_LhFsLf4QY5_4L9fkc',
@@ -37,9 +41,13 @@ const auth = getAuth();
 onAuthStateChanged(auth, user => {
   if (user) {
     userLogIn();
+    if (isLogin) {
+      shoppingListPage.classList.remove('is-hidden');
+    }
+
     return (refs.userName.textContent = user.displayName);
   } else {
-    console.log('User is signed out');
+    // console.log('User is signed out');
   }
 });
 
@@ -65,6 +73,10 @@ export function onLogin(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const displayName = userCredential.user.displayName;
+
+      shoppingListPage.classList.remove('is-hidden');
+
+      // shoppingListVisibile();
       onUserLogin(userCredential, displayName);
       getShoppingList().then(shoppingList => {
         if (shoppingList === null) {
@@ -84,7 +96,7 @@ export function onLogin(email, password) {
             const newBooksList = [];
             for (el of listLocalStorage) {
               const idEl = el._id;
-              console.log(idEl);
+              // console.log(idEl);
               const filtredList = listFromServer.every(
                 book => book._id !== idEl
               );
@@ -106,7 +118,7 @@ export function onLogin(email, password) {
       return (refs.userName.textContent = displayName);
     })
     .catch(error => {
-      Notify.failure('This user account does not exist');
+      // Notify.failure('This user account does not exist');
       const errorCode = error.code;
       const errorMessage = error.message;
     });
@@ -121,10 +133,11 @@ export function onLogOut() {
       localStorage.setItem('token', null);
       localStorage.setItem('storage-of-books', null);
       localStorage.setItem('userName', null);
+      shoppingListPage.classList.add('is-hidden');
       return (refs.userName.textContent = '');
     })
     .catch(error => {
-      console.log(error.message);
+      // console.log(error.message);
     });
 }
 

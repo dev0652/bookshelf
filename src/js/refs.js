@@ -80,7 +80,7 @@ export default function () {
     previousButton: document.querySelector("button[name='previousButton']"),
     nextButton: document.querySelector("button[name='nextButton']"),
     endButton: document.querySelector("button[name='endButton']"),
-    activButton: document.querySelector(".active"),
+    activButton: document.querySelector('.active'),
 
     singUpBtn: document.querySelector('.userbar-btn'),
   };

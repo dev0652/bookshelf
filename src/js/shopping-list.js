@@ -11,11 +11,13 @@ const {
   endButton,
 } = getRefs();
 
-// console.log(document.querySelectorAll('.paginations__btn--pages'));
+// // console.log(document.querySelectorAll('.paginations__btn--pages'));
 
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
   .href;
+
+const svgTrashIcon = new URL('../images/symbol-defs.svg', import.meta.url);
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 
@@ -75,13 +77,13 @@ function renderMarkUp(itemsOnPage) {
 
   <div class="grid-shoplist">
     <ul class="shopping__card-shoplist">
-      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank"><img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon"/>
+      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon"/>
               </a></li>
-      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank"><img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
-      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank"><img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
+      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
+      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
     </ul>
   </div>
-  <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="/symbol-defs.a8b2e413.svg#icon-trash"></use></svg>
+  <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="${svgTrashIcon}#icon-trash"></use></svg>
   </button>
 </article>
 
@@ -122,14 +124,11 @@ divEl.addEventListener('click', event => {
       return;
     } else {
       divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-      destoyChildElemente(paginationContainerPages);
+      destroyChildElement(paginationContainerPages);
       checkingArrayBooks();
     }
   }
 });
-
-
-
 
 // !=====================Paginations==========================
 // !==========================================================
@@ -159,8 +158,8 @@ for (let i = 1; i <= totalPages; i++) {
   paginationContainerPages.appendChild(button);
 }
 
-paginationContainerPages.firstChild.classList.add("active");
- 
+paginationContainerPages.firstChild.classList.add('active');
+
 // handler for previous Button
 previousButton.addEventListener('click', () => {
   if (currentPage > 1) {
@@ -169,9 +168,9 @@ previousButton.addEventListener('click', () => {
     createNewBooks();
     removeDisableforElement(endButton);
 
-    const activButton = document.querySelector(".active");
-    activButton.classList.remove("active");
-    activButton.previousElementSibling.classList.add("active");
+    const activButton = document.querySelector('.active');
+    activButton.classList.remove('active');
+    activButton.previousElementSibling.classList.add('active');
   }
 });
 
@@ -182,10 +181,10 @@ nextButton.addEventListener('click', () => {
     deleteMurkup();
     createNewBooks();
     removeDisableforElement(startButton);
-    
-    const activButton = document.querySelector(".active");
-    activButton.classList.remove("active");
-    activButton.nextElementSibling.classList.add("active");
+
+    const activButton = document.querySelector('.active');
+    activButton.classList.remove('active');
+    activButton.nextElementSibling.classList.add('active');
   }
 });
 // handler for start Button
@@ -196,7 +195,6 @@ startButton.addEventListener('click', () => {
   addDisableforElement(startButton);
   removeDisableforElement(endButton);
   highlightЕheСurrentРage(paginationContainerPages.firstChild);
-
 });
 
 // handler for end Button
@@ -209,12 +207,13 @@ endButton.addEventListener('click', () => {
   highlightЕheСurrentРage(paginationContainerPages.lastElementChild);
 });
 
-
-
-paginationContainerPages.addEventListener("click", handleButtonpaginationContainerPages);
+paginationContainerPages.addEventListener(
+  'click',
+  handleButtonpaginationContainerPages
+);
 
 function handleButtonpaginationContainerPages(event) {
-  if (event.target.tagName  !== 'BUTTON') {
+  if (event.target.tagName !== 'BUTTON') {
     return;
   }
   highlightЕheСurrentРage(event.target);
@@ -253,7 +252,7 @@ function activDisplayNoneOnElement(element) {
   element.style.display = 'none';
 }
 
-function destoyChildElemente(element) {
+function destroyChildElement(element) {
   const a = shoppingList.length / pageSize;
   if (Math.round(a) === a) {
     return element.lastElementChild.remove();
@@ -270,14 +269,12 @@ function checkingArrayBooks() {
   }
 }
 
-
 function highlightЕheСurrentРage(element) {
-    const activButton = document.querySelector(".active");
-    
-  if (activButton) {
-    activButton.classList.remove("active");
-  }
-  
-  element.classList.add("active");
+  const activButton = document.querySelector('.active');
 
+  if (activButton) {
+    activButton.classList.remove('active');
+  }
+
+  element.classList.add('active');
 }

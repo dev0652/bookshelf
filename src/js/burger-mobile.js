@@ -6,11 +6,11 @@ const refs = {
 };
 refs.openMenuBtn.addEventListener('click', toggleModal);
 function toggleModal() {
-  console.log(refs.menu_open)
+  // console.log(refs.menu_open);
   refs.menu.classList.toggle('is-open');
   refs.menu_close.classList.toggle('is-hidden');
   refs.menu_open.classList.toggle('is-hidden');
-  if (refs.openMenuBtn.classList.contains('is-hidden')) {
+  if (refs.menu_open.classList.contains('is-hidden')) {
     document.body.style.overflow = 'hidden';
   } else {
     document.body.style.overflow = '';
@@ -18,20 +18,20 @@ function toggleModal() {
 }
 
 function setActiveClass() {
-  const links = document.getElementsByTagName('a');
-  const currentLocation = window.location.pathname;
+  const burgerNavLinks = document.querySelectorAll('.burger-nav-link');
+  // const currentLocation = window.location.pathname;
 
-  for (let i = 0; i < links.length; i++) {
-    let link = links[i]
-    console.log (link.href, currentLocation);
-    if (link.href.includes(currentLocation)) {
+  burgerNavLinks.forEach(link => {
+    // console.log('link.href', link.href);
+    if (
+      link.href === window.location.href ||
+      link.href === window.location.href + 'index.html'
+    ) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
     }
-  }
-  console.log(links);
+  });
 }
 
 setActiveClass();
-
