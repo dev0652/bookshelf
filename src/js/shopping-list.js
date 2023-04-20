@@ -16,6 +16,8 @@ const {
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
   .href;
+
+const svgTrashIcon = new URL('../images/symbol-defs.svg', import.meta.url);
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 
@@ -75,13 +77,13 @@ function renderMarkUp(itemsOnPage) {
 
   <div class="grid-shoplist">
     <ul class="shopping__card-shoplist">
-      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-amazon" src="${amazonIcon}" alt="Amazon"/>
+      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon"/>
               </a></li>
-      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
-      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-bookshop" src="${bookShopIcon}" alt="Book"/></a></li>
+      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
+      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
     </ul>
   </div>
-  <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="/symbol-defs.a8b2e413.svg#icon-trash"></use></svg>
+  <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="${svgTrashIcon}#icon-trash"></use></svg>
   </button>
 </article>
 
@@ -116,7 +118,6 @@ divEl.addEventListener('click', event => {
       SHOPPING_LIST_STORAGE_KEY,
       JSON.stringify(shoppingList)
     );
-
 
     if (!shoppingList.length) {
       divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
@@ -268,7 +269,7 @@ function checkingArrayBooks() {
     activDisplayNoneOnElement(paginationContainerBackBtn);
     activDisplayNoneOnElement(paginationContainerEndBtn);
     paginationContainerPages.innerHTML = '';
-  } 
+  }
 }
 
 
