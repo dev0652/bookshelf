@@ -3,7 +3,7 @@ import './js/spinner.js';
 // Header
 import './js/header-height-adjust';
 import './js/color-scheme-switcher';
-// import './js/burger-mobile';
+import './js/burger-mobile';
 
 // Sidebar
 import './js/support';

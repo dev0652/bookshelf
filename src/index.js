@@ -2,7 +2,7 @@ import './js/spinner.js';
 
 // Header
 import './js/header-height-adjust';
-// import './js/burger-mobile';
+import './js/burger-mobile';
 import './js/color-scheme-switcher';
 
 // Sidebar
