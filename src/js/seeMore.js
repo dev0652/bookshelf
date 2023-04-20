@@ -27,6 +27,7 @@ async function renderCategory(e) {
   if (e.target.classList.contains('see-more-btn')) {
     const id = e.target.attributes.id.value;
     const words = id.split(' ');
+    let lastWord;
     lastWord = words[words.length - 1];
     const titleCategory = id.split(' ').slice(0, -1).join(' ');
 
