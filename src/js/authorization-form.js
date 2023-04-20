@@ -1,31 +1,28 @@
 import getRefs from './refs.js';
-import validateOnSubmit from './form-validator.js';
 
 const refs = getRefs();
 
-refs.openSignUpBtnEl.addEventListener('click', handleClickOnSignUpOpenBtn);
-refs.closeSignUpBtnEl.addEventListener('click', handleClickOnSignUpCloseBtn);
-refs.signUpModalEl.addEventListener('click', handleClickOnSignUpBackdrop);
-refs.openSignInBtnEl.addEventListener('click', handleClickOnSignInOpenBtn);
+refs.openSignUpBtnEl.addEventListener('click', handleClickOnSingUpOpenBtn);
+refs.closeSignUpBtnEl.addEventListener('click', handleClickOnSingUpCloseBtn);
+refs.signUpModalEl.addEventListener('click', handleClickOnsingUpBackdrop);
+refs.openSignInBtnEl.addEventListener('click', handleClickOnSingInOpenBtn);
 refs.openSignUpBtnSecondEl.addEventListener(
   'click',
-  handleClickOnSignUpSecondCloseBtn
+  handleClickOnSingUpSecondCloseBtn
 );
-refs.closeSignInBtnEl.addEventListener('click', handleClickOnSignInCloseBtn);
+refs.closeSignInBtnEl.addEventListener('click', handleClickOnSingInCloseBtn);
 refs.userBarMenu.addEventListener('click', openUserBarMenu);
 
 // Відкрити Sign up модалку
-function handleClickOnSignUpOpenBtn() {
+function handleClickOnSingUpOpenBtn() {
   refs.signUpModalEl.classList.add('open');
   refs.signInModalWindowEl.style.display = 'none';
   refs.signUpModalWindowEl.style.display = 'block';
-  //  refs.authForm.addEventListener('submit', validateOnSubmit);
 }
 
 // Закрити Sign up модалку
-export function handleClickOnSignUpCloseBtn() {
+export function handleClickOnSingUpCloseBtn() {
   refs.signUpModalEl.classList.remove('open');
-  //  refs.authForm.removeEventListener('submit', validateOnSubmit);
 }
 
 // Закрити Sign up і Sign in модалки при натисканні Esc
@@ -34,35 +31,34 @@ window.addEventListener('keydown', evt => {
   if (refs.signUpModalEl.classList.contains('open')) {
     if (evt.key === 'Escape') {
       refs.signUpModalEl.classList.remove('open');
-      //  refs.authForm.removeEventListener('submit', validateOnSubmit);
     }
   }
 });
 
-// Закрити Sign up і Sign in модалки при натисканні поза них
+// Закрити Sing up і Sign in модалки при натисканні поза них
 
-function handleClickOnSignUpBackdrop(evt) {
+function handleClickOnsingUpBackdrop(evt) {
   const target = evt.target;
 
   if (target === refs.signUpModalEl) {
-    handleClickOnSignUpCloseBtn();
+    handleClickOnSingUpCloseBtn();
   }
 }
 
 // Відкрити Sign in модальне вікно
-function handleClickOnSignInOpenBtn() {
+function handleClickOnSingInOpenBtn() {
   refs.signUpModalWindowEl.style.display = 'none';
   refs.signInModalWindowEl.style.display = 'block';
 }
 
 // Закрити Sign in модальне вікно і вікрити Sign up модальне вікно
-function handleClickOnSignUpSecondCloseBtn() {
+function handleClickOnSingUpSecondCloseBtn() {
   refs.signInModalWindowEl.style.display = 'none';
   refs.signUpModalWindowEl.style.display = 'block';
 }
 
 // Закрити Sign in модалку
-export function handleClickOnSignInCloseBtn() {
+export function handleClickOnSingInCloseBtn() {
   refs.signUpModalEl.classList.remove('open');
 }
 
@@ -72,10 +68,10 @@ function openUserBarMenu() {
 
 export function userLogIn() {
   refs.userBarMenu.classList.remove('user-out');
-  refs.SignUpBtn.classList.add('user-in');
+  refs.singUpBtn.classList.add('user-in');
 }
 
 export function userLogOut() {
   refs.userBarMenu.classList.add('user-out');
-  refs.SignUpBtn.classList.remove('user-in');
+  refs.singUpBtn.classList.remove('user-in');
 }
