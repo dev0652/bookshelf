@@ -30,6 +30,11 @@
   transition: $transition-duration $transition-timing-function;
 }
 
+.mobile-menu-open.is-hidden .mobile-menu__close-icon {
+  display: block;
+  transition: $transition-duration $transition-timing-function;
+}
+
 .mobile-menu-open .mobile-menu__close-icon {
   border: none;
   background-color: inherit;
@@ -48,6 +53,7 @@
 
 
 .mobile-menu.is-open {
+      margin-top: 64px;
   transform: translate(0, 0);
   transition: $transition-duration $transition-timing-function;
   opacity: 1;
@@ -58,7 +64,6 @@
 .mobile-menu__container {
   height: 100%;
   width: 100%;
-  margin-top: 64px;
   padding-top: 104px;
   position: relative;
   top: 0;
