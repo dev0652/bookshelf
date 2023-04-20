@@ -6,10 +6,10 @@ const { authForm, nameField, emailField, passwordField, authSubmitBtn } =
 
 // Обработчик отправки формы
 
-// authForm.addEventListener('submit', validateOnSubmit);
+authForm.addEventListener('focusout', validateOnSubmit);
 
-export default function validateOnSubmit(event) {
-  event.preventDefault();
+export default function validateOnSubmit(e) {
+  e.preventDefault();
 
   // Убираем пробелы
 
@@ -21,6 +21,7 @@ export default function validateOnSubmit(event) {
 
   if (name === '' || email === '' || password === '') {
     Notiflix.Notify.warning('Please fill in all fields');
+
     return;
   }
 
