@@ -114,7 +114,14 @@
   // background-repeat: no-repeat;
   // background-position: center;
   // background-size: cover;
-  background: linear-gradient(-47deg, #4935ff, #4F2EE8, #4b34ae, #833ab4, #6417bd);
+  background: linear-gradient(
+    -47deg,
+    #4935ff,
+    #4f2ee8,
+    #4b34ae,
+    #833ab4,
+    #6417bd
+  );
   background-size: 400% 400%;
   height: 100vh;
   animation: gradient 8s ease infinite;

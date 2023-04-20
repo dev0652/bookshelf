@@ -36,4 +36,3 @@ import './js/authorization-form';
 import './js/burger-mobile';
 
 import './js/seeMore';
-

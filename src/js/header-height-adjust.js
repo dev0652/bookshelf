@@ -12,7 +12,6 @@ headerHeightAdjust();
 // Active nav link in header
 function toggleActiveNavLinks() {
   headerNavLinks.forEach(link => {
-    
     if (
       link.href === window.location.href ||
       link.href === window.location.href + 'index.html'
