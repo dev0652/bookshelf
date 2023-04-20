@@ -145,6 +145,7 @@
 
 .modal-book-desc {
   margin-bottom: 14px;
+  color: var(--text-color);
 
   font-size: 14px;
   line-height: 1.29;
@@ -169,20 +170,32 @@
 
 .modal-shop-img {
   filter: grayscale(100%);
-  // mix-blend-mode: var(--mix-blend-mode);
+  mix-blend-mode: luminosity;
+  transition: transform 200ms, filter 200ms;
 
   &:hover,
   &:focus {
+    mix-blend-mode: normal;
+    transform: scale(1.1);
     filter: var(--hover-filter);
   }
+}
 
-  &.amazon {
-    filter: var(--amazon-image-filter);
+.amazon {
+  filter: var(--amazon-image-filter);
 
-    &:hover,
-    &:focus {
-      filter: var(--amazon-image-filter-hover);
-    }
+  &:hover,
+  &:focus {
+    filter: var(--amazon-image-filter-hover);
+  }
+}
+
+.book-shop {
+  filter: var(--book-shop-image-filter);
+
+  &:hover,
+  &:focus {
+    filter: var(--book-shop-image-filter-hover);
   }
 }
 
