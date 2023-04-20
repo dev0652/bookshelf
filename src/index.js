@@ -25,7 +25,7 @@ import './js/firebase/firebase';
 import './js/firebase/authservice';
 import './js/firebase/firebaseservise';
 
-// import './js/form-validator';
+import './js/form-validator';
 
 // Scroll-to-top button
 import './js/back-to-top';
