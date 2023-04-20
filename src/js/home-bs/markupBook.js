@@ -1,4 +1,3 @@
-
 export function createBookMarkup(book) {
   const markup = `
 						<a class="book-item-link" href="" aria-label="Book thumbnail">
