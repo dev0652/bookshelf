@@ -4,6 +4,21 @@
   left: 0;
   right: 0;
 
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: $tablet) {
+    width: $tablet;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
+  }
+
+  @media screen and (min-width: $desktop-wide) {
+    width: $desktop-wide;
+  }
+
   z-index: $header-index;
 
   background-color: var(--header-bg-color);
@@ -52,7 +67,6 @@
 .page-logo-last {
   fill: currentColor;
   transition: fill 200ms;
-  // margin-right: 100px;
 }
 
 .page-navigation-link {
