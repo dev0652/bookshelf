@@ -1,11 +1,16 @@
+// .selected-categories {
+//   @media screen and (max-width: ($tablet - 1)) {
+//     display: flex;
+//     justify-content: center;
+//   }
+// }
+
 .books-list-cat {
   display: flex;
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-
 .home-br__title {
-
   @media screen and (max-width: $mobile) and (min-width: $tablet) {
     margin-top: 100px;
   }
@@ -16,7 +21,6 @@
 }
 
 .books-list-cat .book-image {
-
   @media screen and (min-width: $tablet) {
     max-width: 218px;
     height: 316px;
@@ -33,8 +37,8 @@
   margin-bottom: 0;
 }
 
-.book-item-cat{
-  @media screen and (max-width: $tablet) {
+.book-item-cat {
+  @media screen and (max-width: ($tablet - 1)) {
     margin-right: 0;
     margin-bottom: 40px;
   }
@@ -47,11 +51,11 @@
     }
   }
 
-    @media screen and (min-width: ($desktop-wide - 1)) {
-      &:nth-child(5n + 5) {
-        margin-right: 0;
-      }
-      margin-right: 24px;
-      margin-bottom: 24px;
+  @media screen and (min-width: ($desktop-wide - 1)) {
+    &:nth-child(5n + 5) {
+      margin-right: 0;
+    }
+    margin-right: 24px;
+    margin-bottom: 24px;
   }
 }

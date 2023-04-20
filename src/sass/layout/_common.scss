@@ -14,9 +14,9 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
-  &.modal-open {
-    overflow: hidden;
-  }
+  // &.modal-open {
+  //   overflow: hidden;
+  // }
 }
 
 .container {
@@ -66,11 +66,18 @@ body {
 aside {
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: ($tablet - 1)) {
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
   gap: 40px;
 
   @media screen and (min-width: $tablet) {
     flex-direction: row;
     gap: 32px;
+    margin-bottom: 100;
   }
 
   @media screen and (min-width: $desktop) {
@@ -86,6 +93,11 @@ aside {
   // flex-direction: column;
 
   padding-bottom: 40px;
+
+  @media screen and (max-width: ($tablet - 1)) {
+    display: flex;
+    justify-content: center;
+  }
 
   @media screen and (min-width: $tablet) {
     flex-grow: 1;
