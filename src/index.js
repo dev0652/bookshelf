@@ -32,4 +32,8 @@ import './js/back-to-top';
 import './js/color-scheme-switcher';
 import './js/authorization-form';
 
+//burger menu
+import './js/burger-mobile';
+
 import './js/seeMore';
+
