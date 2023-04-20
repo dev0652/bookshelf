@@ -11,6 +11,8 @@ const {
   endButton,
 } = getRefs();
 
+// console.log(document.querySelectorAll('.paginations__btn--pages'));
+
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
   .href;
@@ -121,12 +123,15 @@ divEl.addEventListener('click', event => {
       divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
       return;
     } else {
-      divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-      destoyChildElemente(paginationContainerPages);
-      checkingArrayBooks();
+        divEl.innerHTML = renderMarkUp(sliceArrayBooks());
+        destroyChildElement(paginationContainerPages);
+        checkingArrayBooks();
     }
   }
 });
+
+
+
 
 // !=====================Paginations==========================
 // !==========================================================
@@ -136,12 +141,9 @@ for (let i = 1; i <= totalPages; i++) {
   }
 
   const pageNumber = i;
-  // creating button paginations
   const button = document.createElement('button');
-  // creating class button
   button.classList.add('paginations__btn');
   button.classList.add('paginations__btn--pages');
-  // creating number button
   button.textContent = i;
 
   activDisplayFlexOnElement(paginationContainerBackBtn);
@@ -159,6 +161,8 @@ for (let i = 1; i <= totalPages; i++) {
   paginationContainerPages.appendChild(button);
 }
 
+paginationContainerPages.firstChild.classList.add("active");
+ 
 // handler for previous Button
 previousButton.addEventListener('click', () => {
   if (currentPage > 1) {
@@ -166,8 +170,13 @@ previousButton.addEventListener('click', () => {
     deleteMurkup();
     createNewBooks();
     removeDisableforElement(endButton);
+
+    const activButton = document.querySelector(".active");
+    activButton.classList.remove("active");
+    activButton.previousElementSibling.classList.add("active");
   }
 });
+
 // handler for next Button
 nextButton.addEventListener('click', () => {
   if (currentPage < totalPages) {
@@ -175,6 +184,10 @@ nextButton.addEventListener('click', () => {
     deleteMurkup();
     createNewBooks();
     removeDisableforElement(startButton);
+    
+    const activButton = document.querySelector(".active");
+    activButton.classList.remove("active");
+    activButton.nextElementSibling.classList.add("active");
   }
 });
 // handler for start Button
@@ -184,6 +197,8 @@ startButton.addEventListener('click', () => {
   createNewBooks();
   addDisableforElement(startButton);
   removeDisableforElement(endButton);
+  highlightЕheСurrentРage(paginationContainerPages.firstChild);
+
 });
 
 // handler for end Button
@@ -193,7 +208,19 @@ endButton.addEventListener('click', () => {
   createNewBooks();
   addDisableforElement(endButton);
   removeDisableforElement(startButton);
+  highlightЕheСurrentРage(paginationContainerPages.lastElementChild);
 });
+
+
+
+paginationContainerPages.addEventListener("click", handleButtonpaginationContainerPages);
+
+function handleButtonpaginationContainerPages(event) {
+  if (event.target.tagName  !== 'BUTTON') {
+    return;
+  }
+  highlightЕheСurrentРage(event.target);
+}
 
 // !==================functionsPaginations====================
 // !==========================================================
@@ -228,7 +255,7 @@ function activDisplayNoneOnElement(element) {
   element.style.display = 'none';
 }
 
-function destoyChildElemente(element) {
+function destroyChildElement(element) {
   const a = shoppingList.length / pageSize;
   if (Math.round(a) === a) {
     return element.lastElementChild.remove();
@@ -243,4 +270,16 @@ function checkingArrayBooks() {
     activDisplayNoneOnElement(paginationContainerEndBtn);
     paginationContainerPages.innerHTML = '';
   }
+}
+
+
+function highlightЕheСurrentРage(element) {
+    const activButton = document.querySelector(".active");
+    
+  if (activButton) {
+    activButton.classList.remove("active");
+  }
+  
+  element.classList.add("active");
+
 }

@@ -66,7 +66,7 @@ export default function () {
     divEl: document.querySelector('.shopping__list'),
     addBtnEL: document.querySelector('.modal-pop-up-btn'),
     // Paginations
-    paginationsSlider: document.querySelector('.paginations-slider'),
+    paginationsSection: document.querySelector('.paginations'),
     paginationContainerPages: document.querySelector(
       '.paginations__container-pages'
     ),
@@ -80,6 +80,7 @@ export default function () {
     previousButton: document.querySelector("button[name='previousButton']"),
     nextButton: document.querySelector("button[name='nextButton']"),
     endButton: document.querySelector("button[name='endButton']"),
+    activButton: document.querySelector(".active"),
 
     singUpBtn: document.querySelector('.userbar-btn'),
   };
