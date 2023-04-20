@@ -23,6 +23,7 @@ export default function () {
     categoriesListContainer: document.querySelector('.categories'),
     categoryContainerEl: document.querySelector('.category-container'),
     titleEl: document.querySelector('.home-br__title'),
+    selectedBooksListEl: document.querySelector('.selected-category'),
 
     // Support Ukraine
     supportUkraineCnt: document.querySelector('.support-list'),
@@ -42,8 +43,8 @@ export default function () {
 
     // Auth form elements
     authForm: document.querySelector('.modal-form'),
-    nameField: document.querySelector('[name=user-name]'),
-    emailField: document.querySelector('[name=user-email]'),
+    nameField: document.querySelector('[name=user_name]'),
+    emailField: document.querySelector('[name=user_email]'),
     passwordField: document.querySelector('#signup-user-password'),
     authSubmitBtn: document.querySelector('modal-form__submit'),
 
@@ -65,7 +66,7 @@ export default function () {
     divEl: document.querySelector('.shopping__list'),
     addBtnEL: document.querySelector('.modal-pop-up-btn'),
     // Paginations
-    paginationsSlider: document.querySelector('.paginations-slider'),
+    paginationsSection: document.querySelector('.paginations'),
     paginationContainerPages: document.querySelector(
       '.paginations__container-pages'
     ),
@@ -79,6 +80,7 @@ export default function () {
     previousButton: document.querySelector("button[name='previousButton']"),
     nextButton: document.querySelector("button[name='nextButton']"),
     endButton: document.querySelector("button[name='endButton']"),
+    activButton: document.querySelector(".active"),
 
     singUpBtn: document.querySelector('.userbar-btn'),
   };

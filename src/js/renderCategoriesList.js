@@ -27,6 +27,7 @@ export async function renderCategories() {
       const catBtn = document.createElement('button');
       catBtn.classList.add('category-btn');
       catBtn.textContent = `${arr.list_name}`;
+      catBtn.setAttribute('id', arr.list_name);
       categoryListEl.appendChild(listItem);
       listItem.appendChild(catBtn);
     }

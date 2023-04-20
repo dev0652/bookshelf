@@ -11,9 +11,13 @@ const {
   endButton,
 } = getRefs();
 
+// console.log(document.querySelectorAll('.paginations__btn--pages'));
+
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
   .href;
+
+const svgTrashIcon = new URL('../images/symbol-defs.svg', import.meta.url);
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 
@@ -73,13 +77,13 @@ function renderMarkUp(itemsOnPage) {
 
   <div class="grid-shoplist">
     <ul class="shopping__card-shoplist">
-      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-amazon" src="${amazonIcon}" alt="Amazon"/>
+      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon"/>
               </a></li>
-      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
-      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank"><img class="modal-shop-img shopping-shopimg shopping-img-bookshop" src="${bookShopIcon}" alt="Book"/></a></li>
+      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
+      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
     </ul>
   </div>
-  <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="/symbol-defs.a8b2e413.svg#icon-trash"></use></svg>
+  <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="${svgTrashIcon}#icon-trash"></use></svg>
   </button>
 </article>
 
@@ -115,17 +119,19 @@ divEl.addEventListener('click', event => {
       JSON.stringify(shoppingList)
     );
 
-
     if (!shoppingList.length) {
       divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
       return;
     } else {
         divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-        destoyChildElemente(paginationContainerPages);
+        destroyChildElement(paginationContainerPages);
         checkingArrayBooks();
     }
   }
 });
+
+
+
 
 // !=====================Paginations==========================
 // !==========================================================
@@ -135,12 +141,9 @@ for (let i = 1; i <= totalPages; i++) {
   }
 
   const pageNumber = i;
-  // creating button paginations
   const button = document.createElement('button');
-  // creating class button
   button.classList.add('paginations__btn');
   button.classList.add('paginations__btn--pages');
-  // creating number button
   button.textContent = i;
 
   activDisplayFlexOnElement(paginationContainerBackBtn);
@@ -158,6 +161,8 @@ for (let i = 1; i <= totalPages; i++) {
   paginationContainerPages.appendChild(button);
 }
 
+paginationContainerPages.firstChild.classList.add("active");
+ 
 // handler for previous Button
 previousButton.addEventListener('click', () => {
   if (currentPage > 1) {
@@ -165,8 +170,13 @@ previousButton.addEventListener('click', () => {
     deleteMurkup();
     createNewBooks();
     removeDisableforElement(endButton);
+
+    const activButton = document.querySelector(".active");
+    activButton.classList.remove("active");
+    activButton.previousElementSibling.classList.add("active");
   }
 });
+
 // handler for next Button
 nextButton.addEventListener('click', () => {
   if (currentPage < totalPages) {
@@ -174,6 +184,10 @@ nextButton.addEventListener('click', () => {
     deleteMurkup();
     createNewBooks();
     removeDisableforElement(startButton);
+    
+    const activButton = document.querySelector(".active");
+    activButton.classList.remove("active");
+    activButton.nextElementSibling.classList.add("active");
   }
 });
 // handler for start Button
@@ -183,6 +197,8 @@ startButton.addEventListener('click', () => {
   createNewBooks();
   addDisableforElement(startButton);
   removeDisableforElement(endButton);
+  highlightЕheСurrentРage(paginationContainerPages.firstChild);
+
 });
 
 // handler for end Button
@@ -192,7 +208,19 @@ endButton.addEventListener('click', () => {
   createNewBooks();
   addDisableforElement(endButton);
   removeDisableforElement(startButton);
+  highlightЕheСurrentРage(paginationContainerPages.lastElementChild);
 });
+
+
+
+paginationContainerPages.addEventListener("click", handleButtonpaginationContainerPages);
+
+function handleButtonpaginationContainerPages(event) {
+  if (event.target.tagName  !== 'BUTTON') {
+    return;
+  }
+  highlightЕheСurrentРage(event.target);
+}
 
 // !==================functionsPaginations====================
 // !==========================================================
@@ -227,7 +255,7 @@ function activDisplayNoneOnElement(element) {
   element.style.display = 'none';
 }
 
-function destoyChildElemente(element) {
+function destroyChildElement(element) {
   const a = shoppingList.length / pageSize;
   if (Math.round(a) === a) {
     return element.lastElementChild.remove();
@@ -241,5 +269,17 @@ function checkingArrayBooks() {
     activDisplayNoneOnElement(paginationContainerBackBtn);
     activDisplayNoneOnElement(paginationContainerEndBtn);
     paginationContainerPages.innerHTML = '';
-  } 
+  }
+}
+
+
+function highlightЕheСurrentРage(element) {
+    const activButton = document.querySelector(".active");
+    
+  if (activButton) {
+    activButton.classList.remove("active");
+  }
+  
+  element.classList.add("active");
+
 }

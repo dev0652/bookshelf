@@ -6,7 +6,7 @@ const refs = {
 };
 refs.openMenuBtn.addEventListener('click', toggleModal);
 function toggleModal() {
-  console.log(refs.menu_open)
+  console.log(refs.menu_open);
   refs.menu.classList.toggle('is-open');
   refs.menu_close.classList.toggle('is-hidden');
   refs.menu_open.classList.toggle('is-hidden');
@@ -23,8 +23,8 @@ function setActiveClass() {
   const currentLocation = window.location.pathname;
 
   for (let i = 0; i < links.length; i++) {
-    let link = links[i]
-    console.log (link.href, currentLocation);
+    let link = links[i];
+    console.log(link.href, currentLocation);
     if (link.href.includes(currentLocation)) {
       link.classList.add('active');
     } else {
@@ -35,4 +35,3 @@ function setActiveClass() {
 }
 
 setActiveClass();
-

@@ -1,12 +1,23 @@
+.home-category {
+  display: flex;
+  flex-direction: column;
+}
+
+.books-list-cat {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .home-br__title {
   font-size: 48px;
   font-weight: $bold;
   height: 52px;
   letter-spacing: -0.04em;
-
   color: var(--text-color);
-
   margin-bottom: 40px;
+
+  transition: color 200ms;
 
   @media screen and (max-width: ($tablet - 1)) {
     font-size: 32px;
@@ -16,12 +27,13 @@
 
 .home-bs__title-part {
   color: $violet;
+  transition: color 200ms;
 }
 
 .home-category-title {
-  height: 24px;
+  font-size: 14px;
+  line-height: 18px;
 
-  font-weight: $regular;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
@@ -29,21 +41,16 @@
 
   margin-bottom: 18px;
 
-  @media screen and (max-width: ($tablet - 1)) {
-    font-size: 14px;
-    height: 18px;
+  @media screen and (min-width: $tablet) {
+    line-height: 24px;
   }
-}
-
-.home-category {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
 }
 
 .books-list {
   display: flex;
   gap: 24px;
+
+  margin-bottom: 30px;
 
   @media screen and (max-width: ($tablet - 1)) {
     flex-direction: column;

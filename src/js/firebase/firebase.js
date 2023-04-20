@@ -7,6 +7,7 @@ import {
 } from '../authorization-form';
 import { createUser, onLogOut, onLogin } from './authservice';
 import { deleteBookShopping, postShoppingList } from './firebaseservise';
+import validateOnSubmit from '../form-validator';
 
 const refs = getRefs();
 
@@ -22,6 +23,10 @@ async function onCreateUser(e) {
   const displayName = user_name.value;
   const userEmail = user_email.value;
   const userPassword = user_password.value;
+  const valid = validateOnSubmit(e);
+  if (!valid) {
+    return;
+  }
   e.currentTarget.reset();
   await createUser(userEmail, userPassword, displayName);
   userLogIn();
@@ -50,6 +55,7 @@ function onLogIn(e) {
   onLogin(userEmail, userPassword);
   handleClickOnSingInCloseBtn();
   const token = JSON.parse(localStorage.getItem('token'));
+  console.log(token);
   if (token) {
     userLogIn();
   }
