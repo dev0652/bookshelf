@@ -17,10 +17,15 @@ body.dark {
   --modal-border-color: black;
 
   /* Store icons */
-  --amazon-image-filter: grayscale(100%) invert(100%);
-  --amazon-image-filter-hover: invert(100%) hue-rotate(170deg);
-  --mix-blend-mode: luminosity;
   --hover-filter: none;
+
+  --amazon-image-filter: grayscale(100%) invert(100%);
+  --amazon-image-filter-hover: grayscale(0%) invert(100%) hue-rotate(170deg);
+
+  --book-shop-image-filter: invert(80%);
+  --book-shop-image-filter-hover: invert(100%);
+
+  --mix-blend-mode: luminosity;
 
   /* Shopping list */
   --card-bg-color: #{$blackish};

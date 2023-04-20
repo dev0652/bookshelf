@@ -2,13 +2,12 @@
   position: fixed;
   top: 80px;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 54px);
   z-index: $to-top-button-index;
-  top: 0;
+  top: 54px;
   left: 0;
   transform: translate(100%, 0);
   transition: $transition-duration $transition-timing-function;
-
   @media screen and (min-width: $tablet) {
     display: none;
   }
@@ -16,18 +15,40 @@
 .mobile-menu-open {
   background-color: inherit;
   border: none;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
 }
-
-.mobile-menu-open.is-hidden {
+.mobile-menu-open__icon {
+  stroke: currentColor;
+}
+.mobile-menu-open__icon.is-hidden {
   display: none;
   transition: $transition-duration $transition-timing-function;
 }
-
+.mobile-menu-open .mobile-menu__close-icon {
+  border: none;
+  background-color: inherit;
+  
+}
+.mobile-menu-open .mobile-menu__close-icon.is-hidden {
+  display: none;
+}
+.mobile-menu-open__icon.is-hidden {
+  display: none;
+  transition: $transition-duration $transition-timing-function;
+  position: absolute;
+  right: 20px;
+  padding: 0;
+  cursor: pointer;
+}
 .mobile-menu.is-open {
   transform: translate(0, 0);
   transition: $transition-duration $transition-timing-function;
+  opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
-
 .mobile-menu__container {
   height: 100%;
   width: 100%;
@@ -40,7 +61,6 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
-
 .mobile-menu__container::before {
   content: '';
   position: absolute;
@@ -63,26 +83,11 @@
     background-image: url(../images/burger-menu@2x.png);
   }
 }
-
 @media screen and (min-width: $tablet) {
   .mobile-menu__container {
     padding-top: 140px;
   }
 }
-.mobile-menu__close-button {
-  border: none;
-  background-color: inherit;
-}
-
-.mobile-menu__close-button.is-hidden {
-  display: none;
-  transition: $transition-duration $transition-timing-function;
-  position: absolute;
-  right: 20px;
-  padding: 0;
-  cursor: pointer;
-}
-
 .mobile-menu__item {
   position: relative;
   z-index: $to-top-button-index;
@@ -91,26 +96,20 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-
   padding-top: 15px;
   padding-left: 14px;
   padding-bottom: 14px;
-
   height: 48px;
   font-weight: $medium;
   font-size: 4vw;
   line-height: 1.3;
   gap: 90px;
-
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: $blackish;
-
   border-radius: 18px;
   border: 1.5px solid $blackish;
-
   transition: $transition-duration $transition-timing-function;
 }
-
 .button-modal__logout {
   position: fixed;
   bottom: 20px;
@@ -118,32 +117,25 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-
   padding-top: 15px;
   padding-left: 24px;
   padding-bottom: 15px;
-
   height: 48px;
   font-weight: $medium;
   font-size: 4vw;
   line-height: 1.3;
   gap: 4px;
-
   color: $blackish;
   background-color: $logo-stroke-light;
-
   border-radius: 18px;
   border: 1.5px solid $blackish;
-
   transition: $transition-duration $transition-timing-function;
 }
-
 .mobile-menu__btn {
   margin-top: 126px;
   margin-left: auto;
   margin-right: auto;
 }
-
 .mobile-menu__home {
   padding: 8px 16px;
   width: 72px;
@@ -158,7 +150,7 @@
   margin-right: 60px;
   color: $blackish;
   &:hover,
-  :focus {
+  :focus, &.active {
     color: $blackish;
     background: $gold;
     border-color: $gold;
@@ -166,8 +158,6 @@
     transition: $transition-duration $transition-timing-function;
   }
 };
-
-
 .mobile-menu__shopping {
   font-weight: $medium;
   font-size: 4vw;
@@ -195,7 +185,6 @@
     font-weight: $bold;
   }
 }
-
 .mobile-menu__icon {
   fill: $milky;
   fill: currentColor;

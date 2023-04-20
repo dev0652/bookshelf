@@ -1,21 +1,37 @@
 const refs = {
-    openMenuBtn: document.querySelector('[data-menu-open]'),
-    closeMenuBtn: document.querySelector('[data-menu-close]'),
-    menu: document.querySelector('[data-menu]'),
-  };
+  openMenuBtn: document.querySelector('[data-menu-open]'),
+  menu_open: document.querySelector('.mobile-menu-open__icon'),
+  menu_close: document.querySelector('.mobile-menu__close-icon'),
+  menu: document.querySelector('[data-menu]'),
+};
+refs.openMenuBtn.addEventListener('click', toggleModal);
+function toggleModal() {
+  console.log(refs.menu_open)
+  refs.menu.classList.toggle('is-open');
+  refs.menu_close.classList.toggle('is-hidden');
+  refs.menu_open.classList.toggle('is-hidden');
+  if (refs.openMenuBtn.classList.contains('is-hidden')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
 
-  refs.openMenuBtn.addEventListener('click', toggleModal);
-  refs.closeMenuBtn.addEventListener('click', toggleModal);
+function setActiveClass() {
+  const links = document.getElementsByTagName('a');
+  const currentLocation = window.location.pathname;
 
-  function toggleModal() {
-    refs.menu.classList.toggle('is-open');
-    refs.openMenuBtn.classList.toggle('is-hidden');
-    refs.closeMenuBtn.classList.toggle('is-hidden');
-
-    if (refs.openMenuBtn.classList.contains('is-hidden')) {
-      document.body.style.overflow = 'hidden';
+  for (let i = 0; i < links.length; i++) {
+    let link = links[i]
+    console.log (link.href, currentLocation);
+    if (link.href.includes(currentLocation)) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
-    if (refs.closeMenuBtn.classList.contains('is-hidden')) {
-      document.body.style.overflow = '';
-    }
-  };
+  }
+  console.log(links);
+}
+
+setActiveClass();
+

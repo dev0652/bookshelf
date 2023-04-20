@@ -22,12 +22,19 @@ body {
   --modal-border-color: #{$blackish};
 
   /* Store icons */
-  --amazon-image-filter: grayscale(100%);
-  --mix-blend-mode: none;
   --hover-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.7));
+
+  --amazon-image-filter: grayscale(100%);
+  --amazon-image-filter-hover: grayscale(0%);
+
+  --book-shop-image-filter: none;
+  --book-shop-image-filter-hover: invert(10%);
+
+  --mix-blend-mode: none;
 
   /* Shopping list */
   --card-bg-color: white;
+  --empty-list-text-color: rgba(0, 0, 0, 0.6);
 
   /* Auth form */
   --form-field-bg-color: #{$milky};
