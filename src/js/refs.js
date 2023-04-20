@@ -43,8 +43,8 @@ export default function () {
 
     // Auth form elements
     authForm: document.querySelector('.modal-form'),
-    nameField: document.querySelector('[name=user-name]'),
-    emailField: document.querySelector('[name=user-email]'),
+    nameField: document.querySelector('[name=user_name]'),
+    emailField: document.querySelector('[name=user_email]'),
     passwordField: document.querySelector('#signup-user-password'),
     authSubmitBtn: document.querySelector('modal-form__submit'),
 

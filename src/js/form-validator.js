@@ -6,9 +6,9 @@ const { authForm, nameField, emailField, passwordField, authSubmitBtn } =
 
 // Обработчик отправки формы
 
-authForm.addEventListener('submit', validateOnSubmit);
+// authForm.addEventListener('submit', validateOnSubmit);
 
-export function validateOnSubmit(event) {
+export default function validateOnSubmit(event) {
   event.preventDefault();
 
   // Убираем пробелы
@@ -20,25 +20,23 @@ export function validateOnSubmit(event) {
   // Проверяем, что все поля заполнены
 
   if (name === '' || email === '' || password === '') {
-    Notiflix.Notify.warning('Будь ласка заповніть усі поля');
+    Notiflix.Notify.warning('Please fill in all fields');
     return;
   }
 
   // проверяем, что адрес электронной почты имеет правильный формат
   if (!/\S+@\S+\.\S+/.test(email)) {
-    Notiflix.Notify.failure(
-      'Будь ласка, введіть дійсну адресу електронної пошти'
-    );
+    Notiflix.Notify.failure('Please enter a valid email');
     return;
   }
 
   // проверяем, что пароль имеет длину не менее 5 символов
   if (password.length < 5) {
-    Notiflix.Notify.failure('Пароль має бути не менше 5 символів');
+    Notiflix.Notify.failure('Password has to be at least 5 characters long');
     return;
   }
 
   //проверки прошли успешно => отправляем форму
-  Notiflix.Notify.success('Форму успішно надіслано!');
+  Notiflix.Notify.success('Submitted successfully');
   authForm.reset();
 }

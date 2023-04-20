@@ -1,6 +1,3 @@
-import getRefs from './js/refs';
-const refs = getRefs();
-
 import './js/spinner.js';
 
 // Header
@@ -28,8 +25,7 @@ import './js/firebase/firebase';
 import './js/firebase/authservice';
 import './js/firebase/firebaseservise';
 
-import { validateOnSubmit } from './js/form-validator';
-refs.authForm.addEventListener('submit', validateOnSubmit);
+// import './js/form-validator';
 
 // Scroll-to-top button
 import './js/back-to-top';
