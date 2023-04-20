@@ -12,26 +12,26 @@ function toggleModal() {
   refs.menu_open.classList.toggle('is-hidden');
   if (refs.menu_open.classList.contains('is-hidden')) {
     document.body.style.overflow = 'hidden';
-
   } else {
     document.body.style.overflow = '';
   }
 }
 
 function setActiveClass() {
-  const links = document.getElementsByTagName('a');
-  const currentLocation = window.location.pathname;
+  const burgerNavLinks = document.querySelectorAll('.burger-nav-link');
+  // const currentLocation = window.location.pathname;
 
-  for (let i = 0; i < links.length; i++) {
-    let link = links[i];
-    console.log(link.href, currentLocation);
-    if (link.href.includes(currentLocation)) {
+  burgerNavLinks.forEach(link => {
+    console.log('link.href', link.href);
+    if (
+      link.href === window.location.href ||
+      link.href === window.location.href + 'index.html'
+    ) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
     }
-  }
-  console.log(links);
+  });
 }
 
 setActiveClass();

@@ -1,128 +1,125 @@
-
-.paginations{
-    display: flex;
-    margin-top: 40px;
-    justify-content: center;
-    align-items: center;
+.paginations {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
 }
 
 .paginations__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .paginations__container-back,
 .paginations__container-end {
-    display: none;
+  display: none;
 }
 
 .paginations__container-pages {
-    display: flex;
-    margin-left: 15px;
-    margin-right: 15px;
-    
-    @media screen and (min-width: $tablet) {
-        margin-left: 24px;
-        margin-right: 24px;    }
-}
+  display: flex;
+  margin-left: 15px;
+  margin-right: 15px;
 
+  @media screen and (min-width: $tablet) {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
 
 .paginations__btn {
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
-    border: 1px solid var(--circle-border-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border: 1px solid var(--circle-border-color);
 
-    @media screen and (min-width: $tablet) {
-        width: 44px;
-        height: 44px;
-    }
-    
+  @media screen and (min-width: $tablet) {
+    width: 44px;
+    height: 44px;
+  }
 }
 
-.paginations__btn--back{
-    display: inherit;
-    justify-content: center;
-    align-items: center;
-    margin-left: 8px;
-    background-color: var(--back-button-bg-color);
-    border-color: black;
-    
-    &:hover{
-        background-color: var(--back-button-bg-color-hover);
-    }
+.paginations__btn--back {
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+  background-color: var(--back-button-bg-color);
+  border-color: black;
 
-    &:active{
-        background-color: var(--back-button-bg-color-active);
-    }
+  &:hover {
+    background-color: var(--back-button-bg-color-hover);
+  }
 
-    &:first-child{
-        margin: 0px;
-    }
+  &:active {
+    background-color: var(--back-button-bg-color-active);
+  }
+
+  &:first-child {
+    margin: 0px;
+  }
 }
 
-.paginations__btn--pages{
-    margin-left: 10px;
-    background-color: var(--page-bullet-bg-color);
-    background-color: var(--page-bullet-bg-color);
-    color: var(--page-bullet-text-color);
-    border-color: var(--circle-border-color);
+.paginations__btn--pages {
+  margin-left: 10px;
+  background-color: var(--page-bullet-bg-color);
+  background-color: var(--page-bullet-bg-color);
+  color: var(--page-bullet-text-color);
+  border-color: var(--circle-border-color);
 
-    &:active{
-        background-color: var(--page-bullet-bg-color-active);
-        color: var(--page-bullet-text-color-active);
-    }
+  &:active {
+    background-color: var(--page-bullet-bg-color-active);
+    color: var(--page-bullet-text-color-active);
+  }
 
-    font-weight: $bold;
-    font-size: 18px;
-    line-height: 22px;
-    
-    &:active{
-        background-color: --page-bullet-text-color-active;
-        color: --page-bullet-text-color-active;
-    }
+  font-weight: $bold;
+  font-size: 18px;
+  line-height: 22px;
 
-    &:first-child{
-        margin: 0px;
-    }
+  &:active {
+    background-color: --page-bullet-text-color-active;
+    color: --page-bullet-text-color-active;
+  }
+
+  &:first-child {
+    margin: 0px;
+  }
 }
 
-.paginations__btn--end{
-    display: inherit;
-    justify-content: center;
-    align-items: center;
-    margin-left: 8px;
-    background-color: var(--forward-button-bg-color);
-    border-color: black;
+.paginations__btn--end {
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+  background-color: var(--forward-button-bg-color);
+  border-color: black;
 
-    &:hover{
-        background-color: var(--forward-button-bg-color-hover);
-    }
+  &:hover {
+    background-color: var(--forward-button-bg-color-hover);
+  }
 
-    &:active{
-        background-color: var(--forward-button-bg-color-active);
-    }
+  &:active {
+    background-color: var(--forward-button-bg-color-active);
+  }
 
-    &:first-child{
-        margin: 0px;
-    }
+  &:first-child {
+    margin: 0px;
+  }
 }
 
 .shopping__list {
-    min-height: 320px;
+  min-height: 320px;
 
-    @media screen and (min-width: $tablet) {
-            min-height: 215px;
-    }
+  @media screen and (min-width: $tablet) {
+    min-height: 215px;
+  }
 
-    @media screen and (min-width: $desktop) {
-            min-height: 680px;
-    }
+  @media screen and (min-width: $desktop) {
+    min-height: 680px;
+  }
 }
 
-.active{
-    background-color: var(--page-bullet-bg-color-active);
-    color: var(--page-bullet-text-color-active);
+.active {
+  background-color: var(--page-bullet-bg-color-active);
+  color: var(--page-bullet-text-color-active);
 }
