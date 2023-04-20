@@ -33,7 +33,7 @@ async function renderPage(selectedBooks) {
   try {
     for (const book of data) {
       const selectedBook = document.createElement('li');
-      selectedBook.classList.add('book-item');
+      selectedBook.classList.add('book-item-cat');
 
       // selectedBook.innerHTML = `<img class="book-image" 
       //                           src="${book.book_image}"
