@@ -1,8 +1,7 @@
 import charities from './charities';
-//import Swiper from 'swiper';
-//import 'swiper/css';
+import Swiper from 'swiper';
+// import 'swiper/css';
 //import 'swiper/swiper-bundle.min.css';
-
 
 const list = document.querySelector('.support-list');
 
@@ -31,9 +30,8 @@ const str = charities.map((element, index) => {
   return '<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>';
 });
 
-
-const swiper = new Swiper(".mySwiper", {
-  direction: "vertical",
+const swiper = new Swiper('.mySwiper', {
+  direction: 'vertical',
   slidesPerView: 4,
   rewind: true,
   spaceBetween: 20,
@@ -44,7 +42,7 @@ const swiper = new Swiper(".mySwiper", {
     },
   },
   navigation: {
-    nextEl: ".swiper-next",
+    nextEl: '.swiper-next',
   },
 });
 // console.log(str);
