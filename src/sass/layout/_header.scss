@@ -46,12 +46,7 @@
   align-items: center;
   height: 28px;
   gap: 8px;
-  @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
-    margin-right: 16px;
-  }
-  @media screen and (min-width: $desktop) {
-    margin-right: 83px;
-  }
+  margin-right: 93px;
 }
 
 .page-logo-last {
@@ -81,28 +76,20 @@
   color: $blackish;
 }
 
-.navigation-link-shopping {
-  gap: 4px;
-}
-
-.navigation-link-shopping.current {
-  gap: 8px;
-}
-
 .page-navigation-link-icon.current {
   fill: currentColor;
 }
 
-// .page-navigation-list {
-//   display: flex;
-//   align-items: center;
-//   gap: 8px;
-// }
-// @media screen and (max-width: 767px) {
-//   .page-navigation-list {
-//     display: none;
-//   }
-// }
+.page-navigation-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+@media screen and (max-width: 767px) {
+  .page-navigation-list {
+    display: none;
+  }
+}
 
 .page-navigation-link {
   display: flex;
@@ -123,11 +110,10 @@
 .page-navigation-list {
   display: flex;
   align-items: center;
-  @media screen and (max-width: 767px) {
+}
+@media screen and (max-width: 767px) {
+  .page-navigation-list {
     display: none;
-  }
-  @media screen and (min-width: $desktop) {
-    gap: 8px;
   }
 }
 
@@ -136,6 +122,24 @@
   align-items: center;
   gap: 24px;
 }
+
+// .page-navigation-link
+.current {
+  font-weight: 700;
+  background: #eac645;
+  border-radius: 36px;
+  color: $blackish;
+}
+
+// .navigation-link-home.current {
+//   padding: 8px 16px;
+//   margin-right: 16px;
+// }
+
+// .navigation-link-shopping.current {
+//   padding: 7px 16px;
+//   margin-left: 24px;
+// }
 
 .page-navigation-list-item {
   display: flex;
@@ -153,10 +157,9 @@
     flex-grow: 0;
     display: flex;
     position: relative;
-    // gap: 4px;
+    gap: 4px;
   }
-
-  @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
+  @media screen and (min-width: $tablet) and(max-width: ($desktop - 1)) {
     gap: 8px;
   }
 }
