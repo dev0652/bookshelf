@@ -6,13 +6,24 @@
   @media screen and (max-width: ($tablet - 1)) {
     justify-content: center;
   }
+
+  @media screen and (min-width: $mobile) {
+    @include flex-basis(1, 20px);
+  }
+
+  @media screen and (min-width: $tablet) {
+    @include flex-basis(3, 20px);
+  }
+
+  @media screen and (min-width: $desktop) {
+  }
 }
 
 .selected-category {
 }
 
 .home-br__title {
-  @media screen and (max-width: $mobile) and (min-width: $tablet) {
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
     margin-top: 100px;
   }
 }
