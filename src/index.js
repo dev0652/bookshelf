@@ -14,6 +14,7 @@ import './js/activeCatBtnSwitcher';
 import './js/home-categories';
 import './js/handleAllCategoriesClick';
 import './js/support';
+// import './js/fetchSelectedBooks';
 import './js/renderSelectedBooks';
 
 // Content part

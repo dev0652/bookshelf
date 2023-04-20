@@ -1,53 +1,19 @@
-import axios from 'axios';
-import Notiflix from 'notiflix';
+import { fetchSelectedBooks } from './fetchSelectedBooks';
+import { renderPage } from './renderSelectedCategory';
+
 import getRefs from './refs';
-const { categoryListEl, categoryContainerEl } = getRefs();
+const { categoryListEl, selectedBooksListEl } = getRefs();
 
 categoryListEl.addEventListener('click', renderSelectedBooks);
-
-async function fetchSelectedBooks(e) {
-  // Notiflix.Loading.pulse('Please hang on...');
-  Notiflix.Loading.dots('Please wait');
-
-  const clickedCategory = e.target.textContent;
-
-  try {
-    const { data } = await axios.get(
-      `https://books-backend.p.goit.global/books/category?category=${clickedCategory}`
-    );
-    Notiflix.Loading.remove();
-    return data;
-  } catch (error) {
-    Notiflix.Loading.remove();
-    Notiflix.Notify.failure('Something went wrong. Please try again');
-    console.log(error);
-  }
-}
-
-export async function renderPage(selectedBooks) {
-  categoryContainerEl.innerHTML = '';
-  const data = selectedBooks;
-  const selectedBookList = document.createElement('ul');
-  try {
-    for (const book of data) {
-      const selectedBook = document.createElement('li');
-
-      selectedBook.innerHTML = `<img src="${book.book_image}" width="${book.book_image_width}" height="${book.book_image_height}" alt="bookcover of ${book.title}" /><h3>${book.title}</h3><h4>${book.author}</h4>`;
-      selectedBookList.appendChild(selectedBook);
-    }
-    categoryContainerEl.appendChild(selectedBookList);
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 async function renderSelectedBooks(e) {
   e.preventDefault();
   if (e.target.nodeName !== 'BUTTON') {
     return;
   }
-  let selectedBooks;
-  const data = await fetchSelectedBooks(e);
-  selectedBooks = data;
-  renderPage(selectedBooks);
+  const id = e.target.attributes.id.value;
+
+  const data = await fetchSelectedBooks(id);
+
+  selectedBooksListEl.insertAdjacentHTML('beforeend', renderPage(data));
 }

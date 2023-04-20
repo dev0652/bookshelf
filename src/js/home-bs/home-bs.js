@@ -2,13 +2,11 @@ import getTopBooksArray from './fetchBooks';
 import { createBookMarkup } from './markupBook.js';
 import getRefs from '../refs';
 
-const { categoryContainerEl } = getRefs();
+const { selectedBooksListEl } = getRefs();
 
 export async function renderTopBooks() {
   try {
     const data = await getTopBooksArray();
-
-    const categoryTop = document.createElement('ul');
 
     for (const element of data) {
       const categoryItem = document.createElement('li');
@@ -19,7 +17,7 @@ export async function renderTopBooks() {
       categoryItem.appendChild(categoryTitel);
       categoryTitel.innerText = element.list_name;
 
-      categoryTop.appendChild(categoryItem);
+      selectedBooksListEl.appendChild(categoryItem);
 
       const bestSellers = document.createElement('ul');
       bestSellers.classList.add('books-list');
@@ -41,8 +39,6 @@ export async function renderTopBooks() {
 
       categoryItem.appendChild(buttonEl);
     }
-
-    categoryContainerEl.appendChild(categoryTop);
   } catch (error) {
     console.log(error);
   }
