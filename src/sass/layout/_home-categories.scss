@@ -5,6 +5,8 @@
   column-gap: 25px;
   row-gap: 40px;
 
+  justify-content: space-between;
+
   @media screen and (max-width: ($tablet - 1)) {
     justify-content: center;
   }
