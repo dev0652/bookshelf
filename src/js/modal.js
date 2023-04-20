@@ -25,10 +25,6 @@ class BooksApi {
 }
 
 const BookAPI = new BooksApi();
-
-// --------------------------------------//////// код юра
-// --------------------------------------////////
-// --------------------------------------////////
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 
 const shoppingList =
@@ -96,10 +92,6 @@ export async function handleBookElClickToStorage(e) {
 
 refs.addBtnEL.addEventListener('click', handleBookElClickToStorage);
 
-// ----------------------------------------////
-// ----------------------------------------////
-// ----------------------------------------////
-
 //Створення повідомлення після натискання на кнопку addBtnEL
 const modalMessage = document.createElement('p');
 modalMessage.classList.add('modal-message');
@@ -128,7 +120,7 @@ export async function handleBookElClick(e) {
       { once: true }
     );
     document.addEventListener('click', handleBackdropClick);
-     const isBookId = shoppingList.find(
+    const isBookId = shoppingList.find(
       bookInStorage => bookInStorage._id === data._id
     );
     if (isBookId) {
@@ -175,13 +167,13 @@ export function createModal(data) {
               <p class="modal-book-desc">${description}</p>
               <div class="modal-shops">
               <a class="modal-shop-link" href="${amazon_product_url}" target="_blank">
-              <img class="modal-shop-img amazon" src="${amazonIcon}" alt="Amazon link"/>
+              <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon link"/>
               </a>
               <a class="modal-shop-link" href="${apple.url}" target="_blank">
-              <img class="modal-shop-img apple" src="${appleBooksIcon}" alt="Apple Books link" />
+              <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple Books link" />
               </a>
               <a class="modal-shop-link" href="${bookshop.url}" target="_blank">
-              <img class="modal-shop-img book-shop" src="${bookShopIcon}" alt="Book Shop link"/>
+              <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book Shop link"/>
               </a>
               </div>
               </div>
@@ -193,7 +185,7 @@ function handleModalPopUpCloseBtnClick(e) {
   refs.modalPopUp.classList.add('is-hidden');
 }
 
-function handleBackdropClick(e){
+function handleBackdropClick(e) {
   if (e.target == refs.modalPopUp) {
     refs.modalPopUp.classList.add('is-hidden');
   }
