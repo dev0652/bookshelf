@@ -15,5 +15,5 @@ async function renderSelectedBooks(e) {
 
   const data = await fetchSelectedBooks(id);
 
-  selectedBooksListEl.insertAdjacentHTML('beforeend', renderPage(data));
+  selectedBooksListEl.innerHTML = renderPage(data);
 }
