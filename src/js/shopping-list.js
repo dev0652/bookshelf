@@ -5,6 +5,7 @@ const {
   paginationContainerPages,
   paginationContainerBackBtn,
   paginationContainerEndBtn,
+  paginationsSection,
   startButton,
   previousButton,
   nextButton,
@@ -161,59 +162,67 @@ for (let i = 1; i <= totalPages; i++) {
 
 paginationContainerPages.firstChild.classList.add('active');
 
-// handler for previous Button
-previousButton.addEventListener('click', () => {
-  if (currentPage > 1) {
-    currentPage--;
-    deleteMurkup();
-    createNewBooks();
-    removeDisableforElement(endButton);
 
-    const activButton = document.querySelector('.active');
-    activButton.classList.remove('active');
-    activButton.previousElementSibling.classList.add('active');
+paginationsSection.addEventListener("click", handlerPaginationsButtonsStartPreviousNextStart);
+function handlerPaginationsButtonsStartPreviousNextStart(event) {
+  
+  const activButton = document.querySelector('.active');
+  console.log(event.target);
+  if (event.target.tagName !== 'BUTTON') {
+    return;
   }
-});
 
-// handler for next Button
-nextButton.addEventListener('click', () => {
-  if (currentPage < totalPages) {
-    currentPage++;
-    deleteMurkup();
-    createNewBooks();
-    removeDisableforElement(startButton);
+  switch (event.target) {
+    case previousButton:
+      if (currentPage > 1) {
+        currentPage--;
+        deleteMurkup();
+        createNewBooks();
+        removeDisableforElement(endButton);
 
-    const activButton = document.querySelector('.active');
-    activButton.classList.remove('active');
-    activButton.nextElementSibling.classList.add('active');
+      activButton.classList.remove('active');
+      activButton.previousElementSibling.classList.add('active');
   }
-});
-// handler for start Button
-startButton.addEventListener('click', () => {
-  currentPage = 1;
-  deleteMurkup();
-  createNewBooks();
-  addDisableforElement(startButton);
-  removeDisableforElement(endButton);
-  highlighteTheСurrentРage(paginationContainerPages.firstChild);
-});
+      break;
+    case nextButton:
+      if  (currentPage < totalPages) {
+        currentPage++;
+        deleteMurkup();
+        createNewBooks();
+        removeDisableforElement(startButton);
 
-// handler for end Button
-endButton.addEventListener('click', () => {
-  currentPage = totalPages;
-  deleteMurkup();
-  createNewBooks();
-  addDisableforElement(endButton);
-  removeDisableforElement(startButton);
-  highlighteTheСurrentРage(paginationContainerPages.lastElementChild);
-});
+      activButton.classList.remove('active');
+      activButton.nextElementSibling.classList.add('active');
+  };
+      break;
+    case startButton:
+      currentPage = 1; 
+      deleteMurkup();
+      createNewBooks();
+      addDisableforElement(startButton);
+      removeDisableforElement(endButton);
+      highlighteTheСurrentРage(paginationContainerPages.firstChild);  
+      break;
+    case endButton:
+      currentPage = totalPages;
+      deleteMurkup();
+      createNewBooks();
+      addDisableforElement(endButton);
+      removeDisableforElement(startButton);
+      highlighteTheСurrentРage(paginationContainerPages.lastElementChild);
+      break;
+    default:
+      break;
+  }
+};
+
 
 paginationContainerPages.addEventListener(
   'click',
-  handleButtonpaginationContainerPages
+  handleButtonPaginationContainerPages
 );
 
-function handleButtonpaginationContainerPages(event) {
+function handleButtonPaginationContainerPages(event) {
   if (event.target.tagName !== 'BUTTON') {
     return;
   }

@@ -112,3 +112,7 @@
   background-color: var(--page-bullet-bg-color-active);
   color: var(--page-bullet-text-color-active);
 }
+
+.paginations__icon{
+  pointer-events: none;
+}
