@@ -7,6 +7,7 @@ const { selectedBooksListEl } = getRefs();
 export async function renderTopBooks() {
   try {
     const data = await getTopBooksArray();
+    selectedBooksListEl.innerHTML = '';
 
     for (const element of data) {
       const categoryItem = `
@@ -28,7 +29,6 @@ export async function renderTopBooks() {
           }">See more</button>
         </li>
       `;
-      selectedBooksListEl.innerHTML = '';
       selectedBooksListEl.insertAdjacentHTML('beforeend', categoryItem);
     }
   } catch (error) {
