@@ -66,20 +66,9 @@
   background-color: var(--page-bullet-bg-color);
   color: var(--page-bullet-text-color);
   border-color: var(--circle-border-color);
-
-  &:active {
-    background-color: var(--page-bullet-bg-color-active);
-    color: var(--page-bullet-text-color-active);
-  }
-
   font-weight: $bold;
   font-size: 18px;
   line-height: 22px;
-
-  &:active {
-    background-color: --page-bullet-text-color-active;
-    color: --page-bullet-text-color-active;
-  }
 
   &:first-child {
     margin: 0px;
@@ -122,4 +111,8 @@
 .active {
   background-color: var(--page-bullet-bg-color-active);
   color: var(--page-bullet-text-color-active);
+}
+
+.paginations__icon{
+  pointer-events: none;
 }
