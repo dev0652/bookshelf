@@ -11,7 +11,6 @@ const {
   endButton,
 } = getRefs();
 
-// // console.log(document.querySelectorAll('.paginations__btn--pages'));
 
 const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
 const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
@@ -30,7 +29,6 @@ let startIndex = (currentPage - 1) * pageSize;
 let endIndex = startIndex + pageSize;
 let itemsOnPage = shoppingList.slice(startIndex, endIndex);
 
-// Рендер розмітки книг, які збережені у LS
 function renderMarkUp(itemsOnPage) {
   const appleBooksIcon = new URL(
     '../images/shops/apple-books.png',
@@ -103,7 +101,6 @@ function isEmpty() {
 
 isEmpty();
 
-// Видалення книги з корзини при натиску на кнопку
 divEl.addEventListener('click', event => {
   if (event.target.closest('.shopping__card-btn')) {
     const BookID = event.target.getAttribute('data-book-id');
@@ -113,7 +110,7 @@ divEl.addEventListener('click', event => {
     );
 
     shoppingList.splice(bookIndex, 1);
-    // Зберігаємо зміни в LocalStorage
+    
     localStorage.setItem(
       SHOPPING_LIST_STORAGE_KEY,
       JSON.stringify(shoppingList)
@@ -122,11 +119,17 @@ divEl.addEventListener('click', event => {
     if (!shoppingList.length) {
       divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
       return;
-    } else {
-      divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-      destroyChildElement(paginationContainerPages);
-      checkingArrayBooks();
     }
+    else if (!sliceArrayBooks().length) { 
+      previousButton.click();
+      destroyChildElement(paginationContainerPages);
+    }
+    else {    
+        divEl.innerHTML = renderMarkUp(sliceArrayBooks());
+        console.log(sliceArrayBooks())
+        destroyChildElement(paginationContainerPages);
+    }
+      checkingArrayBooks();
   }
 });
 
@@ -136,7 +139,6 @@ for (let i = 1; i <= totalPages; i++) {
   if (shoppingList.length <= 3) {
     return;
   }
-
   const pageNumber = i;
   const button = document.createElement('button');
   button.classList.add('paginations__btn');
@@ -146,7 +148,7 @@ for (let i = 1; i <= totalPages; i++) {
   activDisplayFlexOnElement(paginationContainerBackBtn);
   activDisplayFlexOnElement(paginationContainerEndBtn);
 
-  // event for rendering book after click on button
+  // handler button pages 
   button.addEventListener('click', () => {
     currentPage = pageNumber;
     deleteMurkup();
@@ -154,8 +156,7 @@ for (let i = 1; i <= totalPages; i++) {
     removeDisableforElement(startButton);
     removeDisableforElement(endButton);
   });
-  // add button after cteated
-  paginationContainerPages.appendChild(button);
+    paginationContainerPages.appendChild(button);
 }
 
 paginationContainerPages.firstChild.classList.add('active');
@@ -194,7 +195,7 @@ startButton.addEventListener('click', () => {
   createNewBooks();
   addDisableforElement(startButton);
   removeDisableforElement(endButton);
-  highlightЕheСurrentРage(paginationContainerPages.firstChild);
+  highlighteTheСurrentРage(paginationContainerPages.firstChild);
 });
 
 // handler for end Button
@@ -204,7 +205,7 @@ endButton.addEventListener('click', () => {
   createNewBooks();
   addDisableforElement(endButton);
   removeDisableforElement(startButton);
-  highlightЕheСurrentРage(paginationContainerPages.lastElementChild);
+  highlighteTheСurrentРage(paginationContainerPages.lastElementChild);
 });
 
 paginationContainerPages.addEventListener(
@@ -216,7 +217,7 @@ function handleButtonpaginationContainerPages(event) {
   if (event.target.tagName !== 'BUTTON') {
     return;
   }
-  highlightЕheСurrentРage(event.target);
+  highlighteTheСurrentРage(event.target);
 }
 
 // !==================functionsPaginations====================
@@ -225,33 +226,26 @@ function handleButtonpaginationContainerPages(event) {
 function deleteMurkup() {
   divEl.innerHTML = '';
 }
-
 function sliceArrayBooks() {
   startIndex = (currentPage - 1) * pageSize;
   endIndex = startIndex + pageSize;
   return shoppingList.slice(startIndex, endIndex);
 }
-
 function createNewBooks() {
   divEl.insertAdjacentHTML('beforeend', renderMarkUp(sliceArrayBooks()));
 }
-
 function removeDisableforElement(element) {
   element.disabled = false;
 }
-
 function addDisableforElement(element) {
   element.disabled = true;
 }
-
 function activDisplayFlexOnElement(element) {
   element.style.display = 'flex';
 }
-
 function activDisplayNoneOnElement(element) {
   element.style.display = 'none';
 }
-
 function destroyChildElement(element) {
   const a = shoppingList.length / pageSize;
   if (Math.round(a) === a) {
@@ -260,7 +254,6 @@ function destroyChildElement(element) {
     return;
   }
 }
-
 function checkingArrayBooks() {
   if (shoppingList.length <= 3) {
     activDisplayNoneOnElement(paginationContainerBackBtn);
@@ -268,8 +261,7 @@ function checkingArrayBooks() {
     paginationContainerPages.innerHTML = '';
   }
 }
-
-function highlightЕheСurrentРage(element) {
+function highlighteTheСurrentРage(element) {
   const activButton = document.querySelector('.active');
 
   if (activButton) {
