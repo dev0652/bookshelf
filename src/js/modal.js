@@ -119,16 +119,7 @@ export async function handleBookElClick(e) {
       'click',
       handleModalPopUpCloseBtnClick
     );
-    document.addEventListener(
-      'keydown',
-      e => {
-        if (e.key === 'Escape') {
-          refs.modalPopUp.classList.add('is-hidden');
-          document.body.style.removeProperty('overflow');
-        }
-      },
-      { once: true }
-    );
+    document.addEventListener('keydown', handleEscapeKeyDown);
     document.addEventListener('click', handleBackdropClick);
      const isBookId = shoppingList.find(
       bookInStorage => bookInStorage._id === data._id
@@ -196,12 +187,20 @@ function handleModalPopUpCloseBtnClick(e) {
   document.body.style.removeProperty('overflow');
 }
 
-function handleBackdropClick(e){
+function handleBackdropClick(e) {
   if (e.target == refs.modalPopUp) {
     refs.modalPopUp.classList.add('is-hidden');
     document.body.style.removeProperty('overflow');
   }
 }
+
+function handleEscapeKeyDown(e){
+  if (e.key === 'Escape') {
+    refs.modalPopUp.classList.add('is-hidden');
+    document.body.style.removeProperty('overflow');
+  }
+}
+
 
 refs.closeModalPopUpBtn.removeEventListener(
   'click',
@@ -209,3 +208,5 @@ refs.closeModalPopUpBtn.removeEventListener(
 );
 
 document.removeEventListener('click', handleBackdropClick);
+
+document.removeEventListener('keydown', handleEscapeKeyDown);
