@@ -14,10 +14,7 @@
 @import './components/buttons';
 @import './components/back-to-top';
 @import './components/spinner';
-@import './components/burger-menu';
-
 @import './components/color-scheme-switcher';
-@import './components/modal';
 @import './components/paginations';
 
 // Layout
@@ -29,6 +26,8 @@
 @import './layout/categories';
 @import './layout/home-categories';
 @import './layout/shopping-list';
+@import './layout/burger-menu';
+@import './layout/modal';
 
 // Color schemes
 @import './color-schemes/light';

@@ -20,7 +20,7 @@
   }
 }
 .mobile-menu-open__icon {
-  stroke: currentColor;
+  stroke: var(--text-color);
 }
 .mobile-menu-open__icon.is-hidden {
   display: none;
