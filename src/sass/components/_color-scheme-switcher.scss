@@ -24,7 +24,6 @@ body {
 }
 
 .color-switcher-icons {
-  // fill: red;
   position: absolute;
   right: calc((var(--slider-circle-size) + 2px) * -1);
   top: 50%;
@@ -40,9 +39,6 @@ body {
   &-moon {
     opacity: 1;
     fill: dimgray;
-    // fill: gray;
-    // transform: scaleX(-1);
-    // transition: transform 400ms;
     transition: opacity 300ms;
   }
 }
@@ -109,10 +105,12 @@ body {
     .color-switcher-icon {
       &-sun {
         fill: var(--accent-secondary);
+        fill: $milky;
         opacity: 1;
-        transform: rotate(1turn);
-        transform-origin: center;
-        transition: transform 800ms;
+        // transform: rotate(1turn);
+        // transform-origin: center;
+        // transition: transform 800ms;
+        transition: opacity 200ms;
       }
 
       &-moon {
