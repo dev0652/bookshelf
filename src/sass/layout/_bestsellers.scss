@@ -9,7 +9,7 @@
   gap: 40px;
 }
 
-.content-part-title {
+.main-title {
   font-size: 48px;
   font-weight: $bold;
   height: 52px;
@@ -25,7 +25,7 @@
   }
 }
 
-.content-part-title--last-word-static {
+.main-title--last-word-static {
   color: $violet;
   transition: color 200ms;
 }
@@ -54,14 +54,11 @@
 
   @media screen and (max-width: ($tablet - 1)) {
     margin-bottom: 8px;
+    flex-direction: column;
   }
 
   @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
     margin-bottom: 20px;
-  }
-
-  @media screen and (max-width: ($tablet - 1)) {
-    flex-direction: column;
   }
 }
 
@@ -148,7 +145,7 @@
   font-weight: $medium;
 
   opacity: 0;
-  @include transition($property: opacity, $delay: 250ms);
+  @include transition($property: opacity, $delay: 200ms);
 
   .book-link:hover &,
   .book-link:focus & {

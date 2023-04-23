@@ -22,7 +22,7 @@ async function onCategoryClick(event) {
   if (!event.target.classList.contains('category-btn')) return;
 
   if (event.target.classList.contains('all-categories-btn')) {
-    mainTitle.innerHTML = `Best Seller <span class="content-part-title--last-word-static">Books</span>`;
+    mainTitle.innerHTML = `Best Seller <span class="main-title--last-word-static">Books</span>`;
     // selectedBooksListEl.innerHTML = '';
     await renderTopBooks();
     return;

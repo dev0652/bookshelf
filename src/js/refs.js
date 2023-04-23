@@ -20,7 +20,7 @@ export default function () {
     categoryListEl: document.querySelector('.categories_list'),
     categoriesListContainer: document.querySelector('.categories'),
     categoryContainerEl: document.querySelector('.content-rendering-container'),
-    mainTitle: document.querySelector('.content-part-title'),
+    mainTitle: document.querySelector('.main-title'),
     // selectedBooksListEl: document.querySelector('.selected-category'),
     selectedBooksListEl: document.querySelector('.category-blocks-list'),
 

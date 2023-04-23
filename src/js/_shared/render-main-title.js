@@ -9,5 +9,5 @@ export function renderMainTitle(id) {
   const words = id.split(' ');
   const lastWord = words[words.length - 1];
 
-  mainTitle.innerHTML = `${allWordsButLast} <span class="content-part-title--last-word-static">${lastWord}</span>`;
+  mainTitle.innerHTML = `${allWordsButLast} <span class="main-title--last-word-static">${lastWord}</span>`;
 }
