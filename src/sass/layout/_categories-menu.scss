@@ -63,14 +63,6 @@
   }
 }
 
-.all-categories-button {
-  margin-bottom: 24px;
-
-  @media screen and (min-width: $tablet) {
-    margin-bottom: 32px;
-  }
-}
-
 .active-category {
   text-transform: uppercase;
   color: var(--active-category-color);
