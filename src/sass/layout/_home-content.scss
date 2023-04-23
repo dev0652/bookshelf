@@ -1,3 +1,19 @@
+.category-books-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @media screen and (min-width: $tablet) {
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 25px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    column-gap: 24px;
+  }
+}
+
 .books-list-item {
   --gap: 25px;
 

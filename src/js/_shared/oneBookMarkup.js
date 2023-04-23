@@ -1,18 +1,18 @@
 export function createBookMarkup({
-  _id,
+  _id: id,
   title,
   author,
-  description,
-  list_name,
-  book_image,
-  book_image_width,
-  book_image_height,
+  // description,
+  // list_name,
+  book_image: image,
+  // book_image_width: width,
+  // book_image_height: height,
 }) {
   return `
     <a class="book-link" href="" aria-label="Book thumbnail">
       <div class="book-thumb">
-        <img class="book-image" src="${book_image}" loading="lazy" data_id=${_id} />
-        <div class="book-image-overlay" data_id=${_id}>
+        <img class="book-image" src="${image}" loading="lazy" data_id=${id} />
+        <div class="book-image-overlay" data_id=${id}>
           <p class="book-image-overlay-text">Quick view</p>
         </div>
       </div>

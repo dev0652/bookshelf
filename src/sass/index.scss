@@ -10,6 +10,9 @@
 @import './utils/animations';
 @import './utils/mixins';
 
+// Common styles
+@import './common';
+
 // Components
 @import './components/buttons';
 @import './components/back-to-top';
@@ -18,19 +21,21 @@
 @import './components/pagination';
 
 // Layout
-@import './layout/common';
-
+// Header
 @import './layout/header';
 @import './layout/authorization-form';
 @import './layout/burger-menu';
 
+// Sidebar
 @import './layout/support';
-@import './layout/categories';
-@import './layout/home-categories';
+@import './layout/categories-menu';
 
+// Content part
 @import './layout/bestsellers';
-@import './layout/shopping-list';
+@import './layout/home-content';
+@import './layout/shopping-list-content';
 
+// Modal
 @import './layout/modal';
 
 // Color schemes

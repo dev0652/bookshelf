@@ -15,21 +15,17 @@ export default function () {
       '.color-scheme-switcher-slider'
     ),
 
-    // All categories button:
+    //Categories menu:
     allCategoriesBtn: document.querySelector('button[name=allcategories]'),
-
-    //Categories:
     categoryListEl: document.querySelector('.categories_list'),
     categoriesListContainer: document.querySelector('.categories'),
-    categoryContainerEl: document.querySelector(
-      '.book-data-rendring-container'
-    ),
+    categoryContainerEl: document.querySelector('.content-rendering-container'),
     mainTitle: document.querySelector('.content-part-title'),
     // selectedBooksListEl: document.querySelector('.selected-category'),
     selectedBooksListEl: document.querySelector('.category-blocks-list'),
 
-    // home-container
-    homeContainer: document.querySelector('.home-container'),
+    // Content part rendering container
+    renderingContainer: document.querySelector('.content-rendering-container'),
 
     // Support Ukraine
     supportUkraineCnt: document.querySelector('.support-list'),

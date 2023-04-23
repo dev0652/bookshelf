@@ -1,20 +1,26 @@
 import getTopBooksArray from './fetchBooks';
-import { createBookMarkup } from './markupBook';
+import { createBookMarkup } from '../_shared/oneBookMarkup';
 import getRefs from '../refs.js';
 
-const { selectedBooksListEl } = getRefs();
+const { renderingContainer } = getRefs();
 
+// Fetch and render bestsellers:
 export async function renderTopBooks() {
+  //
   try {
     const data = await getTopBooksArray();
-    selectedBooksListEl.innerHTML = '';
 
-    for (const element of data) {
-      const categoryItem = `
-        <li class="bestseller-category">
-          <h2 class="bestseller-category-title">${element.list_name}</h2>
+    renderingContainer.innerHTML = '';
+
+    const bestsellerListMarkup = `
+      <ul class="category-blocks-list">
+        ${data
+          .map(
+            ({ list_name, books }) => `
+              <li class="bestseller-category">
+          <h3 class="bestseller-category-title">${list_name}</h3>
           <ul class="books-list">
-            ${element.books
+            ${books
               .map(
                 book => `
               <li class="books-list-item bestsellers-book-item">
@@ -24,13 +30,15 @@ export async function renderTopBooks() {
               )
               .join('')}
           </ul>
-          <button class="button see-more-btn" id="${
-            element.list_name
-          }">See more</button>
+          <button class="button see-more-btn" id="${list_name}">See more</button>
         </li>
-      `;
-      selectedBooksListEl.insertAdjacentHTML('beforeend', categoryItem);
-    }
+            `
+          )
+          .join('')}
+      </ul>
+    `;
+
+    renderingContainer.innerHTML = bestsellerListMarkup;
   } catch (error) {
     console.log(error);
   }

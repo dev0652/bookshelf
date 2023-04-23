@@ -1,37 +1,38 @@
-// import axios from 'axios';
-// import Notiflix from 'notiflix';
-import { fetchSelectedBooks } from '../api/fetchSelectedBooks';
-import { renderBooksList } from '../books-by-category/renderSelectedCategory';
-import { scrollToTop } from '../components/back-to-top';
 import getRefs from '../refs';
-const { mainTitle, categoryContainerEl, selectedBooksListEl } = getRefs();
+const { categoryContainerEl } = getRefs();
 
-categoryContainerEl.addEventListener('click', renderCategory);
+import { fetchSelectedBooks } from '../books-by-category/fetchSelectedBooks';
+import { renderBooksByCategory } from '../books-by-category/renderSelectedCategory';
+import { scrollToTop } from '../components/back-to-top';
+import { renderMainTitle } from '../_shared/render-main-title';
 
-async function renderCategory(e) {
-  if (e.target.classList.contains('see-more-btn')) {
-    const id = e.target.attributes.id.value;
-    const words = id.split(' ');
-    let lastWord;
-    lastWord = words[words.length - 1];
-    const titleCategory = id.split(' ').slice(0, -1).join(' ');
+// ########################################################
 
-    mainTitle.textContent = titleCategory;
+categoryContainerEl.addEventListener('click', seeMoreBtnClickHandler);
 
-    mainTitle.innerHTML += ` <span class="content-part-title--last-word-static">${lastWord}</span>`;
-    const data = await fetchSelectedBooks(id);
+// ########################################################
 
-    const categoriesBtn = document.querySelectorAll('.category-btn');
-    const activeCategoryBtn = document.querySelector('.active-category');
-    for (const btn of categoriesBtn) {
-      if (btn.textContent === id) {
-        btn.classList.add('active-category');
-      }
+async function seeMoreBtnClickHandler(e) {
+  if (!e.target.classList.contains('see-more-btn')) return;
+
+  // e.preventDefault();
+
+  const id = e.target.attributes.id.value;
+  const data = await fetchSelectedBooks(id);
+
+  // Change content part title and colorize its last word
+  renderMainTitle(id);
+
+  // Set active category in sidebar
+  const categoriesBtn = document.querySelectorAll('.category-btn');
+  const activeCategoryBtn = document.querySelector('.active-category');
+  for (const btn of categoriesBtn) {
+    if (btn.textContent === id) {
+      btn.classList.add('active-category');
     }
-    activeCategoryBtn.classList.remove('active-category');
-
-    selectedBooksListEl.insertAdjacentHTML('beforeend', renderBooksList(data));
-
-    scrollToTop();
   }
+  activeCategoryBtn.classList.remove('active-category');
+
+  renderBooksByCategory(data);
+  scrollToTop();
 }

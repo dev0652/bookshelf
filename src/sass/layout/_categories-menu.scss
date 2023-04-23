@@ -24,6 +24,12 @@
 .categories_list {
   display: flex;
   flex-direction: column;
+
+  gap: 24px;
+
+  @media screen and (min-width: $tablet) {
+    gap: 32px;
+  }
 }
 
 .category-btn {
@@ -31,12 +37,14 @@
   border: none;
   text-align: left;
 
-  margin-bottom: 24px;
-
   font-size: 16px;
   line-height: 1.12;
   letter-spacing: -0.02em;
-  font-weight: $regular;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 
   color: var(--category-color);
   transform: scale(1);
@@ -53,11 +61,13 @@
   &:focus {
     outline: none;
   }
+}
+
+.all-categories-button {
+  margin-bottom: 24px;
 
   @media screen and (min-width: $tablet) {
     margin-bottom: 32px;
-    font-size: 18px;
-    line-height: 1.33;
   }
 }
 
