@@ -1,4 +1,4 @@
-import getRefs from './refs';
+import getRefs from '../refs';
 const { scrollToTopButton, toTopTarget } = getRefs();
 
 export const toTopObserver = new IntersectionObserver(cb);

@@ -1,4 +1,4 @@
-import getRefs from './refs.js';
+import getRefs from '../refs.js';
 
 const refs = getRefs();
 

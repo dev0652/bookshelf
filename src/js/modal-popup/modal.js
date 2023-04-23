@@ -1,4 +1,4 @@
-import getRefs from './refs.js';
+import getRefs from '../refs.js';
 const refs = getRefs();
 
 refs.categoryContainerEl.addEventListener('click', function (e) {
@@ -144,12 +144,14 @@ export function createModal(data) {
   } = data;
 
   const appleBooksIcon = new URL(
-    '../images/shops/apple-books.png',
+    '../../images/shops/apple-books.png',
     import.meta.url
   ).href;
-  const bookShopIcon = new URL('../images/shops/book-shop.png', import.meta.url)
-    .href;
-  const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
+  const bookShopIcon = new URL(
+    '../../images/shops/book-shop.png',
+    import.meta.url
+  ).href;
+  const amazonIcon = new URL('../../images/shops/amazon.png', import.meta.url)
     .href;
 
   refs.addBtnEL.setAttribute('data_id_of_book', `${_id}`);
@@ -189,13 +191,12 @@ function handleBackdropClick(e) {
   }
 }
 
-function handleEscapeKeyDown(e){
+function handleEscapeKeyDown(e) {
   if (e.key === 'Escape') {
     refs.modalPopUp.classList.add('is-hidden');
     document.body.style.removeProperty('overflow');
   }
 }
-
 
 refs.closeModalPopUpBtn.removeEventListener(
   'click',

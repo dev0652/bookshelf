@@ -1,4 +1,4 @@
-import getRefs from './refs';
+import getRefs from '../refs';
 const { colorSwitcher, colorSwitcherSlider } = getRefs();
 
 // #############################################################

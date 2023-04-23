@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
 
-import getRefs from './refs';
+import getRefs from '../refs';
 const { authForm, nameField, emailField, passwordField } = getRefs();
 
 const emailRegExp =

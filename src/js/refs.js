@@ -22,7 +22,7 @@ export default function () {
     categoryListEl: document.querySelector('.categories_list'),
     categoriesListContainer: document.querySelector('.categories'),
     categoryContainerEl: document.querySelector('.category-container'),
-    titleEl: document.querySelector('.home-br__title'),
+    titleEl: document.querySelector('.bestsellers-title'),
     selectedBooksListEl: document.querySelector('.selected-category'),
 
     // Support Ukraine

@@ -1,6 +1,5 @@
-// import { title } from 'process';
-import getRefs from './refs';
-import { renderTopBooks } from './home-bs/home-bs';
+import getRefs from '../refs';
+import { renderTopBooks } from '../bestsellers/bestsellers';
 
 const { allCategoriesBtn, selectedBooksListEl, titleEl } = getRefs();
 
@@ -8,7 +7,7 @@ allCategoriesBtn.addEventListener('click', handleAllCategoriesClick);
 
 async function handleAllCategoriesClick(e) {
   e.preventDefault();
-  titleEl.innerHTML = `Best Sellers <span class="home-bs__title-part">Books</span>`;
+  titleEl.innerHTML = `Best Seller <span class="bestsellers-title--last-word-static">Books</span>`;
   selectedBooksListEl.innerHTML = '';
   await renderTopBooks();
 }

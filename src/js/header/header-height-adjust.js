@@ -1,4 +1,4 @@
-import getRefs from './refs';
+import getRefs from '../refs';
 const { header, headerNavLinks } = getRefs();
 
 // Body height adjust to compensate for positioned header height

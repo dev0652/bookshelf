@@ -1,11 +1,11 @@
-import getRefs from './refs';
+import getRefs from '../refs';
 const { selectedBooksListEl } = getRefs();
 
 export function renderPage(data) {
   selectedBooksListEl.innerHTML = '';
   return data
     .map(({ _id, title, author, book_image }) => {
-      return `<li class="book-item-cat">
+      return `<li class="books-list-item">
           <a class="book-item-link" href="" aria-label="Book thumbnail">
             <div class="book-item-thumb">
               <img class="book-image" src="${book_image}" loading="lazy" data_id=${_id} alt="book cover"/>

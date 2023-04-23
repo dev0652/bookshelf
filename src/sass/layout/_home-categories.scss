@@ -1,24 +1,4 @@
-.books-list-cat {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  column-gap: 25px;
-  row-gap: 40px;
-
-  justify-content: space-between;
-
-  @media screen and (max-width: ($tablet - 1)) {
-    justify-content: center;
-  }
-
-  .home-br__title {
-    @media screen and (min-width: $mobile) and (max-width: $tablet) {
-      margin-bottom: 60px;
-    }
-  }
-}
-
-.book-item-cat {
+.books-list-item {
   --gap: 25px;
 
   @media screen and (min-width: $mobile) {

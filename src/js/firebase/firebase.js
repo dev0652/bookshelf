@@ -4,10 +4,10 @@ import {
   handleClickOnSingUpCloseBtn,
   userLogIn,
   userLogOut,
-} from '../authorization-form';
+} from '../modal-login/authorization-form';
 import { createUser, onLogOut, onLogin } from './authservice';
 import { deleteBookShopping, postShoppingList } from './firebaseservise';
-import validateOnSubmit from '../form-validator';
+import validateOnSubmit from '../modal-login/form-validator';
 
 const refs = getRefs();
 

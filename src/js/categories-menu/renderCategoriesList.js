@@ -1,5 +1,5 @@
 import axios from 'axios';
-import getRefs from './refs';
+import getRefs from '../refs';
 
 const { categoryListEl } = getRefs();
 

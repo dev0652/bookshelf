@@ -12,7 +12,7 @@ import {
 
 import { getShoppingList } from './firebaseservise';
 import getRefs from '../refs';
-import { userLogIn } from '../authorization-form';
+import { userLogIn } from '../modal-login/authorization-form';
 // import { Notify } from 'notiflix';
 
 const refs = getRefs();

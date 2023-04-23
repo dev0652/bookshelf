@@ -3,13 +3,13 @@
   flex-direction: column;
 }
 
-.books-list-cat {
+.category-blocks-list {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.home-br__title {
+.bestsellers-title {
   font-size: 48px;
   font-weight: $bold;
   height: 52px;
@@ -25,7 +25,7 @@
   }
 }
 
-.home-bs__title-part {
+.bestsellers-title--last-word-static {
   color: $violet;
   transition: color 200ms;
 }

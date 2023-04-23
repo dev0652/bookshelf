@@ -1,7 +1,7 @@
 import { fetchSelectedBooks } from './fetchSelectedBooks';
 import { renderPage } from './renderSelectedCategory';
 
-import getRefs from './refs';
+import getRefs from '../refs';
 const { categoryListEl, selectedBooksListEl } = getRefs();
 
 categoryListEl.addEventListener('click', renderSelectedBooks);
