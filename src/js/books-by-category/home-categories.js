@@ -1,5 +1,5 @@
 import getRefs from '../refs';
-const { categoryListEl, titleEl } = getRefs();
+const { categoryListEl, mainTitle } = getRefs();
 
 // Find and paint last word in a category title
 let lastWord = '';
@@ -14,8 +14,8 @@ function handleCategoryClick(event) {
       .slice(0, -1)
       .join(' ');
 
-    titleEl.textContent = buttonTextWithoutLastWord;
-    titleEl.innerHTML += ` <span class="content-part-title--last-word-static">${lastWord}</span>`;
+    mainTitle.textContent = buttonTextWithoutLastWord;
+    mainTitle.innerHTML += ` <span class="content-part-title--last-word-static">${lastWord}</span>`;
   }
 }
 

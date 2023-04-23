@@ -4,7 +4,7 @@ import { fetchSelectedBooks } from '../api/fetchSelectedBooks';
 import { renderBooksList } from '../books-by-category/renderSelectedCategory';
 import { scrollToTop } from '../components/back-to-top';
 import getRefs from '../refs';
-const { titleEl, categoryContainerEl, selectedBooksListEl } = getRefs();
+const { mainTitle, categoryContainerEl, selectedBooksListEl } = getRefs();
 
 categoryContainerEl.addEventListener('click', renderCategory);
 
@@ -16,9 +16,9 @@ async function renderCategory(e) {
     lastWord = words[words.length - 1];
     const titleCategory = id.split(' ').slice(0, -1).join(' ');
 
-    titleEl.textContent = titleCategory;
+    mainTitle.textContent = titleCategory;
 
-    titleEl.innerHTML += ` <span class="content-part-title--last-word-static">${lastWord}</span>`;
+    mainTitle.innerHTML += ` <span class="content-part-title--last-word-static">${lastWord}</span>`;
     const data = await fetchSelectedBooks(id);
 
     const categoriesBtn = document.querySelectorAll('.category-btn');

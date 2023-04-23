@@ -5,9 +5,11 @@ import { fetchSelectedBooks } from '../api/fetchSelectedBooks';
 
 import { renderBooksList } from '../books-by-category/renderSelectedCategory';
 
-categoryListEl.addEventListener('click', renderSelectedBooks);
+// Listen to clicks on See More buttons
 
-async function renderSelectedBooks(e) {
+categoryListEl.addEventListener('click', seeMoreClickHandler);
+
+async function seeMoreClickHandler(e) {
   e.preventDefault();
 
   if (e.target.nodeName !== 'BUTTON') {

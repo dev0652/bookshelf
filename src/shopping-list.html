@@ -12,7 +12,7 @@
     <title>Shopping list</title>
 
     <!-- Favicon -->
-    <include src="./partials/favicon.html"></include>
+    <include src="./partials/components/favicon.html"></include>
     <!-- CSS -->
     <link rel="stylesheet" href="./sass/index.scss" />
     <!-- JS -->
@@ -21,7 +21,7 @@
 
   <body class="page">
     <!-- Header -->
-    <include src="./partials/header.html"></include>
+    <include src="./partials/layout/header/header.html"></include>
 
     <!--Page -->
     <div class="container page-container">
@@ -31,20 +31,20 @@
       <!-- Sidebar -->
       <aside class="sidebar sidebar-shoppinglist">
         <!-- Support Ukraine -->
-        <include src="./partials/support.html"></include>
+        <include src="./partials/layout/sidebar/support.html"></include>
       </aside>
 
       <!-- Main -->
       <main class="content">
         <!-- Page content -->
-        <include src="./partials/shopping-list.html"></include>
-        <include src="./partials/paginations.html"></include>
+        <include src="./partials/layout/shopping-list-content.html"></include>
+        <include src="./partials/components/pagination.html"></include>
 
         <!-- Back to top button -->
-        <include src="./partials/back-to-top.html"></include>
+        <include src="./partials/components/back-to-top.html"></include>
         <!--  -->
         <!-- burger-menu-->
-        <include src="./partials/burger-menu.html"></include>
+        <include src="./partials/layout/header/burger-menu.html"></include>
       </main>
     </div>
   </body>

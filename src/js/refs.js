@@ -24,7 +24,7 @@ export default function () {
     categoryContainerEl: document.querySelector(
       '.book-data-rendring-container'
     ),
-    titleEl: document.querySelector('.content-part-title'),
+    mainTitle: document.querySelector('.content-part-title'),
     // selectedBooksListEl: document.querySelector('.selected-category'),
     selectedBooksListEl: document.querySelector('.category-blocks-list'),
 

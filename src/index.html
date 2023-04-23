@@ -10,7 +10,7 @@
     />
     <title>Bookshelf</title>
     <!-- Favicon -->
-    <include src="./partials/favicon.html"></include>
+    <include src="./partials/components/favicon.html"></include>
     <!-- CSS -->
     <link rel="stylesheet" href="./sass/index.scss" />
     <!-- JS -->
@@ -19,7 +19,7 @@
 
   <body class="page">
     <!-- Header -->
-    <include src="./partials/header.html"></include>
+    <include src="./partials/layout/header/header.html"></include>
 
     <!--Page -->
     <div class="container page-container">
@@ -30,25 +30,25 @@
       <aside class="sidebar">
         <!--  -->
         <!-- Book category selection menu -->
-        <include src="./partials/categories.html"></include>
+        <include src="./partials/layout/sidebar/categories.html"></include>
 
         <!-- Support Ukraine -->
-        <include src="./partials/support.html"></include>
+        <include src="./partials/layout/sidebar/support.html"></include>
       </aside>
 
       <!-- Main -->
       <main class="content">
         <!-- Page content -->
-        <include src="./partials/home-content.html"></include>
+        <include src="./partials/layout/home-content.html"></include>
 
         <!-- Modal -->
-        <include src="./partials/modal.html"></include>
+        <include src="./partials/modals/modal.html"></include>
 
         <!-- Back to top button -->
-        <include src="./partials/back-to-top.html"></include>
+        <include src="./partials/components/back-to-top.html"></include>
 
         <!-- burger-menu-->
-        <include src="./partials/burger-menu.html"></include>
+        <include src="./partials/layout/header/burger-menu.html"></include>
       </main>
     </div>
   </body>
