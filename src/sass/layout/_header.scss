@@ -3,6 +3,10 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: $header-index;
+
+  display: flex;
+  align-items: center;
 
   margin-left: auto;
   margin-right: auto;
@@ -10,30 +14,24 @@
   @media screen and (min-width: $tablet) {
     width: $tablet;
   }
-
   @media screen and (min-width: $desktop) {
     width: $desktop;
   }
-
   @media screen and (min-width: $desktop-wide) {
     width: $desktop-wide;
   }
 
-  z-index: $header-index;
+  height: 64px;
+  @media screen and (min-width: $tablet) {
+    height: 72px;
+  }
 
   background-color: var(--header-bg-color);
 
   border: 1.5px solid var(--header-border-color);
   border-radius: 0px 0px 8px 8px;
 
-  height: 64px;
-
-  @media screen and (min-width: $tablet) {
-    height: 72px;
-  }
-
-  display: flex;
-  align-items: center;
+  transition: background-color 200ms, border 200ms;
 
   .container {
     display: flex;
