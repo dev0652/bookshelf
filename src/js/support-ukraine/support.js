@@ -15,7 +15,7 @@ function makeMarkup({ url, title, img }, index) {
   <li class="swiper-slide">
         <div class="support-item">
         <span class="support-index">${digits}</span>
-        <a class="support-link" href="${url}" target="_blank" rel="noreferrer noopener">
+        <a class="support-link" href="${url}" target="_blank" rel="noopener noreferrer nofollow">
             <img
                 srcset="${img.normal} 1x, ${img.retina} 2x"
                 src="${img.normal}" type="image/png" alt="${title}">

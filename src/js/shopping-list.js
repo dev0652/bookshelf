@@ -1,4 +1,12 @@
 import getRefs from './refs.js';
+import getIconPaths from './icon-path-refs';
+const {
+  appleBooksIconPath,
+  bookShopIconPath,
+  amazonIconPath,
+  svgTrashIcon,
+  emptyListStubImage,
+} = getIconPaths();
 
 const {
   divEl,
@@ -12,17 +20,12 @@ const {
   endButton,
 } = getRefs();
 
+const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books';
 
-const SHOPPING_LIST_STORAGE_KEY = 'storage-of-books'; // ключ
-const pictureOfBooks = new URL('../images/shoppingbook1.png', import.meta.url)
-  .href;
-
-const svgTrashIcon = new URL('../images/symbol-defs.svg', import.meta.url);
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 
 // !===============Paginagions variables=================
-// !=====================================================
 const pageSize = 3;
 let totalPages = Math.ceil(shoppingList.length / pageSize);
 let currentPage = 1;
@@ -31,15 +34,6 @@ let endIndex = startIndex + pageSize;
 let itemsOnPage = shoppingList.slice(startIndex, endIndex);
 
 function renderMarkUp(itemsOnPage) {
-  const appleBooksIcon = new URL(
-    '../images/shops/apple-books.png',
-    import.meta.url
-  ).href;
-  const bookShopIcon = new URL('../images/shops/book-shop.png', import.meta.url)
-    .href;
-  const amazonIcon = new URL('../images/shops/amazon.png', import.meta.url)
-    .href;
-
   return itemsOnPage
     .map(
       ({
@@ -52,40 +46,50 @@ function renderMarkUp(itemsOnPage) {
         amazon_product_url,
         buy_links: [apple, bookshop],
       }) => {
-        return `<article class="shopping__card">
-  <div class="grid-img">
-    <img
-      class="shopping__card-img"
-      src="${book_image}"
-      alt="${title}"
-    />
-  </div>
+        return `
+        <article class="shopping__card">
+          <div class="grid-img">
+            <img class="shopping__card-img" src="${book_image}" alt="${title}" />
+          </div>
 
-  <div class="grid-title">
-    <h3 class="shopping__card-title">${title}</h3>
-    <p class="shopping__card-category">${list_name}</p>
-  </div>
+          <div class="grid-title">
+            <h3 class="shopping__card-title">${title}</h3>
+            <p class="shopping__card-category">${list_name}</p>
+          </div>
 
-  <div class="grid-description">
-    <p class="shopping__card-description">${description}</p>
-  </div>
+          <div class="grid-description">
+            <p class="shopping__card-description">${description}</p>
+          </div>
 
-  <div class="grid-author">
-    <p class="shopping__card-author">${author}</p>
-  </div>
+          <div class="grid-author">
+            <p class="shopping__card-author">${author}</p>
+          </div>
 
-  <div class="grid-shoplist">
-    <ul class="shopping__card-shoplist">
-      <li class="store"><a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon"/>
-              </a></li>
-      <li class="store"><a "modal-shop-img" href="${apple.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple" /></a></li>
-      <li class="store"><a "modal-shop-img" href="${bookshop.url}" target="_blank" rel="noreferrer noopener" rel="noopener noreferrer nofollow"><img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book"/></a></li>
-    </ul>
-  </div>
-  <button class="shopping__card-btn" type="button" data-book-id="${_id}"><svg class="icon-trash" data-book-id="${_id}" width="17" height="17"><use href="${svgTrashIcon}#icon-trash"></use></svg>
-  </button>
-</article>
-
+          <div class="grid-shoplist">
+            <ul class="shopping__card-shoplist">
+              <li class="store">
+                <a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
+                  <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" />
+                </a>
+              </li>
+              <li class="store">
+                <a "modal-shop-img" href="${apple.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Apple Books link">
+                  <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIconPath}" alt="Apple Books link" />
+                </a>
+              </li>
+              <li class="store">
+                <a "modal-shop-img" href="${bookshop.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="BookShop link">
+                  <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIconPath}" alt="BookShop link" />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <button class="shopping__card-btn" type="button" data-book-id="${_id}">
+            <svg class="icon-trash" data-book-id="${_id}" width="17" height="17">
+              <use href="${svgTrashIcon}#icon-trash"></use>
+            </svg>
+          </button>
+        </article>
         `;
       }
     )
@@ -94,7 +98,7 @@ function renderMarkUp(itemsOnPage) {
 
 function isEmpty() {
   if (!shoppingList.length) {
-    divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
+    divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${emptyListStubImage}" alt="Shop is Empty"></div >`;
     return;
   }
   divEl.insertAdjacentHTML('beforeend', renderMarkUp(itemsOnPage));
@@ -111,26 +115,24 @@ divEl.addEventListener('click', event => {
     );
 
     shoppingList.splice(bookIndex, 1);
-    
+
     localStorage.setItem(
       SHOPPING_LIST_STORAGE_KEY,
       JSON.stringify(shoppingList)
     );
 
     if (!shoppingList.length) {
-      divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${pictureOfBooks}" alt="Shop is Empty"></div >`;
+      divEl.innerHTML = `<div class="is-empty__wrapper"><p class="is-empty__info">This page is empty, add some books and proceed to order.</p><img class="is-empty__picture" src="${emptyListStubImage}" alt="Shop is Empty"></div >`;
       return;
-    }
-    else if (!sliceArrayBooks().length) { 
+    } else if (!sliceArrayBooks().length) {
       previousButton.click();
       destroyChildElement(paginationContainerPages);
+    } else {
+      divEl.innerHTML = renderMarkUp(sliceArrayBooks());
+      console.log(sliceArrayBooks());
+      destroyChildElement(paginationContainerPages);
     }
-    else {    
-        divEl.innerHTML = renderMarkUp(sliceArrayBooks());
-        console.log(sliceArrayBooks())
-        destroyChildElement(paginationContainerPages);
-    }
-      checkingArrayBooks();
+    checkingArrayBooks();
   }
 });
 
@@ -149,7 +151,7 @@ for (let i = 1; i <= totalPages; i++) {
   activDisplayFlexOnElement(paginationContainerBackBtn);
   activDisplayFlexOnElement(paginationContainerEndBtn);
 
-  // handler button pages 
+  // handler button pages
   button.addEventListener('click', () => {
     currentPage = pageNumber;
     deleteMurkup();
@@ -157,15 +159,16 @@ for (let i = 1; i <= totalPages; i++) {
     removeDisableforElement(startButton);
     removeDisableforElement(endButton);
   });
-    paginationContainerPages.appendChild(button);
+  paginationContainerPages.appendChild(button);
 }
 
 paginationContainerPages.firstChild.classList.add('active');
 
-
-paginationsSection.addEventListener("click", handlerPaginationsButtonsStartPreviousNextStart);
+paginationsSection.addEventListener(
+  'click',
+  handlerPaginationsButtonsStartPreviousNextStart
+);
 function handlerPaginationsButtonsStartPreviousNextStart(event) {
-  
   const activButton = document.querySelector('.active');
   console.log(event.target);
   if (event.target.tagName !== 'BUTTON') {
@@ -180,28 +183,28 @@ function handlerPaginationsButtonsStartPreviousNextStart(event) {
         createNewBooks();
         removeDisableforElement(endButton);
 
-      activButton.classList.remove('active');
-      activButton.previousElementSibling.classList.add('active');
-  }
+        activButton.classList.remove('active');
+        activButton.previousElementSibling.classList.add('active');
+      }
       break;
     case nextButton:
-      if  (currentPage < totalPages) {
+      if (currentPage < totalPages) {
         currentPage++;
         deleteMurkup();
         createNewBooks();
         removeDisableforElement(startButton);
 
-      activButton.classList.remove('active');
-      activButton.nextElementSibling.classList.add('active');
-  };
+        activButton.classList.remove('active');
+        activButton.nextElementSibling.classList.add('active');
+      }
       break;
     case startButton:
-      currentPage = 1; 
+      currentPage = 1;
       deleteMurkup();
       createNewBooks();
       addDisableforElement(startButton);
       removeDisableforElement(endButton);
-      highlighteTheСurrentРage(paginationContainerPages.firstChild);  
+      highlighteTheСurrentРage(paginationContainerPages.firstChild);
       break;
     case endButton:
       currentPage = totalPages;
@@ -214,8 +217,7 @@ function handlerPaginationsButtonsStartPreviousNextStart(event) {
     default:
       break;
   }
-};
-
+}
 
 paginationContainerPages.addEventListener(
   'click',

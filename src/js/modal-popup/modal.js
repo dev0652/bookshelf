@@ -1,5 +1,7 @@
-import getRefs from '../refs.js';
+import getRefs from '../refs';
 const refs = getRefs();
+
+import getIconPaths from '../icon-path-refs';
 
 refs.categoryContainerEl.addEventListener('click', function (e) {
   // e.target was the clicked element
@@ -22,7 +24,7 @@ class BooksApi {
       const book = await response.json();
       return book;
     } catch (error) {
-      // console.log(error.message);
+      console.log(error.message);
     }
   }
 }
@@ -34,22 +36,18 @@ const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 // console.log(shoppingList);
 
-// Функція для додавання товару у корзину
+// Add item to shopping list
 function addToStorage(book) {
-  // Додаємо товар до корзини
   shoppingList.push(book);
-  // Зберігаємо зміни в LocalStorage
   localStorage.setItem(SHOPPING_LIST_STORAGE_KEY, JSON.stringify(shoppingList));
 }
 
-// Додавання книги у корзину, за наявності книги - видалення книги, зміна Textcontent кнопкпи
+// Add item to shopping list, if already added - change the button's textContent and remove the item from shopping list
 function handleAddBookInStorage(data) {
-  //   Фільтрування унікальності книги
   const isBookId = shoppingList.find(
     bookInStorage => bookInStorage._id === data._id
   );
 
-  // Видалення книги у модальному вікні
   if (isBookId) {
     const dataBookID = refs.addBtnEL.getAttribute('data_id_of_book');
 
@@ -58,50 +56,41 @@ function handleAddBookInStorage(data) {
     );
 
     shoppingList.splice(bookIndex, 1);
-    // Зберігаємо зміни в LocalStorage
     localStorage.setItem(
       SHOPPING_LIST_STORAGE_KEY,
       JSON.stringify(shoppingList)
     );
     refs.addBtnEL.textContent = 'Add to shopping list';
-    modalMessage.remove(); //видалення повідомлення
-    // console.log('Книгу видалено');
+    modalMessage.remove();
     return;
   }
-  // Додавання книги у модальному вікні
+
   addToStorage(data);
   refs.addBtnEL.textContent = 'Remove from the shopping list';
-  refs.addBtnEL.after(modalMessage); //додавання повідомлення
-  // console.log('Книгу додано');
+  refs.addBtnEL.after(modalMessage);
 }
 
-// Обробник кліку по кнопці у модальному вікні
+// Modal window button click handler
 export async function handleBookElClickToStorage(e) {
   try {
-    const data = await BookAPI.fetchBookByID(); // обєкт із бекенду
-    handleAddBookInStorage(data); // додавання/видалення книги
-    // const isBookId = shoppingList.find(
-    //   bookInStorage => bookInStorage._id === data._id
-    // );
-    // if (isBookId) {
-    //   // console.log('добавлено у кошик');
-    //   addBtnEL.textContent = 'STOP';
-    //   return;
-    // }
+    const data = await BookAPI.fetchBookByID();
+    handleAddBookInStorage(data);
   } catch (err) {
-    // console.log(err);
+    console.log(err);
   }
 }
 
 refs.addBtnEL.addEventListener('click', handleBookElClickToStorage);
 
-//Створення повідомлення після натискання на кнопку addBtnEL
+// Create a message after addBtnEL button has been pressed
 const modalMessage = document.createElement('p');
 modalMessage.classList.add('modal-message');
 modalMessage.textContent =
   'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list."';
 
-//Обробник кліку по книжці
+// #################################################################
+
+// Book card click handler
 export async function handleBookElClick(e) {
   BookAPI.bookID = e.target.attributes.data_id.value;
 
@@ -122,15 +111,18 @@ export async function handleBookElClick(e) {
     if (isBookId) {
       refs.addBtnEL.textContent = 'Remove from the shopping list';
       refs.addBtnEL.after(modalMessage);
-      // console.log('Ця книга вже у кошику');
       return;
     }
     refs.addBtnEL.textContent = 'Add to shopping list';
     modalMessage.remove();
   } catch (err) {
-    // console.log(err);
+    console.log(err);
   }
 }
+
+// ####################################################################
+
+// Create modal markup
 
 export function createModal(data) {
   const {
@@ -139,44 +131,33 @@ export function createModal(data) {
     author,
     title,
     description,
-    amazon_product_url,
-    buy_links: [amazon, apple, bandn, million, bookshop, indie],
+    buy_links: [amazon, apple, bookshop],
   } = data;
 
-  const appleBooksIcon = new URL(
-    '../../images/shops/apple-books.png',
-    import.meta.url
-  ).href;
-  const bookShopIcon = new URL(
-    '../../images/shops/book-shop.png',
-    import.meta.url
-  ).href;
-  const amazonIcon = new URL('../../images/shops/amazon.png', import.meta.url)
-    .href;
+  const { appleBooksIconPath, bookShopIconPath, amazonIconPath } =
+    getIconPaths();
 
   refs.addBtnEL.setAttribute('data_id_of_book', `${_id}`);
 
-  return `
-                        
-              <img class="modal-img" src="${book_image}" alt="book cover"/>
-              <div class='modal-book-attributes'>
-              <p class="modal-book-title">${title}</p>
-              <p class="modal-book-author">${author}</p>
-              <p class="modal-book-desc">${description}</p>
-              <div class="modal-shops">
-              <a class="modal-shop-link" href="${amazon_product_url}" target="_blank" rel="noreferrer noopener">
-              <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIcon}" alt="Amazon link"/>
-              </a>
-              <a class="modal-shop-link" href="${apple.url}" target="_blank" rel="noreferrer noopener">
-              <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIcon}" alt="Apple Books link" />
-              </a>
-              <a class="modal-shop-link" href="${bookshop.url}" target="_blank" rel="noreferrer noopener">
-              <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIcon}" alt="Book Shop link"/>
-              </a>
-              </div>
-              </div>
-              
-          `;
+  return `            
+    <img class="modal-img" src="${book_image}" alt="book cover" />
+    <div class='modal-book-attributes'>
+      <p class="modal-book-title">${title}</p>
+      <p class="modal-book-author">${author}</p>
+      <p class="modal-book-desc">${description}</p>
+      <div class="modal-shops">
+        <a class="modal-shop-link" href="${amazon.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
+          <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" />
+        </a>
+        <a class="modal-shop-link" href="${apple.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Apple Books link">
+          <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIconPath}" alt="Apple Books link" />
+        </a>
+        <a class="modal-shop-link" href="${bookshop.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="BookShop link">
+          <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIconPath}" alt="BookShop link" />
+        </a>
+      </div>
+    </div>
+`;
 }
 
 function handleModalPopUpCloseBtnClick(e) {
