@@ -11,8 +11,8 @@ export async function renderTopBooks() {
 
     for (const element of data) {
       const categoryItem = `
-        <li class="home-category">
-          <h2 class="home-category-title">${element.list_name}</h2>
+        <li class="bestseller-category">
+          <h2 class="bestseller-category-title">${element.list_name}</h2>
           <ul class="books-list">
             ${element.books
               .map(

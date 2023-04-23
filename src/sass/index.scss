@@ -15,18 +15,22 @@
 @import './components/back-to-top';
 @import './components/spinner';
 @import './components/color-scheme-switcher';
-@import './components/paginations';
+@import './components/pagination';
 
 // Layout
 @import './layout/common';
+
 @import './layout/header';
-@import './layout/home-bs';
 @import './layout/authorization-form';
+@import './layout/burger-menu';
+
 @import './layout/support';
 @import './layout/categories';
 @import './layout/home-categories';
+
+@import './layout/bestsellers';
 @import './layout/shopping-list';
-@import './layout/burger-menu';
+
 @import './layout/modal';
 
 // Color schemes

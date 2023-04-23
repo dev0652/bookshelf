@@ -1,6 +1,6 @@
 // import axios from 'axios';
 // import Notiflix from 'notiflix';
-import { fetchSelectedBooks } from '../categories-menu/fetchSelectedBooks';
+import { fetchSelectedBooks } from '../api/fetchSelectedBooks';
 import { renderPage } from '../categories-menu/renderSelectedCategory';
 import { scrollToTop } from '../components/back-to-top';
 import getRefs from '../refs';

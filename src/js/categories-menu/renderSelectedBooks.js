@@ -1,4 +1,4 @@
-import { fetchSelectedBooks } from './fetchSelectedBooks';
+import { fetchSelectedBooks } from '../api/fetchSelectedBooks';
 import { renderPage } from './renderSelectedCategory';
 
 import getRefs from '../refs';
