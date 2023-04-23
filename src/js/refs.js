@@ -21,9 +21,15 @@ export default function () {
     //Categories:
     categoryListEl: document.querySelector('.categories_list'),
     categoriesListContainer: document.querySelector('.categories'),
-    categoryContainerEl: document.querySelector('.category-container'),
-    titleEl: document.querySelector('.bestsellers-title'),
-    selectedBooksListEl: document.querySelector('.selected-category'),
+    categoryContainerEl: document.querySelector(
+      '.book-data-rendring-container'
+    ),
+    titleEl: document.querySelector('.content-part-title'),
+    // selectedBooksListEl: document.querySelector('.selected-category'),
+    selectedBooksListEl: document.querySelector('.category-blocks-list'),
+
+    // home-container
+    homeContainer: document.querySelector('.home-container'),
 
     // Support Ukraine
     supportUkraineCnt: document.querySelector('.support-list'),
@@ -49,7 +55,7 @@ export default function () {
     authSubmitBtn: document.querySelector('modal-form__submit'),
 
     // Pop Up
-    bookCard: document.querySelector('.book-item-link'),
+    bookCard: document.querySelector('.book-link'),
     closeModalPopUpBtn: document.querySelector('[data-pop-up-close]'),
     modalPopUp: document.querySelector('[data-pop-up]'),
     modalContentEl: document.querySelector('.modal-pop-up-content'),

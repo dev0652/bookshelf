@@ -15,7 +15,7 @@ function handleCategoryClick(event) {
       .join(' ');
 
     titleEl.textContent = buttonTextWithoutLastWord;
-    titleEl.innerHTML += ` <span class="bestsellers-title--last-word-static">${lastWord}</span>`;
+    titleEl.innerHTML += ` <span class="content-part-title--last-word-static">${lastWord}</span>`;
   }
 }
 

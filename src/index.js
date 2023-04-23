@@ -11,7 +11,6 @@ import './js/components/spinner.js';
 // Category selection menu
 import './js/categories-menu/renderCategoriesList.js';
 import './js/categories-menu/activeCatBtnSwitcher.js';
-import './js/categories-menu/home-categories.js';
 import './js/categories-menu/handleAllCategoriesClick.js';
 
 // Support Ukraine block
@@ -22,6 +21,8 @@ import './js/categories-menu/renderSelectedBooks.js';
 // Content part
 import './js/bestsellers/bestsellers';
 import './js/bestsellers/seeMore.js';
+
+import './js/books-by-category/home-categories.js';
 
 // Modal - popup
 import './js/modal-popup/modal.js';

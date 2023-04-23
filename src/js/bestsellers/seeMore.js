@@ -1,7 +1,7 @@
 // import axios from 'axios';
 // import Notiflix from 'notiflix';
 import { fetchSelectedBooks } from '../api/fetchSelectedBooks';
-import { renderPage } from '../categories-menu/renderSelectedCategory';
+import { renderPage } from '../books-by-category/renderSelectedCategory';
 import { scrollToTop } from '../components/back-to-top';
 import getRefs from '../refs';
 const { titleEl, categoryContainerEl, selectedBooksListEl } = getRefs();
@@ -17,7 +17,7 @@ async function renderCategory(e) {
     const titleCategory = id.split(' ').slice(0, -1).join(' ');
 
     titleEl.textContent = titleCategory;
-    titleEl.innerHTML += ` <span class="bestsellers-title--last-word-static">${lastWord}</span>`;
+    titleEl.innerHTML += ` <span class="content-part-title--last-word-static">${lastWord}</span>`;
     const data = await fetchSelectedBooks(id);
 
     const categoriesBtn = document.querySelectorAll('.category-btn');

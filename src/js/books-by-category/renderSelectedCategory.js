@@ -6,8 +6,8 @@ export function renderPage(data) {
   return data
     .map(({ _id, title, author, book_image }) => {
       return `<li class="books-list-item">
-          <a class="book-item-link" href="" aria-label="Book thumbnail">
-            <div class="book-item-thumb">
+          <a class="book-link" href="" aria-label="Book thumbnail">
+            <div class="book-thumb">
               <img class="book-image" src="${book_image}" loading="lazy" data_id=${_id} alt="book cover"/>
               <div class="book-image-overlay" data_id=${_id} >
                 <p class="book-image-overlay-text">Quick view</p>

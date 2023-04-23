@@ -7,7 +7,7 @@ allCategoriesBtn.addEventListener('click', handleAllCategoriesClick);
 
 async function handleAllCategoriesClick(e) {
   e.preventDefault();
-  titleEl.innerHTML = `Best Seller <span class="bestsellers-title--last-word-static">Books</span>`;
+  titleEl.innerHTML = `Best Seller <span class="content-part-title--last-word-static">Books</span>`;
   selectedBooksListEl.innerHTML = '';
   await renderTopBooks();
 }

@@ -17,7 +17,7 @@ export async function renderTopBooks() {
             ${element.books
               .map(
                 book => `
-              <li class="book-item">
+              <li class="books-list-item bestsellers-book-item">
                 ${createBookMarkup(book)}
               </li>
             `
