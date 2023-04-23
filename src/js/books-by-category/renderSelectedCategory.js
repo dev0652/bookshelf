@@ -1,7 +1,7 @@
 import getRefs from '../refs';
 const { selectedBooksListEl } = getRefs();
 
-export function renderPage(data) {
+export function renderBooksList(data) {
   selectedBooksListEl.innerHTML = '';
   return data
     .map(({ _id, title, author, book_image }) => {
