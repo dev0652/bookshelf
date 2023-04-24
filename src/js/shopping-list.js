@@ -84,7 +84,7 @@ function renderMarkUp(itemsOnPage) {
               </li>
             </ul>
           </div>
-          <button class="shopping__card-btn" type="button" data-book-id="${_id}">
+          <button class="shopping__card-btn" type="button" data-book-id="${_id} aria-label="Remove book from shopping list">
             <svg class="icon-trash" data-book-id="${_id}" width="17" height="17">
               <use href="${svgTrashIcon}#icon-trash"></use>
             </svg>

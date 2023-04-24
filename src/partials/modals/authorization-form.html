@@ -1,13 +1,13 @@
 <!-- USER BAR for not authorizated user -->
-<button class="userbar-btn" type="button" id="signUp-open-btn">
+<button type="button" class="userbar-btn"  id="signUp-open-btn">
   Sign up
   <svg class="userbar-btn__icon" width="20" height="20">
     <use href="./images/symbol-defs.svg#icon-arrow-right"></use>
   </svg>
 </button>
 
-<!-- USER BAR for authorizated user -->
-<button class="user-block user-out" id="userBarMenu">
+<!-- USER BAR for authorized user -->
+<button type="button" class="user-block user-out" id="userBarMenu"  aria-label="Open user menu">
   <svg class="userbar-btn__icon-user" width="35" height="35">
     <use href="./images/symbol-defs.svg#icon-user"></use>
   </svg>
@@ -32,7 +32,7 @@
       class="modal__close-button"
       type="button"
       id="signUp-modal-close-btn"
-      aria-label="Close"
+      aria-label="Close sign-up modal"
     >
       <svg class="close-button__x-icon">
         <use href="./images/symbol-defs.svg#icon-x-close"></use>
@@ -77,13 +77,13 @@
         </svg>
       </div>
 
-      <button class="modal-form__submit" type="submit">Sign up</button>
+      <button type="submit" class="modal-form__submit" >Sign up</button>
     </form>
     <div class="modal-toggle">
-      <button class="modal-toggle__el modal-toggle__el--current">
+      <button type="button" class="modal-toggle__el modal-toggle__el--current">
         Sign up
       </button>
-      <button class="modal-toggle__el" id="signIn-open-btn">Sign in</button>
+      <button type="button" class="modal-toggle__el" id="signIn-open-btn">Sign in</button>
     </div>
     <!-- <div class="modal-toggle modal-toggle--signIn" id="modal-toggle-signIn">
       <button class="modal-toggle__el" id="signUp-open-btn-second">
@@ -136,13 +136,13 @@
           </svg>
         </div>
 
-        <button class="modal-form__submit" type="submit">Sign in</button>
+        <button type="submit" class="modal-form__submit" >Sign in</button>
       </form>
       <div class="modal-toggle">
-        <button class="modal-toggle__el" id="signUp-open-btn-second">
+        <button type="button" class="modal-toggle__el" id="signUp-open-btn-second">
           Sign up
         </button>
-        <button class="modal-toggle__el modal-toggle__el--current">
+        <button type="button" class="modal-toggle__el modal-toggle__el--current">
           Sign in
         </button>
       </div>
@@ -195,10 +195,10 @@
       <button class="modal-form__submit" type="submit">Sign in</button>
     </form>
     <div class="modal-toggle">
-      <button class="modal-toggle__el" id="signUp-open-btn-second">
+      <button type="button" class="modal-toggle__el" id="signUp-open-btn-second">
         Sign up
       </button>
-      <button class="modal-toggle__el modal-toggle__el--current">
+      <button type="button" class="modal-toggle__el modal-toggle__el--current">
         Sign in
       </button>
     </div>
