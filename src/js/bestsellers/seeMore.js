@@ -17,7 +17,7 @@ async function seeMoreBtnClickHandler(e) {
 
   // e.preventDefault();
 
-  const id = e.target.attributes.id.value;
+  const id = e.target.dataset.id;
   const data = await fetchSelectedBooks(id);
 
   // Change content part title and colorize its last word
@@ -27,7 +27,7 @@ async function seeMoreBtnClickHandler(e) {
   const categoriesBtn = document.querySelectorAll('.category-btn');
   const activeCategoryBtn = document.querySelector('.active-category');
   for (const btn of categoriesBtn) {
-    if (btn.textContent === id) {
+    if (btn.dataset.id === id) {
       btn.classList.add('active-category');
     }
   }

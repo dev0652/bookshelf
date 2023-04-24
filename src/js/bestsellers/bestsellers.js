@@ -40,7 +40,7 @@ export async function renderTopBooks() {
               )
               .join('')}
           </ul>
-          <button type="button" class="button see-more-btn" id="${list_name}">See more</button>
+          <button type="button" class="button see-more-btn" data-id="${list_name}">See more</button>
         </li>
             `
           )

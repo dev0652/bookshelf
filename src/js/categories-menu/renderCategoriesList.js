@@ -25,9 +25,10 @@ export async function renderCategories() {
     for (const arr of inAlphabeticalOrder) {
       const listItem = document.createElement('li');
       const catBtn = document.createElement('button');
+      catBtn.setAttribute('type', 'button');
       catBtn.classList.add('category-btn');
       catBtn.textContent = `${arr.list_name}`;
-      catBtn.setAttribute('id', arr.list_name);
+      catBtn.setAttribute('data-id', arr.list_name);
       categoryListEl.appendChild(listItem);
       listItem.appendChild(catBtn);
     }

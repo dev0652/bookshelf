@@ -28,7 +28,8 @@ async function onCategoryClick(event) {
     return;
   }
 
-  const id = event.target.attributes.id.value;
+  const id = event.target.dataset.id;
+
   const data = await fetchSelectedBooks(id);
 
   // Change content part title and colorize its last word
