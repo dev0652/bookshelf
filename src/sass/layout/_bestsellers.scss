@@ -10,9 +10,10 @@
 }
 
 .main-title {
-  font-size: 48px;
   font-weight: $bold;
-  height: 52px;
+
+  font-size: 48px;
+  line-height: 52px;
   letter-spacing: -0.04em;
   color: var(--text-color);
   margin-bottom: 40px;
