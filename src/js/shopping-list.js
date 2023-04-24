@@ -69,7 +69,7 @@ function renderMarkUp(itemsOnPage) {
             <ul class="shopping__card-shoplist">
               <li class="store">
                 <a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
-                  <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" />
+                  <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" alt="Amazon live page"/>
                 </a>
               </li>
               <li class="store">
