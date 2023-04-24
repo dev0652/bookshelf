@@ -6,13 +6,23 @@ const { renderingContainer } = getRefs();
 
 // Fetch and render bestsellers:
 export async function renderTopBooks() {
-  //
-  try {
-    const data = await getTopBooksArray();
+  let data;
+  const savedData = sessionStorage.getItem('bestsellers');
 
-    renderingContainer.innerHTML = '';
+  // Check if there's saved data in sessionStorage...
+  if (savedData) {
+    data = JSON.parse(savedData);
+  } else {
+    // ...otherwise fetch data from server
+    try {
+      data = await getTopBooksArray();
+      sessionStorage.setItem('bestsellers', JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-    const bestsellerListMarkup = `
+  const bestsellerListMarkup = `
       <ul class="category-blocks-list">
         ${data
           .map(
@@ -38,10 +48,7 @@ export async function renderTopBooks() {
       </ul>
     `;
 
-    renderingContainer.innerHTML = bestsellerListMarkup;
-  } catch (error) {
-    console.log(error);
-  }
+  renderingContainer.innerHTML = bestsellerListMarkup;
 }
 
 renderTopBooks();
