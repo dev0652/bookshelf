@@ -41,9 +41,9 @@ const auth = getAuth();
 onAuthStateChanged(auth, user => {
   if (user) {
     userLogIn();
-    if (isLogin) {
-      shoppingListPage.classList.remove('is-hidden');
-    }
+    // if (isLogin) {
+    //   shoppingListPage.classList.remove('is-hidden');
+    // }
 
     return (refs.userName.textContent = user.displayName);
   } else {
@@ -133,7 +133,7 @@ export function onLogOut() {
       localStorage.setItem('token', null);
       localStorage.setItem('storage-of-books', null);
       localStorage.setItem('userName', null);
-      shoppingListPage.classList.add('is-hidden');
+      // shoppingListPage.classList.add('is-hidden');
       return (refs.userName.textContent = '');
     })
     .catch(error => {
