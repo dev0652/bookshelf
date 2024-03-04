@@ -1,9 +1,7 @@
-A two-page website that allows you to browse, save, review and buy popular books.
+Our final team project for the JavaScript block. 
 
-Unregistered users can add books to the shopping list but it will only be available in their current browser.
+This a two-page web app with Firebase-based authorization that allows users to browse, review and buy popular books as well as add them to their shopping list. 
 
-To be able to access their collection from elsewhere users can create  accounts.
+Unregistered users can add books to the shopping list that will only be available locally. Once logged in, a user's collection of books will be automatically saved in the cloud and can be accessed from anywhere. 
 
-Once logged in, a user's collection of books will be stored in a cloud. Books added to the shopping list while unlogged will be automatically saved in the cloud.
-
-The website offers dark and light color schemes that need to be switched manually. However, color scheme setting is remembered and will be restored on next visit.
+The website offers dark and light color themes that need to be switched manually. The choise is written to local storage and restored on next visit.
